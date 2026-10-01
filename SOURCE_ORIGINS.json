@@ -1,0 +1,103 @@
+{
+  "edition": "portable minimal release",
+  "date": "2026-10-01",
+  "files": {
+    "methods.py": {
+      "source_sha256": "484fdf82fe7280ff87c798acee70e5d86af2ee969ee0ad114c3286eacea404e9",
+      "portable_sha256": "484fdf82fe7280ff87c798acee70e5d86af2ee969ee0ad114c3286eacea404e9",
+      "modified_for_portability": false
+    },
+    "splits.py": {
+      "source_sha256": "39b689cebeffc2069a3b9ddadd429d0ea739004608ad83183d668c038d610d74",
+      "portable_sha256": "39b689cebeffc2069a3b9ddadd429d0ea739004608ad83183d668c038d610d74",
+      "modified_for_portability": false
+    },
+    "extract_features.py": {
+      "source_sha256": "72d71de7c7b9e95f36e3dfb7c19cdca04627409b47756b280e8a7f222f52bb36",
+      "portable_sha256": "0002e465c32e72de441da0a83f161881d80d9e42b4eb2ada6f1be27db6abfed0",
+      "modified_for_portability": true
+    },
+    "run_pilot.py": {
+      "source_sha256": "89bf1e195c1be56d426ec0582f541ee77b27c057c6bb06ffe48836b6cd806b25",
+      "portable_sha256": "89bf1e195c1be56d426ec0582f541ee77b27c057c6bb06ffe48836b6cd806b25",
+      "modified_for_portability": false
+    },
+    "summarize.py": {
+      "source_sha256": "c4493bd11261add68bc0cacde97a6cc1f8230ea14c80753f5d367bf51c7dba6d",
+      "portable_sha256": "c4493bd11261add68bc0cacde97a6cc1f8230ea14c80753f5d367bf51c7dba6d",
+      "modified_for_portability": false
+    },
+    "imagenet_lt_manifest.py": {
+      "source_sha256": "b0e8dfda220eebfa6bb09d43f6bf5c8d728ffb513652a99aec5b5405a28a1547",
+      "portable_sha256": "b0e8dfda220eebfa6bb09d43f6bf5c8d728ffb513652a99aec5b5405a28a1547",
+      "modified_for_portability": false
+    },
+    "extract_imagenet_lt_features.py": {
+      "source_sha256": "c18e862f64250c8619f3afa5f59ce408a2e91987cfeb1973b95ace36e857e614",
+      "portable_sha256": "01a04b4223b416a0c3f84c244ef1872b91f7f20e4434112d4ed97da052305171",
+      "modified_for_portability": true
+    },
+    "run_imagenet_lt.py": {
+      "source_sha256": "fd22a9f6ce72358a879c463163a61cb698392ba43a1968a96ce7adf027c59027",
+      "portable_sha256": "fd22a9f6ce72358a879c463163a61cb698392ba43a1968a96ce7adf027c59027",
+      "modified_for_portability": false
+    },
+    "posthoc_imagenet_lt.py": {
+      "source_sha256": "202eeea1ba1466f50cdabfc6ee01a20eb4a37a0696728b51e09161dd995e723c",
+      "portable_sha256": "202eeea1ba1466f50cdabfc6ee01a20eb4a37a0696728b51e09161dd995e723c",
+      "modified_for_portability": false
+    },
+    "summarize_imagenet_lt.py": {
+      "source_sha256": "a61b42e48e4341fed9659ce29e3d41542698dc367d78d1a6ef52404d6bb02ead",
+      "portable_sha256": "a61b42e48e4341fed9659ce29e3d41542698dc367d78d1a6ef52404d6bb02ead",
+      "modified_for_portability": false
+    },
+    "summarize_posthoc_imagenet_lt.py": {
+      "source_sha256": "d4f47c591ca9fd42815331db6a7cdbba479b223bd7a18e41ff66d45be4e02a9b",
+      "portable_sha256": "d4f47c591ca9fd42815331db6a7cdbba479b223bd7a18e41ff66d45be4e02a9b",
+      "modified_for_portability": false
+    },
+    "extract_imagenet_lt_features_b16.py": {
+      "source_sha256": "2b7e5cf128e05a68f9d2c29c33ee3b023002cf5b03e9dd8fd814dfc548af45b4",
+      "portable_sha256": "2427a2a61aeaa59dee1ba3840f39a0a344cdd66d995d521dc6f95dd9e7173494",
+      "modified_for_portability": true
+    },
+    "run_imagenet_lt_b16.py": {
+      "source_sha256": "af2e0668331cdc133ed8903f1b22bd0fcb22b2cbbacd863afaf8e48c24255eaa",
+      "portable_sha256": "00f4d5b88f825422e041ad2c9a1ad6714cde5113a55c22bb6e5360d06329764c",
+      "modified_for_portability": true
+    },
+    "online_aug_dataset.py": {
+      "source_sha256": "5a13c1370ec05bbc79379e0c35e53a0d5c5e9da34830b43c3eab88f340867574",
+      "portable_sha256": "6d669fc2e347efb792b69ea11ee3896b892fdfc2796b0856c25c2329c012caf4",
+      "modified_for_portability": true
+    },
+    "run_imagenet_lt_online_aug.py": {
+      "source_sha256": "04c030a90c4e000f6340b078ec19de0036ddd17078a6c32f3baad9cd1b6da250",
+      "portable_sha256": "04c030a90c4e000f6340b078ec19de0036ddd17078a6c32f3baad9cd1b6da250",
+      "modified_for_portability": false
+    },
+    "inat2018_manifest.py": {
+      "source_sha256": "9041ca15149d87d83ea3e407d7cbc3d47315bc7a051d7699835b49a47eeb4bcc",
+      "portable_sha256": "bff9553da91d72bde60c533dba77c560281028b8aa649197353411bfd0b69b92",
+      "modified_for_portability": true
+    },
+    "extract_inat2018_features.py": {
+      "source_sha256": "b37f2bd2ec160cdc8b4fc5f465a375858446579b1f6eb7bba02063de80bf54fe",
+      "portable_sha256": "b37f2bd2ec160cdc8b4fc5f465a375858446579b1f6eb7bba02063de80bf54fe",
+      "modified_for_portability": false
+    },
+    "run_inat2018.py": {
+      "source_sha256": "780f0d915fe79cdf976e2d8820f52f499dbeb54a1730304f29445613a3a42810",
+      "portable_sha256": "fb42af134c0a99526de231f4de2417228da474a2458bbd959b77981b4deed7f6",
+      "modified_for_portability": true
+    }
+  },
+  "change_notes": [
+    "portable path defaults",
+    "early environment initialization",
+    "B/16 binds to supplied validated manifest",
+    "official iNaturalist class-name content check",
+    "portable generated-report reference"
+  ]
+}
