@@ -58,6 +58,8 @@ python tools/check_release.py
 
 The [CI workflow](.github/workflows/ci.yml) runs tests and smoke on CPU with Python 3.10 and 3.11. The badge reflects actual GitHub Actions status.
 
+Local verification passed **19 synthetic contract tests**, the CPU smoke and the release-data/hash checker. Hosted CI is configured; its initial run was blocked before runner allocation by an account-level restriction, so no hosted-CI pass is claimed.
+
 ## Experimental design and reproduction
 
 - Frozen CLIP image/text encoders; single `a photo of a {}.` prompt; normalized, fixed text prototypes and original logit scale.
