@@ -1,0 +1,30 @@
+{
+  "status": "frozen",
+  "baseline_commit": "76fe005a1f53e08286c40d6e4488797dfa0eea3d",
+  "new_research_experiments": 0,
+  "files": {
+    "calibrate.py": "838925b04fe3aa88f5f1e54a3069b2665e55df730a922192535ffc1835818b8f",
+    "extract_features.py": "0002e465c32e72de441da0a83f161881d80d9e42b4eb2ada6f1be27db6abfed0",
+    "extract_imagenet_lt_features.py": "01a04b4223b416a0c3f84c244ef1872b91f7f20e4434112d4ed97da052305171",
+    "extract_imagenet_lt_features_b16.py": "2427a2a61aeaa59dee1ba3840f39a0a344cdd66d995d521dc6f95dd9e7173494",
+    "extract_inat2018_features.py": "b37f2bd2ec160cdc8b4fc5f465a375858446579b1f6eb7bba02063de80bf54fe",
+    "imagenet_lt_manifest.py": "b0e8dfda220eebfa6bb09d43f6bf5c8d728ffb513652a99aec5b5405a28a1547",
+    "inat2018_manifest.py": "bff9553da91d72bde60c533dba77c560281028b8aa649197353411bfd0b69b92",
+    "methods.py": "484fdf82fe7280ff87c798acee70e5d86af2ee969ee0ad114c3286eacea404e9",
+    "online_aug_dataset.py": "6d669fc2e347efb792b69ea11ee3896b892fdfc2796b0856c25c2329c012caf4",
+    "posthoc_imagenet_lt.py": "202eeea1ba1466f50cdabfc6ee01a20eb4a37a0696728b51e09161dd995e723c",
+    "prepare_assets.py": "aa51fa465bbd1c5a1d410ad5c69574966c7669e6c5f8337b440c1a8e6494cd07",
+    "project_paths.py": "b3d550b05a2ed22f66436b6caa04005cd662ae270c3dadfe264b97031f96fc70",
+    "run_imagenet_lt.py": "fd22a9f6ce72358a879c463163a61cb698392ba43a1968a96ce7adf027c59027",
+    "run_imagenet_lt_b16.py": "00f4d5b88f825422e041ad2c9a1ad6714cde5113a55c22bb6e5360d06329764c",
+    "run_imagenet_lt_online_aug.py": "04c030a90c4e000f6340b078ec19de0036ddd17078a6c32f3baad9cd1b6da250",
+    "run_inat2018.py": "fb42af134c0a99526de231f4de2417228da474a2458bbd959b77981b4deed7f6",
+    "run_pilot.py": "89bf1e195c1be56d426ec0582f541ee77b27c057c6bb06ffe48836b6cd806b25",
+    "smoke.py": "63e19b2e060f5e74bd571258cf3f53299c60852f76749fac2276f50368d87680",
+    "splits.py": "39b689cebeffc2069a3b9ddadd429d0ea739004608ad83183d668c038d610d74",
+    "summarize.py": "c4493bd11261add68bc0cacde97a6cc1f8230ea14c80753f5d367bf51c7dba6d",
+    "summarize_imagenet_lt.py": "a61b42e48e4341fed9659ce29e3d41542698dc367d78d1a6ef52404d6bb02ead",
+    "summarize_posthoc_imagenet_lt.py": "d4f47c591ca9fd42815331db6a7cdbba479b223bd7a18e41ff66d45be4e02a9b",
+    "summarize_runs.py": "859186c50e90bf3bb237b17426bd1ffbf071691482b8163850750a9dbc0f5bca"
+  }
+}

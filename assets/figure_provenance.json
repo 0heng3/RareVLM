@@ -1,0 +1,149 @@
+{
+  "audience": "GitHub repository readers and hiring reviewers",
+  "medium": "web PNG with editable SVG companion",
+  "conclusion": "within-setting CE minus ZS improves Many and reduces Few in the four completed conditions",
+  "metric": "percentage-point accuracy difference",
+  "estimator": "three-seed arithmetic mean",
+  "uncertainty": "sample SD across training seeds, ddof=1; shared evaluation images",
+  "missing_values": "none; all seeds required",
+  "new_training_runs": 0,
+  "source_csv_sha256": "de62cdaf600dbbcfd24c6599173a3f18e056edd67087c77c31d3ac57d5988e13",
+  "transformations": [
+    "select completed CE and matching ZS within each setting",
+    "subtract ZS accuracy in pp",
+    "mean and SD across seeds"
+  ],
+  "matplotlib_version": "3.8.4",
+  "palette": {
+    "many": "#0072B2",
+    "few": "#D55E00"
+  },
+  "plot_data": {
+    "imagenet_lt_b32": {
+      "many": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          15.350651741000007,
+          14.69091176980001,
+          15.148049592900009
+        ],
+        "mean_pp": 15.063204367900008,
+        "seed_sd_pp": 0.3379544962768193
+      },
+      "few": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          -21.897059679,
+          -21.205884218200005,
+          -21.279412508
+        ],
+        "mean_pp": -21.4607854684,
+        "seed_sd_pp": 0.37960899946684284
+      }
+    },
+    "imagenet_lt_b16": {
+      "many": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          15.153247117999996,
+          15.002596378299998,
+          15.340262651399996
+        ],
+        "mean_pp": 15.165368715899996,
+        "seed_sd_pp": 0.16915917902687877
+      },
+      "few": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          -19.4264680147,
+          -18.852937221599994,
+          -19.102936983099994
+        ],
+        "mean_pp": -19.12744740646666,
+        "seed_sd_pp": 0.28754993183565564
+      }
+    },
+    "imagenet_lt_b32_online": {
+      "many": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          15.916883945400002,
+          16.238963604000006,
+          15.719479322400005
+        ],
+        "mean_pp": 15.958442290600004,
+        "seed_sd_pp": 0.2622237627469888
+      },
+      "few": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          -23.5000014305,
+          -23.5882371664,
+          -23.132354021000005
+        ],
+        "mean_pp": -23.406864205966667,
+        "seed_sd_pp": 0.24179178544830107
+      }
+    },
+    "inat2018_b32": {
+      "many": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          24.1338107735,
+          23.0983678252,
+          23.3373168856
+        ],
+        "mean_pp": 23.523165161433333,
+        "seed_sd_pp": 0.5421625319207471
+      },
+      "few": {
+        "seed_order": [
+          0,
+          42,
+          200
+        ],
+        "delta_pp": [
+          -1.796795521,
+          -1.639344357,
+          -1.7875337042
+        ],
+        "mean_pp": -1.7412245274,
+        "seed_sd_pp": 0.08835226173199512
+      }
+    }
+  },
+  "files": {
+    "overview.png": "f560beb92b854a3bf349e42f081aaf0ced05dfbb395029475dfb438d148da0de",
+    "overview.svg": "b8679ab72b8d2146a2552d071d2a4e46b02699442ef1e6ed8e76a67979d03da2",
+    "main_results.png": "a23d2e52b726fafd24f5d564b360483e2f548f5e6839cc70acca787e945c0702",
+    "main_results.svg": "b82348d85a8558bd770f3afb18a92354081f357ab80955dbfe3a591427c4cac5"
+  }
+}

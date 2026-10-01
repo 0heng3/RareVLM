@@ -1,0 +1,63 @@
+{
+  "schema_version": "rarevlm.protocol_snapshot.v1",
+  "research_frozen": true,
+  "purpose": "human-readable snapshot; runner arguments remain documented in docs/REPRODUCE.md",
+  "dataset": "ImageNet-LT",
+  "class_count": 1000,
+  "model": "openai/clip-vit-base-patch16",
+  "model_revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "model_weight_sha256": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+  "adapter": {
+    "input_dim": 512,
+    "bottleneck": 64,
+    "parameters": 66240,
+    "normalization": "LayerNorm",
+    "activation": "GELU",
+    "initialization": "zero final linear layer"
+  },
+  "training": {
+    "methods": [
+      "ce",
+      "la"
+    ],
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "batch_size": 256,
+    "epochs": 20,
+    "seeds": [
+      0,
+      42,
+      200
+    ],
+    "la_tau": 1.0,
+    "selection": "internal val OA maximum; earliest tie"
+  },
+  "training_view": "fixed_center_crop",
+  "evaluation": {
+    "preprocessing": "224 bicubic resize/center crop; CLIP normalization",
+    "tta": false,
+    "final_split": "official ImageNet-LT test"
+  },
+  "calibration": {
+    "empirical_fixed_alpha": 1.0,
+    "val_alpha_grid": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1,
+      1.5,
+      2
+    ],
+    "effective_prior_source": "train predictions only",
+    "p2p_style_strength": 1.0,
+    "target_prior": "uniform"
+  },
+  "manifest_sha256": "9d8310c4263a41b7786469536bdee816e6272f5a915846348d786f5e53c28eaf",
+  "split_sizes": {
+    "test": 50000,
+    "train": 115846,
+    "val": 20000
+  }
+}
