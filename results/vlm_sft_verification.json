@@ -1,0 +1,31 @@
+{
+  "schema_version": "rarevlm.generative_vqa.verification.v1",
+  "data_and_training": {
+    "passed": true,
+    "image_hashes_verified": 1408,
+    "paired_final_predictions_verified": 512,
+    "completed_optimizer_steps": 64,
+    "frozen_base_weights_verified": true,
+    "language_lora_only": true,
+    "manifest_sha256": "2d4e20e2c1b35ffde720594f20ce548a010b00e9778dffc1437e29ee97f8c025",
+    "source_data_filters_recorded": true
+  },
+  "adapter_weights": {
+    "passed": true,
+    "parameters_finite": true,
+    "parameter_count": 1843200,
+    "nonzero_lora_B_elements": 663552,
+    "adapter_sha256": "3e9000f59532413e9f56a89b4ae22d24e78b715e47c646197ed063f40ce0a4c6"
+  },
+  "local_inference": {
+    "passed": true,
+    "reference_answers_passed_to_cli": false,
+    "matches_saved_generated_prediction": true,
+    "image_id": "b9dc400eb20bad64",
+    "question_id": "34603",
+    "pixel_sha256": "256a3794c52f5832d97a511e3d7100f9b5995c61d88d302c73d038dbfe1b70ef",
+    "question": "what does the small white text spell?",
+    "prediction": "copenhagen",
+    "generation_seconds": 0.9349539647810161
+  }
+}

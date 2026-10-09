@@ -1,0 +1,102 @@
+{
+  "scope": "single-seed, one-epoch engineering pilot on an image-disjoint TextVQA subset; compact declared normalization; not official full benchmark",
+  "dataset": "TextVQA",
+  "model": "Qwen2.5-VL-3B-Instruct",
+  "data_images": {
+    "train": 1024,
+    "internal_validation": 128,
+    "final": 256
+  },
+  "train_seed": 0,
+  "epochs": 1,
+  "world_size": 4,
+  "data_transport": "public HF Dataset Viewer; revision validated in every source image URL",
+  "source_pool_rows": {
+    "train": 4000,
+    "official_validation": 1000
+  },
+  "excluded_unusable_answer_rows": 6,
+  "image_transport_counts": {
+    "pinned HF viewer image CDN": 109,
+    "public Open Images S3 original by pinned annotation image ID": 1299
+  },
+  "trainable_parameters": 1843200,
+  "total_parameters": 3756466176,
+  "training_precision": "fp32",
+  "quantization": "nf4_language_only",
+  "trainable_percent": 0.04906739242792,
+  "optimizer_steps": 64,
+  "effective_batch": 16,
+  "frozen_weights_unchanged": true,
+  "baseline_vqa_consensus_percent": 68.5546875,
+  "lora_vqa_consensus_percent": 71.5234375,
+  "baseline_any_answer_match_percent": 70.703125,
+  "lora_any_answer_match_percent": 75.390625,
+  "paired_delta_pp": 2.96875,
+  "conditional_paired_image_bootstrap_95_pp": [
+    -0.19628906250000017,
+    6.249999999999999
+  ],
+  "bootstrap_scope": "same fixed 256 final images; not training-seed or dataset-generalization uncertainty",
+  "images_score_improved": 21,
+  "images_score_degraded": 10,
+  "images_score_equal": 225,
+  "train_duration_seconds": 282.19929873291403,
+  "train_peak_gpu_allocated_gib": 5.666744709014893,
+  "base_inference": {
+    "warmup_samples_excluded": 4,
+    "n": 252,
+    "generation_p50_seconds": 0.6133142653852701,
+    "generation_p95_seconds": 0.9378330297768116,
+    "tokens_per_generation_second": 6.299345684038854,
+    "parallel_end_to_end_images_per_second": 5.322417152782923,
+    "peak_gpu_allocated_gib": 5.196835994720459,
+    "peak_gpu_reserved_gib": 5.98828125,
+    "world_size": 4,
+    "gpu_name": "Tesla V100-PCIE-16GB"
+  },
+  "lora_inference": {
+    "warmup_samples_excluded": 4,
+    "n": 252,
+    "generation_p50_seconds": 0.6179531554225832,
+    "generation_p95_seconds": 1.0324240662157536,
+    "tokens_per_generation_second": 5.538486540106606,
+    "parallel_end_to_end_images_per_second": 5.120487029908712,
+    "peak_gpu_allocated_gib": 5.203702449798584,
+    "peak_gpu_reserved_gib": 5.99609375,
+    "world_size": 4,
+    "gpu_name": "Tesla V100-PCIE-16GB"
+  },
+  "manifest_sha256": "2d4e20e2c1b35ffde720594f20ce548a010b00e9778dffc1437e29ee97f8c025",
+  "config_sha256": "67bc7aeda268166cc1653d80b4fe1101256ed866b2c9b5c1e843208bd5b95f56",
+  "model_provenance_sha256": "c8564a8261c31653bba23a1a02fbb4e5a2d6c00df4b95866a57ef6a14c26f6f3",
+  "execution_source_sha256": {
+    "train.py": "a8b32cf6e8966b62ba3346a29c8b6baf668d0d95dc8cf9a2e5e5355b3604a548",
+    "model.py": "c8c21e5adf0aac2ef5718ae206017de1f152818001d4f059a9442bf2bdbbd7d8",
+    "common.py": "3e47669d67c7f5133d359a69a12a6090f8bf5f9e1b558dd31e2f070b5b1a3781"
+  },
+  "report_source_sha256": "157acd4f3356f7fd2f04cf4684ff147c04c9800cfeb7677295c98985fb9eed22",
+  "runtime_environment": {
+    "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+    "pytorch": "2.3.0a0+6ddf5cf85e.nv24.04",
+    "cuda": "12.4",
+    "gpu": "Tesla V100-PCIE-16GB",
+    "gpus": 4,
+    "dependencies": {
+      "transformers": "4.51.1",
+      "peft": "0.15.2",
+      "bitsandbytes": "0.45.5",
+      "accelerate": "1.6.0",
+      "pyarrow": "14.0.1",
+      "huggingface-hub": "0.30.2"
+    },
+    "precision": "FP32 compute, NF4 language linear weights, FP32 vision encoder",
+    "container_ram_gib": 31.9375
+  },
+  "result_files_sha256": {
+    "TRAIN_RESULT.json": "dbe52a405e129505dd8f3b4100d6133eb6be3e94b340fcbd90d139c176a07d3d",
+    "base/EVALUATION.json": "b4d70b8153c4c50dbd1b003afde2dcbffdf3dcb18070963b32d83879ea2679e1",
+    "adapted/EVALUATION.json": "0ea8f84474e6ce99a18f193a9777af882c53fc57b82417d51b881f4b3822da0e"
+  },
+  "model_and_dataset_weights_bundled": false
+}

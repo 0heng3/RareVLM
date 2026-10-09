@@ -1,17 +1,19 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite this software record."
 type: software
-title: "RareVLM: Long-Tailed Vision-Language Model Adaptation"
+title: "RareVLM: Vision-Language Adaptation, Long-Tail Analysis and Generative Fine-Tuning"
 authors:
   - name: "0heng3"
     website: "https://github.com/0heng3"
-version: "1.0"
-date-released: "2026-10-01"
+version: "1.1"
+date-released: "2026-10-09"
 repository-code: "https://github.com/0heng3/RareVLM"
 url: "https://github.com/0heng3/RareVLM"
-abstract: "A controlled frozen-CLIP long-tail adaptation framework with residual adapters, paired CE/LA comparisons, fixed-checkpoint calibration and source-backed mechanism boundaries."
+abstract: "A controlled frozen-CLIP long-tail adaptation framework and a separate Qwen-VL QLoRA instruction-tuning pilot, with image-disjoint data, assistant-only loss masking, paired generated-answer evaluation and local inference."
 keywords:
   - CLIP
   - long-tailed learning
   - vision-language model adaptation
   - reproducible research
+  - multimodal instruction tuning
+  - QLoRA

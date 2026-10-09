@@ -61,6 +61,30 @@ def check():
     citation=yaml.safe_load((ROOT/'CITATION.cff').read_text())
     assert citation['cff-version']=='1.2.0' and citation['type']=='software' and citation['authors']
     assert citation['repository-code']=='https://github.com/0heng3/RareVLM'
+    vlm_path=ROOT/'results/vlm_sft_metrics.json'
+    if vlm_path.exists():
+        vlm=json.loads(vlm_path.read_text())
+        assert vlm['data_images']=={'train':1024,'internal_validation':128,'final':256}
+        assert vlm['optimizer_steps']==64 and vlm['epochs']==1 and vlm['world_size']==4
+        assert vlm['trainable_parameters']==1843200 and vlm['frozen_weights_unchanged']
+        assert vlm['quantization']=='nf4_language_only' and vlm['training_precision']=='fp32'
+        assert vlm['images_score_improved']+vlm['images_score_degraded']+vlm['images_score_equal']==256
+        for key in ('baseline_vqa_consensus_percent','lora_vqa_consensus_percent'):
+            assert 0<=vlm[key]<=100
+        assert math.isclose(vlm['lora_vqa_consensus_percent']-vlm['baseline_vqa_consensus_percent'],vlm['paired_delta_pp'],abs_tol=1e-10)
+        assert len(vlm['manifest_sha256'])==64 and len(vlm['config_sha256'])==64
+        assert not vlm['model_and_dataset_weights_bundled']
+        config=json.loads((ROOT/'configs/vlm_sft_textvqa.json').read_text())
+        assert hashlib.sha256(json.dumps(config,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()==vlm['config_sha256']
+        for name,digest in vlm['execution_source_sha256'].items():assert sha(ROOT/'vlm_sft'/name)==digest
+        assert sha(ROOT/'vlm_sft/report.py')==vlm['report_source_sha256']
+        proof=json.loads((ROOT/'results/vlm_sft_verification.json').read_text())
+        assert proof['data_and_training']['manifest_sha256']==vlm['manifest_sha256']
+        assert proof['data_and_training']['passed'] and proof['adapter_weights']['parameters_finite']
+        assert proof['local_inference']['passed'] and proof['local_inference']['matches_saved_generated_prediction']
+        assert not proof['local_inference']['reference_answers_passed_to_cli']
+        assert f"| Pretrained instruct | {vlm['baseline_vqa_consensus_percent']:.2f} | {vlm['baseline_any_answer_match_percent']:.2f} |" in readme
+        assert f"| QLoRA SFT, fixed final epoch | {vlm['lora_vqa_consensus_percent']:.2f} | {vlm['lora_any_answer_match_percent']:.2f} |" in readme
     for path in ROOT.rglob('*.md'):
         if any(p in ('.git','.tmp','.cache','artifacts','data','.venv') for p in path.relative_to(ROOT).parts):continue
         for target in re.findall(r'\]\(([^)]+)\)',path.read_text()):

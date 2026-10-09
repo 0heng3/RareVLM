@@ -1,13 +1,13 @@
 # RareVLM
 
-### Long-Tailed Vision-Language Model Adaptation
+### Vision-Language Adaptation: Long-Tail Analysis & Generative Fine-Tuning
 
 An independent CV/VLM research engineering project that measures how long-tailed supervision changes CLIP's head/tail balance, and how much performance can be recovered while holding adapted representations fixed.
 
 [![CI](https://github.com/0heng3/RareVLM/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/0heng3/RareVLM/actions/workflows/ci.yml)
 ![Python 3.10 / 3.11](https://img.shields.io/badge/Python-3.10%20%7C%203.11-blue)
 
-**Research experiments are frozen.** This release improves presentation, auditability and software checks around the completed study.
+The original CLIP long-tail study is frozen. Under the 2026-10-09 project extension, RareVLM also includes a separate **Qwen-VL → QLoRA instruction tuning → generated-answer evaluation** module. [Job requirements and route](docs/JOB_ROUTE.md) · [Generative-VLM protocol and commands](docs/VLM_SFT.md) · [One unified resume](docs/RESUME.md).
 
 ![Overview: frozen image and text encoders feed a fixed prototype classifier; only the 66,240-parameter visual residual adapter is trained. Fixed-CE calibration changes logits, not model parameters.](assets/overview.png)
 
@@ -37,6 +37,17 @@ Accuracy in %, mean of seeds `{0,42,200}`. ZS is a deterministic reference. Ever
 
 iNaturalist uses 8,142 official scientific-name prototypes. Its approximately **3.48–6.01% OA** under this frozen-encoder/fixed-classifier setup reflects limited absolute recognition ability; these are controlled research results, not deployment or SOTA claims. Official val is locked for final top-1 research evaluation, with selection confined to held-out official-train images. [Full results and boundaries](docs/RESULTS.md).
 
+## Generative VLM engineering pilot
+
+**Completed:** Qwen2.5-VL-3B-Instruct → image-disjoint TextVQA instructions → QLoRA SFT → paired answer generation → local inference verification. Four V100 GPUs trained **1,843,200 language LoRA parameters (0.049%)**, with a frozen vision/base model, NF4 language weights and FP32 compute. One epoch used 1,024 training images, 128 diagnostic-validation images and 64 updates/rank; peak training allocated memory was **5.67 GiB/device**.
+
+| Same NF4 / FP32 configuration, 256 final images | Normalized VQA consensus % | Any-human-answer match % |
+| --- | ---: | ---: |
+| Pretrained instruct | 68.55 | 70.70 |
+| QLoRA SFT, fixed final epoch | 71.52 | 75.39 |
+
+Paired consensus change: **+2.97 pp**, with a conditional image-bootstrap interval **[-0.20, 6.25] pp**. This single-seed subset and compact normalization do not establish robust gains or full-benchmark performance. The result is separate from CLIP OA/Few metrics. [Executed results and limitations](docs/VLM_SFT_RESULTS.md) · [Metrics/environment](results/vlm_sft_metrics.json) · [Run and CLI verification](results/vlm_sft_verification.json) · [Reproduce](docs/VLM_SFT.md).
+
 ## Quick start
 
 Python 3.10/3.11; run from repository root.
@@ -58,9 +69,11 @@ python tools/check_release.py
 
 The [CI workflow](.github/workflows/ci.yml) runs tests and smoke on CPU with Python 3.10 and 3.11. The badge reflects actual GitHub Actions status.
 
-Local verification passed **19 synthetic contract tests**, the CPU smoke and the release-data/hash checker. Hosted CI is configured; its initial run was blocked before runner allocation by an account-level restriction, so no hosted-CI pass is claimed.
+Local verification passed **31 CPU contract tests**, including the new generative-VQA input/masking/split/metric contracts. The original CPU smoke also passed. Hosted CI is configured; its initial run was blocked before runner allocation by an account-level restriction, so no hosted-CI pass is claimed.
 
 ## Experimental design and reproduction
+
+The new generative module uses a frozen Qwen vision/LLM backbone and language-attention QLoRA, image-disjoint TextVQA instructions, assistant-only loss masking, four-worker DDP, paired generated-answer metrics and inference resource records. NF4 language linear weights use FP32 compute; vision stays FP32 for V100 compatibility. Its scope and results are independent of the CLIP OA/Few tables. Install `requirements-vlm.txt` and follow [VLM_SFT.md](docs/VLM_SFT.md).
 
 - Frozen CLIP image/text encoders; single `a photo of a {}.` prompt; normalized, fixed text prototypes and original logit scale.
 - Zero-initialized residual **512→64→512** LN/GELU adapter: **66,240 trainable parameters**, exact identity at initialization.
@@ -97,9 +110,10 @@ Fixed-representation recovery establishes that decision interventions can help; 
 ```text
 assets/       overview, result figure and figure provenance
 results/      aggregate/seed CSV, experiment provenance, research-code lock
-configs/      four frozen protocol snapshots
+configs/      four frozen CLIP snapshots and the separate generative pilot config
 tests/        CPU software contracts using synthetic inputs
 tools/        result export, plotting, package/check tools
+vlm_sft/      Qwen assets/data, LoRA SFT, generated-answer evaluation and local inference
 docs/         protocol, results, reproduction, mechanisms and deeper analysis
 methods.py    adapter, fixed prototype classifier, CE/LA/TailSpec-static
 extract_*.py, run_*.py, calibrate.py, smoke.py
