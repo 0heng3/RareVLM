@@ -1,0 +1,1442 @@
+{
+  "schema_version": "rarevlm.architecture_migration.v1",
+  "created_at": "2026-10-12T15:19:50.170498+00:00",
+  "baseline_commit": "2049c0ebc2df6a56531e18c2bdbd7d4355b16b3d",
+  "baseline_repository": "https://github.com/0heng3/RareVLM",
+  "source_layout": "src;existing import and module names retained",
+  "new_research_experiments": 0,
+  "history": "Original configs/results/figures/locks retain their bytes; historical source hashes are previous_sha256, current source hashes are separately recorded. Exact historical runs use the baseline commit; newer runs require fresh output locks.",
+  "entries": [
+    {
+      "old_path": ".gitignore",
+      "new_path": ".gitignore",
+      "previous_sha256": "34fb3bc85b8e79aa7b957ba5895b6d7b54b63c07e07bb1517957bd7c17463453",
+      "current_sha256": "f571ad81795a731368ff077107f8799b688dcc125e06f70bee95c9e657d615db",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "CITATION.cff",
+      "new_path": "CITATION.cff",
+      "previous_sha256": "3f56c159e0267c3bcbd41f68ec7db42919d30da9efb90eaebfdb4ce0c5d1eaa9",
+      "current_sha256": "3f56c159e0267c3bcbd41f68ec7db42919d30da9efb90eaebfdb4ce0c5d1eaa9",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "README.md",
+      "new_path": "README.md",
+      "previous_sha256": "7a1df8d1b3155d6c84e33a3d871a11232d9501d6158f35d7f411e485a4796007",
+      "current_sha256": "03ae01c92be403918506202a5818859206c99c5962325a87c27ae013db219517",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "SOURCE_ORIGINS.json",
+      "new_path": "metadata/SOURCE_ORIGINS.json",
+      "previous_sha256": "964d6c980e2b90d6162db089fa598227b8cf85b32776e5745605628aa3557115",
+      "current_sha256": "964d6c980e2b90d6162db089fa598227b8cf85b32776e5745605628aa3557115",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "assets/figure_provenance.json",
+      "new_path": "assets/figure_provenance.json",
+      "previous_sha256": "3860f3f00d07b2184c9223999ab85d251058dd82ea85f6dd37ef38ecd7343656",
+      "current_sha256": "3860f3f00d07b2184c9223999ab85d251058dd82ea85f6dd37ef38ecd7343656",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/main_results.png",
+      "new_path": "assets/main_results.png",
+      "previous_sha256": "a23d2e52b726fafd24f5d564b360483e2f548f5e6839cc70acca787e945c0702",
+      "current_sha256": "a23d2e52b726fafd24f5d564b360483e2f548f5e6839cc70acca787e945c0702",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/main_results.svg",
+      "new_path": "assets/main_results.svg",
+      "previous_sha256": "b82348d85a8558bd770f3afb18a92354081f357ab80955dbfe3a591427c4cac5",
+      "current_sha256": "b82348d85a8558bd770f3afb18a92354081f357ab80955dbfe3a591427c4cac5",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/overview.png",
+      "new_path": "assets/overview.png",
+      "previous_sha256": "f560beb92b854a3bf349e42f081aaf0ced05dfbb395029475dfb438d148da0de",
+      "current_sha256": "f560beb92b854a3bf349e42f081aaf0ced05dfbb395029475dfb438d148da0de",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/overview.svg",
+      "new_path": "assets/overview.svg",
+      "previous_sha256": "b8679ab72b8d2146a2552d071d2a4e46b02699442ef1e6ed8e76a67979d03da2",
+      "current_sha256": "b8679ab72b8d2146a2552d071d2a4e46b02699442ef1e6ed8e76a67979d03da2",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/vlm_formal_bf16_v1/FIGURE_PROVENANCE.json",
+      "new_path": "assets/vlm_formal_bf16_v1/FIGURE_PROVENANCE.json",
+      "previous_sha256": "7657399d43cd0fbc868b1f0ed69d685552d6dcc0365c38406a03aed480079b60",
+      "current_sha256": "7657399d43cd0fbc868b1f0ed69d685552d6dcc0365c38406a03aed480079b60",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/vlm_formal_bf16_v1/formal_quality.png",
+      "new_path": "assets/vlm_formal_bf16_v1/formal_quality.png",
+      "previous_sha256": "9b4b78c5cb1e28afcb8dce6e9789b261d1b58d1e301f6e7e402c6cd1e85eeab1",
+      "current_sha256": "9b4b78c5cb1e28afcb8dce6e9789b261d1b58d1e301f6e7e402c6cd1e85eeab1",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/vlm_formal_bf16_v1/formal_textvqa_frequency.png",
+      "new_path": "assets/vlm_formal_bf16_v1/formal_textvqa_frequency.png",
+      "previous_sha256": "49f3417e060b1eddfd278a92fac42b2ad09cde3915c6013c2957b01e7c5cccc2",
+      "current_sha256": "49f3417e060b1eddfd278a92fac42b2ad09cde3915c6013c2957b01e7c5cccc2",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/vlm_optimization_v1/FIGURE_PROVENANCE.json",
+      "new_path": "assets/vlm_optimization_v1/FIGURE_PROVENANCE.json",
+      "previous_sha256": "9cec67a3f713cf66a3499a0ce64fcec6b612d5b29e69f32cfb9f4ae538163a57",
+      "current_sha256": "9cec67a3f713cf66a3499a0ce64fcec6b612d5b29e69f32cfb9f4ae538163a57",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/vlm_optimization_v1/budget_quality_cost.png",
+      "new_path": "assets/vlm_optimization_v1/budget_quality_cost.png",
+      "previous_sha256": "6d52a20952bbba561f816c68eee772682a5cd076219b1bafdd7f6ff7fc9cf97d",
+      "current_sha256": "6d52a20952bbba561f816c68eee772682a5cd076219b1bafdd7f6ff7fc9cf97d",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "assets/vlm_optimization_v1/precision_quality_cost.png",
+      "new_path": "assets/vlm_optimization_v1/precision_quality_cost.png",
+      "previous_sha256": "9e81079f44f455eed14e5e420871ab090d7d65078cbbf020a8f9f24c3c2294e3",
+      "current_sha256": "9e81079f44f455eed14e5e420871ab090d7d65078cbbf020a8f9f24c3c2294e3",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "calibrate.py",
+      "new_path": "src/calibrate.py",
+      "previous_sha256": "838925b04fe3aa88f5f1e54a3069b2665e55df730a922192535ffc1835818b8f",
+      "current_sha256": "838925b04fe3aa88f5f1e54a3069b2665e55df730a922192535ffc1835818b8f",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "configs/a100_candidate_profile.json",
+      "new_path": "configs/a100_candidate_profile.json",
+      "previous_sha256": "b87a1c4f1f34d085382f179469b1154eeb1cb2ca1181b6a224297d88d5f1999e",
+      "current_sha256": "b87a1c4f1f34d085382f179469b1154eeb1cb2ca1181b6a224297d88d5f1999e",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/imagenet_lt_b16.json",
+      "new_path": "configs/imagenet_lt_b16.json",
+      "previous_sha256": "5cb72f2d10420910447c2be4c14701ee5d9e85e865fa9e285b39540b150a6ac1",
+      "current_sha256": "5cb72f2d10420910447c2be4c14701ee5d9e85e865fa9e285b39540b150a6ac1",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/imagenet_lt_b32.json",
+      "new_path": "configs/imagenet_lt_b32.json",
+      "previous_sha256": "6ac1a1239d33eefb7518677771c9ba8f19e1d5bef564037b38b8ecf8082117e9",
+      "current_sha256": "6ac1a1239d33eefb7518677771c9ba8f19e1d5bef564037b38b8ecf8082117e9",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/imagenet_lt_online.json",
+      "new_path": "configs/imagenet_lt_online.json",
+      "previous_sha256": "0077075ce844983c87ca7e3510488535f4423cef8f84aa35d1be17a694cd004b",
+      "current_sha256": "0077075ce844983c87ca7e3510488535f4423cef8f84aa35d1be17a694cd004b",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/inat2018.json",
+      "new_path": "configs/inat2018.json",
+      "previous_sha256": "0ea73e395cf309f6de6d3eb284790033f8b55c028907dcb8cbdd2fe1dc7febc0",
+      "current_sha256": "0ea73e395cf309f6de6d3eb284790033f8b55c028907dcb8cbdd2fe1dc7febc0",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_budget_probe_v1.json",
+      "new_path": "configs/vlm_budget_probe_v1.json",
+      "previous_sha256": "64d67ed3142988f6197d564521e0c2efefb93213c2505f56d681afc311d49597",
+      "current_sha256": "64d67ed3142988f6197d564521e0c2efefb93213c2505f56d681afc311d49597",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_deep_v2.json",
+      "new_path": "configs/vlm_deep_v2.json",
+      "previous_sha256": "121615552e4b81d084e16eea7abb3a24547726c5d1f314af572d5125c2a9b7ac",
+      "current_sha256": "121615552e4b81d084e16eea7abb3a24547726c5d1f314af572d5125c2a9b7ac",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_formal_bf16_v1.json",
+      "new_path": "configs/vlm_formal_bf16_v1.json",
+      "previous_sha256": "20c4b99f676948ec39d521d4cdc7cededdabcac221835e77d2990a387acd86b1",
+      "current_sha256": "20c4b99f676948ec39d521d4cdc7cededdabcac221835e77d2990a387acd86b1",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_joint_bf16_v1.json",
+      "new_path": "configs/vlm_joint_bf16_v1.json",
+      "previous_sha256": "06851de9e94f421069768a8bfb499f8bea7edd80232ab746e62f6e1bc586b34b",
+      "current_sha256": "06851de9e94f421069768a8bfb499f8bea7edd80232ab746e62f6e1bc586b34b",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_precision_bridge_v1.json",
+      "new_path": "configs/vlm_precision_bridge_v1.json",
+      "previous_sha256": "01c1174ece7858799933588a0dbeaa435b93bbd31f61625a143131a1c0e01efb",
+      "current_sha256": "01c1174ece7858799933588a0dbeaa435b93bbd31f61625a143131a1c0e01efb",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_region_token_v1.json",
+      "new_path": "configs/vlm_region_token_v1.json",
+      "previous_sha256": "8388b58a574937f2993a3d1c3fa415300ddb9cceb64b8993c8a84055ee36ff0d",
+      "current_sha256": "8388b58a574937f2993a3d1c3fa415300ddb9cceb64b8993c8a84055ee36ff0d",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_sft_textvqa.json",
+      "new_path": "configs/vlm_sft_textvqa.json",
+      "previous_sha256": "57b420f7945017362949a5f7b2832c1d7460226c7db527665b9227a384fd1105",
+      "current_sha256": "57b420f7945017362949a5f7b2832c1d7460226c7db527665b9227a384fd1105",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "configs/vlm_weighted_sft_v1.json",
+      "new_path": "configs/vlm_weighted_sft_v1.json",
+      "previous_sha256": "bccca81f03b1db0c2851530ba114cb5d8202268e188562a4b991abfbf066c48d",
+      "current_sha256": "bccca81f03b1db0c2851530ba114cb5d8202268e188562a4b991abfbf066c48d",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/ANALYSIS.md",
+      "new_path": "docs/ANALYSIS.md",
+      "previous_sha256": "88787320267fe0bc0a198b4a1cbc5a765b7552b23d03ad33a22f60564c9e4a6c",
+      "current_sha256": "88787320267fe0bc0a198b4a1cbc5a765b7552b23d03ad33a22f60564c9e4a6c",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/JOB_ROUTE.md",
+      "new_path": "docs/JOB_ROUTE.md",
+      "previous_sha256": "666775bf2dcc6155d4eeb6441bc21ad70c726cbd0d2b1a5caa99881658f3026f",
+      "current_sha256": "0b0e5d15931e2be606cbd0ee0c862b23f946fe63b7b16cf282dad6d10bbf2ab2",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/MECHANISMS.md",
+      "new_path": "docs/MECHANISMS.md",
+      "previous_sha256": "a0e6e3f421f60a0d5c7760276466a744f6bb6f1e99f45f920a383ebe51faebaf",
+      "current_sha256": "a0e6e3f421f60a0d5c7760276466a744f6bb6f1e99f45f920a383ebe51faebaf",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/PROTOCOL.md",
+      "new_path": "docs/PROTOCOL.md",
+      "previous_sha256": "0ba585fd1aebfd3885b36867a777cfcc64de6ec320d6d53ba1ebf7f87561c237",
+      "current_sha256": "0ba585fd1aebfd3885b36867a777cfcc64de6ec320d6d53ba1ebf7f87561c237",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/REPRODUCE.md",
+      "new_path": "docs/REPRODUCE.md",
+      "previous_sha256": "1e4bf0d7a04eb0eeeb6f31a7883ee6bd0df8c4fe018538902773e681a028ad64",
+      "current_sha256": "e0970f7221638986a2340ed37cf52f0233e75d92f2181cdb1ccb84a1247fd635",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/RESULTS.md",
+      "new_path": "docs/RESULTS.md",
+      "previous_sha256": "1ca2fec774cdb74391ba3f3820cbb967ff6f8a8df54519e0c6b883850c847c06",
+      "current_sha256": "1ca2fec774cdb74391ba3f3820cbb967ff6f8a8df54519e0c6b883850c847c06",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_BACKBONE_JOB_DECISION.md",
+      "new_path": "docs/VLM_BACKBONE_JOB_DECISION.md",
+      "previous_sha256": "51561b619dc4a6e8155ba1e15f88ada58c3e2da0269f523f72157e0c9f368ade",
+      "current_sha256": "482608e9d4e69b3052db89034620cd35178fd09f3cb0a7aabb82099b96a189b4",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_BUDGET_PROBE_V1_PROTOCOL.md",
+      "new_path": "docs/VLM_BUDGET_PROBE_V1_PROTOCOL.md",
+      "previous_sha256": "e1464ed028ed48e03a5fe1044d8244904e38494694b258e22f6392b8d5eefca1",
+      "current_sha256": "de7d5100b918f7c4f0fcfef95c6ff5425f8c0d3eb1aa67772dcd8ed31aab4461",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_DEEP_V2_PROTOCOL.md",
+      "new_path": "docs/VLM_DEEP_V2_PROTOCOL.md",
+      "previous_sha256": "299eea4d937a537d8ea0a667364d003df30523a8ca8f929afd216a9441a1bb13",
+      "current_sha256": "4f23f551729003070b106167f4090770c64d921fa3d586fd940b03a6613cffbd",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_FORMAL_BF16_V1_PROTOCOL.md",
+      "new_path": "docs/VLM_FORMAL_BF16_V1_PROTOCOL.md",
+      "previous_sha256": "fbcbf1a8e98d79f9e824f228330468b829787cdc657a2f7516c710a0b335b15b",
+      "current_sha256": "8af6a3ad8adb2433d428878cf22fb73d2f201cc373f6ef5785287b4fe9b9ad68",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_JOINT_BF16_RESULTS.md",
+      "new_path": "docs/VLM_JOINT_BF16_RESULTS.md",
+      "previous_sha256": "c5f07a83b9a57a9ac26590aca5cbd0b4e7c892ce5df998a25f622f8132d5b292",
+      "current_sha256": "c5f07a83b9a57a9ac26590aca5cbd0b4e7c892ce5df998a25f622f8132d5b292",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_JOINT_BF16_V1_PROTOCOL.md",
+      "new_path": "docs/VLM_JOINT_BF16_V1_PROTOCOL.md",
+      "previous_sha256": "cf0a16740621f2ff0e563dbc1cd6a094868a250dbe3f6b878984b730dad7bd74",
+      "current_sha256": "24dbd550f6b1b4230de7c0fa20cbd7abd882387cb2853c626cb771c2975d24a9",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_OPTIMIZATION_RESULTS.md",
+      "new_path": "docs/VLM_OPTIMIZATION_RESULTS.md",
+      "previous_sha256": "0b714553aac037d0eb50219ed95ed2f8c8bdec7e6227f63aed191d422a31922e",
+      "current_sha256": "86e5c322f6939b7cc1a9d397580fbd6a360af3c11c68df4bb155099be389314f",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_PRECISION_BRIDGE_V1_PROTOCOL.md",
+      "new_path": "docs/VLM_PRECISION_BRIDGE_V1_PROTOCOL.md",
+      "previous_sha256": "5dcb90dd6610b40a12f6e6787d5a7fcb8f9844edd0c57ba5a335ec26d83bd31f",
+      "current_sha256": "d6799cc16a5f472ee1e981ce2fd6ebf3c25e8a6f3ae166a367f36add34686313",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_REGION_TOKEN_RESULTS.md",
+      "new_path": "docs/VLM_REGION_TOKEN_RESULTS.md",
+      "previous_sha256": "3d61042c5774a6531baaf799f229d71f6a08f92ce822bd2cd3db2b9ba636f8a3",
+      "current_sha256": "2b07cc443d1269a005c8c6a85754a716d07a588bdeb56320882a7fb2e454b670",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_SFT.md",
+      "new_path": "docs/VLM_SFT.md",
+      "previous_sha256": "5f5221301185623e17d9d34fc008380b8e34f64081d5e37925b4e35861d75c0d",
+      "current_sha256": "dad8f55a74ed3de4c55247f47366124a3b6cf40e583bc18a30886d5d76a32dea",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_SFT_RESULTS.md",
+      "new_path": "docs/VLM_SFT_RESULTS.md",
+      "previous_sha256": "a8fb0c91895f14af3c6717248a34eb624f3cd84d739eeca485c148d9749d0374",
+      "current_sha256": "26cdda5dff39253eabe195cfce27ddf0d18cafc451d9066e964eb6531f526f74",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "docs/VLM_WEIGHTED_SFT_RESULTS.md",
+      "new_path": "docs/VLM_WEIGHTED_SFT_RESULTS.md",
+      "previous_sha256": "aae6df7c86cacec0acd1a1402138e4a8a3e7efe1e332ea9e731e5990863de01f",
+      "current_sha256": "9629a9d3ff3581ec0484be36499455c5d3a16c5a4f5c7757b0b858fb1befb524",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "extract_features.py",
+      "new_path": "src/extract_features.py",
+      "previous_sha256": "0002e465c32e72de441da0a83f161881d80d9e42b4eb2ada6f1be27db6abfed0",
+      "current_sha256": "0002e465c32e72de441da0a83f161881d80d9e42b4eb2ada6f1be27db6abfed0",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "extract_imagenet_lt_features.py",
+      "new_path": "src/extract_imagenet_lt_features.py",
+      "previous_sha256": "01a04b4223b416a0c3f84c244ef1872b91f7f20e4434112d4ed97da052305171",
+      "current_sha256": "01a04b4223b416a0c3f84c244ef1872b91f7f20e4434112d4ed97da052305171",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "extract_imagenet_lt_features_b16.py",
+      "new_path": "src/extract_imagenet_lt_features_b16.py",
+      "previous_sha256": "2427a2a61aeaa59dee1ba3840f39a0a344cdd66d995d521dc6f95dd9e7173494",
+      "current_sha256": "2427a2a61aeaa59dee1ba3840f39a0a344cdd66d995d521dc6f95dd9e7173494",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "extract_inat2018_features.py",
+      "new_path": "src/extract_inat2018_features.py",
+      "previous_sha256": "b37f2bd2ec160cdc8b4fc5f465a375858446579b1f6eb7bba02063de80bf54fe",
+      "current_sha256": "b37f2bd2ec160cdc8b4fc5f465a375858446579b1f6eb7bba02063de80bf54fe",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "imagenet_lt_manifest.py",
+      "new_path": "src/imagenet_lt_manifest.py",
+      "previous_sha256": "b0e8dfda220eebfa6bb09d43f6bf5c8d728ffb513652a99aec5b5405a28a1547",
+      "current_sha256": "b0e8dfda220eebfa6bb09d43f6bf5c8d728ffb513652a99aec5b5405a28a1547",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "inat2018_manifest.py",
+      "new_path": "src/inat2018_manifest.py",
+      "previous_sha256": "bff9553da91d72bde60c533dba77c560281028b8aa649197353411bfd0b69b92",
+      "current_sha256": "bff9553da91d72bde60c533dba77c560281028b8aa649197353411bfd0b69b92",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "methods.py",
+      "new_path": "src/methods.py",
+      "previous_sha256": "484fdf82fe7280ff87c798acee70e5d86af2ee969ee0ad114c3286eacea404e9",
+      "current_sha256": "484fdf82fe7280ff87c798acee70e5d86af2ee969ee0ad114c3286eacea404e9",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "online_aug_dataset.py",
+      "new_path": "src/online_aug_dataset.py",
+      "previous_sha256": "6d669fc2e347efb792b69ea11ee3896b892fdfc2796b0856c25c2329c012caf4",
+      "current_sha256": "6d669fc2e347efb792b69ea11ee3896b892fdfc2796b0856c25c2329c012caf4",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "posthoc_imagenet_lt.py",
+      "new_path": "src/posthoc_imagenet_lt.py",
+      "previous_sha256": "202eeea1ba1466f50cdabfc6ee01a20eb4a37a0696728b51e09161dd995e723c",
+      "current_sha256": "202eeea1ba1466f50cdabfc6ee01a20eb4a37a0696728b51e09161dd995e723c",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "prepare_assets.py",
+      "new_path": "src/prepare_assets.py",
+      "previous_sha256": "aa51fa465bbd1c5a1d410ad5c69574966c7669e6c5f8337b440c1a8e6494cd07",
+      "current_sha256": "aa51fa465bbd1c5a1d410ad5c69574966c7669e6c5f8337b440c1a8e6494cd07",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "project_paths.py",
+      "new_path": "src/project_paths.py",
+      "previous_sha256": "b3d550b05a2ed22f66436b6caa04005cd662ae270c3dadfe264b97031f96fc70",
+      "current_sha256": "ced69973f6c66cac75b03e2de1c3d7f501eeaa170e833c1d3adf63ab49d87b2e",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "requirements-dev.txt",
+      "new_path": "requirements/dev.txt",
+      "previous_sha256": "f534019125d0ff80f8b0d66d32bc785cf7d13b2e02b351b6b19034ea4bf88b43",
+      "current_sha256": "7e019a326709741b108e153ec8c0b6cac2aa79551cfbf13ce5b4734c8b4a2caf",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "requirements-vlm.txt",
+      "new_path": "requirements/vlm.txt",
+      "previous_sha256": "2a11d5af94ce155f3a5e457bb611b2dac084c5560eb9ece795b95699071bcbe1",
+      "current_sha256": "3a82392e5a205d3792ed5450077672147d0b6b5bd923e29d6094731c09fa66bf",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "requirements.txt",
+      "new_path": "requirements/base.txt",
+      "previous_sha256": "ced068a2f97e5a590ff1306714ae3b1dcb9895ce36e76d0e9fb52a835455a459",
+      "current_sha256": "ced068a2f97e5a590ff1306714ae3b1dcb9895ce36e76d0e9fb52a835455a459",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "results/main_results.csv",
+      "new_path": "results/main_results.csv",
+      "previous_sha256": "a9380f23962d42fdcefe747b01145b2473c85e9c13da802ea6adf4a804bd1a43",
+      "current_sha256": "a9380f23962d42fdcefe747b01145b2473c85e9c13da802ea6adf4a804bd1a43",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/provenance.json",
+      "new_path": "results/provenance.json",
+      "previous_sha256": "8145a152ebb7a55907370fb056f3c2a29b699c6c7f4d84cc3ae4ebac5ffccb4b",
+      "current_sha256": "8145a152ebb7a55907370fb056f3c2a29b699c6c7f4d84cc3ae4ebac5ffccb4b",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/research_code_lock.json",
+      "new_path": "results/research_code_lock.json",
+      "previous_sha256": "082f11f7a563ea3143df32b336fd6ed948cac506f0052be29f92ae85cddcda5e",
+      "current_sha256": "082f11f7a563ea3143df32b336fd6ed948cac506f0052be29f92ae85cddcda5e",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/seed_results.csv",
+      "new_path": "results/seed_results.csv",
+      "previous_sha256": "de62cdaf600dbbcfd24c6599173a3f18e056edd67087c77c31d3ac57d5988e13",
+      "current_sha256": "de62cdaf600dbbcfd24c6599173a3f18e056edd67087c77c31d3ac57d5988e13",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/vlm_deep_v2_metrics.json",
+      "new_path": "results/vlm_deep_v2_metrics.json",
+      "previous_sha256": "250cf6f962b24d0552103fb80b6da8cce7cd93701bfa7a863ac107ec91b135c4",
+      "current_sha256": "250cf6f962b24d0552103fb80b6da8cce7cd93701bfa7a863ac107ec91b135c4",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/vlm_formal_bf16_v1_metrics.json",
+      "new_path": "results/vlm_formal_bf16_v1_metrics.json",
+      "previous_sha256": "b449af42bce0e3b2a0984cfd4aaa1f0006b36f741e11d41b3b9fe1276fb22a08",
+      "current_sha256": "b449af42bce0e3b2a0984cfd4aaa1f0006b36f741e11d41b3b9fe1276fb22a08",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/vlm_optimization_v1_metrics.json",
+      "new_path": "results/vlm_optimization_v1_metrics.json",
+      "previous_sha256": "22cbbc13763b1684fd0826a42100286a1156f13a622c35133f6613db44650f75",
+      "current_sha256": "22cbbc13763b1684fd0826a42100286a1156f13a622c35133f6613db44650f75",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/vlm_region_token_v1_metrics.json",
+      "new_path": "results/vlm_region_token_v1_metrics.json",
+      "previous_sha256": "f8de1c006ef7b3ae0a3de2877e2517bff1bd3329e32736c5c8cc5c1ae9a8040e",
+      "current_sha256": "f8de1c006ef7b3ae0a3de2877e2517bff1bd3329e32736c5c8cc5c1ae9a8040e",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/vlm_sft_metrics.json",
+      "new_path": "results/vlm_sft_metrics.json",
+      "previous_sha256": "2498f85eaa55fe73d5f0e5d0af6e1cdd47ef4037de84c062f027736663048ddd",
+      "current_sha256": "2498f85eaa55fe73d5f0e5d0af6e1cdd47ef4037de84c062f027736663048ddd",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/vlm_sft_verification.json",
+      "new_path": "results/vlm_sft_verification.json",
+      "previous_sha256": "1c58c6707fd0cb81324b662afd42a25ba7bd63170e1330d1b3fcf39e5816ed80",
+      "current_sha256": "1c58c6707fd0cb81324b662afd42a25ba7bd63170e1330d1b3fcf39e5816ed80",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "results/vlm_weighted_sft_v1_metrics.json",
+      "new_path": "results/vlm_weighted_sft_v1_metrics.json",
+      "previous_sha256": "ffc915adc9061e13f6c7506f9df8d5578fa17158f1f07a567f536c9b366f5b14",
+      "current_sha256": "ffc915adc9061e13f6c7506f9df8d5578fa17158f1f07a567f536c9b366f5b14",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "run_imagenet_lt.py",
+      "new_path": "src/run_imagenet_lt.py",
+      "previous_sha256": "fd22a9f6ce72358a879c463163a61cb698392ba43a1968a96ce7adf027c59027",
+      "current_sha256": "fd22a9f6ce72358a879c463163a61cb698392ba43a1968a96ce7adf027c59027",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "run_imagenet_lt_b16.py",
+      "new_path": "src/run_imagenet_lt_b16.py",
+      "previous_sha256": "00f4d5b88f825422e041ad2c9a1ad6714cde5113a55c22bb6e5360d06329764c",
+      "current_sha256": "465dfcf78c4f1efbf3986cb65838395450dd754521a9b0f89834359641ff2a49",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "run_imagenet_lt_online_aug.py",
+      "new_path": "src/run_imagenet_lt_online_aug.py",
+      "previous_sha256": "04c030a90c4e000f6340b078ec19de0036ddd17078a6c32f3baad9cd1b6da250",
+      "current_sha256": "04c030a90c4e000f6340b078ec19de0036ddd17078a6c32f3baad9cd1b6da250",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "run_inat2018.py",
+      "new_path": "src/run_inat2018.py",
+      "previous_sha256": "fb42af134c0a99526de231f4de2417228da474a2458bbd959b77981b4deed7f6",
+      "current_sha256": "fb42af134c0a99526de231f4de2417228da474a2458bbd959b77981b4deed7f6",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "run_pilot.py",
+      "new_path": "src/run_pilot.py",
+      "previous_sha256": "89bf1e195c1be56d426ec0582f541ee77b27c057c6bb06ffe48836b6cd806b25",
+      "current_sha256": "89bf1e195c1be56d426ec0582f541ee77b27c057c6bb06ffe48836b6cd806b25",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "smoke.py",
+      "new_path": "src/smoke.py",
+      "previous_sha256": "63e19b2e060f5e74bd571258cf3f53299c60852f76749fac2276f50368d87680",
+      "current_sha256": "63e19b2e060f5e74bd571258cf3f53299c60852f76749fac2276f50368d87680",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "splits.py",
+      "new_path": "src/splits.py",
+      "previous_sha256": "39b689cebeffc2069a3b9ddadd429d0ea739004608ad83183d668c038d610d74",
+      "current_sha256": "39b689cebeffc2069a3b9ddadd429d0ea739004608ad83183d668c038d610d74",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "summarize.py",
+      "new_path": "src/summarize.py",
+      "previous_sha256": "c4493bd11261add68bc0cacde97a6cc1f8230ea14c80753f5d367bf51c7dba6d",
+      "current_sha256": "c4493bd11261add68bc0cacde97a6cc1f8230ea14c80753f5d367bf51c7dba6d",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "summarize_imagenet_lt.py",
+      "new_path": "src/summarize_imagenet_lt.py",
+      "previous_sha256": "a61b42e48e4341fed9659ce29e3d41542698dc367d78d1a6ef52404d6bb02ead",
+      "current_sha256": "a61b42e48e4341fed9659ce29e3d41542698dc367d78d1a6ef52404d6bb02ead",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "summarize_posthoc_imagenet_lt.py",
+      "new_path": "src/summarize_posthoc_imagenet_lt.py",
+      "previous_sha256": "d4f47c591ca9fd42815331db6a7cdbba479b223bd7a18e41ff66d45be4e02a9b",
+      "current_sha256": "d4f47c591ca9fd42815331db6a7cdbba479b223bd7a18e41ff66d45be4e02a9b",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "summarize_runs.py",
+      "new_path": "src/summarize_runs.py",
+      "previous_sha256": "859186c50e90bf3bb237b17426bd1ffbf071691482b8163850750a9dbc0f5bca",
+      "current_sha256": "859186c50e90bf3bb237b17426bd1ffbf071691482b8163850750a9dbc0f5bca",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "tests/conftest.py",
+      "new_path": "tests/conftest.py",
+      "previous_sha256": "bf8fcb7d688f77f8dddef63f2284f4c5f7f8f4d4168247f5cc4dfe1929ff8197",
+      "current_sha256": "bf8fcb7d688f77f8dddef63f2284f4c5f7f8f4d4168247f5cc4dfe1929ff8197",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_adapter.py",
+      "new_path": "tests/test_adapter.py",
+      "previous_sha256": "9e61a82f59ab6346f479e9947079e4d79d0bff31321c648697f589b68137cf98",
+      "current_sha256": "9e61a82f59ab6346f479e9947079e4d79d0bff31321c648697f589b68137cf98",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_calibration.py",
+      "new_path": "tests/test_calibration.py",
+      "previous_sha256": "33fd427717f2bbbe2be935e70ece7c7df2f23151707c91e89ce8c9cd4b85a01e",
+      "current_sha256": "33fd427717f2bbbe2be935e70ece7c7df2f23151707c91e89ce8c9cd4b85a01e",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_losses.py",
+      "new_path": "tests/test_losses.py",
+      "previous_sha256": "c34dd08ea1f4c3fc735ff2828e2e12ebaa838e4f0753de0f0031c9e6233d865a",
+      "current_sha256": "c34dd08ea1f4c3fc735ff2828e2e12ebaa838e4f0753de0f0031c9e6233d865a",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_online_pairing.py",
+      "new_path": "tests/test_online_pairing.py",
+      "previous_sha256": "90e1954d7b71f016734c7cbb7bb6c251663d498fa954ffa60bf8fa2b83edcec0",
+      "current_sha256": "90e1954d7b71f016734c7cbb7bb6c251663d498fa954ffa60bf8fa2b83edcec0",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_splits.py",
+      "new_path": "tests/test_splits.py",
+      "previous_sha256": "ee3801d4bf4fc5b9fca258e390f18b86e918b72fbbf8dbe1914d82aeb4ef3272",
+      "current_sha256": "ee3801d4bf4fc5b9fca258e390f18b86e918b72fbbf8dbe1914d82aeb4ef3272",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_vlm_contracts.py",
+      "new_path": "tests/test_vlm_contracts.py",
+      "previous_sha256": "d2a3266903ca8a959bd917b456e4652f2e97bb7fe3ef2f8c618210d61e73ea59",
+      "current_sha256": "d2a3266903ca8a959bd917b456e4652f2e97bb7fe3ef2f8c618210d61e73ea59",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_vlm_deep_contracts.py",
+      "new_path": "tests/test_vlm_deep_contracts.py",
+      "previous_sha256": "12401b2f6112399502f49d8af09c8bf62cdb7d70776dbb3b0dcd9335387f5cbb",
+      "current_sha256": "12401b2f6112399502f49d8af09c8bf62cdb7d70776dbb3b0dcd9335387f5cbb",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tests/test_vlm_weighted_training_contract.py",
+      "new_path": "tests/test_vlm_weighted_training_contract.py",
+      "previous_sha256": "408fcc5d0dbaa35a4049978fb3733ff8f473d7fd26c8213fe3e4d1b5470cfabf",
+      "current_sha256": "408fcc5d0dbaa35a4049978fb3733ff8f473d7fd26c8213fe3e4d1b5470cfabf",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/analyze_vlm_budget_probe.py",
+      "new_path": "tools/analyze_vlm_budget_probe.py",
+      "previous_sha256": "fb5c68787412392f1668adc2db29c90fd2821d40e11956277e5b4732a20410f6",
+      "current_sha256": "6b60b93ec8e446d8239942a27253262b3c3f65beaf6cf42f66400040c3187635",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/analyze_vlm_deep_final.py",
+      "new_path": "tools/analyze_vlm_deep_final.py",
+      "previous_sha256": "ffdbf080ddb8275541561eaa9f451f158cba1a0b8430fec251b1ce001f0a200a",
+      "current_sha256": "ffdbf080ddb8275541561eaa9f451f158cba1a0b8430fec251b1ce001f0a200a",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/analyze_vlm_dev_slices.py",
+      "new_path": "tools/analyze_vlm_dev_slices.py",
+      "previous_sha256": "d28218486b282f4932e8532adc120030a485cfd8cf193adf7f42d6a6c24792c9",
+      "current_sha256": "809d786002b3f3749211d3851513fd6423da95859066fc6595bd328ca5465276",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/analyze_vlm_formal_bf16.py",
+      "new_path": "tools/analyze_vlm_formal_bf16.py",
+      "previous_sha256": "aa344e4fad9785f84f7950a3a71cfd627ed969102184ff1650cd5509d775b9af",
+      "current_sha256": "65cb8ceea3ea08e80fa53b831788e55e6e46f76ebb1f565de1dcae989d3c39ce",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/analyze_vlm_joint_bf16.py",
+      "new_path": "tools/analyze_vlm_joint_bf16.py",
+      "previous_sha256": "fe4ef268257b34893d505a2eda626108d5a1dbbe8d50693c700f1c828490541e",
+      "current_sha256": "fe4ef268257b34893d505a2eda626108d5a1dbbe8d50693c700f1c828490541e",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/analyze_vlm_precision_bridge.py",
+      "new_path": "tools/analyze_vlm_precision_bridge.py",
+      "previous_sha256": "04b38bc43495354758e2283074067a26d206559eb13904e89a77ee2065a27f78",
+      "current_sha256": "9ba4ad3f27a680600ee34c5637473a753d72b286ada04cb03147a0131179d903",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/build_vlm_learning_cases.py",
+      "new_path": "tools/build_vlm_learning_cases.py",
+      "previous_sha256": "c659572056897959428fd9ccb225381f0979bf14683b4c68d152693b6877a402",
+      "current_sha256": "4670c36634b8ea73df70b5c117b20e679ecaf886f4ec49bf7ce2fc964d3a409c",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/build_vlm_learning_figures.py",
+      "new_path": "tools/build_vlm_learning_figures.py",
+      "previous_sha256": "99eaceebb91cbb5b3856217b7d70b934a01f77b100c0cc20e3b95e5f26ad77a2",
+      "current_sha256": "99eaceebb91cbb5b3856217b7d70b934a01f77b100c0cc20e3b95e5f26ad77a2",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/build_vlm_learning_mechanisms.py",
+      "new_path": "tools/build_vlm_learning_mechanisms.py",
+      "previous_sha256": "443b3a883e5760ba772dadc1a74e4c1b2076e2a8756fc85ebf74eabf039a0194",
+      "current_sha256": "443b3a883e5760ba772dadc1a74e4c1b2076e2a8756fc85ebf74eabf039a0194",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/build_vlm_learning_pdf.py",
+      "new_path": "tools/build_vlm_learning_pdf.py",
+      "previous_sha256": "2255b31a2cf164c6c7d64959713b5eac7b93bd82bf6bf41f7df298959d959ff1",
+      "current_sha256": "2255b31a2cf164c6c7d64959713b5eac7b93bd82bf6bf41f7df298959d959ff1",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/build_vlm_learning_reader.py",
+      "new_path": "tools/build_vlm_learning_reader.py",
+      "previous_sha256": "0279a77035a7afd7078c37b0d2598e256f55cf5c3478ccc9768a5278c26acf49",
+      "current_sha256": "87f15f1a221deaaa0ca41b1b89f971e6da44bba8cc727daf413a949b8b848649",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/build_vlm_region_reader.py",
+      "new_path": "tools/build_vlm_region_reader.py",
+      "previous_sha256": "ee5d4d5c96c543502797a51c0e692d7a98251057773044760303b14229121db9",
+      "current_sha256": "cc9ef94e28b36a5cd99b310330f25a1847e3815c7c4a0cd60938f6e8643e24dd",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/build_vlm_weighted_failure_reader.py",
+      "new_path": "tools/build_vlm_weighted_failure_reader.py",
+      "previous_sha256": "fbf23f448887c97c41005c41e27f35d70817b4a2bf784786b456a522c5f0b9aa",
+      "current_sha256": "6f29f7b047f074770e432d53c0f6c2c78e50cdabd45ec35b75903756679b2ffb",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/check_release.py",
+      "new_path": "tools/check_release.py",
+      "previous_sha256": "4cc1f9eba35274ca6fd359114490a2547619743aaf0bcdfaf38c22f4c0febfba",
+      "current_sha256": "b826a7eea989bafc87877fd5b925905f522a35f2c49f0ff3a69b7c9f8c8101ae",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/export_results.py",
+      "new_path": "tools/export_results.py",
+      "previous_sha256": "b98f4d0bf769d71de2586496fc856324c0ccdacc7e033c18ca551c1a1e7e2795",
+      "current_sha256": "b98f4d0bf769d71de2586496fc856324c0ccdacc7e033c18ca551c1a1e7e2795",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/export_vlm_optimization_metrics.py",
+      "new_path": "tools/export_vlm_optimization_metrics.py",
+      "previous_sha256": "e7ad2d5eb01eb5f6c310f1c105bfa2ccbbcfa171aa4b7b24608522be49a3f965",
+      "current_sha256": "e7ad2d5eb01eb5f6c310f1c105bfa2ccbbcfa171aa4b7b24608522be49a3f965",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/extract_vlm_learning_code.py",
+      "new_path": "tools/extract_vlm_learning_code.py",
+      "previous_sha256": "f24a411dbb684ea436011403609f454b7b2432b0705e6e96bd8994aec029ddb6",
+      "current_sha256": "b3f3e0b2dd062988fe1c527e966bb98c26305e4e5da276b06c6ecfd78c303792",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/package_release.py",
+      "new_path": "tools/package_release.py",
+      "previous_sha256": "2d1407b94eb15c160c33f6512f14bc639097d57c942b778b9cf371f813732884",
+      "current_sha256": "2e4c9a58d763bc8900ddd56e28b14a47a097e4b41993ae33f2410831f878f6e6",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/render_assets.py",
+      "new_path": "tools/render_assets.py",
+      "previous_sha256": "827fa617e0522e365e53269f7cc27c6d4bde8c98ca31428f9c698b3cb37baa8a",
+      "current_sha256": "827fa617e0522e365e53269f7cc27c6d4bde8c98ca31428f9c698b3cb37baa8a",
+      "changed_for_layout": false,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/run_vlm_region_study.py",
+      "new_path": "tools/run_vlm_region_study.py",
+      "previous_sha256": "035696827aad2d9f9c26f35ff232b62de5806333f2172dbe24719a5ff8fa834f",
+      "current_sha256": "58eb08a0a9435ed1178375307b92b42b0676174b5e8b999be34c074db657f8b2",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "tools/run_vlm_weighted_contract.py",
+      "new_path": "tools/run_vlm_weighted_contract.py",
+      "previous_sha256": "d684b147d1748ae63ea89887eecf4876fdab4db9688eeef7a3dee0dc7d3cb56a",
+      "current_sha256": "13724810d7a2c7fa31d1a8eb4a197c9aed371e15100ddaa9e33445b2bde35782",
+      "changed_for_layout": true,
+      "relocated": false
+    },
+    {
+      "old_path": "vlm_a100/__init__.py",
+      "new_path": "src/vlm_a100/__init__.py",
+      "previous_sha256": "37e6a14423a6283f9ac9dec0c1aec862663b72f99282a880439696dae2edf775",
+      "current_sha256": "37e6a14423a6283f9ac9dec0c1aec862663b72f99282a880439696dae2edf775",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_a100/evaluate.py",
+      "new_path": "src/vlm_a100/evaluate.py",
+      "previous_sha256": "dc394ad6c6887ecd5710879e77900d7ec6e760d6f884854f3d5f62189b519785",
+      "current_sha256": "0fc3fdc2a0f482fd43d17d6f66b44db7330fdaef3c8603d9882438070df895d3",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_a100/pipeline.py",
+      "new_path": "src/vlm_a100/pipeline.py",
+      "previous_sha256": "6f4a2768037b387322f502e3852ad8aa6824f75f059cd1dd8479764f45de3aa1",
+      "current_sha256": "399477f524d1bfc5ca1dd8f2b7e430a53cc0da3fe711126c847fbfb0019f8094",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_a100/records.py",
+      "new_path": "src/vlm_a100/records.py",
+      "previous_sha256": "0a45bc1030135f3d1ddbb3bbbf1c2afd3608558e9dc84c54b61af8552845c6ed",
+      "current_sha256": "ae647a6c8d9563d1a6281a63987feeb9c2a143c598dd487d9392de9052c2800c",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_a100/train.py",
+      "new_path": "src/vlm_a100/train.py",
+      "previous_sha256": "456a31758c27f6b50d873ea4aed390cfff42ece2ca18bd7293ae2d538fb4dc63",
+      "current_sha256": "a56f344fed076c7fbd0ad130c1fec8718695195f7abc566350368fffb0fab786",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/__init__.py",
+      "new_path": "src/vlm_deep/__init__.py",
+      "previous_sha256": "e873a77068c6f50933ccce32fe81d614577d8ddc0379d085f7655c17b9d73cbd",
+      "current_sha256": "e873a77068c6f50933ccce32fe81d614577d8ddc0379d085f7655c17b9d73cbd",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/check_restore.py",
+      "new_path": "src/vlm_deep/check_restore.py",
+      "previous_sha256": "44e33716664754115e92f87f4a954a23fce690c4c031fec60220e4a4d4ad10ef",
+      "current_sha256": "db641802eb641b3108bbe70f2dfe39fcec20b6f00a6e47b919a06c868ef86f67",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/common.py",
+      "new_path": "src/vlm_deep/common.py",
+      "previous_sha256": "84f94d4e1e8efb4894804c0b9d84731dc49df2ad44e87fa8ca63823faf22e508",
+      "current_sha256": "84f94d4e1e8efb4894804c0b9d84731dc49df2ad44e87fa8ca63823faf22e508",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/download.py",
+      "new_path": "src/vlm_deep/download.py",
+      "previous_sha256": "0a69ca410f36133d7b80abe27ba376725e98c238fe2827287db043b967e2c0f5",
+      "current_sha256": "0a69ca410f36133d7b80abe27ba376725e98c238fe2827287db043b967e2c0f5",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/evaluate.py",
+      "new_path": "src/vlm_deep/evaluate.py",
+      "previous_sha256": "fb35af0e81b4d8bd74888bdb84758ef3ce8566c7aa24cf2dab350d3cda791824",
+      "current_sha256": "acb23d59888280a105a662e34784259c4e0042ea730558253e39813ed89870ed",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/model.py",
+      "new_path": "src/vlm_deep/model.py",
+      "previous_sha256": "e692cc119da71a5332aaa2f926fe51f2725a1e7a00802c5312fe61fc2e6af40f",
+      "current_sha256": "e692cc119da71a5332aaa2f926fe51f2725a1e7a00802c5312fe61fc2e6af40f",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/pipeline.py",
+      "new_path": "src/vlm_deep/pipeline.py",
+      "previous_sha256": "5428f9bba75eee98007ee533fa0eab63dd8111e08a35ddb2450a008bd27983bc",
+      "current_sha256": "7de58599b2f19d1cf411aaff57030ca607f4af0e6520f922cd54822ac582bd54",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/preflight.py",
+      "new_path": "src/vlm_deep/preflight.py",
+      "previous_sha256": "10b316e3a1c999fdb10e2243d9e2de802598de1f0497f843103c944703ddbe99",
+      "current_sha256": "f19e5cbe8cbe315cb475398b7ca2b78505f53250fa2163aa88fcc11a80505249",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/preflight_numerical.py",
+      "new_path": "src/vlm_deep/preflight_numerical.py",
+      "previous_sha256": "9fb4bb7d3324adef3e3fb9c056ba8faf68dec1fa7282acda47ebc62dff2be08e",
+      "current_sha256": "185911024092c7078695a911864c7792dce1f1693583ddc61e2add0a28e8fd29",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/prepare.py",
+      "new_path": "src/vlm_deep/prepare.py",
+      "previous_sha256": "fe8bcfee2d9f95d16404e510e112ac12145f7dde94f3624fe6aab6289924f4bb",
+      "current_sha256": "f2d2e7517f87f21c43da753e7428dcfd062dee8151502b227f4f87a5a25b5417",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/prepare_columns.py",
+      "new_path": "src/vlm_deep/prepare_columns.py",
+      "previous_sha256": "fa041e99b8bff009536176009aeff36d31bb92a0fa8fc1d0167f91ec85e0f90f",
+      "current_sha256": "8e6225b7f1e3e02d3e608408097b676b6ed6bd601a38f4a5aca52ce9bcbc2371",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/prepare_transfer.py",
+      "new_path": "src/vlm_deep/prepare_transfer.py",
+      "previous_sha256": "1d5f4be08bd20eecfdf0dff7489e334ad6d2495fbd41ceddff0e48172ec200d1",
+      "current_sha256": "1d5f4be08bd20eecfdf0dff7489e334ad6d2495fbd41ceddff0e48172ec200d1",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/report.py",
+      "new_path": "src/vlm_deep/report.py",
+      "previous_sha256": "7f4083917b6b160a17f4c09b7ca9902f5e1e673f7fea5103ef5d5dd136fea054",
+      "current_sha256": "7f4083917b6b160a17f4c09b7ca9902f5e1e673f7fea5103ef5d5dd136fea054",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/scoring.py",
+      "new_path": "src/vlm_deep/scoring.py",
+      "previous_sha256": "dd59d3091e488ff856299f6c72ed62af6b39f5873c8a9e2b7683f8e9c8c2b5f0",
+      "current_sha256": "dd59d3091e488ff856299f6c72ed62af6b39f5873c8a9e2b7683f8e9c8c2b5f0",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/third_party/LICENSE.lmms-eval",
+      "new_path": "src/vlm_deep/third_party/LICENSE.lmms-eval",
+      "previous_sha256": "17358b5caadacb8108f14a6a319779cc8a20feed699f79c59e396e7e9dd5c33b",
+      "current_sha256": "17358b5caadacb8108f14a6a319779cc8a20feed699f79c59e396e7e9dd5c33b",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/third_party/SOURCE.json",
+      "new_path": "src/vlm_deep/third_party/SOURCE.json",
+      "previous_sha256": "462c8b9e7fb57a50e89ff66da312caa6378459576b02699dd12a1db1f1f28227",
+      "current_sha256": "462c8b9e7fb57a50e89ff66da312caa6378459576b02699dd12a1db1f1f28227",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/third_party/__init__.py",
+      "new_path": "src/vlm_deep/third_party/__init__.py",
+      "previous_sha256": "fd3c822da16a7e22ea6bd4ded9e60b7992a9052fc9429e10a65c84abdf1105c9",
+      "current_sha256": "fd3c822da16a7e22ea6bd4ded9e60b7992a9052fc9429e10a65c84abdf1105c9",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/third_party/mcq_extract.py",
+      "new_path": "src/vlm_deep/third_party/mcq_extract.py",
+      "previous_sha256": "c38447cf7927bc9e9498692a544d98bf50a3cdd4c7d09adca5793eb748a9739d",
+      "current_sha256": "c38447cf7927bc9e9498692a544d98bf50a3cdd4c7d09adca5793eb748a9739d",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/third_party/vqa_eval_metric.py",
+      "new_path": "src/vlm_deep/third_party/vqa_eval_metric.py",
+      "previous_sha256": "4e4154c6c7e4657e6c44aa08e184ce5ae0e872665744c6cb684cf645e4647ce0",
+      "current_sha256": "4e4154c6c7e4657e6c44aa08e184ce5ae0e872665744c6cb684cf645e4647ce0",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/train.py",
+      "new_path": "src/vlm_deep/train.py",
+      "previous_sha256": "1b20e5d1cc69abcdcb60932a49103c5a3fb21566967b466c72a9b0b91de825e0",
+      "current_sha256": "25c994003caf2ee80fa5bc05a6df0fd2f351385ab09926fc7bc2487fb3f192f3",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_deep/verify.py",
+      "new_path": "src/vlm_deep/verify.py",
+      "previous_sha256": "d1513d69bfd6358ea559f335c46057961142901ee295ee48782f769bba99a823",
+      "current_sha256": "68d06e8bb2dfadc05785a3ce90d67e9961419733cec28e155b5558b5e83b3347",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_formal/__init__.py",
+      "new_path": "src/vlm_formal/__init__.py",
+      "previous_sha256": "0e2d7daa310478004560d6c1fae4cd681a9f551cd6f365f675bdc9fde3aecfa5",
+      "current_sha256": "0e2d7daa310478004560d6c1fae4cd681a9f551cd6f365f675bdc9fde3aecfa5",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_formal/evaluate.py",
+      "new_path": "src/vlm_formal/evaluate.py",
+      "previous_sha256": "03b289a9289619299c83e8ccd4edef4e5dfed040cd2f9e49549e15cf2848864c",
+      "current_sha256": "9169e7173eddbad6b262f0016e14b0b259c5936428bd15bde82db9d13a5504e1",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_formal/pipeline.py",
+      "new_path": "src/vlm_formal/pipeline.py",
+      "previous_sha256": "0c8b4f6a8e292836852e580f53d703ce314c762738bb4f5601d8454e8154f6cc",
+      "current_sha256": "d4548de2856d82f878c62a8dc163b44c96366a35c10421dc731b11e15474e631",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_joint/__init__.py",
+      "new_path": "src/vlm_joint/__init__.py",
+      "previous_sha256": "f9c6503e20a25d397c3a412f6a431309594b978be73105e5a1877560f87f7f98",
+      "current_sha256": "f9c6503e20a25d397c3a412f6a431309594b978be73105e5a1877560f87f7f98",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_joint/evaluate.py",
+      "new_path": "src/vlm_joint/evaluate.py",
+      "previous_sha256": "b21fca287d39639703eafc2c668d2aa33fe5d67e802a68ac3d4c7a43f74bc1b1",
+      "current_sha256": "62f4cf4ead2b1813e8691d9820cb243cb8f4f848cf8df8f50106dbdd6cf4f9bb",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_joint/pipeline.py",
+      "new_path": "src/vlm_joint/pipeline.py",
+      "previous_sha256": "4c40cefe486aaffdd4ef7aae2c2d9dd864f830686a455f508237d8683b7d1252",
+      "current_sha256": "6b2ba38caad10e9af01701998e5ff47ecfec2ba2cc3ab841ef808e332ef8b5e5",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_precision/__init__.py",
+      "new_path": "src/vlm_precision/__init__.py",
+      "previous_sha256": "8f02d2cd1c68245be80f400cdc803c1560d57e0ff8380153c23ec54253637283",
+      "current_sha256": "8f02d2cd1c68245be80f400cdc803c1560d57e0ff8380153c23ec54253637283",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_precision/evaluate.py",
+      "new_path": "src/vlm_precision/evaluate.py",
+      "previous_sha256": "352ef87fe98d59bfc662efcb54cd62ff17db51b476df63ed4f4a240e6d63a500",
+      "current_sha256": "c7a46a769ad28acf4c915c74e73f99f41a0e5789f160901eb0b6826393fbe6ca",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_precision/pipeline.py",
+      "new_path": "src/vlm_precision/pipeline.py",
+      "previous_sha256": "cdd650a7d65460c6cee8899ace84839daaeb470493984c763d7bcc304058351f",
+      "current_sha256": "6f28141568e19c272ff25c5dcaf4d781679ab8d1c26ef5150d5b78e4eaee8b87",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_probe/__init__.py",
+      "new_path": "src/vlm_probe/__init__.py",
+      "previous_sha256": "3e9515806344406f55d9fffec618a1374f55f7e19470ad335231e3fc1d24cfab",
+      "current_sha256": "3e9515806344406f55d9fffec618a1374f55f7e19470ad335231e3fc1d24cfab",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_probe/evaluate.py",
+      "new_path": "src/vlm_probe/evaluate.py",
+      "previous_sha256": "d052828ef4a7d3b7a148b7c2d70bdba54ae2417f86806b484add39dacbc13cd4",
+      "current_sha256": "2541d60a73aa8abf6105d00c6b4a775ceaa1a9bcdd331b29b2cfe16bec74018f",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_probe/pipeline.py",
+      "new_path": "src/vlm_probe/pipeline.py",
+      "previous_sha256": "1e459adeb2eadc262db7ace30eba8ee489d58340d676bfc5139b622e9a87d5d0",
+      "current_sha256": "e93189c74d6f7def50a4a0315a890f6ffba9cfe517a4b8f63ab3562c4f6bb6cb",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_region/__init__.py",
+      "new_path": "src/vlm_region/__init__.py",
+      "previous_sha256": "285afc58dcff2ec4df1cd2ef41af69418c1efbfd9372f4c6413dc02b0a1001cc",
+      "current_sha256": "285afc58dcff2ec4df1cd2ef41af69418c1efbfd9372f4c6413dc02b0a1001cc",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_region/analysis.py",
+      "new_path": "src/vlm_region/analysis.py",
+      "previous_sha256": "1e943411d89821179071db95eed84d65bed928df49f79d368c86536d1b384726",
+      "current_sha256": "f5fcf930b5298c49f22b7a9aae4664bfade08100dba44f5fdcc3649fc723a873",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_region/data.py",
+      "new_path": "src/vlm_region/data.py",
+      "previous_sha256": "114cebf9c9cff586de2dcdd52a3dc9b0abe48bd2b5de23d2a5537fc7dd4d6c27",
+      "current_sha256": "aca8db072983e542cad219e17b8b3add4d2c4eddeaccf3ced87cd5c221a90f35",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_region/detect.py",
+      "new_path": "src/vlm_region/detect.py",
+      "previous_sha256": "f0dfa028d7df030e16938ba78c29a14c48c654f7aa035584e059f0e913f0c37f",
+      "current_sha256": "f0dfa028d7df030e16938ba78c29a14c48c654f7aa035584e059f0e913f0c37f",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_region/evaluate.py",
+      "new_path": "src/vlm_region/evaluate.py",
+      "previous_sha256": "03a08724869d3711932c777a7db6de6ae20975e1cf5496f98ef2fbf63842416f",
+      "current_sha256": "98cde6e77907e915dedde0a0fb5572132f1545daf053d6a2e3b46be7271b7e28",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_region/pipeline.py",
+      "new_path": "src/vlm_region/pipeline.py",
+      "previous_sha256": "f55d7265a0ee26076a16ebc5cd8ad2575ed82e905146df113c18c93a6b5275ab",
+      "current_sha256": "e766ffb852c02beb44e9674b293596a21217696eb6e3739950ac61b6cff82464",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_region/views.py",
+      "new_path": "src/vlm_region/views.py",
+      "previous_sha256": "ce03599a4f83f7038f7cb8efba1c7b796f0ff300f58c9625aedcece57ee02199",
+      "current_sha256": "ce03599a4f83f7038f7cb8efba1c7b796f0ff300f58c9625aedcece57ee02199",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/__init__.py",
+      "new_path": "src/vlm_sft/__init__.py",
+      "previous_sha256": "f6729eef6ccb1dedf7f1490e257933ab76cff1313714b30ab39561f9ed7d1e87",
+      "current_sha256": "f6729eef6ccb1dedf7f1490e257933ab76cff1313714b30ab39561f9ed7d1e87",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/assets.py",
+      "new_path": "src/vlm_sft/assets.py",
+      "previous_sha256": "c7882b7326df6971d7ef4d960f526a4308a411746a044e3ce5f6679eb3668371",
+      "current_sha256": "c7882b7326df6971d7ef4d960f526a4308a411746a044e3ce5f6679eb3668371",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/common.py",
+      "new_path": "src/vlm_sft/common.py",
+      "previous_sha256": "3e47669d67c7f5133d359a69a12a6090f8bf5f9e1b558dd31e2f070b5b1a3781",
+      "current_sha256": "da662b6219ac630e4b761634658b02b33a30ddc5fbe85fb0acaf8245dcd83086",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/evaluate.py",
+      "new_path": "src/vlm_sft/evaluate.py",
+      "previous_sha256": "dbc4a8f789c7853e07f78fa950d7899e44048f60c4e61623611feb034936f0fb",
+      "current_sha256": "7b06b15ffcf00b120eb5cc3f154d8136fbfa0c44aab5128fda0b2e64ecf572aa",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/infer.py",
+      "new_path": "src/vlm_sft/infer.py",
+      "previous_sha256": "51b89404c6bfb89b9b692d3ce30a7df39cffc244d4b5986462f587d3a54965af",
+      "current_sha256": "f0f1e819224f937fb1f82449e97ae40c46ab55e47a42a7507057727de82461e3",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/model.py",
+      "new_path": "src/vlm_sft/model.py",
+      "previous_sha256": "c8c21e5adf0aac2ef5718ae206017de1f152818001d4f059a9442bf2bdbbd7d8",
+      "current_sha256": "c8c21e5adf0aac2ef5718ae206017de1f152818001d4f059a9442bf2bdbbd7d8",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/pipeline.py",
+      "new_path": "src/vlm_sft/pipeline.py",
+      "previous_sha256": "5dd6df795372186328d238315a60a2acdf18391278074592a03c5c86680bc7ca",
+      "current_sha256": "b9285510b3506be8f9622402eef01659e90b125672337e0ca609620197b8540b",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/preflight.py",
+      "new_path": "src/vlm_sft/preflight.py",
+      "previous_sha256": "4720b619a9cd3b23d875815d0953be5d9e2c509827eb3c68f49bb08b567a4e63",
+      "current_sha256": "46fae4fcbbbc61cfe8755bdd610e467cb862e3af2f5c2a9a6e66a5941ed4dbf2",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/prepare.py",
+      "new_path": "src/vlm_sft/prepare.py",
+      "previous_sha256": "b957a3ee779cbe3c6fcce4901618d368a23218a950691385b4152d7ce30123bc",
+      "current_sha256": "0d93a28369e49d66a90be123934563a842b6f7aeb96c1a5430e13d7c39624ea3",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/prepare_viewer.py",
+      "new_path": "src/vlm_sft/prepare_viewer.py",
+      "previous_sha256": "0944a8627f6a00d02399ee4de04802446f4a56b7a828580241d8513dea5924b2",
+      "current_sha256": "92b286041b9e7407a80718b9240d33d5c98767c8fc32c60a8a479c12efa21fec",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/report.py",
+      "new_path": "src/vlm_sft/report.py",
+      "previous_sha256": "157acd4f3356f7fd2f04cf4684ff147c04c9800cfeb7677295c98985fb9eed22",
+      "current_sha256": "157acd4f3356f7fd2f04cf4684ff147c04c9800cfeb7677295c98985fb9eed22",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/train.py",
+      "new_path": "src/vlm_sft/train.py",
+      "previous_sha256": "a8b32cf6e8966b62ba3346a29c8b6baf668d0d95dc8cf9a2e5e5355b3604a548",
+      "current_sha256": "e47f1b9df3c15b8327aa5e4dc540ce07a3d4584409d174c98358ee9bdb184d96",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_sft/verify.py",
+      "new_path": "src/vlm_sft/verify.py",
+      "previous_sha256": "c2d305af92a6d7a0c1969257e75743ab7ad38f79fa45efce0fc939678ad27673",
+      "current_sha256": "daff035559978ef7725e95486272ec26d2616e3f556aa9bebfaeeacb92ebe918",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_weighted/__init__.py",
+      "new_path": "src/vlm_weighted/__init__.py",
+      "previous_sha256": "d71a383146ec6ba56c5de7c71fcfe81fc036e57fb7b4bfe1f315e21641d8af79",
+      "current_sha256": "d71a383146ec6ba56c5de7c71fcfe81fc036e57fb7b4bfe1f315e21641d8af79",
+      "changed_for_layout": false,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_weighted/data.py",
+      "new_path": "src/vlm_weighted/data.py",
+      "previous_sha256": "70b5975ba07fd132ca471ebd0d4e3edef88e0fde2400ee052a58e040f0204b64",
+      "current_sha256": "2cf70506a057bf9431538b8a7490dcc6a3342ee1c0433c2b7c0719ee2d8e516e",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_weighted/dev_analysis.py",
+      "new_path": "src/vlm_weighted/dev_analysis.py",
+      "previous_sha256": "ddc0a3cb0e9a610197e45bf1d05bf3831947ca9ae206ee26dfe4a8d9657713ac",
+      "current_sha256": "600377c4814ff436a2c978527544a2a5d35c5d6f646306556891416afb850654",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_weighted/evaluate.py",
+      "new_path": "src/vlm_weighted/evaluate.py",
+      "previous_sha256": "ce7c3a6124d50002a02333ecda190842f752e2901c3444a5c4e8ca05527b8a5a",
+      "current_sha256": "a3611584cef563492236ea3f7c44e0f6a4570b7e45bba1c179a30466e97da2c4",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_weighted/pipeline.py",
+      "new_path": "src/vlm_weighted/pipeline.py",
+      "previous_sha256": "2a985390507e7676e5f3e344e1d4a88421becbc742bfc9f24b6535b7862c8479",
+      "current_sha256": "b878eddc4c53439cac1818300b08a1ddb4dc4354dd8d2e932e627fea5477ff9b",
+      "changed_for_layout": true,
+      "relocated": true
+    },
+    {
+      "old_path": "vlm_weighted/train.py",
+      "new_path": "src/vlm_weighted/train.py",
+      "previous_sha256": "cb0088664ff75cf5b571b7922eacd1fe55e91a53e9d4579d55db5eae140f3578",
+      "current_sha256": "b0ebbafddb8729ab314e22bcdbf86f77eace83ba5ca591be5fa4648f8736b0ab",
+      "changed_for_layout": true,
+      "relocated": true
+    }
+  ],
+  "deleted_entries": [
+    {
+      "old_path": ".github/workflows/ci.yml",
+      "previous_sha256": "2c32f88a8c7cb94d7a13f0787f5f85772848204494f9273cf7687f06c644ec89",
+      "reason": "hosted CI disabled by user"
+    },
+    {
+      "old_path": "pytest.ini",
+      "previous_sha256": "d5018ccfd259bcc065451357984d9404e0eaea62dd20fef7e513823483e2e3d1",
+      "reason": "pytest settings consolidated in pyproject.toml"
+    }
+  ],
+  "new_source_files_sha256": {
+    "src/rarevlm_paths.py": "6eb9be07633abb42c872525fa249a0d85e82e4c113ec995035864d70d4dbeda1"
+  }
+}

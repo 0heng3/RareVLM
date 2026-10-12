@@ -15,7 +15,7 @@ w_i = r_i / Z
 
 Z 在全训练集固定，不按 batch 重新归一化；监督目标原文本保持不变。权重范围 0.630513–1.261026、均值 1。rare 训练 QA 占 63.741%，加权目标系数占 75.730%；这是目标函数分配，未测量梯度贡献占比。
 
-实现入口：[权重与标注审计](../vlm_weighted/data.py)、[weighted_objective 与 DDP 训练](../vlm_weighted/train.py)、[dev 评测](../vlm_weighted/evaluate.py)、[配对分析](../vlm_weighted/dev_analysis.py)、[配置](../configs/vlm_weighted_sft_v1.json)。DDP 用 `local weighted sum * world_size / actual_global_real_QA`，尾 batch 的 sentinel 权重为零，以抵消 DDP 的 rank 梯度平均并保留每真实题均值。
+实现入口：[权重与标注审计](../src/vlm_weighted/data.py)、[weighted_objective 与 DDP 训练](../src/vlm_weighted/train.py)、[dev 评测](../src/vlm_weighted/evaluate.py)、[配对分析](../src/vlm_weighted/dev_analysis.py)、[配置](../configs/vlm_weighted_sft_v1.json)。DDP 用 `local weighted sum * world_size / actual_global_real_QA`，尾 batch 的 sentinel 权重为零，以抵消 DDP 的 rank 梯度平均并保留每真实题均值。
 
 ## 固定对照合同
 

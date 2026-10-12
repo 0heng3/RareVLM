@@ -23,6 +23,8 @@ import numpy as np
 sys.dont_write_bytecode = True
 WORKSPACE = Path('/opt/data/private')
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO))
+from tools.layout_paths import MIGRATION_PATH, verify_source
 OUTPUTS = WORKSPACE / 'longtail_vlm/rarevlm_pilot/outputs'
 DEFAULT_ASSET = OUTPUTS / 'vlm_deep_v2'
 DEFAULT_ROOT = OUTPUTS / 'vlm_formal_bf16_v1'
@@ -115,9 +117,9 @@ def load_cpu_module(name, path):
     return module
 
 
-NORMALIZER_PATH = REPO / 'vlm_deep/third_party/vqa_eval_metric.py'
-SCORING_PATH = REPO / 'vlm_deep/scoring.py'
-MCQ_PATH = REPO / 'vlm_deep/third_party/mcq_extract.py'
+NORMALIZER_PATH = REPO / "src" / 'vlm_deep/third_party/vqa_eval_metric.py'
+SCORING_PATH = REPO / "src" / 'vlm_deep/scoring.py'
+MCQ_PATH = REPO / "src" / 'vlm_deep/third_party/mcq_extract.py'
 
 
 def scorers():
@@ -183,13 +185,8 @@ def verify_sources(lock, hashes):
     if not isinstance(source, dict) or not source:
         raise ValueError('source lock absent')
     for name, expected in source.items():
-        path = Path(name) if Path(name).is_absolute() else REPO / name
-        if not path.resolve().is_relative_to(REPO):
-            raise ValueError('unexpected source location outside RareVLM package')
-        if str(path) not in hashes:
-            hashes[str(path)] = sha_file(path)
-        if hashes[str(path)] != expected:
-            raise ValueError(f'current source differs from frozen evaluation binding: {name}')
+        receipt = verify_source(name, expected, allow_current=True)
+        hashes[receipt['path']] = receipt['current_sha256']
 
 
 def validate_lock(lock, model_key, task, data, config_path, hashes):
@@ -561,7 +558,7 @@ def prepare_slices(data, root, normalize):
             'evaluation_target_rule': 'Normalize the public-validation raw modal target with same tie rule; look up train_all actual SFT-target QA exposure.',
             'bucket_rules': {'unseen_0': 'count == 0', 'rare_1_5': '1 <= count <= 5', 'medium_6_20': '6 <= count <= 20', 'frequent_gt20': 'count > 20'},
             'normalizer_source_sha256': sha_file(NORMALIZER_PATH),
-            'training_target_source_sha256': sha_file(REPO / 'vlm_deep/common.py'),
+            'training_target_source_sha256': sha_file(REPO / "src" / 'vlm_deep/common.py'),
             'target_frequencies': dict(sorted(target_frequency.items())),
             'reference_frequencies': dict(sorted(reference_frequency.items())),
             'features': features,
@@ -796,7 +793,10 @@ def main():
                    'validated_saved_questions': sum(row['validated_saved_questions'] for row in progress),
                    'expected_questions': 4 * sum(value[0] for value in COUNTS.values()), 'progress': progress,
                    'scope': 'Partial checked progress only; no final seed statistics, effect claims or selection.',
-                   'provenance': provenance, 'slice_lock_sha256': slices['slice_lock_sha256']}
+                   'provenance': provenance, 'slice_lock_sha256': slices['slice_lock_sha256'],
+                   'architecture_migration': {'path': str(MIGRATION_PATH), 'sha256': sha_file(MIGRATION_PATH),
+                       'scope': 'Historical source digests remain original; current layout bytes verified through recorded migration.'}
+                       if MIGRATION_PATH.exists() else None}
         write_json(output / 'ANALYSIS.json', partial)
         print(json.dumps({key: partial[key] for key in ('complete', 'completed_cells', 'validated_saved_questions', 'expected_questions')}))
         return 0
@@ -837,6 +837,9 @@ def main():
                 'resource_contention': monitor, 'historical_protocol_metrics': history,
                 'historical_protocol_provenance': history_origin, 'provenance': provenance,
                 'analysis_source_sha256': sha_file(__file__), 'source_files_rechecked': hashes,
+                'architecture_migration': {'path': str(MIGRATION_PATH), 'sha256': sha_file(MIGRATION_PATH),
+                    'scope': 'Historical source digests remain original; current layout bytes verified through recorded migration.'}
+                    if MIGRATION_PATH.exists() else None,
                 'dataset_provenance': {task: {'manifest_file': str(data['path']), 'manifest_file_sha256': data['manifest_file_sha256'], 'manifest_sha256': data['manifest']['manifest_sha256']} for task, data in datasets.items()},
                 'statistics': {'seed_estimator': 'arithmetic mean ± sample SD across seeds0/42/200; no mean CI with n3',
                                'image_intervals': INTERVAL_SCOPE, 'replicates': args.replicates,

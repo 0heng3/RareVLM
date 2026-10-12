@@ -1,5 +1,7 @@
 # BF16与高视觉预算联合诊断 v1
 
+目录迁移说明：本文原机启动命令与持久环境路径是迁移前执行快照，历史结果/配置/来源锁保持原样。精确恢复旧归档须在独立 checkout 使用提交 `2049c0e`；当前 `src/` 版需先执行 `pip install -e . --no-deps`，使用新的输出目录与来源锁，不复用旧锁。详见[架构说明](ARCHITECTURE.md)。
+
 冻结：2026-10-11。配置：[vlm_joint_bf16_v1.json](../configs/vlm_joint_bf16_v1.json)。进度：STATUS.json（本地归档，未发布）：`rarevlm_pilot/outputs/vlm_joint_bf16_v1/STATUS.json`。
 
 公开说明：本页保留冻结执行协议及原机命令。源码与配置可公开检查，完整状态、预测、数据和权重为本地归档；外部复现须准备对应依赖/数据/模型/adapter并重绑定配置与命令路径，不保证 clean clone 可直接启动 GPU 评测。完成结果见[当前研究路线](JOB_ROUTE.md)。
@@ -21,7 +23,7 @@ adapter原本NF4/FP32训练，当前是数值推理路径迁移，不是BF16训�
 
 ## 实现与资源
 
-独立[worker](../vlm_joint/evaluate.py)、[controller](../vlm_joint/pipeline.py)、[CPU分析](../tools/analyze_vlm_joint_bf16.py)，复用冻结的加载/处理/生成/计分算法，不修改旧代码。
+独立[worker](../src/vlm_joint/evaluate.py)、[controller](../src/vlm_joint/pipeline.py)、[CPU分析](../tools/analyze_vlm_joint_bf16.py)，复用冻结的加载/处理/生成/计分算法，不修改旧代码。
 
 每role加载一次模型，先在1024压力样本检查有限logits、生成、网格/token一致与显存，再依次评测512/1024。压力样本只依据输入长度/长宽比和原有教学案例选择，不计入主矩阵缓存。
 

@@ -7,12 +7,15 @@ import json
 import math
 import re
 import statistics
+import sys
 from pathlib import Path
 
 from PIL import Image
 import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from tools.layout_paths import migration_entries, verify_source
 
 
 def sha(path):
@@ -25,14 +28,16 @@ def check():
     with (ROOT/'results/main_results.csv').open() as f:main=list(csv.DictReader(f))
     with (ROOT/'results/seed_results.csv').open() as f:seeds=list(csv.DictReader(f))
     assert len(main)==28 and len(seeds)==76
-    readme=(ROOT/'README.md').read_text()
+    readmes={name:(ROOT/name).read_text() for name in ('README.md','README.en.md') if (ROOT/name).exists()}
+    assert 'README.md' in readmes
     labels={'imagenet_lt_b32':'ImageNet-LT · B/32 · fixed view','imagenet_lt_b16':'ImageNet-LT · B/16 · fixed view',
             'imagenet_lt_b32_online':'ImageNet-LT · B/32 · online views','inat2018_b32':'iNaturalist 2018 · B/32 · fixed view'}
     for setting,label in labels.items():
         values={r['method']:r for r in main if r['setting']==setting}
         pairs=[f"{float(values[m]['oa']):.2f} / {float(values[m]['few']):.2f}" for m in ('zero_shot','ce','la','ce_val_alpha')]
         expected='| '+label+' | '+' | '.join(pairs)+' |'
-        assert expected in readme,f'homepage table differs from CSV: {setting}'
+        for name,readme in readmes.items():
+            assert expected in readme,f'homepage table differs from CSV: {name}: {setting}'
     for row in main:
         members=[r for r in seeds if (r['setting'],r['method'])==(row['setting'],row['method'])]
         assert len(members)==int(row['n_runs'])
@@ -51,9 +56,13 @@ def check():
             if 'A' in im.getbands():assert im.getchannel('A').getextrema()==(255,255)
     lock=json.loads((ROOT/'results/research_code_lock.json').read_text())
     assert lock['new_research_experiments']==0
-    for name,digest in lock['files'].items():assert sha(ROOT/name)==digest,f'frozen research module changed: {name}'
-    for name,item in json.loads((ROOT/'SOURCE_ORIGINS.json').read_text())['files'].items():
-        assert sha(ROOT/name)==item['portable_sha256'],name
+    for name,digest in lock['files'].items():verify_source(name,digest)
+    origins_path=ROOT/'metadata/SOURCE_ORIGINS.json'
+    if not origins_path.exists():origins_path=ROOT/'SOURCE_ORIGINS.json'
+    for name,item in json.loads(origins_path.read_text())['files'].items():
+        verify_source(name,item['portable_sha256'])
+    for name,item in migration_entries().items():
+        assert sha(ROOT/item['new_path'])==item['current_sha256'],f'architecture migration differs: {name}'
     for setting,s in provenance['settings'].items():
         assert s['train_seeds']==[0,42,200] and s['prompt']=='a photo of a {}.'
         assert len(s['model_weight_sha256'])==64 and len(s['manifest_sha256'])==64
@@ -76,21 +85,25 @@ def check():
         assert not vlm['model_and_dataset_weights_bundled']
         config=json.loads((ROOT/'configs/vlm_sft_textvqa.json').read_text())
         assert hashlib.sha256(json.dumps(config,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()==vlm['config_sha256']
-        for name,digest in vlm['execution_source_sha256'].items():assert sha(ROOT/'vlm_sft'/name)==digest
-        assert sha(ROOT/'vlm_sft/report.py')==vlm['report_source_sha256']
+        for name,digest in vlm['execution_source_sha256'].items():verify_source('vlm_sft/'+name,digest)
+        verify_source('vlm_sft/report.py',vlm['report_source_sha256'])
         proof=json.loads((ROOT/'results/vlm_sft_verification.json').read_text())
         assert proof['data_and_training']['manifest_sha256']==vlm['manifest_sha256']
         assert proof['data_and_training']['passed'] and proof['adapter_weights']['parameters_finite']
         assert proof['local_inference']['passed'] and proof['local_inference']['matches_saved_generated_prediction']
         assert not proof['local_inference']['reference_answers_passed_to_cli']
-        assert f"| Pretrained instruct | {vlm['baseline_vqa_consensus_percent']:.2f} | {vlm['baseline_any_answer_match_percent']:.2f} |" in readme
-        assert f"| QLoRA SFT, fixed final epoch | {vlm['lora_vqa_consensus_percent']:.2f} | {vlm['lora_any_answer_match_percent']:.2f} |" in readme
-    for path in ROOT.rglob('*.md'):
-        if any(p in ('.git','.tmp','.cache','artifacts','data','.venv') for p in path.relative_to(ROOT).parts):continue
+        for name,readme in readmes.items():
+            assert f"| Pretrained instruct | {vlm['baseline_vqa_consensus_percent']:.2f} | {vlm['baseline_any_answer_match_percent']:.2f} |" in readme,name
+            assert f"| QLoRA SFT, fixed final epoch | {vlm['lora_vqa_consensus_percent']:.2f} | {vlm['lora_any_answer_match_percent']:.2f} |" in readme,name
+    manifest_path=ROOT/'metadata/PACKAGE_MANIFEST.json'
+    if not manifest_path.exists():manifest_path=ROOT/'PACKAGE_MANIFEST.json'
+    manifest=json.loads(manifest_path.read_text())
+    for name in sorted(manifest['files']):
+        if Path(name).suffix!='.md':continue
+        path=ROOT/name
         for target in re.findall(r'\]\(([^)]+)\)',path.read_text()):
             if '://' in target or target.startswith('#'):continue
             assert (path.parent/target.split('#')[0]).resolve().exists(),f'broken link: {path.name}: {target}'
-    manifest=json.loads((ROOT/'PACKAGE_MANIFEST.json').read_text())
     for name,digest in manifest['files'].items():assert sha(ROOT/name)==digest,f'package hash mismatch: {name}'
     print(f'PASS: {len(main)} aggregate rows, {len(seeds)} seed records, frozen modules, images, links and {len(manifest["files"])} package hashes')
 

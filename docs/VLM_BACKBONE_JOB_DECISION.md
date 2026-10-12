@@ -75,7 +75,7 @@ B\in\mathbb{R}^{d_{\mathrm{out}}\times r}.
 | q/k/v/o rank4 | 1,843,200 | 0 | 1,843,200 | 相同参数预算覆盖更多语言投影 |
 | q/v rank4＋merger rank64/36 | 921,600 | 913,408 | 1,835,008 | 将约一半预算从语言投影分配给视觉—语言连接模块 |
 
-三者定义在 [vlm_deep_v2.json](../configs/vlm_deep_v2.json)，目标模块选择与实际计数在 [model.py](../vlm_deep/model.py)。代码先冻结底座，再枚举 36 层语言投影和明确的 `visual.merger.mlp.0/2`，设置独立 rank/alpha，并要求实际可训练参数等于配置值；`parameter_groups()` 分别统计语言与 merger。
+三者定义在 [vlm_deep_v2.json](../configs/vlm_deep_v2.json)，目标模块选择与实际计数在 [model.py](../src/vlm_deep/model.py)。代码先冻结底座，再枚举 36 层语言投影和明确的 `visual.merger.mlp.0/2`，设置独立 rank/alpha，并要求实际可训练参数等于配置值；`parameter_groups()` 分别统计语言与 merger。
 
 ```python
 language = [name for name, module in model.named_modules()
@@ -91,7 +91,7 @@ q/v rank8 与 q/k/v/o rank4 同时改变 rank 和插入范围，回答的是“�
 
 ## 3. 从代码理解：SFT 学什么，loss 怎样给每道题权重
 
-当前监督仅覆盖助手回答与结束 token。图像、问题和提示的 label 为 `-100`，不直接作为预测目标，但依然是生成回答的条件。实际编码在 [common.py 的 encode()](../vlm_deep/common.py)，监督区间由 [vlm_sft/common.py 的 answer_labels()](../vlm_sft/common.py)构造。
+当前监督仅覆盖助手回答与结束 token。图像、问题和提示的 label 为 `-100`，不直接作为预测目标，但依然是生成回答的条件。实际编码在 [common.py 的 encode()](../src/vlm_deep/common.py)，监督区间由 [vlm_sft/common.py 的 answer_labels()](../src/vlm_sft/common.py)构造。
 
 对第 `i` 道问题，有效答案 token 数为 `T_i`，当前目标为：
 
@@ -102,14 +102,14 @@ q/v rank8 与 q/k/v/o rank4 同时改变 rank 和插入范围，回答的是“�
 \right].
 \]
 
-[answer_loss()](../vlm_deep/common.py)先计算未归约的交叉熵，再逐题除以有效 token 数：
+[answer_loss()](../src/vlm_deep/common.py)先计算未归约的交叉熵，再逐题除以有效 token 数：
 
 ```python
 values = F.cross_entropy(..., ignore_index=-100, reduction='none')
 return values.sum(dim=1) / counts, values.sum(), int(counts.sum())
 ```
 
-随后 [train.py](../vlm_deep/train.py)按真实问题数聚合，并处理 DDP 归约与最后不足 batch 的样本权重。有效 batch 是 16；迁移至两卡后为每卡 microbatch8，而非改变学习率或样本曝光。
+随后 [train.py](../src/vlm_deep/train.py)按真实问题数聚合，并处理 DDP 归约与最后不足 batch 的样本权重。有效 batch 是 16；迁移至两卡后为每卡 microbatch8，而非改变学习率或样本曝光。
 
 这与“把整个 batch 的所有答案 token 放在一起平均”有区别：长答案在后者中获得更大的题目权重。更换训练框架时，即使仍然写 `cross_entropy` 和 `assistant_only_loss`，也必须核对 mask、结束 token、逐题/逐 token 权重和最后 batch；否则比较同时更换了训练目标。TRL 提供 assistant-only 与 completion-only 功能，但其行为取决于数据格式和聊天模板 mask，必须按固定版本验收。[TRL SFT 文档](https://huggingface.co/docs/trl/sft_trainer)
 
@@ -134,7 +134,7 @@ flowchart LR
 
 需要区分计算复杂度与整机耗时。对于长度为 `S=L_text+V` 的 decoder prefill，密集注意力中查询—键等部分通常有 `O(S²)` 的计算项；固定其他条件时，视觉 token 增加会提高这一部分的成本。**不能说视觉 token 翻倍后总训练/生成耗时一定变为四倍。**前馈层、投影、Qwen2.5 的视觉窗口注意力、图像解码/resize、量化算子和通讯具有不同成本；使用 KV cache 的逐 token 解码也不同于整段 prefill，FlashAttention 还会改变中间矩阵的存储方式。[Qwen2.5-VL 技术报告](https://arxiv.org/abs/2502.13923)
 
-下一轮最小矩阵已确定，具体定义见 [VLM_BUDGET_PROBE_V1_PROTOCOL.md](VLM_BUDGET_PROBE_V1_PROTOCOL.md)、[配置](../configs/vlm_budget_probe_v1.json)与[执行代码](../vlm_probe/evaluate.py)：
+下一轮最小矩阵已确定，具体定义见 [VLM_BUDGET_PROBE_V1_PROTOCOL.md](VLM_BUDGET_PROBE_V1_PROTOCOL.md)、[配置](../configs/vlm_budget_probe_v1.json)与[执行代码](../src/vlm_probe/evaluate.py)：
 
 | 固定模型状态 | 256 视觉 token 上限 | 512 上限 | 1024 上限 |
 | --- | --- | --- | --- |

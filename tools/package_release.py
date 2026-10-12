@@ -17,18 +17,19 @@ def main():
     p.add_argument('--date',default=date.today().isoformat())
     args=p.parse_args()
     names=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z'],cwd=ROOT).decode().split('\0')
-    names=sorted({n for n in names if n and n!='PACKAGE_MANIFEST.json' and (ROOT/n).is_file()})
+    names=sorted({n for n in names if n and n not in ('PACKAGE_MANIFEST.json', 'metadata/PACKAGE_MANIFEST.json') and (ROOT/n).is_file()})
     if any(Path(n).suffix in ('.pt','.pth','.npz','.bin','.safetensors','.zip','.log') for n in names):raise ValueError('large experiment artifacts may not enter the compact release')
     if any(any(x in Path(n).parts for x in ('.git','.tmp','.cache','data','artifacts','outputs')) for n in names):raise ValueError('generated/private paths in release')
     manifest={'edition':'RareVLM CV and Multimodal Runnable Release','version':args.version,'date':args.date,
               'repository':'https://github.com/0heng3/RareVLM','legacy_clip_study_frozen':True,
               'datasets_and_weights_included':False,
               'files':{n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names}}
-    (ROOT/'PACKAGE_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    (ROOT/'metadata').mkdir(exist_ok=True)
+    (ROOT/'metadata/PACKAGE_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
     if args.output:
         args.output.parent.mkdir(parents=True,exist_ok=True)
         with zipfile.ZipFile(args.output,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
-            for name in names+['PACKAGE_MANIFEST.json']:
+            for name in names+['metadata/PACKAGE_MANIFEST.json']:
                 day=date.fromisoformat(args.date)
                 info=zipfile.ZipInfo('RareVLM/'+name,date_time=(day.year,day.month,day.day,0,0,0))
                 info.compress_type=zipfile.ZIP_DEFLATED;info.create_system=3;info.external_attr=0o100644<<16

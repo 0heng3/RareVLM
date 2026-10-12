@@ -67,7 +67,9 @@ def main():
         unchanged()
         status(stage)
         started = time.monotonic()
-        result = subprocess.run(command, cwd=REPO, check=True)
+        env = dict(os.environ)
+        env["PYTHONPATH"] = str(REPO / "src") + (os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else "")
+        result = subprocess.run(command, cwd=REPO, env=env, check=True)
         event = {'stage':stage,'completed_at':now(),'wall_seconds':time.monotonic()-started,
                  'returncode':result.returncode,'command':command}
         state['events'].append(event)

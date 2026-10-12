@@ -22,3 +22,6 @@ packages/
 # Personal resume and preparation notes stay in the local workspace.
 docs/RESUME.md
 private_notes/
+*.egg-info/
+build/
+dist/

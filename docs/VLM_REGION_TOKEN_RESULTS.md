@@ -17,7 +17,7 @@
 
 预测器为 CPU `PP-OCRv5_mobile_det`，仅输出框和置信度，无识别文字输入 VLM。有效框置信度≥0.6，排名 `score*sqrt(clipped_bbox_area/source_image_area)`，按 bbox 字典序破同分，四边加 10% 外扩并裁到原图边界；无有效框时两种区域条件均回退整图。随机条件用稳定 image ID 哈希与 seed20261012，在合法范围均匀平移同宽同高框，不强制避开文字。选择器不用问题、参考答案、target 或已有错误分数；同一图不同 QA 共用位置。
 
-代码入口：[检测器](../vlm_region/detect.py)、[ROI/随机框/letterbox](../vlm_region/views.py)、[多图编码与输入合同](../vlm_region/data.py)、[生成及缓存校验](../vlm_region/evaluate.py)、[非抢占调度](../vlm_region/pipeline.py)、[图像配对分析](../vlm_region/analysis.py)、[冻结配置](../configs/vlm_region_token_v1.json)。该新 letterbox 输入协议与历史 native-resize 87.112% 不同，历史分数不能作为本轮受控基线。
+代码入口：[检测器](../src/vlm_region/detect.py)、[ROI/随机框/letterbox](../src/vlm_region/views.py)、[多图编码与输入合同](../src/vlm_region/data.py)、[生成及缓存校验](../src/vlm_region/evaluate.py)、[非抢占调度](../src/vlm_region/pipeline.py)、[图像配对分析](../src/vlm_region/analysis.py)、[冻结配置](../configs/vlm_region_token_v1.json)。该新 letterbox 输入协议与历史 native-resize 87.112% 不同，历史分数不能作为本轮受控基线。
 
 ## 完整结果
 

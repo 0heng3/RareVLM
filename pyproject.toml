@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rarevlm"
+version = "2.0.0"
+description = "Controlled long-tail adaptation and multimodal research"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dynamic = ["dependencies"]
+
+[project.urls]
+Repository = "https://github.com/0heng3/RareVLM"
+
+[project.scripts]
+rarevlm-smoke = "smoke:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = [
+    "calibrate", "extract_features", "extract_imagenet_lt_features",
+    "extract_imagenet_lt_features_b16", "extract_inat2018_features",
+    "imagenet_lt_manifest", "inat2018_manifest", "methods", "online_aug_dataset",
+    "posthoc_imagenet_lt", "prepare_assets", "project_paths", "rarevlm_paths",
+    "run_imagenet_lt", "run_imagenet_lt_b16", "run_imagenet_lt_online_aug",
+    "run_inat2018", "run_pilot", "smoke", "splits", "summarize",
+    "summarize_imagenet_lt", "summarize_posthoc_imagenet_lt", "summarize_runs",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["vlm_*"]
+
+[tool.setuptools.package-data]
+"vlm_deep.third_party" = ["SOURCE.json", "LICENSE.lmms-eval"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements/base.txt"]}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = ["src"]
+cache_dir = ".cache/pytest"

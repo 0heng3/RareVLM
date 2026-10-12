@@ -42,7 +42,7 @@
 
 训练定时不含模型初始化、数据准备或下载。推理延迟统计排除各 rank 的首个样本，但准确率保留全部256张图；不同答案长度影响延迟。这些是执行配置测量，不是服务 SLA 或加速收益。
 
-运行环境：PyTorch `2.3.0a0+6ddf5cf85e.nv24.04`、CUDA12.4、Transformers4.51.1、PEFT0.15.2、bitsandbytes0.45.5。可移植依赖入口为 [requirements-vlm.txt](../requirements-vlm.txt)。
+运行环境：PyTorch `2.3.0a0+6ddf5cf85e.nv24.04`、CUDA12.4、Transformers4.51.1、PEFT0.15.2、bitsandbytes0.45.5。可移植依赖入口为 [requirements/vlm.txt](../requirements/vlm.txt)。
 
 ## 工程验证与证据
 

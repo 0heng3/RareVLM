@@ -22,7 +22,7 @@
 
 冻结 CLIP 图文特征，训练 66,240 参数残差 adapter：`[B,512] → [B,64] → [B,512]`，再与固定文本原型计算 logits。ImageNet-LT B/32 的零样本/CE/验证集选强度的固定 CE 校准，整体准确率依次为 59.42/61.38/65.36%；Few 为 59.22/37.76/61.23%，Many 的 CE→校准为 76.10→69.87%。校准不更新参数，结果支持决策调整的作用，不能据此证明表征没有损伤或提出了新算法。
 
-iNaturalist 2018 的 CE 为 5.05%，固定 α=1 校准降至 4.00%，验证集选 α=0.25 为 5.35%。不能把 ImageNet-LT 的有效强度视作普适规则。代码：[adapter与loss](../methods.py#L35)、[选点与训练](../run_imagenet_lt.py#L160)、[固定校准](../calibrate.py#L49)。
+iNaturalist 2018 的 CE 为 5.05%，固定 α=1 校准降至 4.00%，验证集选 α=0.25 为 5.35%。不能把 ImageNet-LT 的有效强度视作普适规则。代码：[adapter与loss](../src/methods.py#L35)、[选点与训练](../src/run_imagenet_lt.py#L160)、[固定校准](../src/calibrate.py#L49)。
 
 ### Qwen：适配收益与跨任务边界
 
@@ -91,7 +91,7 @@ TextVQA 三 checkpoint 的图像配对探索区间均高于零，DocVQA/MMStar �
 
 各条件 allocated 约 8.420 GiB，缓存 VLM 阶段吞吐约 1.74–1.79 QA/s；1024 图检测额外累计 predict API 554.52 秒（11,205 框、28 空检测）。检测、初始化、视图准备与 GPU 阶段分别计时，缓存吞吐不能当作新请求端到端速度。等视觉 token 不等于等总 input、FLOPs、独立信息量或成本。新 letterbox 与旧 native-resize 是不同输入协议，旧 87.112 不能作为本轮单整图基线。
 
-区域相对单整图 79题升、186题降，其中118题由满分降至零分。下一步优先零 GPU 复用这些实际输入与预测，人工核对可读性、选区相关性、全局信息与问题类型；机制标签仍待人工审查。入口：[区域结果](VLM_REGION_TOKEN_RESULTS.md)、[视图实现](../vlm_region/views.py)、[输入合同](../vlm_region/data.py)、[配对分析](../vlm_region/analysis.py)。
+区域相对单整图 79题升、186题降，其中118题由满分降至零分。下一步优先零 GPU 复用这些实际输入与预测，人工核对可读性、选区相关性、全局信息与问题类型；机制标签仍待人工审查。入口：[区域结果](VLM_REGION_TOKEN_RESULTS.md)、[视图实现](../src/vlm_region/views.py)、[输入合同](../src/vlm_region/data.py)、[配对分析](../src/vlm_region/analysis.py)。
 
 ## 岗位能力映射：历史 JD 样本
 
@@ -114,13 +114,13 @@ TextVQA 三 checkpoint 的图像配对探索区间均高于零，DocVQA/MMStar �
 
 | 学习单元 | 原理与实际代码 | 可检查产出 |
 | --- | --- | --- |
-| CLIP adapter与校准 | [methods.py](../methods.py)、[calibrate.py](../calibrate.py)：固定表征、残差更新、训练LA加log先验、固定校准减log先验 | 画张量链路，计算66,240参数；核对α仅在val选择，解释Many/Few取舍及iNat反例 |
-| LoRA/QLoRA | [model.py](../vlm_deep/model.py)：`ΔW=(α/r)BA`，参数`r(d_in+d_out)`；NF4量化的是冻结语言权重 | q为2048→2048、v为2048→256；rank8每层32768+18432，36层合计1843200；区分低秩、插入位置和视觉trunk冻结 |
-| assistant-only SFT | [encode/answer_loss](../vlm_deep/common.py)、[mask](../vlm_sft/common.py)：prompt标签−100仍作上下文，每题answer token平均后再题间平均 | 核对一条真实QA的input/labels，用两种答案长度说明逐题和逐token目标的区别 |
-| 频次加权与DDP | [权重数据](../vlm_weighted/data.py)、[训练归约](../vlm_weighted/train.py)：固定全训练归一，valid sentinel，末步实际QA数 | 对照公式与真实权重；核对33条QA/3更新的恢复检查，解释相同QA不等于相同梯度 |
-| 视觉token与区域控制 | [预算评测](../vlm_probe/evaluate.py)、[区域视图](../vlm_region/views.py)：patch14/merge2，`prod(image_grid_thw)//4` | 核对实际1024或512+512、原图和真实输入；解释双整图与随机同形控制分别排除什么 |
-| 生成、评分与统计 | [TextVQA计分](../vlm_deep/common.py)、[区域分析](../vlm_region/analysis.py)、[正式分析](../tools/analyze_vlm_formal_bf16.py) | 核对保存预测与十参考LOO共识；1/2/3/4个匹配参考得0.3/0.6/0.9/1.0，图像簇bootstrap保留同图多题 |
-| 数值路径与性能 | [加载器](../vlm_precision/evaluate.py)、[控制器](../vlm_precision/pipeline.py) | 区分NF4存储、compute dtype、allocated/reserved、生成/三阶段/完整壁钟；推理收益不能外推训练或线上服务 |
+| CLIP adapter与校准 | [methods.py](../src/methods.py)、[calibrate.py](../src/calibrate.py)：固定表征、残差更新、训练LA加log先验、固定校准减log先验 | 画张量链路，计算66,240参数；核对α仅在val选择，解释Many/Few取舍及iNat反例 |
+| LoRA/QLoRA | [model.py](../src/vlm_deep/model.py)：`ΔW=(α/r)BA`，参数`r(d_in+d_out)`；NF4量化的是冻结语言权重 | q为2048→2048、v为2048→256；rank8每层32768+18432，36层合计1843200；区分低秩、插入位置和视觉trunk冻结 |
+| assistant-only SFT | [encode/answer_loss](../src/vlm_deep/common.py)、[mask](../src/vlm_sft/common.py)：prompt标签−100仍作上下文，每题answer token平均后再题间平均 | 核对一条真实QA的input/labels，用两种答案长度说明逐题和逐token目标的区别 |
+| 频次加权与DDP | [权重数据](../src/vlm_weighted/data.py)、[训练归约](../src/vlm_weighted/train.py)：固定全训练归一，valid sentinel，末步实际QA数 | 对照公式与真实权重；核对33条QA/3更新的恢复检查，解释相同QA不等于相同梯度 |
+| 视觉token与区域控制 | [预算评测](../src/vlm_probe/evaluate.py)、[区域视图](../src/vlm_region/views.py)：patch14/merge2，`prod(image_grid_thw)//4` | 核对实际1024或512+512、原图和真实输入；解释双整图与随机同形控制分别排除什么 |
+| 生成、评分与统计 | [TextVQA计分](../src/vlm_deep/common.py)、[区域分析](../src/vlm_region/analysis.py)、[正式分析](../tools/analyze_vlm_formal_bf16.py) | 核对保存预测与十参考LOO共识；1/2/3/4个匹配参考得0.3/0.6/0.9/1.0，图像簇bootstrap保留同图多题 |
+| 数值路径与性能 | [加载器](../src/vlm_precision/evaluate.py)、[控制器](../src/vlm_precision/pipeline.py) | 区分NF4存储、compute dtype、allocated/reserved、生成/三阶段/完整壁钟；推理收益不能外推训练或线上服务 |
 
 本地归档学习材料：`rarevlm_pilot/outputs/vlm_learning_v1/图解课堂.html`、`rarevlm_pilot/outputs/vlm_learning_v1/图解课堂.pdf`、`rarevlm_pilot/outputs/vlm_weighted_failure_review_v1/学习页.html`、`rarevlm_pilot/outputs/vlm_region_token_v1/learning/学习页.html`。它们包含真实源码、图片和保存预测，未随公共仓库发布；可从[区域学习页构建脚本](../tools/build_vlm_region_reader.py)了解生成方式。展示图、人工放大、权重增量图与教学计算器都须分别标注，不能当作模型输入、注意力或新增实验。
 

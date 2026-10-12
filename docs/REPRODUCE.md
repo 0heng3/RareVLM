@@ -1,6 +1,6 @@
 # Reproduction commands
 
-Run from repository root, after `pip install -r requirements.txt`. Full experiments require separately supplied images and a CUDA device; `python smoke.py` is the fast CPU execution check. Paths below are examples, not embedded machine paths. Use separate output directories for datasets, checkpoints and training conditions.
+Run from repository root, after `pip install -r requirements/base.txt` and `pip install -e . --no-deps`. Python code now lives under `src/`; the editable install retains module names such as `run_imagenet_lt` and `vlm_region.pipeline`. See [architecture and migration boundaries](ARCHITECTURE.md). Full experiments require separately supplied images and a CUDA device; `python -m smoke` is the fast CPU execution check. Paths below are examples, not embedded machine paths. Use separate output directories for datasets, checkpoints and training conditions.
 
 ## ImageNet-LT B/32
 
@@ -9,23 +9,23 @@ Obtain ImageNet images through your existing dataset access and ImageNet-LT list
 ```bash
 export RAREVLM_IMAGENET_ROOT=/path/to/ImageNet/CLS-LOC
 export RAREVLM_IMAGENET_SPLITS=/path/to/ImageNet_LT
-python prepare_assets.py --model b32
-python imagenet_lt_manifest.py --split-dir "$RAREVLM_IMAGENET_SPLITS" \
+python -m prepare_assets --model b32
+python -m imagenet_lt_manifest --split-dir "$RAREVLM_IMAGENET_SPLITS" \
   --image-root "$RAREVLM_IMAGENET_ROOT" --output artifacts/imagenet_lt/manifest.json
-python extract_imagenet_lt_features.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m extract_imagenet_lt_features --manifest artifacts/imagenet_lt/manifest.json \
   --image-root "$RAREVLM_IMAGENET_ROOT" --output-dir artifacts/imagenet_lt/features \
   --device cuda:0 --batch-size 128 --workers 6
-python run_imagenet_lt.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m run_imagenet_lt --manifest artifacts/imagenet_lt/manifest.json \
   --feature-dir artifacts/imagenet_lt/features --output-dir artifacts/imagenet_lt/main \
   --device cuda:0 --train-seeds 0 42 200 --methods ce la
-python posthoc_imagenet_lt.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m posthoc_imagenet_lt --manifest artifacts/imagenet_lt/manifest.json \
   --feature-dir artifacts/imagenet_lt/features --main-results artifacts/imagenet_lt/main \
   --output-dir artifacts/imagenet_lt/posthoc --device cuda:0
-python calibrate.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m calibrate --manifest artifacts/imagenet_lt/manifest.json \
   --feature-dir artifacts/imagenet_lt/features \
   --source-result artifacts/imagenet_lt/main/imagenet_lt_seed0_ce.json \
   --output-dir artifacts/imagenet_lt/controls --device cuda:0
-python summarize_runs.py --input-dir artifacts/imagenet_lt/main \
+python -m summarize_runs --input-dir artifacts/imagenet_lt/main \
   --controls artifacts/imagenet_lt/controls --output artifacts/imagenet_lt/summary.json
 ```
 
@@ -36,16 +36,16 @@ Run `calibrate.py` for seed42/200 and LA as needed. CE outputs fixed α=1, val-s
 Reuse only the B/32 data manifest. Re-encode all image/text features with the pinned complete B/16 model:
 
 ```bash
-python prepare_assets.py --model b16
-python extract_imagenet_lt_features_b16.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m prepare_assets --model b16
+python -m extract_imagenet_lt_features_b16 --manifest artifacts/imagenet_lt/manifest.json \
   --image-root "$RAREVLM_IMAGENET_ROOT" --output-dir artifacts/imagenet_lt_b16/features \
   --model-snapshot artifacts/models/clip-vit-base-patch16/57c216476eefef5ab752ec549e440a49ae4ae5f3 \
   --model-revision 57c216476eefef5ab752ec549e440a49ae4ae5f3 --device cuda:0
-python run_imagenet_lt_b16.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m run_imagenet_lt_b16 --manifest artifacts/imagenet_lt/manifest.json \
   --feature-dir artifacts/imagenet_lt_b16/features --output-dir artifacts/imagenet_lt_b16/main \
   --expected-weight-sha ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0 \
   --device cuda:0
-python calibrate.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m calibrate --manifest artifacts/imagenet_lt/manifest.json \
   --feature-dir artifacts/imagenet_lt_b16/features \
   --source-result artifacts/imagenet_lt_b16/main/imagenet_lt_b16_seed0_ce.json \
   --output-dir artifacts/imagenet_lt_b16/controls --device cuda:0
@@ -58,10 +58,10 @@ Repeat calibration for the other seeds; `summarize_runs.py` summarizes the resul
 Use the original B/32 data/prototypes/center-crop evaluation cache. Train features are encoded from augmented raw images, not from the cached training feature bank.
 
 ```bash
-python run_imagenet_lt_online_aug.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m run_imagenet_lt_online_aug --manifest artifacts/imagenet_lt/manifest.json \
   --image-root "$RAREVLM_IMAGENET_ROOT" --feature-dir artifacts/imagenet_lt/features \
   --output-dir artifacts/imagenet_lt_online --seed 0 --device cuda:0 --workers 6
-python calibrate.py --manifest artifacts/imagenet_lt/manifest.json \
+python -m calibrate --manifest artifacts/imagenet_lt/manifest.json \
   --feature-dir artifacts/imagenet_lt/features \
   --source-result artifacts/imagenet_lt_online/imagenet_lt_seed0_aug_ce.json \
   --output-dir artifacts/imagenet_lt_online/controls --device cuda:0
@@ -75,12 +75,12 @@ Use the [official dataset release](https://github.com/visipedia/inat_comp/blob/m
 
 ```bash
 export RAREVLM_INAT2018=/path/to/inat2018
-python prepare_assets.py --model b32 --inat-categories
-python inat2018_manifest.py --image-root "$RAREVLM_INAT2018" \
+python -m prepare_assets --model b32 --inat-categories
+python -m inat2018_manifest --image-root "$RAREVLM_INAT2018" \
   --categories "$RAREVLM_INAT2018/categories.json" --output artifacts/inat2018/manifest.json
-python extract_inat2018_features.py --manifest artifacts/inat2018/manifest.json \
+python -m extract_inat2018_features --manifest artifacts/inat2018/manifest.json \
   --output-dir artifacts/inat2018/features --device cuda:0 --batch-size 128 --workers 16
-python run_inat2018.py --manifest artifacts/inat2018/manifest.json \
+python -m run_inat2018 --manifest artifacts/inat2018/manifest.json \
   --feature-dir artifacts/inat2018/features --output-dir artifacts/inat2018/main --device cuda:0
 ```
 

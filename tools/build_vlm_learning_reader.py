@@ -22,6 +22,8 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO))
+from tools.layout_paths import project_file, verify_source
 DEFAULT_ROOT = REPO.parents[1] / "outputs/vlm_learning_v1"
 
 
@@ -197,18 +199,31 @@ class Reader:
         return read_csv(path)
 
     def source_card(self, source):
-        path = Path(source["path"])
-        assert sha(path) == source["sha256"], f"Source changed: {path}"
+        original = Path(source["path"])
+        receipt = verify_source(original, source["sha256"], allow_current=True) if original.is_relative_to(REPO) else None
+        path = Path(receipt['path']) if receipt else project_file(original)
+        if receipt is None:
+            assert sha(path) == source["sha256"], f"Source changed: {path}"
         lines = path.read_text().splitlines()
-        text = "\n".join(lines[source["start_line"] - 1:source["end_line"]])
-        assert text == source["text"], f"Snippet differs: {path}"
-        first, last = source.get("display_start_line", source["start_line"]), source.get("display_end_line", source["end_line"])
-        display = source.get("display_numbered_text", source["numbered_text"])
-        self.sources.append({"path": str(path), "first_line": source["start_line"], "last_line": source["end_line"],
-                             "sha256": source["sha256"], "verified_exact": True})
+        snippet_lines = source["text"].splitlines()
+        matches = [index for index in range(len(lines) - len(snippet_lines) + 1)
+                   if lines[index:index + len(snippet_lines)] == snippet_lines]
+        assert len(matches) == 1, f"Saved snippet absent or ambiguous after migration; re-extract learning source: {path}"
+        start, end = matches[0] + 1, matches[0] + len(snippet_lines)
+        offset = start - source["start_line"]
+        first = source.get("display_start_line", source["start_line"]) + offset
+        last = source.get("display_end_line", source["end_line"]) + offset
+        display = "\n".join(f"{index}: {lines[index - 1]}" for index in range(first, last + 1))
+        numbered = "\n".join(f"{index}: {lines[index - 1]}" for index in range(start, end + 1))
+        current_sha = sha(path)
+        self.sources.append({"path": str(path), "first_line": start, "last_line": end,
+                             "sha256": current_sha, "verified_exact": True,
+                             "historical_source_sha256": source["sha256"], "migration": receipt})
         block = f'<div class="code-card"><p class="source">{esc(path)}<br>重点阅读第 {first}–{last} 行</p><pre><code>{esc(display)}</code></pre>'
+        if offset or current_sha != source["sha256"]:
+            block += f'<p class="small">目录迁移已核对旧哈希与当前哈希；片段内容逐行相同。下列解释中的历史行号对应当前行号加 {offset}。</p>'
         block += list_html(source["explanations"])
-        block += f'<details><summary>展开完整片段（第 {source["start_line"]}–{source["end_line"]} 行）与文件哈希</summary><pre><code>{esc(source["numbered_text"])}</code></pre><p class="hash">文件 SHA256：{esc(source["sha256"])}</p></details></div>'
+        block += f'<details><summary>展开完整片段（第 {start}–{end} 行）与文件哈希</summary><pre><code>{esc(numbered)}</code></pre><p class="hash">当前文件 SHA256：{esc(current_sha)}<br>原记录 SHA256：{esc(source["sha256"])}</p></details></div>'
         return block
 
     def metrics(self, record, labels):
@@ -343,7 +358,7 @@ class Reader:
         return out
 
     def bridge(self):
-        methods = REPO / "methods.py"
+        methods = REPO / "src/methods.py"
         lines = methods.read_text().splitlines()
         self.inputs.append({"path": str(methods), "sha256": sha(methods)})
         out = '<section class="bridge" id="clip-bridge"><span class="status mixed">历史CLIP路线 · 独立数据与指标</span><h2>从CLIP长尾分类，到生成式VLM</h2><p>此前项目用冻结CLIP图像特征与文本类别原型做分类；当前Qwen使用图像与问题生成字符串。两条路线都能研究适配位置、有限预算和频次覆盖，但预测空间与评价契约不同。</p>'
@@ -469,7 +484,7 @@ def main():
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     output = args.output or args.learning_root / "图解课堂.html"
-    watched = sorted((REPO / "vlm_deep").rglob("*.py")) + [REPO / "configs/vlm_deep_v2.json"]
+    watched = sorted((REPO / "src" / "vlm_deep").rglob("*.py")) + [REPO / "configs/vlm_deep_v2.json"]
     before = {str(path): sha(path) for path in watched}
     reader = Reader(args.learning_root)
     document = reader.build()

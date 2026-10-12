@@ -1,5 +1,7 @@
 # 原权重、NF4与BF16工程桥接 v1
 
+目录迁移说明：本文原机启动命令与持久环境路径是迁移前执行快照，历史结果/配置/来源锁保持原样。精确恢复旧归档须在独立 checkout 使用提交 `2049c0e`；当前 `src/` 版需先执行 `pip install -e . --no-deps`，使用新的输出目录与来源锁，不复用旧锁。详见[架构说明](ARCHITECTURE.md)。
+
 日期：2026-10-11。本协议采用非抢占资源接续。配置：[vlm_precision_bridge_v1.json](../configs/vlm_precision_bridge_v1.json)。旧A+B和正在运行的视觉预算诊断不改设置、不终止。
 
 公开说明：本页保留冻结执行协议及原机命令。源码与配置可公开检查，完整状态、预测、数据和权重为本地归档；外部复现须准备对应依赖/数据/模型/adapter并重绑定配置与命令路径，不保证 clean clone 可直接启动 GPU 评测。完成结果见[当前研究路线](JOB_ROUTE.md)。
@@ -25,7 +27,7 @@ FP32与BF16都是浮点计算路径。BF16与FP32有相同的8位指数宽度，
 
 ## 资源接续与恢复
 
-控制器：[vlm_precision/pipeline.py](../vlm_precision/pipeline.py)。worker：[evaluate.py](../vlm_precision/evaluate.py)。CPU分析：[analyze_vlm_precision_bridge.py](../tools/analyze_vlm_precision_bridge.py)。
+控制器：[vlm_precision/pipeline.py](../src/vlm_precision/pipeline.py)。worker：[evaluate.py](../src/vlm_precision/evaluate.py)。CPU分析：[analyze_vlm_precision_bridge.py](../tools/analyze_vlm_precision_bridge.py)。
 
 GPU0接续base，GPU1接续adapted。两张卡分别等待，不要求同时释放；一张卡空闲时可先开始其role。启动条件为连续三个检查均无GPU计算进程、利用率低且空闲显存至少40GiB。检查其他任务只用于等待，不发送终止、暂停或修改命令。持久的每GPU互斥锁避免本控制器重复占卡；外部任务不保证遵循该协作锁，所以同时记录运行期间资源快照与竞争事件，质量数据保留，发生竞争时测速标记为受干扰。
 

@@ -16,7 +16,7 @@ from pathlib import Path
 # Import existing metric contracts without creating files in frozen source trees.
 sys.dont_write_bytecode = True
 REPO = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO))
+sys.path.insert(0, str(REPO / "src"))
 from vlm_deep.common import NORMALIZER, read_manifest, training_target
 from vlm_sft.common import sha_file, write_json
 
@@ -219,13 +219,14 @@ def main():
                 pairs.append({"comparison": f"{alternative}-qv_r8", "seed": seed,
                               "dimension": dimension, "slice": label,
                               **paired_cluster_interval(base, adapted)})
-    source_paths = [Path(__file__).resolve(), REPO / "vlm_deep/common.py",
-                    REPO / "vlm_deep/third_party/vqa_eval_metric.py", REPO / "vlm_sft/common.py"]
+    source_paths = [Path(__file__).resolve(), REPO / "src" / "vlm_deep/common.py",
+                    REPO / "src" / "vlm_deep/third_party/vqa_eval_metric.py", REPO / "src" / "vlm_sft/common.py"]
     source_lock = args.run_root / "SOURCE_LOCK.json"
     result = {
         "schema_version": "rarevlm.learning_dev_slices.v1",
         "scope": "Exploratory CPU-only internal-dev diagnostics; frozen method selection remains unchanged",
-        "source_sha256": {str(p.relative_to(REPO)): sha_file(p) for p in source_paths},
+        "source_sha256": {str(p.relative_to(REPO / 'src') if p.is_relative_to(REPO / 'src') else p.relative_to(REPO)): sha_file(p)
+                          for p in source_paths},
         "run_source_lock_sha256": sha_file(source_lock) if source_lock.exists() else None,
         "manifest": {"path": str(manifest_path.resolve()), "file_sha256": sha_file(manifest_path),
                      "manifest_sha256": manifest["manifest_sha256"], "frequency_split": "train_10k",

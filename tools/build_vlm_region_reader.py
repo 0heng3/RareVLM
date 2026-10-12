@@ -33,7 +33,11 @@ def esc(value):
 
 def excerpt(relative, start, end):
     path = REPO / relative
+    if not path.exists() and not Path(relative).is_absolute():
+        path = REPO / "src" / relative
     lines = path.read_text().splitlines()
+    offset = sum(line.startswith('from rarevlm_paths import ') for line in lines[:35])
+    start, end = start + offset, end + offset
     code = '\n'.join(f'{index+1:>3} {line}' for index, line in enumerate(lines)
                      if start <= index+1 <= end)
     return f'<details><summary>{esc(relative)}:{start} · SHA {sha(path)[:12]}</summary><pre>{esc(code)}</pre></details>'

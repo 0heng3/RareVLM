@@ -23,7 +23,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ.setdefault("PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION", "python")
 os.environ.setdefault("MPLBACKEND", "Agg")
 REPO = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO))
+sys.path.insert(0, str(REPO / "src"))
 from vlm_deep.common import NORMALIZER, consensus, content_sha, encode, read_manifest
 from vlm_sft.common import sha_file
 

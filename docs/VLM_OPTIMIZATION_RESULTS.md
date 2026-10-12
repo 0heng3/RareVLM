@@ -85,9 +85,9 @@ BF16−原FP32共识分差+0.439 pp，配对区间[-0.091,0.957]；规范化预�
 
 ## 6. 算法原理如何对应代码
 
-LoRA用`DeltaW=(alpha/r)*B*A`限制更新秩，参数量是`r*(d_in+d_out)`；q/v rank8与q/k/v/o rank4均1,843,200参数，改变更新容量和覆盖位置。merger LoRA更新视觉到语言的映射，未解冻视觉trunk。实现：[vlm_deep/model.py](../vlm_deep/model.py)。
+LoRA用`DeltaW=(alpha/r)*B*A`限制更新秩，参数量是`r*(d_in+d_out)`；q/v rank8与q/k/v/o rank4均1,843,200参数，改变更新容量和覆盖位置。merger LoRA更新视觉到语言的映射，未解冻视觉trunk。实现：[vlm_deep/model.py](../src/vlm_deep/model.py)。
 
-SFT只监督assistant回答，prefix标签为-100但仍作为模型上下文。loss先按每问题的有效回答token平均，再按问题平均；不能默默替换为全部token平均。实现：[answer_loss](../vlm_deep/common.py)。
+SFT只监督assistant回答，prefix标签为-100但仍作为模型上下文。loss先按每问题的有效回答token平均，再按问题平均；不能默默替换为全部token平均。实现：[answer_loss](../src/vlm_deep/common.py)。
 
 本地Qwen2.5-VL是14×14 patch与2×2 merger，视觉token数由处理后网格计算：
 
@@ -96,9 +96,9 @@ actual_visual_tokens = grid_t * grid_h * grid_w // 4
 max_pixels = token_budget * 28 * 28
 ```
 
-预算是上限，241.607/489.021/938.856是实测均值。较多像素能保留小字，但也改变编码、预填充与KV成本，不能将总耗时简单当作token平方。实现：[describe_input与evaluate_batch](../vlm_probe/evaluate.py)。
+预算是上限，241.607/489.021/938.856是实测均值。较多像素能保留小字，但也改变编码、预填充与KV成本，不能将总耗时简单当作token平方。实现：[describe_input与evaluate_batch](../src/vlm_probe/evaluate.py)。
 
-NF4路径的有效权重约为`Q(W)+(alpha/r)*B*A`；迁移到原BF16后为`W_BF16+(alpha/r)*B_BF16*A_BF16`，未进行BF16重新训练。低位存储不保证更快，FP32 compute与解量化有成本；A100 BF16 Tensor Core、SDPA路径和带宽可能共同影响吞吐，本轮没有分离各贡献。实现：[load_path](../vlm_precision/evaluate.py)。
+NF4路径的有效权重约为`Q(W)+(alpha/r)*B*A`；迁移到原BF16后为`W_BF16+(alpha/r)*B_BF16*A_BF16`，未进行BF16重新训练。低位存储不保证更快，FP32 compute与解量化有成本；A100 BF16 Tensor Core、SDPA路径和带宽可能共同影响吞吐，本轮没有分离各贡献。实现：[load_path](../src/vlm_precision/evaluate.py)。
 
 完整图解教学保留于图解课堂（本地归档，未发布）：`rarevlm_pilot/outputs/vlm_learning_v1/图解课堂.html`，其旧实验示例与新结果分别标记，不使用人工参考答案裁剪推理输入。
 

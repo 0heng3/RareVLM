@@ -12,7 +12,7 @@ import time
 sys.dont_write_bytecode = True
 os.environ.setdefault('PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION', 'python')
 REPO = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO))
+sys.path.insert(0, str(REPO / "src"))
 from vlm_joint.pipeline import gpu_snapshot, qualified
 from vlm_precision.pipeline import GPU_LOCK_ROOT, now, read_json, sha_file, write_json
 from vlm_weighted.data import load_weights, read_weight_lock
@@ -38,7 +38,8 @@ def main():
     record = {'schema_version':'rarevlm.weighted_gpu_contract.v1', 'pid':os.getpid(),
         'started_at':now(), 'scope':'nonresearch real33QA/3updates; resume exercise',
         'config_file_sha256':sha_file(CONFIG), 'weight_lock_file_sha256':sha_file(ROOT/'WEIGHT_LOCK.json'),
-        'source_sha256':{str(f.relative_to(REPO)):sha_file(f) for f in (REPO/'vlm_weighted').glob('*.py')},
+        'source_sha256':{**{str(f.relative_to(REPO / 'src')):sha_file(f) for f in (REPO / "src" / 'vlm_weighted').glob('*.py')},
+                         'rarevlm_paths.py':sha_file(REPO / 'src/rarevlm_paths.py')},
         'existing_tasks_untouched':True, 'jobs':[]}
     def status(phase, **extras):
         write_json(STATUS, {**record, 'phase':phase, 'updated_at':now(), **extras})
@@ -71,7 +72,8 @@ def main():
         record['admission_snapshot'] = chosen
         env = dict(os.environ, CUDA_VISIBLE_DEVICES=','.join(d['uuid'] for d in chosen),
             PYTHONUNBUFFERED='1', PYTHONDONTWRITEBYTECODE='1', OMP_NUM_THREADS='2',
-            PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION='python')
+            PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION='python',
+            PYTHONPATH=str(REPO / 'src') + (os.pathsep + os.environ['PYTHONPATH'] if os.environ.get('PYTHONPATH') else ''))
         common = [sys.executable,'-m','torch.distributed.run','--nnodes','1','--nproc_per_node','2',
             '--master_port','29741','-m','vlm_weighted.train','--asset-root',str(ASSET),
             '--model-root',str(MODEL),'--method','qv_r8','--seed','42','--split','train_all',

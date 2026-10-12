@@ -51,10 +51,11 @@ Short-answer formatting and generated output length also affect score and latenc
 
 ## Reproduce
 
-Use the optional environment dependencies. All large generated files are ignored by Git.
+Use the optional environment dependencies and install the project from repository root. The same `vlm_sft.*` module names now resolve from `src/`. All large generated files are ignored by Git. For historical source-lock boundaries, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ```bash
-pip install -r requirements-vlm.txt
+pip install -r requirements/vlm.txt
+pip install -e . --no-deps
 python -m vlm_sft.assets --output-root artifacts/vlm_sft --model
 python -m vlm_sft.prepare_viewer --asset-root artifacts/vlm_sft
 python -m vlm_sft.pipeline --asset-root artifacts/vlm_sft \

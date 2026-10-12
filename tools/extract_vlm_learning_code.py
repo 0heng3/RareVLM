@@ -20,7 +20,7 @@ sys.dont_write_bytecode = True
 os.environ.setdefault("PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION", "python")
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 REPO = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO))
+sys.path.insert(0, str(REPO / "src"))
 DEFAULT_RUN = REPO.parents[1] / "outputs/vlm_deep_v2"
 DEFAULT_MODEL = REPO.parents[1] / "outputs/vlm_sft_textvqa_v1/model"
 DEFAULT_OUT = REPO.parents[1] / "outputs/vlm_learning_v1/code"
@@ -58,7 +58,32 @@ def evidence(path, fields=None):
 
 def snippet(relative, first, last, explanations):
     path = REPO / relative
+    if not path.exists() and not Path(relative).is_absolute():
+        path = REPO / "src" / relative
     lines = path.read_text().splitlines()
+    old_first, old_last = first, last
+    offset = sum(line.startswith('from rarevlm_paths import ') for line in lines[:35])
+    first, last = first + offset, last + offset
+    if relative == "vlm_deep/train.py":
+        anchors = {
+            (43, 49): ("def schedule(n,seed,world,micro,acc):", "    return order,padded"),
+            (102, 105): ("    micro=c['training_microbatch'];acc=c['training_accumulation'];effective=world*micro*acc",
+                         "    order,padded=schedule(len(rows),args.seed,world,micro,acc);steps=len(padded)//effective"),
+            (110, 111): ("    params=[p for p in model.parameters() if p.requires_grad]",
+                         "    optimizer=torch.optim.AdamW(params,lr=optimizer_lr(0,steps,c),weight_decay=c['weight_decay'])"),
+            (130, 155): ("    resume=None;latest=args.output_dir/'LATEST.json'",
+                         "    if resume:restore_rng(resume['rank_states'][rank]['rng'])"),
+            (157, 195): ("    def save_resume(completed):", "            save_resume(step+1)"),
+        }
+        start_anchor, end_anchor = anchors[(old_first, old_last)]
+        starts = [index + 1 for index, line in enumerate(lines) if line == start_anchor]
+        ends = [index + 1 for index, line in enumerate(lines) if line == end_anchor]
+        assert len(starts) == len(ends) == 1, f"Teaching source anchors absent or ambiguous: {relative}"
+        first, last = starts[0], ends[0]
+        assert last - first == old_last - old_first, f"Teaching source span changed; review explanations: {relative}"
+        offset = first - old_first
+    if offset:
+        explanations = [f'目录迁移使片段位置后移{offset}行；下列解释保留历史行号，当前定位加{offset}行。', *explanations]
     assert 1 <= first <= last <= len(lines)
     text = "\n".join(lines[first - 1:last])
     focus = {
@@ -69,7 +94,8 @@ def snippet(relative, first, last, explanations):
         ("vlm_deep/train.py", 157): (174, 190),
         ("tools/analyze_vlm_dev_slices.py", 85): (103, 119),
     }
-    display_first, display_last = focus.get((relative, first), (first, min(last, first + 17)))
+    display_first, display_last = focus.get((relative, old_first), (old_first, min(last - offset, old_first + 17)))
+    display_first, display_last = display_first + offset, display_last + offset
     assert first <= display_first <= display_last <= last
     return {"path": str(path.resolve()), "start_line": first, "end_line": last,
             "sha256": sha(path), "snippet_sha256": hashlib.sha256(text.encode()).hexdigest(),
@@ -176,8 +202,8 @@ def token_evidence(run_root, model_root, output, qid):
         "question": row["question"], "target": row["target"], "human_answers": row["answers"],
         "image": {"path": str(image), "sha256": sha(image), "original_size_wh": list(img.size)},
         "manifest": {"path": str(manifest_path), "sha256": sha(manifest_path), "manifest_sha256": manifest["manifest_sha256"]},
-        "source_sha256": {"vlm_deep/common.py": sha(REPO / "vlm_deep/common.py"),
-                           "vlm_sft/common.py": sha(REPO / "vlm_sft/common.py")},
+        "source_sha256": {"vlm_deep/common.py": sha(REPO / "src" / "vlm_deep/common.py"),
+                           "vlm_sft/common.py": sha(REPO / "src" / "vlm_sft/common.py")},
         "processor_source": {"path": str(processor_source), "sha256": sha(processor_source)},
         "min_pixels": config["min_pixels"], "max_pixels": config["max_pixels"],
         "input_length": len(ids), "prefix_length": prefix_length,
@@ -427,7 +453,7 @@ def main():
     parser.add_argument("--question-id", default="27482")
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    watched = sorted((REPO / "vlm_deep").rglob("*.py")) + [REPO / "configs/vlm_deep_v2.json"]
+    watched = sorted((REPO / "src" / "vlm_deep").rglob("*.py")) + [REPO / "configs/vlm_deep_v2.json"]
     before = {str(path): sha(path) for path in watched}
     tensors = tensor_evidence(args.run_root, args.output_dir)
     tokens, processor = token_evidence(args.run_root, args.model_root, args.output_dir, args.question_id)

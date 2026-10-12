@@ -308,9 +308,9 @@ def main():
     changed.sort(key=lambda case: (priority.index(case['question_id']) if case['question_id'] in priority else len(priority), int(case['question_id'])))
     if not set(priority) <= {case['question_id'] for case in changed}:
         raise ValueError('a highlighted saved comparison is absent')
-    snippets = [extract_function(REPO / 'vlm_weighted/train.py', 'weighted_objective'),
-                extract_function(REPO / 'vlm_deep/common.py', 'answer_loss'),
-                extract_function(REPO / 'vlm_deep/common.py', 'consensus')]
+    snippets = [extract_function(REPO / "src" / 'vlm_weighted/train.py', 'weighted_objective'),
+                extract_function(REPO / "src" / 'vlm_deep/common.py', 'answer_loss'),
+                extract_function(REPO / "src" / 'vlm_deep/common.py', 'consensus')]
     source_paths = [manifest_path, weight_path, audit_path, uniform_path, frequency_path,
                     source_root / 'analysis/ANALYSIS.json', Path(__file__).resolve()]
     source_paths.extend(Path(snippet['path']) for snippet in snippets)

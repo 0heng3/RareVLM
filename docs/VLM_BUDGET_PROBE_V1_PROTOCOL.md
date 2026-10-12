@@ -1,5 +1,7 @@
 # 固定权重的视觉输入预算诊断 v1
 
+目录迁移说明：本文原机启动命令与持久环境路径是迁移前执行快照，历史结果/配置/来源锁保持原样。精确恢复旧归档须在独立 checkout 使用提交 `2049c0e`；当前 `src/` 版需先执行 `pip install -e . --no-deps`，使用新的输出目录与来源锁，不复用旧锁。详见[架构说明](ARCHITECTURE.md)。
+
 冻结日期：2026-10-11。配置：[vlm_budget_probe_v1.json](../configs/vlm_budget_probe_v1.json)。本轮只做推理诊断，不更新模型权重。旧 A+B 源码、配置和结果继续冻结。
 
 公开说明：本页保留冻结执行协议及原机命令。源码与配置可公开检查，完整状态、预测、数据和权重为本地归档；外部复现须准备对应依赖/数据/模型/adapter并重绑定配置与命令路径，不保证 clean clone 可直接启动 GPU 评测。完成结果见[当前研究路线](JOB_ROUTE.md)。
@@ -36,7 +38,7 @@ resized_h, resized_w = grid_h * 14, grid_w * 14
 
 在最高 1024 预算先检查长问题及极端长宽比的内部 dev 输入：实际 token 与网格一致、有限 last-position logits、greedy 可生成、显存可容纳。压力样本只根据问题长度和图像尺寸选择，不按答案或是否失败选择，不进入主矩阵缓存。
 
-新代码：[vlm_probe/evaluate.py](../vlm_probe/evaluate.py) 和 [pipeline.py](../vlm_probe/pipeline.py)。两种权重各常驻一张 GPU，无 DDP。每题保存预测及共识分、输入/图像 hash、原图/resize 尺寸、实际视觉和输入 token、batch 生成/预处理耗时、生成长度、峰值显存和 warmup 标签。恢复要求配置、源代码、processor、模型 provenance、adapter hash、数值路径和生成设置一致，不跨预算复用预测。
+新代码：[vlm_probe/evaluate.py](../src/vlm_probe/evaluate.py) 和 [pipeline.py](../src/vlm_probe/pipeline.py)。两种权重各常驻一张 GPU，无 DDP。每题保存预测及共识分、输入/图像 hash、原图/resize 尺寸、实际视觉和输入 token、batch 生成/预处理耗时、生成长度、峰值显存和 warmup 标签。恢复要求配置、源代码、processor、模型 provenance、adapter hash、数值路径和生成设置一致，不跨预算复用预测。
 
 进度：STATUS.json（本地归档，未发布）：`rarevlm_pilot/outputs/vlm_budget_probe_v1/STATUS.json`。运行目录：vlm_budget_probe_v1（本地归档，未发布）：`rarevlm_pilot/outputs/vlm_budget_probe_v1`。GPU 预检失败时停止，不能静默改精度或 batch 后混列。
 
