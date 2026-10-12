@@ -1,0 +1,18 @@
+{
+  "repository": "EvolvingLMMs-Lab/lmms-eval",
+  "revision": "08affba133b97b19351897f4d42081ead2b3412e",
+  "source_path": "lmms_eval/tasks/_task_utils/vqa_eval_metric.py",
+  "sha256": "4e4154c6c7e4657e6c44aa08e184ce5ae0e872665744c6cb684cf645e4647ce0",
+  "license_file": "LICENSE.lmms-eval",
+  "upstream_attribution_retained": true,
+  "additional_sources": {
+    "mcq_extract.py": {
+      "source_path": "lmms_eval/tasks/_task_utils/mcq_extract.py",
+      "sha256": "c38447cf7927bc9e9498692a544d98bf50a3cdd4c7d09adca5793eb748a9739d"
+    },
+    "ANLS": {
+      "source_path": "lmms_eval/api/metrics.py:anls",
+      "implementation": "same normalization, raw-length denominator and inclusive similarity threshold as pinned source"
+    }
+  }
+}

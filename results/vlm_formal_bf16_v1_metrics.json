@@ -1,0 +1,898 @@
+{
+  "schema_version": "rarevlm.formal_bf16.portable.v1",
+  "updated_at": "2026-10-11T12:06:23.722241+00:00",
+  "source_analysis_file": "vlm_formal_bf16_v1/analysis/ANALYSIS.json",
+  "source_analysis_sha256": "9cec3bcd7ad32e08f985c6c010738c509602314b345e6a577585556de74090b0",
+  "export_scope": "Copy completed verified aggregates and intervals only; no scoring, bootstrap, training or inference rerun.",
+  "complete": true,
+  "completed_cells": 12,
+  "verified_prediction_questions": 47396,
+  "protocol": {
+    "numerical_path": "original_bf16",
+    "visual_token_budget": 1024,
+    "checkpoint_scope": "base once + existing qv_r8 fulltrain seeds0/42/200; no new training",
+    "config_file": "configs/vlm_formal_bf16_v1.json",
+    "config_sha256": "20c4b99f676948ec39d521d4cdc7cededdabcac221835e77d2990a387acd86b1"
+  },
+  "integrity_checks": [
+    "all12 complete exact task QA/image counts",
+    "qid/image/question/prompt/manifest bindings",
+    "independent task scoring and primary aggregation, MMStar18 macro",
+    "same-task actual encoded inputs across all4 models",
+    "actual unquantized BF16 including LoRA",
+    "checkpoint/processor/revision/package/source/generation contracts",
+    "timing deduplicated by task/session/batch, first-session batches excluded"
+  ],
+  "seed_summaries": [
+    {
+      "task": "textvqa",
+      "metric": "TextVQA leave-one-out consensus percent",
+      "base_score_percent": 79.56,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        80.962,
+        81.3,
+        81.152
+      ],
+      "mean_score_percent": 81.138,
+      "sample_sd_score_percent": 0.16943435306926094,
+      "seed_adapter_minus_base_pp": [
+        1.402000000000001,
+        1.7399999999999949,
+        1.5919999999999987
+      ],
+      "mean_adapter_minus_base_pp": 1.578000000000003,
+      "n_training_seeds": 3,
+      "seed_uncertainty": "sample standard deviation (ddof=1), not confidence interval; shared base is evaluated once"
+    },
+    {
+      "task": "docvqa",
+      "metric": "DocVQA ANLS percent",
+      "base_score_percent": 91.63135594021671,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        91.83980111761913,
+        91.81479214671715,
+        91.80155296539378
+      ],
+      "mean_score_percent": 91.81871540991003,
+      "sample_sd_score_percent": 0.019423549694218556,
+      "seed_adapter_minus_base_pp": [
+        0.20844517740242452,
+        0.18343620650044556,
+        0.17019702517707458
+      ],
+      "mean_adapter_minus_base_pp": 0.18735946969331962,
+      "n_training_seeds": 3,
+      "seed_uncertainty": "sample standard deviation (ddof=1), not confidence interval; shared base is evaluated once"
+    },
+    {
+      "task": "mmstar",
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "base_score_percent": 56.28906924228778,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        55.9113535948593,
+        56.090421446371145,
+        55.60631311245475
+      ],
+      "mean_score_percent": 55.869362717895065,
+      "sample_sd_score_percent": 0.24477059679012977,
+      "seed_adapter_minus_base_pp": [
+        -0.37771564742848085,
+        -0.19864779591663506,
+        -0.6827561298330309
+      ],
+      "mean_adapter_minus_base_pp": -0.4197065243927156,
+      "n_training_seeds": 3,
+      "seed_uncertainty": "sample standard deviation (ddof=1), not confidence interval; shared base is evaluated once"
+    }
+  ],
+  "cell_metrics": [
+    {
+      "model_key": "base",
+      "seed": null,
+      "task": "textvqa",
+      "metric": "TextVQA leave-one-out consensus percent",
+      "score_percent": 79.56,
+      "question_mean_score_percent": 79.56,
+      "questions": 5000,
+      "unique_image_clusters": 3166,
+      "visual_tokens": {
+        "n": 5000,
+        "min": 333.0,
+        "mean": 935.5778,
+        "median": 980.0,
+        "p05": 777.0,
+        "p95": 1024.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 5000,
+        "min": 370.0,
+        "mean": 974.911,
+        "median": 1018.0,
+        "p05": 815.0,
+        "p95": 1062.0,
+        "max": 1071.0
+      },
+      "pure_generation_questions_per_second": 2.216175447826231,
+      "generation_preprocessing_h2d_questions_per_second": 1.9084339851487053,
+      "peak_allocated_gib": 8.648776531219482,
+      "peak_reserved_gib": 10.505859375,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "base",
+      "seed": null,
+      "task": "docvqa",
+      "metric": "DocVQA ANLS percent",
+      "score_percent": 91.63135594021671,
+      "question_mean_score_percent": 91.63135594021671,
+      "questions": 5349,
+      "unique_image_clusters": 1285,
+      "visual_tokens": {
+        "n": 5349,
+        "min": 210.0,
+        "mean": 991.9777528510002,
+        "median": 1008.0,
+        "p05": 972.0,
+        "p95": 1008.0,
+        "max": 1023.0
+      },
+      "input_tokens": {
+        "n": 5349,
+        "min": 246.0,
+        "mean": 1034.0491680687978,
+        "median": 1046.0,
+        "p05": 1009.0,
+        "p95": 1058.0,
+        "max": 1084.0
+      },
+      "pure_generation_questions_per_second": 1.9923529436056244,
+      "generation_preprocessing_h2d_questions_per_second": 1.579845409470697,
+      "peak_allocated_gib": 8.63680648803711,
+      "peak_reserved_gib": 10.548828125,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "base",
+      "seed": null,
+      "task": "mmstar",
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "score_percent": 56.28906924228778,
+      "question_mean_score_percent": 54.800000000000004,
+      "questions": 1500,
+      "unique_image_clusters": 1430,
+      "visual_tokens": {
+        "n": 1500,
+        "min": 64.0,
+        "mean": 263.0473333333333,
+        "median": 216.0,
+        "p05": 70.0,
+        "p95": 884.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 1500,
+        "min": 121.0,
+        "mean": 346.4533333333333,
+        "median": 296.0,
+        "p05": 159.95,
+        "p95": 955.0999999999981,
+        "max": 1304.0
+      },
+      "pure_generation_questions_per_second": 9.902164805939458,
+      "generation_preprocessing_h2d_questions_per_second": 8.256240654390673,
+      "peak_allocated_gib": 7.862802028656006,
+      "peak_reserved_gib": 8.16015625,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed0",
+      "seed": 0,
+      "task": "textvqa",
+      "metric": "TextVQA leave-one-out consensus percent",
+      "score_percent": 80.962,
+      "question_mean_score_percent": 80.962,
+      "questions": 5000,
+      "unique_image_clusters": 3166,
+      "visual_tokens": {
+        "n": 5000,
+        "min": 333.0,
+        "mean": 935.5778,
+        "median": 980.0,
+        "p05": 777.0,
+        "p95": 1024.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 5000,
+        "min": 370.0,
+        "mean": 974.911,
+        "median": 1018.0,
+        "p05": 815.0,
+        "p95": 1062.0,
+        "max": 1071.0
+      },
+      "pure_generation_questions_per_second": 2.1780018152579306,
+      "generation_preprocessing_h2d_questions_per_second": 1.8853517909069137,
+      "peak_allocated_gib": 8.652209758758545,
+      "peak_reserved_gib": 10.509765625,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed0",
+      "seed": 0,
+      "task": "docvqa",
+      "metric": "DocVQA ANLS percent",
+      "score_percent": 91.83980111761913,
+      "question_mean_score_percent": 91.83980111761913,
+      "questions": 5349,
+      "unique_image_clusters": 1285,
+      "visual_tokens": {
+        "n": 5349,
+        "min": 210.0,
+        "mean": 991.9777528510002,
+        "median": 1008.0,
+        "p05": 972.0,
+        "p95": 1008.0,
+        "max": 1023.0
+      },
+      "input_tokens": {
+        "n": 5349,
+        "min": 246.0,
+        "mean": 1034.0491680687978,
+        "median": 1046.0,
+        "p05": 1009.0,
+        "p95": 1058.0,
+        "max": 1084.0
+      },
+      "pure_generation_questions_per_second": 1.8868438418286657,
+      "generation_preprocessing_h2d_questions_per_second": 1.5161199830534375,
+      "peak_allocated_gib": 8.640239715576172,
+      "peak_reserved_gib": 10.544921875,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed0",
+      "seed": 0,
+      "task": "mmstar",
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "score_percent": 55.9113535948593,
+      "question_mean_score_percent": 54.400000000000006,
+      "questions": 1500,
+      "unique_image_clusters": 1430,
+      "visual_tokens": {
+        "n": 1500,
+        "min": 64.0,
+        "mean": 263.0473333333333,
+        "median": 216.0,
+        "p05": 70.0,
+        "p95": 884.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 1500,
+        "min": 121.0,
+        "mean": 346.4533333333333,
+        "median": 296.0,
+        "p05": 159.95,
+        "p95": 955.0999999999981,
+        "max": 1304.0
+      },
+      "pure_generation_questions_per_second": 9.318633932009767,
+      "generation_preprocessing_h2d_questions_per_second": 7.811190207379175,
+      "peak_allocated_gib": 7.866235256195068,
+      "peak_reserved_gib": 8.13671875,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed42",
+      "seed": 42,
+      "task": "textvqa",
+      "metric": "TextVQA leave-one-out consensus percent",
+      "score_percent": 81.3,
+      "question_mean_score_percent": 81.3,
+      "questions": 5000,
+      "unique_image_clusters": 3166,
+      "visual_tokens": {
+        "n": 5000,
+        "min": 333.0,
+        "mean": 935.5778,
+        "median": 980.0,
+        "p05": 777.0,
+        "p95": 1024.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 5000,
+        "min": 370.0,
+        "mean": 974.911,
+        "median": 1018.0,
+        "p05": 815.0,
+        "p95": 1062.0,
+        "max": 1071.0
+      },
+      "pure_generation_questions_per_second": 2.1758845659180115,
+      "generation_preprocessing_h2d_questions_per_second": 1.8847971817614813,
+      "peak_allocated_gib": 8.652209758758545,
+      "peak_reserved_gib": 10.509765625,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed42",
+      "seed": 42,
+      "task": "docvqa",
+      "metric": "DocVQA ANLS percent",
+      "score_percent": 91.81479214671715,
+      "question_mean_score_percent": 91.81479214671715,
+      "questions": 5349,
+      "unique_image_clusters": 1285,
+      "visual_tokens": {
+        "n": 5349,
+        "min": 210.0,
+        "mean": 991.9777528510002,
+        "median": 1008.0,
+        "p05": 972.0,
+        "p95": 1008.0,
+        "max": 1023.0
+      },
+      "input_tokens": {
+        "n": 5349,
+        "min": 246.0,
+        "mean": 1034.0491680687978,
+        "median": 1046.0,
+        "p05": 1009.0,
+        "p95": 1058.0,
+        "max": 1084.0
+      },
+      "pure_generation_questions_per_second": 1.956545202206482,
+      "generation_preprocessing_h2d_questions_per_second": 1.5673420142025567,
+      "peak_allocated_gib": 8.640239715576172,
+      "peak_reserved_gib": 10.544921875,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed42",
+      "seed": 42,
+      "task": "mmstar",
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "score_percent": 56.090421446371145,
+      "question_mean_score_percent": 54.46666666666666,
+      "questions": 1500,
+      "unique_image_clusters": 1430,
+      "visual_tokens": {
+        "n": 1500,
+        "min": 64.0,
+        "mean": 263.0473333333333,
+        "median": 216.0,
+        "p05": 70.0,
+        "p95": 884.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 1500,
+        "min": 121.0,
+        "mean": 346.4533333333333,
+        "median": 296.0,
+        "p05": 159.95,
+        "p95": 955.0999999999981,
+        "max": 1304.0
+      },
+      "pure_generation_questions_per_second": 9.813090601038404,
+      "generation_preprocessing_h2d_questions_per_second": 8.145820041367966,
+      "peak_allocated_gib": 7.866235256195068,
+      "peak_reserved_gib": 8.13671875,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed200",
+      "seed": 200,
+      "task": "textvqa",
+      "metric": "TextVQA leave-one-out consensus percent",
+      "score_percent": 81.152,
+      "question_mean_score_percent": 81.152,
+      "questions": 5000,
+      "unique_image_clusters": 3166,
+      "visual_tokens": {
+        "n": 5000,
+        "min": 333.0,
+        "mean": 935.5778,
+        "median": 980.0,
+        "p05": 777.0,
+        "p95": 1024.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 5000,
+        "min": 370.0,
+        "mean": 974.911,
+        "median": 1018.0,
+        "p05": 815.0,
+        "p95": 1062.0,
+        "max": 1071.0
+      },
+      "pure_generation_questions_per_second": 2.2313000168999872,
+      "generation_preprocessing_h2d_questions_per_second": 1.9252004888013006,
+      "peak_allocated_gib": 8.652209758758545,
+      "peak_reserved_gib": 10.509765625,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed200",
+      "seed": 200,
+      "task": "docvqa",
+      "metric": "DocVQA ANLS percent",
+      "score_percent": 91.80155296539378,
+      "question_mean_score_percent": 91.80155296539378,
+      "questions": 5349,
+      "unique_image_clusters": 1285,
+      "visual_tokens": {
+        "n": 5349,
+        "min": 210.0,
+        "mean": 991.9777528510002,
+        "median": 1008.0,
+        "p05": 972.0,
+        "p95": 1008.0,
+        "max": 1023.0
+      },
+      "input_tokens": {
+        "n": 5349,
+        "min": 246.0,
+        "mean": 1034.0491680687978,
+        "median": 1046.0,
+        "p05": 1009.0,
+        "p95": 1058.0,
+        "max": 1084.0
+      },
+      "pure_generation_questions_per_second": 1.9292549487213853,
+      "generation_preprocessing_h2d_questions_per_second": 1.5170983135846896,
+      "peak_allocated_gib": 8.640239715576172,
+      "peak_reserved_gib": 10.544921875,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    },
+    {
+      "model_key": "qv_seed200",
+      "seed": 200,
+      "task": "mmstar",
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "score_percent": 55.60631311245475,
+      "question_mean_score_percent": 54.0,
+      "questions": 1500,
+      "unique_image_clusters": 1430,
+      "visual_tokens": {
+        "n": 1500,
+        "min": 64.0,
+        "mean": 263.0473333333333,
+        "median": 216.0,
+        "p05": 70.0,
+        "p95": 884.0,
+        "max": 1024.0
+      },
+      "input_tokens": {
+        "n": 1500,
+        "min": 121.0,
+        "mean": 346.4533333333333,
+        "median": 296.0,
+        "p05": 159.95,
+        "p95": 955.0999999999981,
+        "max": 1304.0
+      },
+      "pure_generation_questions_per_second": 9.589460983477238,
+      "generation_preprocessing_h2d_questions_per_second": 7.958480271791085,
+      "peak_allocated_gib": 7.866235256195068,
+      "peak_reserved_gib": 8.13671875,
+      "resource_timing_status": "no_observed_contention",
+      "sampled_contention_observations": 0,
+      "exclusive_gpu_benchmark": false,
+      "timing_scope": "Deduplicate (task,session_id,batch_start); exclude first batch in every task session from all steady-state phase totals. Peaks include every complete batch. Generation+preprocessing+H2D excludes loading/preflight/file/controller work. Batch amortization is not single-request latency; no production or exclusive-GPU claim."
+    }
+  ],
+  "paired_contrasts": [
+    {
+      "task": "textvqa",
+      "model_key": "qv_seed0",
+      "training_seed": 0,
+      "delta_pp": 1.402,
+      "image_cluster_bootstrap_95_pp": [
+        0.7536110456057002,
+        2.03099464563553
+      ],
+      "questions": 5000,
+      "unique_image_clusters": 3166,
+      "metric": "TextVQA leave-one-out consensus percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261011,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 1,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "textvqa",
+      "model_key": "qv_seed42",
+      "training_seed": 42,
+      "delta_pp": 1.7399999999999998,
+      "image_cluster_bootstrap_95_pp": [
+        1.132145779125638,
+        2.3493779009680784
+      ],
+      "questions": 5000,
+      "unique_image_clusters": 3166,
+      "metric": "TextVQA leave-one-out consensus percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261012,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 1,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "textvqa",
+      "model_key": "qv_seed200",
+      "training_seed": 200,
+      "delta_pp": 1.592,
+      "image_cluster_bootstrap_95_pp": [
+        0.991298790343285,
+        2.244443637977475
+      ],
+      "questions": 5000,
+      "unique_image_clusters": 3166,
+      "metric": "TextVQA leave-one-out consensus percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261013,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 1,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "docvqa",
+      "model_key": "qv_seed0",
+      "training_seed": 0,
+      "delta_pp": 0.20844517740241808,
+      "image_cluster_bootstrap_95_pp": [
+        -0.20723636647278765,
+        0.615939264073426
+      ],
+      "questions": 5349,
+      "unique_image_clusters": 1285,
+      "metric": "DocVQA ANLS percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261021,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 1,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "docvqa",
+      "model_key": "qv_seed42",
+      "training_seed": 42,
+      "delta_pp": 0.18343620650043785,
+      "image_cluster_bootstrap_95_pp": [
+        -0.21860520377477466,
+        0.5758740480255418
+      ],
+      "questions": 5349,
+      "unique_image_clusters": 1285,
+      "metric": "DocVQA ANLS percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261022,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 1,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "docvqa",
+      "model_key": "qv_seed200",
+      "training_seed": 200,
+      "delta_pp": 0.1701970251770707,
+      "image_cluster_bootstrap_95_pp": [
+        -0.23854297160330964,
+        0.5597343969782121
+      ],
+      "questions": 5349,
+      "unique_image_clusters": 1285,
+      "metric": "DocVQA ANLS percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261023,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 1,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "mmstar",
+      "model_key": "qv_seed0",
+      "training_seed": 0,
+      "delta_pp": -0.37771564742848057,
+      "image_cluster_bootstrap_95_pp": [
+        -1.7719933489848847,
+        1.0100222875754423
+      ],
+      "questions": 1500,
+      "unique_image_clusters": 1430,
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261031,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 18,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "mmstar",
+      "model_key": "qv_seed42",
+      "training_seed": 42,
+      "delta_pp": -0.1986477959166394,
+      "image_cluster_bootstrap_95_pp": [
+        -1.5774449782015896,
+        1.2160653871505558
+      ],
+      "questions": 1500,
+      "unique_image_clusters": 1430,
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261032,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 18,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    },
+    {
+      "task": "mmstar",
+      "model_key": "qv_seed200",
+      "training_seed": 200,
+      "delta_pp": -0.6827561298330327,
+      "image_cluster_bootstrap_95_pp": [
+        -2.0791054480022906,
+        0.7304311498175398
+      ],
+      "questions": 1500,
+      "unique_image_clusters": 1430,
+      "metric": "MMStar 18-subcategory macro accuracy percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261033,
+      "empty_category_replicates_redrawn": 0,
+      "empty_category_policy": "Reject/redraw any resample missing an official category; never replace empty category with zero or silently change macro denominator. This conditions MMStar intervals on all18 categories being represented.",
+      "categories_retained": 18,
+      "interval_scope": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent."
+    }
+  ],
+  "textvqa_frequency_seed_summaries": [
+    {
+      "task": "textvqa",
+      "dimension": "sft_target_answer_frequency",
+      "slice": "unseen_0",
+      "questions": 2289,
+      "unique_image_clusters": 1834,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        77.19528178243775,
+        77.62778505897772,
+        77.57972913936216
+      ],
+      "mean_score_percent": 77.46759866025921,
+      "sample_sd_score_percent": 0.23705422230440512,
+      "mean_adapter_minus_base_pp": 2.579001019367992,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    },
+    {
+      "task": "textvqa",
+      "dimension": "sft_target_answer_frequency",
+      "slice": "rare_1_5",
+      "questions": 991,
+      "unique_image_clusters": 884,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        78.46619576185671,
+        78.65792129162462,
+        78.37537840565085
+      ],
+      "mean_score_percent": 78.49983181971072,
+      "sample_sd_score_percent": 0.1442434015633488,
+      "mean_adapter_minus_base_pp": -0.11772620248906826,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    },
+    {
+      "task": "textvqa",
+      "dimension": "sft_target_answer_frequency",
+      "slice": "medium_6_20",
+      "questions": 491,
+      "unique_image_clusters": 450,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        87.94297352342159,
+        87.63747454175153,
+        87.4949083503055
+      ],
+      "mean_score_percent": 87.69178547182621,
+      "sample_sd_score_percent": 0.22891670468550424,
+      "mean_adapter_minus_base_pp": -1.4324507807196196,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    },
+    {
+      "task": "textvqa",
+      "dimension": "sft_target_answer_frequency",
+      "slice": "frequent_gt20",
+      "questions": 1229,
+      "unique_image_clusters": 1089,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        87.20097640358014,
+        87.7379983726607,
+        87.51017087062652
+      ],
+      "mean_score_percent": 87.4830485489558,
+      "sample_sd_score_percent": 0.26953638728082235,
+      "mean_adapter_minus_base_pp": 2.2836994846758882,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    },
+    {
+      "task": "textvqa",
+      "dimension": "reference_answer_frequency",
+      "slice": "unseen_0",
+      "questions": 1798,
+      "unique_image_clusters": 1489,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        76.51279199110122,
+        76.98553948832036,
+        76.99666295884316
+      ],
+      "mean_score_percent": 76.83166481275491,
+      "sample_sd_score_percent": 0.27620796547376586,
+      "mean_adapter_minus_base_pp": 2.5380051909529104,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    },
+    {
+      "task": "textvqa",
+      "dimension": "reference_answer_frequency",
+      "slice": "rare_1_5",
+      "questions": 1168,
+      "unique_image_clusters": 1023,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        77.5,
+        77.9708904109589,
+        78.03082191780823
+      ],
+      "mean_score_percent": 77.83390410958904,
+      "sample_sd_score_percent": 0.290717925451194,
+      "mean_adapter_minus_base_pp": 1.0873287671232879,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    },
+    {
+      "task": "textvqa",
+      "dimension": "reference_answer_frequency",
+      "slice": "medium_6_20",
+      "questions": 581,
+      "unique_image_clusters": 534,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        86.11015490533562,
+        85.86919104991394,
+        85.33562822719449
+      ],
+      "mean_score_percent": 85.77165806081469,
+      "sample_sd_score_percent": 0.39636776705486465,
+      "mean_adapter_minus_base_pp": -0.011474469305794535,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    },
+    {
+      "task": "textvqa",
+      "dimension": "reference_answer_frequency",
+      "slice": "frequent_gt20",
+      "questions": 1453,
+      "unique_image_clusters": 1265,
+      "seeds": [
+        0,
+        42,
+        200
+      ],
+      "seed_scores_percent": [
+        87.1920165175499,
+        87.48795595320028,
+        87.13007570543702
+      ],
+      "mean_score_percent": 87.27001605872907,
+      "sample_sd_score_percent": 0.19126555950534835,
+      "mean_adapter_minus_base_pp": 1.4200504702913512,
+      "uncertainty": "sample SD across three seed-level slice scores only; no image sampling CI or significance claim"
+    }
+  ],
+  "slice_lock_sha256": "062179ea20cd7af967e0804ff64b9980976b0b86c9fea32abcfa7c9ab52b8af1",
+  "statistics": {
+    "seed_estimator": "arithmetic mean ± sample SD across seeds0/42/200; no mean CI with n3",
+    "image_intervals": "Pointwise exploratory 95% percentile interval conditional on one fixed base/checkpoint pair and this public benchmark. Resample entire image clusters and retain all paired questions. Nine predeclared task×seed comparisons, without multiplicity correction; no confirmatory significance or equivalence claim. Training-seed variability is separate; seed×image is never pooled as independent.",
+    "replicates": 2000,
+    "multiplicity": "nine pointwise exploratory comparisons, no adjustment and no confirmatory inference"
+  },
+  "limitations": [
+    "The dev-selected BF16/1024 protocol changes quantization/storage, compute dtype and visual budget relative to historical NF4/FP32/256. Historical changes are joint-path observations, not pure BF16 or pure budget causal effects.",
+    "All adapters were trained using NF4/FP32 and visual budget256; BF16/1024 is an inference change with no new training.",
+    "Training qv seed0 used V100, seeds42/200 used A100; microbatch/reduction/dropout execution differs. Three-seed SD includes this heterogeneous lineage and does not isolate hardware effects.",
+    "Public val predictions were already measured under the historical protocol; benchmark pretraining overlap is unknown. Formal complete evaluation does not mean a clean unseen holdout.",
+    "Answer text frequency is exposure to actual normalized supervised targets in train_all, not semantic visual-class frequency, pretraining frequency, or causally controlled long-tail difficulty.",
+    "Slice scores are descriptive with no per-slice confidence intervals. Overall gains do not establish improvement on every unseen/rare slice.",
+    "Sampled absence of a co-resident GPU process does not establish exclusivity. Throughput excludes model loading, preflight, verification, disk/controller overhead and is not production service performance.",
+    "A high output agreement rate or an interval crossing zero does not prove numerical/accuracy equivalence; no equivalence margin was predeclared."
+  ],
+  "training_hardware_note": "Existing seed0 trained on 4xV100; seeds42/200 on 2xA100. New inference ran on A100. Seed SD is not isolated from training hardware variation."
+}

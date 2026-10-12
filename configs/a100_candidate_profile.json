@@ -1,0 +1,142 @@
+{
+  "schema_version": "rarevlm.a100_candidate_design.v1",
+  "created_date": "2026-10-10",
+  "status": "optional_candidate_for_hardware_comparison_not_a_selected_future_policy",
+  "hardware_selection_committed": false,
+  "performance_status": "not_a_benchmarked_speedup_claim",
+  "candidate_hardware": {
+    "gpu_model": "NVIDIA A100-SXM4-80GB",
+    "gpu_count": 2,
+    "memory_gib_per_gpu": 80,
+    "nvlink_observed": true,
+    "automatic_v100_fallback": false
+  },
+  "current_run_guard": {
+    "frozen_config": "configs/vlm_deep_v2.json",
+    "continuation_runtime": "vlm_a100.pipeline",
+    "precision": "fp32",
+    "quantization": "nf4_language_only",
+    "effective_batch": 16,
+    "change_running_experiment": false
+  },
+  "candidate_runtime_options": {
+    "precision_candidate": "bf16_amp",
+    "sensitive_loss_and_statistics_dtype": "fp32",
+    "optimizer_and_master_state_policy": "retain_fp32_where_required_by_the_optimizer_and_method",
+    "bf16_gradient_scaler_default": "disabled_unless_task_validation_requires_it",
+    "attention_preference": "compatible_fused_sdpa; flash_attention_2_only_after_dependency_and_model_checks",
+    "record_actual_attention_kernel": true,
+    "tf32_policy": "explicitly_declared_separate_numerical_profile_not_silently_enabled",
+    "preserve_declared_global_batch": true,
+    "preserve_optimizer_class_and_hyperparameters": true,
+    "microbatch_formula": "effective_batch / (world_size * accumulation)",
+    "gradient_accumulation": "only_with_verified_per_question_weighting_and_checkpoint_resume",
+    "data_pipeline": [
+      "measure_decode_augmentation_storage_and_transfer_time",
+      "cache_or_preprocess_immutable_data_when_protocol_allows",
+      "use_pinned_and_nonblocking_transfers_when_verified",
+      "respect_frozen_worker_counts_and_augmentation_rules"
+    ],
+    "require_new_precision_baseline": true,
+    "compare_methods_with_the_same_precision_hardware_and_budget": true
+  },
+  "profiles": {
+    "cifar_los_frozen_v1": {
+      "gpu_count_per_run": 1,
+      "max_concurrent_runs": 2,
+      "precision": "frozen_fp32",
+      "auto_enable_bf16_or_tf32": false,
+      "canonical_protocol": "/opt/data/private/longtail_init/TS-MOF/LOS_ALIGNED_INIT_STAGE1_V1.md",
+      "epochs": 200,
+      "ir": 100,
+      "seeds": [0, 42, 200],
+      "batch_size": 64,
+      "workers": 16,
+      "evaluation": "official_test_every_epoch; mean_original_and_horizontal_flip_logits",
+      "primary_metric": "best_test_selected_overall",
+      "secondary_metric": "final_at_200",
+      "initializer_inputs": ["initializer_checkpoint", "initializer_manifest", "loss"],
+      "note": "New AMP/TF32 diagnostics are separate numerical lanes and do not replace this frozen primary protocol."
+    },
+    "new_cifar_amp_diagnostic": {
+      "gpu_count_per_run": 1,
+      "max_concurrent_runs": 2,
+      "precision_candidate": "bf16_amp",
+      "scientific_budget": "inherit_declared_cifar_protocol_without_automatic_batch_or_worker_changes",
+      "evidence_lane": "separate_numerical_diagnostic",
+      "promote_to_frozen_primary_automatically": false,
+      "performance_objective": "total_required_seed_and_method_queue_completion_time_including_evaluation"
+    },
+    "new_imagenet_longtail": {
+      "preferred_world_size": 2,
+      "precision_candidate": "bf16_amp",
+      "effective_batch": "task_protocol_required",
+      "microbatch": "derive_from_effective_batch_and_validated_accumulation",
+      "batchnorm_policy": "record_and_control_local_bn_or_syncbn; gpu_count_changes_are_not_automatically_equivalent",
+      "data_pipeline_priority": "image_decode_augmentation_storage_and_loader_overlap",
+      "evidence_lane": "new_a100_numerical_protocol"
+    },
+    "new_vlm_3b_lora": {
+      "preferred_world_size": 2,
+      "base_weight_dtype_candidate": "bf16",
+      "base_quantization_candidate": "none",
+      "lora_parameter_and_optimizer_dtype_candidate": "fp32",
+      "loss_dtype": "fp32",
+      "effective_batch": "task_protocol_required",
+      "visual_token_budget": "scientific_question_required_not_hardware_filling",
+      "sequence_length": "must_include_image_prompt_answer_and_special_tokens",
+      "freeze_vision_no_grad": "only_when_no_trainable_vision_or_merger_path_requires_the_graph",
+      "performance_note": "Compare real quality/time/memory against NF4; nonquantized BF16 is a candidate, not a claimed winner."
+    },
+    "new_vlm_7b_or_long_context": {
+      "preferred_world_size": 2,
+      "first_memory_probe": "bf16_lora",
+      "fallback_when_memory_requires": "nf4_weights_with_bf16_compute",
+      "activation_checkpointing": "enable_when_measured_memory_requires",
+      "sharding": "only_when_model_replication_is_insufficient_and_resume_is_validated",
+      "performance_note": "Quantization is selected for an actual memory/quality/cost reason, not inherited from V100 defaults."
+    },
+    "new_multimodal_dpo": {
+      "preferred_world_size": 2,
+      "precision_candidate": "bf16_amp_with_fp32_log_probability_reduction",
+      "reference_strategy_candidate": "precompute_frozen_reference_log_probs",
+      "release_reference_after_cache": true,
+      "cache_identity": [
+        "reference_checkpoint_sha256",
+        "tokenizer_and_chat_template",
+        "image_bytes_and_processing_revision",
+        "visual_and_sequence_budgets",
+        "prompt_chosen_rejected_and_truncation",
+        "augmentation_identity"
+      ],
+      "dynamic_reference_compatible_with_static_cache": false,
+      "quality_controls": ["fixed_sft_start", "no_extra_training", "chosen_only_sft", "dpo"],
+      "resource_policy": "record_actual_token_exposure_training_time_reference_cache_time_and_memory"
+    }
+  },
+  "acceptance_before_new_formal_launch": {
+    "gpu_ownership_check": true,
+    "forward_backward_and_finite_gradient_check": true,
+    "checkpoint_optimizer_rng_and_sample_order_resume_check": true,
+    "steady_training_measurement": "100_to_200_updates_or_task_appropriate_epoch; exclude_initial_compile_and_warmup_from_steady_rate_but_report_them",
+    "complete_evaluation_measurement": true,
+    "quality_rule": "declare_task_specific_tolerance_or_acceptance_before_looking_at_results; use_approved_dev_or_validation_for_configuration",
+    "official_test_rule": "only_declared_benchmark_selection; no_new_posthoc_tuning",
+    "report": [
+      "samples_and_tokens_per_second",
+      "end_to_end_epoch_and_evaluation_time",
+      "allocated_and_reserved_memory",
+      "all_required_runs_total_time",
+      "precision_tf32_kernel_and_hardware",
+      "quality_and_uncertainty",
+      "historical_vs_new_numerical_lanes"
+    ],
+    "universal_faster_than_four_v100_guarantee": false
+  },
+  "official_implementation_references": [
+    "https://docs.pytorch.org/tutorials/recipes/recipes/amp_recipe.html",
+    "https://docs.pytorch.org/docs/stable/notes/amp_examples.html",
+    "https://huggingface.co/docs/transformers/v4.50.0/en/model_doc/qwen2_5_vl",
+    "https://huggingface.co/docs/trl/dpo_trainer"
+  ]
+}

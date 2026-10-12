@@ -1,0 +1,28 @@
+{
+  "schema_version": "rarevlm.optimization.figure_export.v1",
+  "figures": [
+    {
+      "file": "assets/vlm_optimization_v1/budget_quality_cost.png",
+      "sha256": "6d52a20952bbba561f816c68eee772682a5cd076219b1bafdd7f6ff7fc9cf97d",
+      "original_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/analysis/quality_cost.png",
+      "original_sha256": "6d52a20952bbba561f816c68eee772682a5cd076219b1bafdd7f6ff7fc9cf97d",
+      "original_figure_provenance": {
+        "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/analysis/FIGURE_PROVENANCE.json",
+        "sha256": "dcfbea254bd7f5f913ee54ca70b7b1a10b25e4ebedd5ca5f3934048f503aac4c"
+      },
+      "transformation": "Exact byte copy; no resizing, edits or redraw."
+    },
+    {
+      "file": "assets/vlm_optimization_v1/precision_quality_cost.png",
+      "sha256": "9e81079f44f455eed14e5e420871ab090d7d65078cbbf020a8f9f24c3c2294e3",
+      "original_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/analysis/quality_resources.png",
+      "original_sha256": "9e81079f44f455eed14e5e420871ab090d7d65078cbbf020a8f9f24c3c2294e3",
+      "original_figure_provenance": {
+        "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/analysis/FIGURE_PROVENANCE.json",
+        "sha256": "ff5eeb8d08a7b1b7b8f3230aa5908251d8f0532c4624c62eb00a086b32f356dc"
+      },
+      "transformation": "Exact byte copy; no resizing, edits or redraw."
+    }
+  ],
+  "scope": "Existing scientific visualization exports from completed internal-dev experiments; original provenance remains authoritative."
+}

@@ -1,0 +1,1102 @@
+{
+  "schema_version": "rarevlm.region_token.analysis.v1",
+  "updated_at": "2026-10-12T13:44:43.960199+00:00",
+  "complete": true,
+  "completed_cells": 4,
+  "expected_cells": 4,
+  "expected_predictions": 6468,
+  "config_sha256": "8388b58a574937f2993a3d1c3fa415300ddb9cceb64b8993c8a84055ee36ff0d",
+  "analysis_source_sha256": "1e943411d89821179071db95eed84d65bed928df49f79d368c86536d1b384726",
+  "slice_lock_sha256": "95d533202fe6aea8e3f0aa178962f29a2671ef770f039ca85c1318894795a3ef",
+  "scope": "historically explored internal dev;single fixed existing checkpoint;new four-view protocol;no official evaluation",
+  "status": "complete",
+  "validated_predictions": 6468,
+  "condition_summary": {
+    "whole": {
+      "score_percent": 84.88559059987631,
+      "slices": {
+        "unseen_0": {
+          "questions": 687,
+          "score_percent": 81.97962154294032
+        },
+        "rare_1_5": {
+          "questions": 342,
+          "score_percent": 82.30994152046783
+        },
+        "medium_6_20": {
+          "questions": 171,
+          "score_percent": 93.50877192982456
+        },
+        "frequent_gt20": {
+          "questions": 417,
+          "score_percent": 88.2494004796163
+        }
+      },
+      "resource": {
+        "steady_questions": 1613,
+        "timing_warmup_batches_excluded": 1,
+        "generation_questions_per_second": 2.067156438862212,
+        "view_fetch_preprocess_h2d_generation_questions_per_second": 1.7393113278008474,
+        "steady_seconds": {
+          "batch_generation_seconds": 780.2989506144077,
+          "batch_preprocessing_seconds": 106.45107580441982,
+          "batch_h2d_seconds": 2.0065966327674687,
+          "batch_view_fetch_seconds": 38.62191707408056
+        },
+        "visual_tokens": {
+          "min": 1024,
+          "mean": 1024,
+          "median": 1024,
+          "p90": 1024.0,
+          "p95": 1024.0,
+          "max": 1024
+        },
+        "input_tokens": {
+          "min": 1058,
+          "mean": 1063.2479901051329,
+          "median": 1063,
+          "p90": 1066.4,
+          "p95": 1068.0,
+          "max": 1073
+        },
+        "generated_nonpad_tokens": {
+          "min": 2,
+          "mean": 3.730983302411874,
+          "median": 3,
+          "p90": 6.0,
+          "p95": 7.0,
+          "max": 20
+        },
+        "peak_allocated_gib": 8.419611930847168,
+        "peak_reserved_gib": 8.935546875,
+        "scope": "observed cached-view VLM phases; detector/crop/letterbox preparation reported separately;not service SLA"
+      },
+      "hardware": {
+        "physical_index": 0,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_bytes": 84974239744,
+        "compute_capability": [
+          8,
+          0
+        ],
+        "torch_cuda_version": "12.4"
+      },
+      "provenance": {
+        "prediction_file": "vlm_region_token_v1/runs/whole/dev/predictions.jsonl",
+        "prediction_sha256": "c89aa2bc21ec8de977d3d476b09b1c3f74c560599e9259e07030e6cac1a5d741",
+        "evaluation_sha256": "a3d3c68706273bdaa7c4a54aebc5d4e10cf76d352d0948f7aebbc4e604814d52",
+        "input_lock_sha256": "27a6ad46dd62aa8210706c054c8e1c42ac495b29fd4d76c38f0b5da9f2f27f6b"
+      }
+    },
+    "double_whole": {
+      "score_percent": 77.3716759431045,
+      "slices": {
+        "unseen_0": {
+          "questions": 687,
+          "score_percent": 71.61572052401746
+        },
+        "rare_1_5": {
+          "questions": 342,
+          "score_percent": 76.49122807017544
+        },
+        "medium_6_20": {
+          "questions": 171,
+          "score_percent": 85.67251461988305
+        },
+        "frequent_gt20": {
+          "questions": 417,
+          "score_percent": 84.17266187050359
+        }
+      },
+      "resource": {
+        "steady_questions": 1613,
+        "timing_warmup_batches_excluded": 1,
+        "generation_questions_per_second": 2.0612276684260764,
+        "view_fetch_preprocess_h2d_generation_questions_per_second": 1.7435874436863312,
+        "steady_seconds": {
+          "batch_generation_seconds": 782.5433476893231,
+          "batch_preprocessing_seconds": 102.83294077310711,
+          "batch_h2d_seconds": 1.9846711964346468,
+          "batch_view_fetch_seconds": 37.74320178758353
+        },
+        "visual_tokens": {
+          "min": 1024,
+          "mean": 1024,
+          "median": 1024,
+          "p90": 1024.0,
+          "p95": 1024.0,
+          "max": 1024
+        },
+        "input_tokens": {
+          "min": 1060,
+          "mean": 1065.2479901051329,
+          "median": 1065,
+          "p90": 1068.4,
+          "p95": 1070.0,
+          "max": 1075
+        },
+        "generated_nonpad_tokens": {
+          "min": 2,
+          "mean": 3.7223252937538653,
+          "median": 3,
+          "p90": 6.0,
+          "p95": 7.0,
+          "max": 20
+        },
+        "peak_allocated_gib": 8.419642448425293,
+        "peak_reserved_gib": 8.935546875,
+        "scope": "observed cached-view VLM phases; detector/crop/letterbox preparation reported separately;not service SLA"
+      },
+      "hardware": {
+        "physical_index": 0,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_bytes": 84974239744,
+        "compute_capability": [
+          8,
+          0
+        ],
+        "torch_cuda_version": "12.4"
+      },
+      "provenance": {
+        "prediction_file": "vlm_region_token_v1/runs/double_whole/dev/predictions.jsonl",
+        "prediction_sha256": "7012c6e32cf0520dfa0e18bb5f08de55debc3ea1322bacf4aeb5bb26685a696d",
+        "evaluation_sha256": "e3c682bab02d1ca572cc73f9a3da91302fef1ac650fa84cb4e6ed30974ce62f2",
+        "input_lock_sha256": "fa0b1ee019467000ac086706c58de3c6c769a7350f2a06f8f57954b6a86bc62d"
+      }
+    },
+    "text_region": {
+      "score_percent": 79.0352504638219,
+      "slices": {
+        "unseen_0": {
+          "questions": 687,
+          "score_percent": 73.47889374090248
+        },
+        "rare_1_5": {
+          "questions": 342,
+          "score_percent": 78.45029239766082
+        },
+        "medium_6_20": {
+          "questions": 171,
+          "score_percent": 88.71345029239765
+        },
+        "frequent_gt20": {
+          "questions": 417,
+          "score_percent": 84.70023980815348
+        }
+      },
+      "resource": {
+        "steady_questions": 1613,
+        "timing_warmup_batches_excluded": 1,
+        "generation_questions_per_second": 2.083478547788324,
+        "view_fetch_preprocess_h2d_generation_questions_per_second": 1.7635759456481768,
+        "steady_seconds": {
+          "batch_generation_seconds": 774.1860369583592,
+          "batch_preprocessing_seconds": 103.20758823072538,
+          "batch_h2d_seconds": 2.06569901201874,
+          "batch_view_fetch_seconds": 35.159637335687876
+        },
+        "visual_tokens": {
+          "min": 1024,
+          "mean": 1024,
+          "median": 1024,
+          "p90": 1024.0,
+          "p95": 1024.0,
+          "max": 1024
+        },
+        "input_tokens": {
+          "min": 1060,
+          "mean": 1065.2479901051329,
+          "median": 1065,
+          "p90": 1068.4,
+          "p95": 1070.0,
+          "max": 1075
+        },
+        "generated_nonpad_tokens": {
+          "min": 2,
+          "mean": 3.7025355596784166,
+          "median": 3,
+          "p90": 6.0,
+          "p95": 7.0,
+          "max": 22
+        },
+        "peak_allocated_gib": 8.419642448425293,
+        "peak_reserved_gib": 8.935546875,
+        "scope": "observed cached-view VLM phases; detector/crop/letterbox preparation reported separately;not service SLA"
+      },
+      "hardware": {
+        "physical_index": 1,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_bytes": 84974239744,
+        "compute_capability": [
+          8,
+          0
+        ],
+        "torch_cuda_version": "12.4"
+      },
+      "provenance": {
+        "prediction_file": "vlm_region_token_v1/runs/text_region/dev/predictions.jsonl",
+        "prediction_sha256": "2fd5506a60e28478902b1aa9d064f2809d9bc513fdcf8ddf73bba1ea27187921",
+        "evaluation_sha256": "362294ffe8ef558ce72298f3dd9b02930792f04a38314f9d6655115e82ef09b0",
+        "input_lock_sha256": "63474bfc494cad577959b0628bbcbf0434e173581c48a1e05a8296f77ba9e4b7"
+      }
+    },
+    "random_matched": {
+      "score_percent": 76.96351267779839,
+      "slices": {
+        "unseen_0": {
+          "questions": 687,
+          "score_percent": 70.55312954876274
+        },
+        "rare_1_5": {
+          "questions": 342,
+          "score_percent": 76.49122807017544
+        },
+        "medium_6_20": {
+          "questions": 171,
+          "score_percent": 86.31578947368422
+        },
+        "frequent_gt20": {
+          "questions": 417,
+          "score_percent": 84.07673860911271
+        }
+      },
+      "resource": {
+        "steady_questions": 1613,
+        "timing_warmup_batches_excluded": 1,
+        "generation_questions_per_second": 2.0934101589901015,
+        "view_fetch_preprocess_h2d_generation_questions_per_second": 1.7939542802346788,
+        "steady_seconds": {
+          "batch_generation_seconds": 770.5131233232096,
+          "batch_preprocessing_seconds": 93.44177738809958,
+          "batch_h2d_seconds": 1.9774587405845523,
+          "batch_view_fetch_seconds": 33.19869297882542
+        },
+        "visual_tokens": {
+          "min": 1024,
+          "mean": 1024,
+          "median": 1024,
+          "p90": 1024.0,
+          "p95": 1024.0,
+          "max": 1024
+        },
+        "input_tokens": {
+          "min": 1060,
+          "mean": 1065.2479901051329,
+          "median": 1065,
+          "p90": 1068.4,
+          "p95": 1070.0,
+          "max": 1075
+        },
+        "generated_nonpad_tokens": {
+          "min": 2,
+          "mean": 3.706864564007421,
+          "median": 3,
+          "p90": 6.0,
+          "p95": 7.0,
+          "max": 22
+        },
+        "peak_allocated_gib": 8.419642448425293,
+        "peak_reserved_gib": 8.935546875,
+        "scope": "observed cached-view VLM phases; detector/crop/letterbox preparation reported separately;not service SLA"
+      },
+      "hardware": {
+        "physical_index": 1,
+        "name": "NVIDIA A100-SXM4-80GB",
+        "total_memory_bytes": 84974239744,
+        "compute_capability": [
+          8,
+          0
+        ],
+        "torch_cuda_version": "12.4"
+      },
+      "provenance": {
+        "prediction_file": "vlm_region_token_v1/runs/random_matched/dev/predictions.jsonl",
+        "prediction_sha256": "27584dde1a6409de45f426d19aa83cacb54898c8e17e22ae11b355435e350ccf",
+        "evaluation_sha256": "84eb0f2fb10a240522380c3abd66718ed0e038c6b98a358d2ae856bd268dc790",
+        "input_lock_sha256": "17d4fb04f6d414b626c85cf12c6bff1cc6b5dc1f8b7a14f16d166aad929eb324"
+      }
+    }
+  },
+  "contrasts": [
+    {
+      "comparison": "text_region_minus_random_matched",
+      "reference_condition": "random_matched",
+      "candidate_condition": "text_region",
+      "slice": "overall",
+      "questions": 1617,
+      "image_clusters": 1024,
+      "reference_score_percent": 76.96351267779839,
+      "candidate_score_percent": 79.0352504638219,
+      "delta_pp": 2.0717377860235002,
+      "image_cluster_bootstrap_95_pp": [
+        0.7524607266628561,
+        3.368283637323664
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261012,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_random_matched",
+      "reference_condition": "random_matched",
+      "candidate_condition": "text_region",
+      "slice": "unseen_0",
+      "questions": 687,
+      "image_clusters": 543,
+      "reference_score_percent": 70.55312954876274,
+      "candidate_score_percent": 73.47889374090248,
+      "delta_pp": 2.925764192139738,
+      "image_cluster_bootstrap_95_pp": [
+        0.5880272901239704,
+        5.2283006148431665
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261013,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_random_matched",
+      "reference_condition": "random_matched",
+      "candidate_condition": "text_region",
+      "slice": "rare_1_5",
+      "questions": 342,
+      "image_clusters": 312,
+      "reference_score_percent": 76.49122807017544,
+      "candidate_score_percent": 78.45029239766082,
+      "delta_pp": 1.9590643274853805,
+      "image_cluster_bootstrap_95_pp": [
+        -1.0542483660130717,
+        4.914494787489973
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261014,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_random_matched",
+      "reference_condition": "random_matched",
+      "candidate_condition": "text_region",
+      "slice": "medium_6_20",
+      "questions": 171,
+      "image_clusters": 160,
+      "reference_score_percent": 86.31578947368422,
+      "candidate_score_percent": 88.71345029239765,
+      "delta_pp": 2.39766081871345,
+      "image_cluster_bootstrap_95_pp": [
+        -1.3302664432055273,
+        6.529411764705882
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261015,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_random_matched",
+      "reference_condition": "random_matched",
+      "candidate_condition": "text_region",
+      "slice": "frequent_gt20",
+      "questions": 417,
+      "image_clusters": 367,
+      "reference_score_percent": 84.07673860911271,
+      "candidate_score_percent": 84.70023980815348,
+      "delta_pp": 0.6235011990407675,
+      "image_cluster_bootstrap_95_pp": [
+        -1.7268024060561533,
+        2.7511961722488034
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261016,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_double_whole",
+      "reference_condition": "double_whole",
+      "candidate_condition": "text_region",
+      "slice": "overall",
+      "questions": 1617,
+      "image_clusters": 1024,
+      "reference_score_percent": 77.3716759431045,
+      "candidate_score_percent": 79.0352504638219,
+      "delta_pp": 1.6635745207173778,
+      "image_cluster_bootstrap_95_pp": [
+        0.3393058113361981,
+        3.020170642618062
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261017,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_double_whole",
+      "reference_condition": "double_whole",
+      "candidate_condition": "text_region",
+      "slice": "unseen_0",
+      "questions": 687,
+      "image_clusters": 543,
+      "reference_score_percent": 71.61572052401746,
+      "candidate_score_percent": 73.47889374090248,
+      "delta_pp": 1.8631732168850075,
+      "image_cluster_bootstrap_95_pp": [
+        -0.3988746235536534,
+        4.174157124276349
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261018,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_double_whole",
+      "reference_condition": "double_whole",
+      "candidate_condition": "text_region",
+      "slice": "rare_1_5",
+      "questions": 342,
+      "image_clusters": 312,
+      "reference_score_percent": 76.49122807017544,
+      "candidate_score_percent": 78.45029239766082,
+      "delta_pp": 1.9590643274853805,
+      "image_cluster_bootstrap_95_pp": [
+        -0.8931304664723032,
+        4.709952120383034
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261019,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_double_whole",
+      "reference_condition": "double_whole",
+      "candidate_condition": "text_region",
+      "slice": "medium_6_20",
+      "questions": 171,
+      "image_clusters": 160,
+      "reference_score_percent": 85.67251461988305,
+      "candidate_score_percent": 88.71345029239765,
+      "delta_pp": 3.0409356725146197,
+      "image_cluster_bootstrap_95_pp": [
+        -0.4243070953436807,
+        6.839615076182836
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261020,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_double_whole",
+      "reference_condition": "double_whole",
+      "candidate_condition": "text_region",
+      "slice": "frequent_gt20",
+      "questions": 417,
+      "image_clusters": 367,
+      "reference_score_percent": 84.17266187050359,
+      "candidate_score_percent": 84.70023980815348,
+      "delta_pp": 0.5275779376498803,
+      "image_cluster_bootstrap_95_pp": [
+        -1.3132458233890214,
+        2.430604661637199
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261021,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_whole",
+      "reference_condition": "whole",
+      "candidate_condition": "text_region",
+      "slice": "overall",
+      "questions": 1617,
+      "image_clusters": 1024,
+      "reference_score_percent": 84.88559059987631,
+      "candidate_score_percent": 79.0352504638219,
+      "delta_pp": -5.850340136054422,
+      "image_cluster_bootstrap_95_pp": [
+        -7.589097895544994,
+        -4.132534053747826
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261022,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_whole",
+      "reference_condition": "whole",
+      "candidate_condition": "text_region",
+      "slice": "unseen_0",
+      "questions": 687,
+      "image_clusters": 543,
+      "reference_score_percent": 81.97962154294032,
+      "candidate_score_percent": 73.47889374090248,
+      "delta_pp": -8.500727802037845,
+      "image_cluster_bootstrap_95_pp": [
+        -11.391388207973161,
+        -5.5986987634132594
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261023,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_whole",
+      "reference_condition": "whole",
+      "candidate_condition": "text_region",
+      "slice": "rare_1_5",
+      "questions": 342,
+      "image_clusters": 312,
+      "reference_score_percent": 82.30994152046783,
+      "candidate_score_percent": 78.45029239766082,
+      "delta_pp": -3.8596491228070176,
+      "image_cluster_bootstrap_95_pp": [
+        -7.685519973928406,
+        -0.029227162734422194
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261024,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_whole",
+      "reference_condition": "whole",
+      "candidate_condition": "text_region",
+      "slice": "medium_6_20",
+      "questions": 171,
+      "image_clusters": 160,
+      "reference_score_percent": 93.50877192982456,
+      "candidate_score_percent": 88.71345029239765,
+      "delta_pp": -4.7953216374269,
+      "image_cluster_bootstrap_95_pp": [
+        -9.017482227094543,
+        -0.35288957688338524
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261025,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    },
+    {
+      "comparison": "text_region_minus_whole",
+      "reference_condition": "whole",
+      "candidate_condition": "text_region",
+      "slice": "frequent_gt20",
+      "questions": 417,
+      "image_clusters": 367,
+      "reference_score_percent": 88.2494004796163,
+      "candidate_score_percent": 84.70023980815348,
+      "delta_pp": -3.5491606714628294,
+      "image_cluster_bootstrap_95_pp": [
+        -6.485962445573293,
+        -0.8037609359631412
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261026,
+      "uncertainty": "fixed existing checkpoint;resample image clusters retaining same-image qualifying QA;pointwise exploratory unadjusted CI;not seed stability/equivalence"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "checks": {
+      "overall_vs_random": true,
+      "overall_vs_double": true,
+      "frequent_vs_double": true
+    },
+    "thresholds": {
+      "overall_min_delta_vs_random_pp": 0.5,
+      "overall_min_delta_vs_double_pp": 0.5,
+      "frequent_min_delta_vs_double_pp": -0.5
+    },
+    "decision": "review exploratory evidence before any separately authorized replication/formal evaluation",
+    "automatic_new_training": false,
+    "automatic_formal_evaluation": false,
+    "interpretation": "predeclared point-estimate advancement screen;not significance or success claim"
+  },
+  "preparation_cost": {
+    "unique_images": 1024,
+    "detector_total_seconds_once_per_image": 554.5178667712025,
+    "detector_seconds_per_unique_image": 0.5415213542687525,
+    "detector_amortized_seconds_per_dev_qa": 0.3429300351089688,
+    "actual_unique_frame_preparation_seconds": {
+      "crop": 1.2368565262295306,
+      "letterbox": 29.96728033013642,
+      "png": 142.86831024335697,
+      "total": 174.07244709972292
+    },
+    "actual_unique_frames": 4096,
+    "logical_view_reference_cost": {
+      "by_condition": {
+        "whole": {
+          "crop_seconds": 0.9207470719702542,
+          "letterbox_seconds": 13.413161415606737
+        },
+        "double_whole": {
+          "crop_seconds": 0.45534213352948427,
+          "letterbox_seconds": 20.119817255064845
+        },
+        "text_region": {
+          "crop_seconds": 0.2758797835558653,
+          "letterbox_seconds": 13.35622371174395
+        },
+        "random_matched": {
+          "crop_seconds": 0.26790073746815324,
+          "letterbox_seconds": 13.257803830318153
+        }
+      },
+      "scope": "sum of referenced slot preparation timings;duplicate slots and cross-condition shared caches repeat references;not physical preparation total or wall time"
+    },
+    "single_cpu_prepare_and_full_input_validation_wall_seconds": 768.682338478975,
+    "single_cpu_full_input_validation_seconds": 571.8008318119682,
+    "cpu_wall_scope": "one prepare_inputs invocation including cached-view preparation,CPU32 precheck and all6468 encodings;excludes detector setup/detection,GPU model loading/preflight/generation",
+    "scope": "detector once per unique source image;crop/letterbox/PNG totals from each image unique_frame_preparation_seconds once for its4 independent frames;component-time sum is not complete wall time;cached VLM runtime separate;not online service latency"
+  },
+  "limitations": [
+    "new letterbox/single-versus-multi-image format;historical native-resize scores are separate",
+    "equal merged visual tokens do not imply equal FLOPs,unique information,total prompt length or latency",
+    "explored internal dev;public pretraining overlap unknown",
+    "single fixed existing checkpoint;no new training or seed stability claim",
+    "15 pointwise image-cluster intervals;no multiplicity correction;CI crossing zero is not equivalence",
+    "detector proposals contain geometry/confidence only;no recognized text or answer-based location"
+  ],
+  "export_schema_version": "rarevlm.public_region_summary.v1",
+  "export_policy": {
+    "kind": "public result summary derived from completed source artifacts",
+    "original_analysis": {
+      "artifact": "vlm_region_token_v1/analysis/ANALYSIS.json",
+      "original_file_sha256": "619fa0839cb7df2e0ba12d79152774ac46f489132d5f636a97c38ff3230b6ebb",
+      "included_in_this_export": false
+    },
+    "transformation": "numeric findings preserved; local absolute paths converted to experiment-relative artifact handles; device identity and process fields omitted",
+    "artifact_handles": "Output artifact paths identify local evidence, not downloadable files in this repository. Raw predictions, model weights, annotations and image HTML are excluded.",
+    "personal_contribution": "completed experiment records do not establish an individual independent contribution or mastery"
+  },
+  "metric": "TextVQA leave-one-annotator-out consensus mean percent, pinned EvalAIAnswerProcessor; differences in percentage points",
+  "frequency_definition": "Count one normalized actual raw-modal supervised target per train_all QA; lookup dev modal target; answer-text supervision exposure proxy, not visual class/pretraining frequency",
+  "statistics": {
+    "method": "paired image-cluster percentile bootstrap, 2000 replicates per contrast; all questions for each sampled image retained",
+    "interval_scope": "pointwise exploratory 95% intervals conditional on the fixed checkpoint(s) and internal dev; no multiplicity correction, no equivalence inference, no training-seed uncertainty",
+    "pointwise_intervals": 15
+  },
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "conditions": [
+      "whole",
+      "double_whole",
+      "text_region",
+      "random_matched"
+    ],
+    "split": "dev",
+    "expected_questions": 1617,
+    "expected_images": 1024,
+    "expected_predictions": 6468,
+    "numerical_path": "original_bf16",
+    "precision": "bf16",
+    "vision_precision": "bf16",
+    "quantization": "original",
+    "visual_token_budget": 1024,
+    "min_pixels": 50176,
+    "max_pixels": 802816,
+    "batch_size": 4,
+    "max_new_tokens": 32,
+    "do_sample": false,
+    "attention_implementation": "sdpa",
+    "allow_tf32": false,
+    "input_truncation": false,
+    "full_canvas_wh": [
+      896,
+      896
+    ],
+    "half_canvas_wh": [
+      896,
+      448
+    ],
+    "padding_rgb": [
+      127,
+      127,
+      127
+    ],
+    "resize": "aspect-preserving letterbox PIL BICUBIC; lossless PNG; no enhancement",
+    "random_seed": 20261012,
+    "roi_selector": {
+      "score_threshold": 0.6,
+      "padding_fraction": 0.1,
+      "ranking": "score*sqrt(clipped_bbox_area/source_image_area); descending; lexicographic clipped bbox tie",
+      "geometry": "polygon axis-aligned envelope; positive area; clip bounds; integer crop; minimum extent1",
+      "fallback": "whole-image second view for both text_region and random_matched when no valid proposal",
+      "random_control": "stable SHA imageID seed; uniform legal translation with identical crop width/height; no forced text exclusion",
+      "allowed_information": [
+        "source pixels",
+        "source image dimensions",
+        "detector polygons",
+        "detector confidence",
+        "image ID for reproducible random seed"
+      ],
+      "references_targets_questions_allowed": false
+    },
+    "detector": {
+      "model_name": "PP-OCRv5_mobile_det",
+      "paddleocr": "3.0.3",
+      "paddlex": "3.0.3",
+      "paddlepaddle": "3.0.0",
+      "archive_sha256": "50446e5d01ac2a73d5319c89513281f6578414c888c602f9af13f93feefffc58",
+      "device": "cpu",
+      "cpu_threads": 2,
+      "enable_mkldnn": false,
+      "limit_side_len": 960,
+      "limit_type": "max",
+      "thresh": 0.3,
+      "box_thresh": 0.6,
+      "unclip_ratio": 1.5,
+      "recognition_text_to_vlm": false
+    },
+    "preflight": {
+      "cpu_questions_per_condition": 32,
+      "gpu_questions_per_condition": 8,
+      "selection": "ascending numeric dev question IDs; no reference/prediction/score selection",
+      "score_outputs": false,
+      "requirements": [
+        "actual merged visual tokens1024",
+        "finite greedy generation",
+        "same prompt/input IDs/grids for two-slot controls",
+        "legal same-shape random crops",
+        "all sources/data/model/detector/adapter bytes locked",
+        "no truncation"
+      ]
+    },
+    "comparisons": {
+      "primary": "text_region_minus_random_matched",
+      "secondary": [
+        "text_region_minus_double_whole",
+        "text_region_minus_whole"
+      ]
+    },
+    "scope": {
+      "new_training_runs": 0,
+      "new_predictions": 6468,
+      "automatic_official_evaluation": false,
+      "automatic_replication": false,
+      "modify_resume": false
+    },
+    "config": "configs/vlm_region_token_v1.json",
+    "config_file_sha256": "8388b58a574937f2993a3d1c3fa415300ddb9cceb64b8993c8a84055ee36ff0d",
+    "fixed_adapter": "weighted_sft_v1 ordinary CE uniform seed42 final epoch, training32985 QA /2062 updates",
+    "fixed_adapter_training_result_sha256": "4eee25b6b99180db6800a91dcd65bfb2f7e21bd34439ce45e797142b46ece1b8",
+    "fixed_adapter_files_sha256": {
+      "README.md": "4693e5ab37e838f042cf7904ea8e5ade2b4580e582b8afc45859b6885ab2a808",
+      "adapter_model.safetensors": "f6be8e6c53490aad9e9f09e93f25258c666f51a579afd791633b7fe30af0f596",
+      "adapter_config.json": "8c0d18ab7708a00e47cf9d6898583a02613b62f9800c1f6f88114962ac767271"
+    },
+    "images_per_question": {
+      "whole": 1,
+      "double_whole": 2,
+      "text_region": 2,
+      "random_matched": 2
+    },
+    "visual_tokens_per_view": {
+      "whole": [
+        1024
+      ],
+      "double_whole": [
+        512,
+        512
+      ],
+      "text_region": [
+        512,
+        512
+      ],
+      "random_matched": [
+        512,
+        512
+      ]
+    },
+    "image_grid_thw": {
+      "whole": [
+        [
+          1,
+          64,
+          64
+        ]
+      ],
+      "double_whole": [
+        [
+          1,
+          32,
+          64
+        ],
+        [
+          1,
+          32,
+          64
+        ]
+      ],
+      "text_region": [
+        [
+          1,
+          32,
+          64
+        ],
+        [
+          1,
+          32,
+          64
+        ]
+      ],
+      "random_matched": [
+        [
+          1,
+          32,
+          64
+        ],
+        [
+          1,
+          32,
+          64
+        ]
+      ]
+    },
+    "evaluation_hardware": "2 x NVIDIA A100-SXM4-80GB; whole/double share one worker, text/random share the other",
+    "historical_comparability": "native-resize weighted dev score87.112 is not a controlled baseline for this new letterbox protocol"
+  },
+  "input_contract": {
+    "status": "passed",
+    "actual_visual_tokens_min": 1024,
+    "actual_visual_tokens_max": 1024,
+    "processor_resized_canvas_count": 0,
+    "input_truncated_count": 0,
+    "fallback_images": 28,
+    "questions": 1617,
+    "images": 1024,
+    "processor_checks": 6468,
+    "source_manifest_sha256": "fd469dcf00e230509439ee779dc66ca24bdea3be67e671ed0c27e0910ad5ffad",
+    "source_manifest_file_sha256": "01c95ce0b346070ecd0e98fe52f9c67e2e4ddf47de6951fd8b8cf5ece376455a",
+    "detector_provenance_sha256": "f2044b15cb21f63717531a391ecb44e9ab5e9b1b0fa352209b717aef583fc6a1",
+    "detections_sha256": "94a896418d631a8a1614c02eaf0b7db184220a052ad00973f4d92c3a946a01e3",
+    "model_processor_metadata_sha256": {
+      "chat_template.json": "ad60d90252ed0b0705ba14e2d0ad0fec0beac1ea955642b54059b36052d8bc96",
+      "config.json": "7ed3eed5be6924cc800e8a5e53fc405c1aab1aaf36bad65c33403b36c56827f5",
+      "generation_config.json": "533f191cc257b7de37a4fccd0a7a1706d75e1aa660f93efaa54e5a2a9f9aace9",
+      "model.safetensors.index.json": "c7dd78a4c6bea60b51332f1baf37b8f8124ecab2c35395a29a29825bf2619768",
+      "preprocessor_config.json": "f2058c716eef96ccaed1cc1e2d0c08306b62586d535b28d9d08e691b2fab7ca0",
+      "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_config.json": "4abd3520120e266da84c0864fee064d1fb10806f02225911a47253dd38dc5f56",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "source_hashes": {
+      "vlm_region/data.py": "114cebf9c9cff586de2dcdd52a3dc9b0abe48bd2b5de23d2a5537fc7dd4d6c27",
+      "vlm_region/views.py": "ce03599a4f83f7038f7cb8efba1c7b796f0ff300f58c9625aedcece57ee02199",
+      "vlm_region/__init__.py": "285afc58dcff2ec4df1cd2ef41af69418c1efbfd9372f4c6413dc02b0a1001cc",
+      "vlm_deep/common.py": "84f94d4e1e8efb4894804c0b9d84731dc49df2ad44e87fa8ca63823faf22e508",
+      "vlm_sft/common.py": "3e47669d67c7f5133d359a69a12a6090f8bf5f9e1b558dd31e2f070b5b1a3781"
+    },
+    "preflight_counts": {
+      "cpu_encodings": 128,
+      "gpu_qa_per_condition": 8,
+      "full_dev_encodings": 6468
+    }
+  },
+  "detector_summary": {
+    "detector": "PP-OCRv5_mobile_det",
+    "packages": {
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "astor": "0.8.1",
+      "cachetools": "7.2.1",
+      "certifi": "2026.7.22",
+      "chardet": "7.6.0",
+      "charset-normalizer": "3.5.2",
+      "click": "8.5.0",
+      "cloudpickle": "3.1.2",
+      "colorlog": "6.12.0",
+      "cssselect": "1.5.0",
+      "cssutils": "2.15.0",
+      "decorator": "5.3.1",
+      "einops": "0.8.2",
+      "encutils": "1.0.0",
+      "et_xmlfile": "2.0.0",
+      "exceptiongroup": "1.3.1",
+      "filelock": "4.1.0",
+      "fsspec": "2026.9.0",
+      "ftfy": "6.3.1",
+      "h11": "0.16.0",
+      "hf-xet": "1.7.0",
+      "httpcore": "1.0.9",
+      "httpcore2": "2.13.1",
+      "httpx": "0.28.1",
+      "httpx2": "2.13.1",
+      "huggingface_hub": "2.2.0",
+      "idna": "3.20",
+      "imagesize": "2.0.1",
+      "jinja2": "3.1.6",
+      "joblib": "1.6.0",
+      "lxml": "6.1.3",
+      "markupsafe": "3.0.4",
+      "more-itertools": "11.1.0",
+      "networkx": "3.4.2",
+      "numpy": "2.2.6",
+      "opencv-contrib-python-headless": "4.10.0.84",
+      "openpyxl": "3.1.5",
+      "opt-einsum": "3.3.0",
+      "packaging": "26.3",
+      "paddleocr": "3.0.3",
+      "paddlepaddle": "3.0.0",
+      "paddlex": "3.0.3",
+      "pandas": "2.3.3",
+      "pillow": "12.3.0",
+      "pip": "24.0",
+      "premailer": "3.10.0",
+      "prettytable": "3.18.0",
+      "protobuf": "7.36.2",
+      "py-cpuinfo": "9.0.0",
+      "pyclipper": "1.4.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pypdfium2": "5.14.0",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.5",
+      "pyyaml": "6.0.2",
+      "regex": "2026.9.29",
+      "requests": "2.34.2",
+      "ruamel.yaml": "0.19.1",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.15.3",
+      "setuptools": "75.6.0",
+      "shapely": "2.1.2",
+      "six": "1.17.0",
+      "threadpoolctl": "3.7.0",
+      "tiktoken": "0.14.0",
+      "tokenizers": "0.23.3",
+      "tomli": "2.5.0",
+      "tqdm": "4.70.1",
+      "truststore": "0.10.4",
+      "typing-inspection": "0.4.4",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.5",
+      "ujson": "6.0.0",
+      "urllib3": "2.8.0",
+      "wcwidth": "0.9.2"
+    },
+    "parameters": {
+      "box_thresh": 0.6,
+      "cpu_threads": 2,
+      "device": "cpu",
+      "enable_mkldnn": false,
+      "limit_side_len": 960,
+      "limit_type": "max",
+      "model_name": "PP-OCRv5_mobile_det",
+      "thresh": 0.3,
+      "unclip_ratio": 1.5
+    },
+    "model_archive": {
+      "bytes": 4935680,
+      "sha256": "50446e5d01ac2a73d5319c89513281f6578414c888c602f9af13f93feefffc58"
+    },
+    "model_files": {
+      "inference.json": {
+        "bytes": 229777,
+        "sha256": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c"
+      },
+      "inference.pdiparams": {
+        "bytes": 4692937,
+        "sha256": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b"
+      },
+      "inference.yml": {
+        "bytes": 903,
+        "sha256": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699"
+      }
+    },
+    "model_files_sha256": "0db6647954b5fe6d5702ec9d7a45151a590b02e7dabdb8e9858356900244abe9",
+    "official_documentation": "https://www.paddleocr.ai/latest/en/version3.x/module_usage/text_detection.html",
+    "official_model_url": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv5_mobile_det_infer.tar",
+    "input_contract": "Original RGB image file only; no question, target, reference or recognized text",
+    "output_contract": "Original-pixel polygons and detection confidence; no text recognition",
+    "dependency_compatibility": "PaddleX 3.0.3 declares GUI opencv-contrib-python; this isolated CPU-only environment replaces it with the official same-version opencv-contrib-python-headless==4.10.0.84. The acknowledged pip-check metadata difference is saved; actual TextDetection API validation is required.",
+    "timing_contract": "Per-image TextDetection.predict API wall time including decode/preprocessing/inference/postprocessing; first image can be cold; model load separately recorded",
+    "images": 1024,
+    "polygons": 11205,
+    "empty_detection_images": 28
+  },
+  "run_timing": {
+    "controller_started_at": "2026-10-12T13:11:35.469986+00:00",
+    "controller_completed_at": "2026-10-12T13:44:45.400689+00:00",
+    "controller_wall_seconds": 1989.930703,
+    "controller_scope": "STATUS timestamps spanning GPU preflight and full evaluation/analysis; started_at was retained from preflight, so this is not the full-dev-only duration",
+    "worker_span_seconds": 1889.489265,
+    "worker_scope": "first full worker admission to final full worker completion, includes model load; excludes earlier CPU preparation and GPU preflight",
+    "existing_tasks_untouched": true,
+    "full_dev_evaluation_and_analysis_wall_seconds": 1929.338573189918,
+    "full_dev_completed_at": "2026-10-12T13:44:45.423900+00:00",
+    "full_dev_scope": "launcher full pipeline invocation including repeated admission, model loading, complete evaluation and analysis; excludes prior GPU preflight, detection, CPU preparation and learning-page refresh",
+    "gpu_preflight_wall_seconds": 61.026217627339065
+  },
+  "sources": [
+    {
+      "artifact": "vlm_region_token_v1/analysis/ANALYSIS.json",
+      "original_file_sha256": "619fa0839cb7df2e0ba12d79152774ac46f489132d5f636a97c38ff3230b6ebb",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/STATUS.json",
+      "original_file_sha256": "9d076d2fbaa4e511d378f1d7bde7b9c09f2388525495800bff0bf63d420c9941",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/SLICE_LOCK.json",
+      "original_file_sha256": "6ed1916fdaf8cae04d54aa178d9f78845e51f308c385fd00b500fbe9ab00e40e",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/VIEW_LOCK.json",
+      "original_file_sha256": "8fd762e37c4ca8c150b0916f33843400f114232f3b17f6b60bbb85df04edf448",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/INPUT_PRECHECK.json",
+      "original_file_sha256": "edd83c626cac7df88e1920d9ba8a50775fd7c7b227bd7c5a4913e3a579e765b3",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/INPUT_CONTRACT.json",
+      "original_file_sha256": "b08b5e32d7529f4c963eeb1ec7329e440e2ed6377b97e0e393f5fa001477bffc",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/detector/DETECTOR_PROVENANCE.json",
+      "original_file_sha256": "f2044b15cb21f63717531a391ecb44e9ab5e9b1b0fa352209b717aef583fc6a1",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/detector/DETECTIONS.json",
+      "original_file_sha256": "94a896418d631a8a1614c02eaf0b7db184220a052ad00973f4d92c3a946a01e3",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/LAUNCHER_STATUS.json",
+      "original_file_sha256": "1c9e68c7c074106d4016619aef9e7e44e3d319240843f90377b6cddb0c6213ae",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_region_token_v1/RESULT_CHECK.json",
+      "original_file_sha256": "664ca524ad6bd8fe7270f2dff0972c84a18b0a6534cf51fc6f7fb53bcfce9959",
+      "included_in_this_export": false
+    }
+  ],
+  "saved_prediction_review": {
+    "comparison": "text_region_minus_whole",
+    "questions": 1617,
+    "improved": 79,
+    "regressed": 186,
+    "whole_full_to_region_zero": 118,
+    "scope": "read saved scores only; proposed resolution/crop causes remain hypotheses pending visual mechanism audit",
+    "score_change_absolute_tolerance": 1e-12,
+    "machine_precision_equal_pairs": 1,
+    "source_artifact": {
+      "artifact": "vlm_region_token_v1/RESULT_CHECK.json",
+      "original_file_sha256": "664ca524ad6bd8fe7270f2dff0972c84a18b0a6534cf51fc6f7fb53bcfce9959",
+      "included_in_this_export": false
+    }
+  },
+  "conclusion": {
+    "best_condition": "whole",
+    "region_allocation_beats_random_and_duplicate_controls": true,
+    "region_beats_single_whole": false,
+    "long_tail_improvement_established": false,
+    "end_to_end_acceleration_established": false,
+    "memory_saving_established": false,
+    "gate_interpretation": "Passed only predeclared double-view advancement screen; does not imply overall optimization success, a best strategy or authorization for more experiments."
+  }
+}

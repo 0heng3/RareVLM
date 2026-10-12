@@ -1,0 +1,160 @@
+{
+  "schema_version": "rarevlm.weighted_sft.v1",
+  "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "dataset_revision": "9c0699cd19768ac5ab97568f6b3cbac4c0062884",
+  "data_seed": 20261009,
+  "dev_images": 1024,
+  "stage1_training_questions": 10000,
+  "training_seeds": [
+    42
+  ],
+  "methods": {
+    "qv_r8": {
+      "rank": 8,
+      "alpha": 16,
+      "projections": [
+        "q_proj",
+        "v_proj"
+      ],
+      "expected_trainable": 1843200
+    },
+    "qkvo_r4": {
+      "rank": 4,
+      "alpha": 8,
+      "projections": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ],
+      "expected_trainable": 1843200
+    },
+    "qv_r4_merger": {
+      "rank": 4,
+      "alpha": 8,
+      "projections": [
+        "q_proj",
+        "v_proj"
+      ],
+      "merger_ranks": {
+        "mlp.0": 64,
+        "mlp.2": 36
+      },
+      "expected_trainable": 1835008
+    }
+  },
+  "lora_dropout": 0.05,
+  "training_quantization": "nf4_language_only",
+  "precision": "fp32",
+  "double_quantization": true,
+  "attention_implementation": "sdpa",
+  "min_pixels": 50176,
+  "max_pixels": 200704,
+  "max_sequence_length": 768,
+  "max_new_tokens": 32,
+  "do_sample": false,
+  "training_microbatch": 4,
+  "training_accumulation": 1,
+  "world_size": 4,
+  "effective_batch": 16,
+  "epochs": 1,
+  "lr": 0.0001,
+  "weight_decay": 0.0,
+  "warmup_ratio": 0.0625,
+  "gradient_clip_norm": 1.0,
+  "loss": "mean of per-question mean assistant-token cross entropy",
+  "checkpoint_selection": "fixed final epoch",
+  "stage2_method_selection": "top two methods by mean generated TextVQA dev score across three seeds; tie by mean dev token NLL then method name",
+  "stage2_training_data": "all usable official train questions outside fixed image-disjoint dev; no final-evaluation-based selection",
+  "formal_textvqa_questions": 5000,
+  "formal_textvqa_images": 3166,
+  "evaluation_tasks": [
+    "textvqa_official_val",
+    "docvqa_val",
+    "mmstar"
+  ],
+  "numerical_path_matrix": {
+    "precision": "fp32",
+    "base_weights": [
+      "original",
+      "nf4_language_only"
+    ],
+    "adapter": [
+      "none",
+      "pilot_qv_r8"
+    ]
+  },
+  "evaluation_input": "image and question only; no reference OCR tokens or human answers",
+  "metric": "pinned lmms-eval EvalAIAnswerProcessor plus leave-one-annotator-out consensus; image-cluster bootstrap",
+  "scope": "new paired seed42 weighted-SFT pilot; no new resume accomplishments; no formal feedback or automatic replication",
+  "study": {
+    "conditions": [
+      "uniform",
+      "frequency"
+    ],
+    "method": "qv_r8",
+    "split": "train_all",
+    "questions": 32985,
+    "unique_images": 20929,
+    "updates": 2062,
+    "pilot_seed": 42,
+    "training_reference_config": "configs/vlm_deep_v2.json",
+    "training_reference_config_file_sha256": "121615552e4b81d084e16eea7abb3a24547726c5d1f314af572d5125c2a9b7ac",
+    "weight_formula": "raw=clip((20/f)^0.25,1,2); weight=raw/mean_train_all(raw)",
+    "weight_normalization": "fixed full training-set constant; not per-batch normalization",
+    "frequency_source": "normalized actual train_all supervised raw-modal target; target string itself unchanged",
+    "primary_dev_slice": "rare_1_5",
+    "dev_gate": {
+      "rare_min_delta_pp": 0.5,
+      "overall_min_delta_pp": -0.5,
+      "medium_min_delta_pp": -0.5,
+      "type": "exploratory advancement thresholds, not significance, hiring, or predicted outcome"
+    },
+    "replication_seeds": [
+      0,
+      42,
+      200
+    ],
+    "auto_replication": false,
+    "auto_formal_evaluation": false,
+    "initializer": "same original revision and identical fresh seed42 qv_r8 adapter initialization for both conditions",
+    "per_condition_questions_seen": 32985,
+    "total_questions_seen": 65970,
+    "total_updates": 4124,
+    "loss_by_condition": {
+      "uniform": "mean of per-question mean assistant-token CE",
+      "frequency": "mean of globally fixed train_all normalized inverse-frequency weights times per-question mean assistant-token CE"
+    }
+  },
+  "evaluation": {
+    "numerical_path": "original_bf16",
+    "precision": "bf16",
+    "vision_precision": "bf16",
+    "quantization": "original",
+    "visual_token_budget": 1024,
+    "min_pixels": 50176,
+    "max_pixels": 802816,
+    "batch_size": 4,
+    "max_new_tokens": 32,
+    "do_sample": false,
+    "attention_implementation": "sdpa",
+    "allow_tf32": false,
+    "input_truncation": false,
+    "split": "dev",
+    "questions": 1617,
+    "images": 1024,
+    "expected_questions": 1617,
+    "expected_images": 1024,
+    "metric": "TextVQA leave-one-out consensus percent",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261011,
+    "frequency_bins": {
+      "unseen_0": 687,
+      "rare_1_5": 342,
+      "medium_6_20": 171,
+      "frequent_gt20": 417
+    },
+    "scope": "new full dev predictions, official validation not used for selection"
+  }
+}

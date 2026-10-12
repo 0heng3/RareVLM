@@ -1,0 +1,743 @@
+{
+  "schema_version": "rarevlm.weighted_sft.dev_analysis.v1",
+  "updated_at": "2026-10-11T19:34:41.420503+00:00",
+  "seed": 42,
+  "complete": true,
+  "completed_cells": 2,
+  "expected_cells": 2,
+  "config_sha256": "bccca81f03b1db0c2851530ba114cb5d8202268e188562a4b991abfbf066c48d",
+  "analysis_source_sha256": "ddc0a3cb0e9a610197e45bf1d05bf3831947ca9ae206ee26dfe4a8d9657713ac",
+  "slice_lock_sha256": "ed81f2e7ba10d0acdc0e7894c8764e3e60ea3a1c562a31fa4946d79101810dcf",
+  "expected_predictions": 3234,
+  "scope": "new controlled full-data single-seed internal-dev comparison; no official-val or automatic expansion",
+  "status": "complete",
+  "validated_predictions": 3234,
+  "contrasts": [
+    {
+      "slice": "overall",
+      "uniform_score_percent": 87.11193568336425,
+      "frequency_score_percent": 86.8769325912183,
+      "delta_pp": -0.23500309214594928,
+      "questions": 1617,
+      "image_clusters": 1024,
+      "image_cluster_bootstrap_95_pp": [
+        -0.6566831083943597,
+        0.20472737120847373
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261011,
+      "uncertainty": "fixed trained checkpoint pair; image clusters; exploratory pointwise unadjusted CI; not equivalence or training-seed uncertainty"
+    },
+    {
+      "slice": "unseen_0",
+      "uniform_score_percent": 84.03202328966522,
+      "frequency_score_percent": 84.06113537117903,
+      "delta_pp": 0.029112081513828245,
+      "questions": 687,
+      "image_clusters": 543,
+      "image_cluster_bootstrap_95_pp": [
+        -0.7465675912284073,
+        0.8151604187993209
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261012,
+      "uncertainty": "fixed trained checkpoint pair; image clusters; exploratory pointwise unadjusted CI; not equivalence or training-seed uncertainty"
+    },
+    {
+      "slice": "rare_1_5",
+      "uniform_score_percent": 87.39766081871345,
+      "frequency_score_percent": 87.28070175438597,
+      "delta_pp": -0.11695906432748543,
+      "questions": 342,
+      "image_clusters": 312,
+      "image_cluster_bootstrap_95_pp": [
+        -0.35714285714285726,
+        0.0
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261013,
+      "uncertainty": "fixed trained checkpoint pair; image clusters; exploratory pointwise unadjusted CI; not equivalence or training-seed uncertainty"
+    },
+    {
+      "slice": "medium_6_20",
+      "uniform_score_percent": 93.62573099415205,
+      "frequency_score_percent": 93.62573099415205,
+      "delta_pp": 0.0,
+      "questions": 171,
+      "image_clusters": 160,
+      "image_cluster_bootstrap_95_pp": [
+        -1.2209302325581393,
+        1.213872832369942
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261014,
+      "uncertainty": "fixed trained checkpoint pair; image clusters; exploratory pointwise unadjusted CI; not equivalence or training-seed uncertainty"
+    },
+    {
+      "slice": "frequent_gt20",
+      "uniform_score_percent": 89.28057553956835,
+      "frequency_score_percent": 88.41726618705036,
+      "delta_pp": -0.8633093525179856,
+      "questions": 417,
+      "image_clusters": 367,
+      "image_cluster_bootstrap_95_pp": [
+        -1.8465682430359032,
+        -0.16665676959619957
+      ],
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261015,
+      "uncertainty": "fixed trained checkpoint pair; image clusters; exploratory pointwise unadjusted CI; not equivalence or training-seed uncertainty"
+    }
+  ],
+  "gate": {
+    "passed": false,
+    "checks": {
+      "rare": false,
+      "overall": true,
+      "medium": true
+    },
+    "thresholds": {
+      "rare_min_delta_pp": 0.5,
+      "overall_min_delta_pp": -0.5,
+      "medium_min_delta_pp": -0.5
+    },
+    "decision": "stop candidate expansion; diagnose failures without official-val retuning",
+    "automatic_new_training": false,
+    "automatic_official_evaluation": false,
+    "interpretation": "single-seed exploratory advancement gate on point estimates; neither significance nor success claim"
+  },
+  "source_data": {
+    "uniform": {
+      "predictions_file": "vlm_weighted_sft_v1/runs/uniform/seed42/dev/predictions.jsonl",
+      "predictions_sha256": "a4b47a4fa40ff9d0f47b08c3b82fb17614a56ab96549efdb0594ba8d825948eb",
+      "evaluation_file": "vlm_weighted_sft_v1/runs/uniform/seed42/dev/EVALUATION.json",
+      "evaluation_sha256": "efe20a56e6cb570bc88c33761e06c0d6bf8ce1c3ce7f6569291564ec9e4ea0d7",
+      "input_lock_sha256": "9705876200aa35a0738c51d62f2d819122d73075854de1837bb19376e510c737",
+      "training_result_sha256": "4eee25b6b99180db6800a91dcd65bfb2f7e21bd34439ce45e797142b46ece1b8"
+    },
+    "frequency": {
+      "predictions_file": "vlm_weighted_sft_v1/runs/frequency/seed42/dev/predictions.jsonl",
+      "predictions_sha256": "728a483c01c0d348c10e8a24116f7437a5625000d5dc93e90e301d5c32ddb0ad",
+      "evaluation_file": "vlm_weighted_sft_v1/runs/frequency/seed42/dev/EVALUATION.json",
+      "evaluation_sha256": "2b9ebc40b3a9620855f78ede0f64f0b013578ad4145612927f73aed1cf50dc97",
+      "input_lock_sha256": "df890a1fe002e19430e209fef43d7b5dbd0d3debcff4b923e0b7a42f3969e6a9",
+      "training_result_sha256": "fa439e0dd1c476f1f79185e16e72894f20aee8154060357aa605d6812f5a170b"
+    }
+  },
+  "cells": [
+    {
+      "condition": "uniform",
+      "seed": 42,
+      "score_percent": 87.11193568336425,
+      "resources": {
+        "timed_batches_excluding_each_session_first_batch": 404,
+        "timed_questions": 1613,
+        "model_generate_seconds": 743.3983732894994,
+        "pure_generation_questions_per_second": 2.1697653074791625,
+        "amortized_generation_seconds_per_question": {
+          "min": 0.23039592988789082,
+          "mean": 0.4607759669387372,
+          "median": 0.4621261208085343,
+          "p90": 0.5098421597853303,
+          "p95": 0.5195036151329987,
+          "max": 0.6535770008340478
+        },
+        "batch_generation_seconds": {
+          "min": 0.4051964278332889,
+          "mean": 1.8400949833898501,
+          "median": 1.8485044832341373,
+          "p90": 2.0393686391413213,
+          "p95": 2.078014460531995,
+          "max": 2.614308003336191
+        },
+        "all_preprocessing_seconds": 110.67362971464172,
+        "all_h2d_seconds": 3.950702047906816,
+        "peak_allocated_gib": 8.652318000793457,
+        "peak_reserved_gib": 10.9140625,
+        "scope": "recorded admitted A100 worker/batch4; model load, validation, preflight, writer and scoring excluded; per-session first batch excluded from matched timings; batch-amortized latency, not production service",
+        "preprocessing_h2d_generation_seconds": 857.7525874944404,
+        "preprocessing_h2d_generation_questions_per_second": 1.8804956388551317
+      },
+      "input_statistics": {
+        "visual_tokens": {
+          "min": 333,
+          "mean": 938.8559059987631,
+          "median": 986,
+          "p90": 1008.0,
+          "p95": 1024.0,
+          "max": 1024
+        },
+        "input_tokens": {
+          "min": 369,
+          "mean": 978.1038961038961,
+          "median": 1024,
+          "p90": 1048.4,
+          "p95": 1062.0,
+          "max": 1073
+        },
+        "padded_input_tokens": {
+          "min": 668,
+          "mean": 1030.7340754483612,
+          "median": 1039,
+          "p90": 1064.0,
+          "p95": 1066.0,
+          "max": 1073
+        },
+        "generated_nonpad_tokens": {
+          "min": 2,
+          "mean": 3.7340754483611627,
+          "median": 3,
+          "p90": 6.0,
+          "p95": 7.0,
+          "max": 21
+        }
+      },
+      "training_hardware": {
+        "devices": [
+          {
+            "visible_index": 0,
+            "name": "NVIDIA A100-SXM4-80GB",
+            "total_memory_bytes": 84974239744,
+            "compute_capability": [
+              8,
+              0
+            ]
+          },
+          {
+            "visible_index": 1,
+            "name": "NVIDIA A100-SXM4-80GB",
+            "total_memory_bytes": 84974239744,
+            "compute_capability": [
+              8,
+              0
+            ]
+          }
+        ],
+        "torch_version": "2.3.0a0+6ddf5cf85e.nv24.04",
+        "cuda_version": "12.4"
+      }
+    },
+    {
+      "condition": "frequency",
+      "seed": 42,
+      "score_percent": 86.8769325912183,
+      "resources": {
+        "timed_batches_excluding_each_session_first_batch": 404,
+        "timed_questions": 1613,
+        "model_generate_seconds": 718.2680418365635,
+        "pure_generation_questions_per_second": 2.2456797546994665,
+        "amortized_generation_seconds_per_question": {
+          "min": 0.21729248226620257,
+          "mean": 0.4452086906703788,
+          "median": 0.4461410886142403,
+          "p90": 0.4899308614665642,
+          "p95": 0.5026638546667528,
+          "max": 0.6158807234605774
+        },
+        "batch_generation_seconds": {
+          "min": 0.3964007622562349,
+          "mean": 1.7778911926647611,
+          "median": 1.7845643544569612,
+          "p90": 1.959723445866257,
+          "p95": 2.010655418667011,
+          "max": 2.4635228938423097
+        },
+        "all_preprocessing_seconds": 108.05186804803088,
+        "all_h2d_seconds": 1.8253812151961029,
+        "peak_allocated_gib": 8.652318000793457,
+        "peak_reserved_gib": 10.9140625,
+        "scope": "recorded admitted A100 worker/batch4; model load, validation, preflight, writer and scoring excluded; per-session first batch excluded from matched timings; batch-amortized latency, not production service",
+        "preprocessing_h2d_generation_seconds": 827.9122855067253,
+        "preprocessing_h2d_generation_questions_per_second": 1.9482740239961052
+      },
+      "input_statistics": {
+        "visual_tokens": {
+          "min": 333,
+          "mean": 938.8559059987631,
+          "median": 986,
+          "p90": 1008.0,
+          "p95": 1024.0,
+          "max": 1024
+        },
+        "input_tokens": {
+          "min": 369,
+          "mean": 978.1038961038961,
+          "median": 1024,
+          "p90": 1048.4,
+          "p95": 1062.0,
+          "max": 1073
+        },
+        "padded_input_tokens": {
+          "min": 668,
+          "mean": 1030.7340754483612,
+          "median": 1039,
+          "p90": 1064.0,
+          "p95": 1066.0,
+          "max": 1073
+        },
+        "generated_nonpad_tokens": {
+          "min": 2,
+          "mean": 3.7452071737786023,
+          "median": 3,
+          "p90": 6.0,
+          "p95": 7.0,
+          "max": 21
+        }
+      },
+      "training_hardware": {
+        "devices": [
+          {
+            "visible_index": 0,
+            "name": "NVIDIA A100-SXM4-80GB",
+            "total_memory_bytes": 84974239744,
+            "compute_capability": [
+              8,
+              0
+            ]
+          },
+          {
+            "visible_index": 1,
+            "name": "NVIDIA A100-SXM4-80GB",
+            "total_memory_bytes": 84974239744,
+            "compute_capability": [
+              8,
+              0
+            ]
+          }
+        ],
+        "torch_version": "2.3.0a0+6ddf5cf85e.nv24.04",
+        "cuda_version": "12.4"
+      }
+    }
+  ],
+  "export_schema_version": "rarevlm.public_weighted_summary.v1",
+  "export_policy": {
+    "kind": "public result summary derived from completed source artifacts",
+    "original_analysis": {
+      "artifact": "vlm_weighted_sft_v1/analysis/ANALYSIS.json",
+      "original_file_sha256": "5c566d1b7e0dae2308eafc5a3678345c8b9c5ff128d0207687640dd388c8e68b",
+      "included_in_this_export": false
+    },
+    "transformation": "numeric findings preserved; local absolute paths converted to experiment-relative artifact handles; device identity and process fields omitted",
+    "artifact_handles": "Output artifact paths identify local evidence, not downloadable files in this repository. Raw predictions, model weights, annotations and image HTML are excluded.",
+    "personal_contribution": "completed experiment records do not establish an individual independent contribution or mastery"
+  },
+  "metric": "TextVQA leave-one-annotator-out consensus mean percent, pinned EvalAIAnswerProcessor; differences in percentage points",
+  "frequency_definition": "Count one normalized actual raw-modal supervised target per train_all QA; lookup dev modal target; answer-text supervision exposure proxy, not visual class/pretraining frequency",
+  "statistics": {
+    "method": "paired image-cluster percentile bootstrap, 2000 replicates per contrast; all questions for each sampled image retained",
+    "interval_scope": "pointwise exploratory 95% intervals conditional on the fixed checkpoint(s) and internal dev; no multiplicity correction, no equivalence inference, no training-seed uncertainty",
+    "pointwise_intervals": 5
+  },
+  "protocol": {
+    "config": "configs/vlm_weighted_sft_v1.json",
+    "config_file_sha256": "bccca81f03b1db0c2851530ba114cb5d8202268e188562a4b991abfbf066c48d",
+    "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "dataset_revision": "9c0699cd19768ac5ab97568f6b3cbac4c0062884",
+    "new_training_runs": 2,
+    "seed": 42,
+    "method": "qv_r8",
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "trainable_parameters": 1843200,
+    "training_questions_per_condition": 32985,
+    "training_images": 20929,
+    "updates_per_condition": 2062,
+    "training_visual_token_cap": 256,
+    "training_sequence_cap": 768,
+    "checkpoint_selection": "fixed final epoch",
+    "training_quantization": "NF4 language only",
+    "compute_precision": "FP32; vision FP32; TF32 off",
+    "actual_runtime": {
+      "world_size": 2,
+      "microbatch": 8,
+      "accumulation": 1,
+      "effective_batch": 16
+    },
+    "training_hardware": "2 x NVIDIA A100-SXM4-80GB",
+    "evaluation": {
+      "numerical_path": "original_bf16",
+      "precision": "bf16",
+      "vision_precision": "bf16",
+      "quantization": "original",
+      "visual_token_budget": 1024,
+      "min_pixels": 50176,
+      "max_pixels": 802816,
+      "batch_size": 4,
+      "max_new_tokens": 32,
+      "do_sample": false,
+      "attention_implementation": "sdpa",
+      "allow_tf32": false,
+      "input_truncation": false,
+      "split": "dev",
+      "questions": 1617,
+      "images": 1024,
+      "expected_questions": 1617,
+      "expected_images": 1024,
+      "metric": "TextVQA leave-one-out consensus percent",
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261011,
+      "frequency_bins": {
+        "unseen_0": 687,
+        "rare_1_5": 342,
+        "medium_6_20": 171,
+        "frequent_gt20": 417
+      },
+      "scope": "new full dev predictions, official validation not used for selection"
+    },
+    "evaluation_prompt": "image and question only; no recognized/reference OCR or human answers; greedy max32 SDPA",
+    "evaluation_input_geometry": "historical native aspect-preserving processor resize; token cap1024; actual tokens vary",
+    "automatic_new_seeds": false,
+    "automatic_official_evaluation": false
+  },
+  "training_results": [
+    {
+      "condition": "uniform",
+      "seed": 42,
+      "question_count": 32985,
+      "unique_training_images": 20929,
+      "completed_updates": 2062,
+      "actual_questions_seen": 32985,
+      "skipped_updates": 0,
+      "training_input_tokens": 9412810,
+      "training_answer_tokens": 162105,
+      "active_seconds": 8551.296314450912,
+      "input_tokens_per_second": 1100.7465598044132,
+      "peak_gpu_allocated_gib": 6.667169094085693,
+      "peak_gpu_reserved_gib": 8.90234375,
+      "trainable_parameters": 1843200,
+      "mean_question_loss": 0.3967752360784413,
+      "weighted_mean_question_loss": 0.3967752360784413,
+      "internal_dev_token_nll": 0.38961728286644143,
+      "initial_trainable_tensor_sha256": "604aa18b4aa09a46f048e82b13aa03ce8ee17bab2882682049532e919d73ff83",
+      "initialization_contract_sha256": "9e23617399f1c2ef249fa04cf388cee85727aee5d59e804f7eb88d1d11c50237",
+      "global_question_order_sha256": "578b8700eae01c7ae60328b85aca9159551aebb248021d3c7b767ea111c237e4",
+      "frozen_parameter_sha256_before": "3fec52d1fb43b0d0f61b3b836e351fe46bc3567e8b64e037ef5ab04ffbf26d0d",
+      "frozen_parameter_sha256_after": "3fec52d1fb43b0d0f61b3b836e351fe46bc3567e8b64e037ef5ab04ffbf26d0d",
+      "frozen_parameters_unchanged": true,
+      "adapter_files_sha256": {
+        "README.md": "4693e5ab37e838f042cf7904ea8e5ade2b4580e582b8afc45859b6885ab2a808",
+        "adapter_model.safetensors": "f6be8e6c53490aad9e9f09e93f25258c666f51a579afd791633b7fe30af0f596",
+        "adapter_config.json": "8c0d18ab7708a00e47cf9d6898583a02613b62f9800c1f6f88114962ac767271"
+      },
+      "compute": {
+        "precision": "fp32",
+        "training_quantization": "nf4_language_only",
+        "vision_precision": "fp32",
+        "float32_matmul_precision": "highest",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": false
+      },
+      "runtime_layout": {
+        "world_size": 2,
+        "microbatch": 8,
+        "accumulation": 1,
+        "effective_batch": 16,
+        "origin": "explicit A100 runtime CLI",
+        "scientific_config_layout": {
+          "world_size": 4,
+          "microbatch": 4,
+          "accumulation": 1,
+          "effective_batch": 16
+        }
+      },
+      "packages": {
+        "transformers": "4.51.1",
+        "peft": "0.15.2",
+        "bitsandbytes": "0.45.5",
+        "safetensors": "0.5.3",
+        "numpy": "1.24.4",
+        "Pillow": "10.2.0"
+      },
+      "source_sha256": {
+        "vlm_deep/__init__.py": "e873a77068c6f50933ccce32fe81d614577d8ddc0379d085f7655c17b9d73cbd",
+        "vlm_deep/check_restore.py": "44e33716664754115e92f87f4a954a23fce690c4c031fec60220e4a4d4ad10ef",
+        "vlm_deep/common.py": "84f94d4e1e8efb4894804c0b9d84731dc49df2ad44e87fa8ca63823faf22e508",
+        "vlm_deep/download.py": "0a69ca410f36133d7b80abe27ba376725e98c238fe2827287db043b967e2c0f5",
+        "vlm_deep/evaluate.py": "fb35af0e81b4d8bd74888bdb84758ef3ce8566c7aa24cf2dab350d3cda791824",
+        "vlm_deep/model.py": "e692cc119da71a5332aaa2f926fe51f2725a1e7a00802c5312fe61fc2e6af40f",
+        "vlm_deep/pipeline.py": "5428f9bba75eee98007ee533fa0eab63dd8111e08a35ddb2450a008bd27983bc",
+        "vlm_deep/preflight.py": "10b316e3a1c999fdb10e2243d9e2de802598de1f0497f843103c944703ddbe99",
+        "vlm_deep/preflight_numerical.py": "9fb4bb7d3324adef3e3fb9c056ba8faf68dec1fa7282acda47ebc62dff2be08e",
+        "vlm_deep/prepare.py": "fe8bcfee2d9f95d16404e510e112ac12145f7dde94f3624fe6aab6289924f4bb",
+        "vlm_deep/prepare_columns.py": "fa041e99b8bff009536176009aeff36d31bb92a0fa8fc1d0167f91ec85e0f90f",
+        "vlm_deep/prepare_transfer.py": "1d5f4be08bd20eecfdf0dff7489e334ad6d2495fbd41ceddff0e48172ec200d1",
+        "vlm_deep/report.py": "7f4083917b6b160a17f4c09b7ca9902f5e1e673f7fea5103ef5d5dd136fea054",
+        "vlm_deep/scoring.py": "dd59d3091e488ff856299f6c72ed62af6b39f5873c8a9e2b7683f8e9c8c2b5f0",
+        "vlm_deep/third_party/__init__.py": "fd3c822da16a7e22ea6bd4ded9e60b7992a9052fc9429e10a65c84abdf1105c9",
+        "vlm_deep/third_party/mcq_extract.py": "c38447cf7927bc9e9498692a544d98bf50a3cdd4c7d09adca5793eb748a9739d",
+        "vlm_deep/third_party/vqa_eval_metric.py": "4e4154c6c7e4657e6c44aa08e184ce5ae0e872665744c6cb684cf645e4647ce0",
+        "vlm_deep/train.py": "1b20e5d1cc69abcdcb60932a49103c5a3fb21566967b466c72a9b0b91de825e0",
+        "vlm_deep/verify.py": "d1513d69bfd6358ea559f335c46057961142901ee295ee48782f769bba99a823",
+        "vlm_sft/common.py": "3e47669d67c7f5133d359a69a12a6090f8bf5f9e1b558dd31e2f070b5b1a3781"
+      },
+      "runtime_source_sha256": {
+        "__init__.py": "d71a383146ec6ba56c5de7c71fcfe81fc036e57fb7b4bfe1f315e21641d8af79",
+        "train.py": "cb0088664ff75cf5b571b7922eacd1fe55e91a53e9d4579d55db5eae140f3578",
+        "data.py": "70b5975ba07fd132ca471ebd0d4e3edef88e0fde2400ee052a58e040f0204b64"
+      },
+      "source_artifact": {
+        "artifact": "vlm_weighted_sft_v1/runs/uniform/seed42/train/TRAIN_RESULT.json",
+        "original_file_sha256": "4eee25b6b99180db6800a91dcd65bfb2f7e21bd34439ce45e797142b46ece1b8",
+        "included_in_this_export": false
+      }
+    },
+    {
+      "condition": "frequency",
+      "seed": 42,
+      "question_count": 32985,
+      "unique_training_images": 20929,
+      "completed_updates": 2062,
+      "actual_questions_seen": 32985,
+      "skipped_updates": 0,
+      "training_input_tokens": 9412810,
+      "training_answer_tokens": 162105,
+      "active_seconds": 8531.97139077913,
+      "input_tokens_per_second": 1103.2397518553369,
+      "peak_gpu_allocated_gib": 6.667169094085693,
+      "peak_gpu_reserved_gib": 8.90234375,
+      "trainable_parameters": 1843200,
+      "mean_question_loss": 0.4030882431134611,
+      "weighted_mean_question_loss": 0.4279654863103151,
+      "internal_dev_token_nll": 0.4003095119612328,
+      "initial_trainable_tensor_sha256": "604aa18b4aa09a46f048e82b13aa03ce8ee17bab2882682049532e919d73ff83",
+      "initialization_contract_sha256": "9e23617399f1c2ef249fa04cf388cee85727aee5d59e804f7eb88d1d11c50237",
+      "global_question_order_sha256": "578b8700eae01c7ae60328b85aca9159551aebb248021d3c7b767ea111c237e4",
+      "frozen_parameter_sha256_before": "3fec52d1fb43b0d0f61b3b836e351fe46bc3567e8b64e037ef5ab04ffbf26d0d",
+      "frozen_parameter_sha256_after": "3fec52d1fb43b0d0f61b3b836e351fe46bc3567e8b64e037ef5ab04ffbf26d0d",
+      "frozen_parameters_unchanged": true,
+      "adapter_files_sha256": {
+        "README.md": "4693e5ab37e838f042cf7904ea8e5ade2b4580e582b8afc45859b6885ab2a808",
+        "adapter_model.safetensors": "3335725c0b8aec00f9b71c7f63b50d4af3fa8cb9739f73488ae56d9682345c97",
+        "adapter_config.json": "8c0d18ab7708a00e47cf9d6898583a02613b62f9800c1f6f88114962ac767271"
+      },
+      "compute": {
+        "precision": "fp32",
+        "training_quantization": "nf4_language_only",
+        "vision_precision": "fp32",
+        "float32_matmul_precision": "highest",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": false
+      },
+      "runtime_layout": {
+        "world_size": 2,
+        "microbatch": 8,
+        "accumulation": 1,
+        "effective_batch": 16,
+        "origin": "explicit A100 runtime CLI",
+        "scientific_config_layout": {
+          "world_size": 4,
+          "microbatch": 4,
+          "accumulation": 1,
+          "effective_batch": 16
+        }
+      },
+      "packages": {
+        "transformers": "4.51.1",
+        "peft": "0.15.2",
+        "bitsandbytes": "0.45.5",
+        "safetensors": "0.5.3",
+        "numpy": "1.24.4",
+        "Pillow": "10.2.0"
+      },
+      "source_sha256": {
+        "vlm_deep/__init__.py": "e873a77068c6f50933ccce32fe81d614577d8ddc0379d085f7655c17b9d73cbd",
+        "vlm_deep/check_restore.py": "44e33716664754115e92f87f4a954a23fce690c4c031fec60220e4a4d4ad10ef",
+        "vlm_deep/common.py": "84f94d4e1e8efb4894804c0b9d84731dc49df2ad44e87fa8ca63823faf22e508",
+        "vlm_deep/download.py": "0a69ca410f36133d7b80abe27ba376725e98c238fe2827287db043b967e2c0f5",
+        "vlm_deep/evaluate.py": "fb35af0e81b4d8bd74888bdb84758ef3ce8566c7aa24cf2dab350d3cda791824",
+        "vlm_deep/model.py": "e692cc119da71a5332aaa2f926fe51f2725a1e7a00802c5312fe61fc2e6af40f",
+        "vlm_deep/pipeline.py": "5428f9bba75eee98007ee533fa0eab63dd8111e08a35ddb2450a008bd27983bc",
+        "vlm_deep/preflight.py": "10b316e3a1c999fdb10e2243d9e2de802598de1f0497f843103c944703ddbe99",
+        "vlm_deep/preflight_numerical.py": "9fb4bb7d3324adef3e3fb9c056ba8faf68dec1fa7282acda47ebc62dff2be08e",
+        "vlm_deep/prepare.py": "fe8bcfee2d9f95d16404e510e112ac12145f7dde94f3624fe6aab6289924f4bb",
+        "vlm_deep/prepare_columns.py": "fa041e99b8bff009536176009aeff36d31bb92a0fa8fc1d0167f91ec85e0f90f",
+        "vlm_deep/prepare_transfer.py": "1d5f4be08bd20eecfdf0dff7489e334ad6d2495fbd41ceddff0e48172ec200d1",
+        "vlm_deep/report.py": "7f4083917b6b160a17f4c09b7ca9902f5e1e673f7fea5103ef5d5dd136fea054",
+        "vlm_deep/scoring.py": "dd59d3091e488ff856299f6c72ed62af6b39f5873c8a9e2b7683f8e9c8c2b5f0",
+        "vlm_deep/third_party/__init__.py": "fd3c822da16a7e22ea6bd4ded9e60b7992a9052fc9429e10a65c84abdf1105c9",
+        "vlm_deep/third_party/mcq_extract.py": "c38447cf7927bc9e9498692a544d98bf50a3cdd4c7d09adca5793eb748a9739d",
+        "vlm_deep/third_party/vqa_eval_metric.py": "4e4154c6c7e4657e6c44aa08e184ce5ae0e872665744c6cb684cf645e4647ce0",
+        "vlm_deep/train.py": "1b20e5d1cc69abcdcb60932a49103c5a3fb21566967b466c72a9b0b91de825e0",
+        "vlm_deep/verify.py": "d1513d69bfd6358ea559f335c46057961142901ee295ee48782f769bba99a823",
+        "vlm_sft/common.py": "3e47669d67c7f5133d359a69a12a6090f8bf5f9e1b558dd31e2f070b5b1a3781"
+      },
+      "runtime_source_sha256": {
+        "__init__.py": "d71a383146ec6ba56c5de7c71fcfe81fc036e57fb7b4bfe1f315e21641d8af79",
+        "train.py": "cb0088664ff75cf5b571b7922eacd1fe55e91a53e9d4579d55db5eae140f3578",
+        "data.py": "70b5975ba07fd132ca471ebd0d4e3edef88e0fde2400ee052a58e040f0204b64"
+      },
+      "source_artifact": {
+        "artifact": "vlm_weighted_sft_v1/runs/frequency/seed42/train/TRAIN_RESULT.json",
+        "original_file_sha256": "fa439e0dd1c476f1f79185e16e72894f20aee8154060357aa605d6812f5a170b",
+        "included_in_this_export": false
+      }
+    }
+  ],
+  "weighting": {
+    "formula": {
+      "raw_weight": "clip((20 / training_normalized_target_frequency) ** 0.25, 1, 2)",
+      "normalization": "weight = raw_weight / mean(raw_weight over all 32985 train_all QA)",
+      "frequency_threshold": 20,
+      "exponent": 0.25,
+      "minimum_raw_weight": 1.0,
+      "maximum_raw_weight": 2.0,
+      "uniform_condition_weight": 1.0,
+      "no_batch_or_subset_renormalization": true
+    },
+    "global_normalization_constant": 1.5860100540591475,
+    "normalized_weights": {
+      "count": 32985,
+      "mean": 1.0,
+      "quantiles": {
+        "0": 0.6305130269765028,
+        "25": 0.6305130269765028,
+        "50": 1.1212283336336308,
+        "75": 1.2610260539530056,
+        "90": 1.2610260539530056,
+        "95": 1.2610260539530056,
+        "99": 1.2610260539530056,
+        "100": 1.2610260539530056
+      }
+    },
+    "training_frequency_allocation": {
+      "unseen": {
+        "questions": 0,
+        "qa_share": 0.0,
+        "weight_share": 0.0,
+        "sum_weight": 0.0
+      },
+      "rare": {
+        "questions": 21025,
+        "qa_share": 0.6374109443686524,
+        "weight_share": 0.7572961830511736,
+        "sum_weight": 24979.414597942963
+      },
+      "mid": {
+        "questions": 3773,
+        "qa_share": 0.11438532666363499,
+        "weight_share": 0.08620813249053833,
+        "sum_weight": 2843.5752502004066
+      },
+      "frequent": {
+        "questions": 8187,
+        "qa_share": 0.2482037289677126,
+        "weight_share": 0.15649568445828796,
+        "sum_weight": 5162.010151856628
+      }
+    },
+    "allocation_scope": "objective coefficient share, not measured gradient contribution share",
+    "unique_normalized_targets": 17227,
+    "empty_normalized_targets_retained": 75,
+    "raw_vs_normalized_modal_disagreements": 294,
+    "weight_lock_sha256": "d33c61a16d3b3402f62f7afa1315ec801674e8cef6f9da8ba33fe69be6864e65",
+    "weight_lock_file_sha256": "0dd5ae8e576fece221d7d2c358cfaf5430bd2f102545ffe2aea5877ffde01a63"
+  },
+  "paired_contracts": {
+    "initial_trainable_tensor_sha256": true,
+    "initialization_contract_sha256": true,
+    "global_question_order_sha256": true,
+    "training_input_tokens": true,
+    "training_answer_tokens": true,
+    "input_tokenizer_processor_contract": true,
+    "frozen_parameter_sha256_before": true,
+    "frozen_parameters_unchanged_both": true
+  },
+  "saved_prediction_review": {
+    "questions": 1617,
+    "raw_changed": 39,
+    "score_changed": 21,
+    "improved": 8,
+    "regressed": 13,
+    "uniform_zero": 157,
+    "uniform_partial": 166,
+    "uniform_full": 1294,
+    "uniform_unresolved": 323,
+    "changed_text_score_unchanged": 18,
+    "groups": {
+      "unseen": {
+        "questions": 687,
+        "raw_changed": 21,
+        "improved": 7,
+        "regressed": 7,
+        "mean_delta_pp": 0.029112081513828245
+      },
+      "rare": {
+        "questions": 342,
+        "raw_changed": 10,
+        "improved": 0,
+        "regressed": 1,
+        "mean_delta_pp": -0.11695906432748543
+      },
+      "mid": {
+        "questions": 171,
+        "raw_changed": 3,
+        "improved": 1,
+        "regressed": 1,
+        "mean_delta_pp": 0.0
+      },
+      "frequent": {
+        "questions": 417,
+        "raw_changed": 5,
+        "improved": 0,
+        "regressed": 4,
+        "mean_delta_pp": -0.8633093525179856
+      }
+    },
+    "human_classification_completed": 0,
+    "scope": "comparison of saved predictions/scores, no regeneration or rescoring; human error-mechanism classification pending"
+  },
+  "run_timing": {
+    "controller_started_at": "2026-10-11T22:31:38.185749+08:00",
+    "controller_completed_at": "2026-10-12T03:34:41.824366+08:00",
+    "controller_wall_seconds": 18183.638617,
+    "controller_scope": "recorded pipeline admission/wait/worker/evaluation/analysis wall; environment installation and earlier CPU preparation excluded",
+    "worker_span_seconds": 18148.351389,
+    "worker_scope": "first full worker admission to final full worker completion, includes model load; excludes earlier CPU preparation and GPU preflight",
+    "existing_tasks_untouched": true
+  },
+  "sources": [
+    {
+      "artifact": "vlm_weighted_sft_v1/analysis/ANALYSIS.json",
+      "original_file_sha256": "5c566d1b7e0dae2308eafc5a3678345c8b9c5ff128d0207687640dd388c8e68b",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_weighted_sft_v1/AUDIT.json",
+      "original_file_sha256": "99f34acacfb354ac9bdbd5667431c46e28fbb3797a840a27eb1ebee8e24c9130",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_weighted_sft_v1/WEIGHT_LOCK.json",
+      "original_file_sha256": "0dd5ae8e576fece221d7d2c358cfaf5430bd2f102545ffe2aea5877ffde01a63",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_weighted_sft_v1/SLICE_LOCK.json",
+      "original_file_sha256": "6d21111cd79fdd4d940eca0146d37312da217b43d1a14be03f0e16c3c306e7b3",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_weighted_sft_v1/STATUS.json",
+      "original_file_sha256": "f51d6243a52b3f5ee1e49af3be5d6b51a4752846a20c4bbf02bcc0b86322c0de",
+      "included_in_this_export": false
+    },
+    {
+      "artifact": "vlm_weighted_failure_review_v1/SUMMARY.json",
+      "original_file_sha256": "0ca16662193267b8c9c7832b4b1c2ba4069fc277a78bb1feee7c267d9fed0b44",
+      "included_in_this_export": false
+    }
+  ],
+  "limitations": [
+    "One seed42 checkpoint pair on historically explored internal dev, not three-seed stability or an untouched holdout.",
+    "Five pointwise image-cluster intervals are exploratory and unadjusted; crossing zero does not establish equivalence.",
+    "Rare/mid/frequent identify actual supervised answer text frequency, not visual categories or pretraining exposure.",
+    "Weighting changes coefficient allocation, not necessarily gradient allocation or visual information.",
+    "The rare score decrease comes from one scored question; it does not establish broad rare-answer degradation.",
+    "Training NF4/FP32 with visual cap256 and inference original BF16/cap1024 are different numerical paths; no BF16 training claim.",
+    "Timing/memory are recorded training or cached evaluation phases on A100; no production SLA or strict hardware speedup.",
+    "Negative exploratory gate: no automatic further seeds, formal evaluation, or resume accomplishment."
+  ]
+}

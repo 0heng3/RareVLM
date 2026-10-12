@@ -1,0 +1,140 @@
+{
+  "schema_version": "rarevlm.region_token.v1",
+  "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "reference_config": "configs/vlm_deep_v2.json",
+  "weighted_config": "configs/vlm_weighted_sft_v1.json",
+  "fixed_adapter_dir": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_weighted_sft_v1/runs/uniform/seed42/train/adapter",
+  "model_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_sft_textvqa_v1/model",
+  "output_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_region_token_v1",
+  "manifest_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/manifest.json",
+  "detections_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_region_token_v1/detector/DETECTIONS.json",
+  "detector_provenance_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_region_token_v1/detector/DETECTOR_PROVENANCE.json",
+  "detector_manifest_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_region_token_v1/detector/DETECTOR_PROVENANCE.json",
+  "view_lock_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_region_token_v1/VIEW_LOCK.json",
+  "input_precheck_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_region_token_v1/INPUT_PRECHECK.json",
+  "input_contract_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_region_token_v1/INPUT_CONTRACT.json",
+  "conditions": [
+    "whole",
+    "double_whole",
+    "text_region",
+    "random_matched"
+  ],
+  "split": "dev",
+  "expected_questions": 1617,
+  "expected_images": 1024,
+  "expected_predictions": 6468,
+  "numerical_path": "original_bf16",
+  "precision": "bf16",
+  "vision_precision": "bf16",
+  "quantization": "original",
+  "visual_token_budget": 1024,
+  "min_pixels": 50176,
+  "max_pixels": 802816,
+  "batch_size": 4,
+  "max_new_tokens": 32,
+  "do_sample": false,
+  "attention_implementation": "sdpa",
+  "allow_tf32": false,
+  "input_truncation": false,
+  "full_canvas_wh": [
+    896,
+    896
+  ],
+  "half_canvas_wh": [
+    896,
+    448
+  ],
+  "padding_rgb": [
+    127,
+    127,
+    127
+  ],
+  "resize": "aspect-preserving letterbox PIL BICUBIC; lossless PNG; no enhancement",
+  "random_seed": 20261012,
+  "roi_selector": {
+    "score_threshold": 0.6,
+    "padding_fraction": 0.1,
+    "ranking": "score*sqrt(clipped_bbox_area/source_image_area); descending; lexicographic clipped bbox tie",
+    "geometry": "polygon axis-aligned envelope; positive area; clip bounds; integer crop; minimum extent1",
+    "fallback": "whole-image second view for both text_region and random_matched when no valid proposal",
+    "random_control": "stable SHA imageID seed; uniform legal translation with identical crop width/height; no forced text exclusion",
+    "allowed_information": [
+      "source pixels",
+      "source image dimensions",
+      "detector polygons",
+      "detector confidence",
+      "image ID for reproducible random seed"
+    ],
+    "references_targets_questions_allowed": false
+  },
+  "detector": {
+    "model_name": "PP-OCRv5_mobile_det",
+    "paddleocr": "3.0.3",
+    "paddlex": "3.0.3",
+    "paddlepaddle": "3.0.0",
+    "archive_sha256": "50446e5d01ac2a73d5319c89513281f6578414c888c602f9af13f93feefffc58",
+    "device": "cpu",
+    "cpu_threads": 2,
+    "enable_mkldnn": false,
+    "limit_side_len": 960,
+    "limit_type": "max",
+    "thresh": 0.3,
+    "box_thresh": 0.6,
+    "unclip_ratio": 1.5,
+    "recognition_text_to_vlm": false
+  },
+  "preflight": {
+    "cpu_questions_per_condition": 32,
+    "gpu_questions_per_condition": 8,
+    "selection": "ascending numeric dev question IDs; no reference/prediction/score selection",
+    "score_outputs": false,
+    "requirements": [
+      "actual merged visual tokens1024",
+      "finite greedy generation",
+      "same prompt/input IDs/grids for two-slot controls",
+      "legal same-shape random crops",
+      "all sources/data/model/detector/adapter bytes locked",
+      "no truncation"
+    ]
+  },
+  "comparisons": {
+    "primary": "text_region_minus_random_matched",
+    "secondary": [
+      "text_region_minus_double_whole",
+      "text_region_minus_whole"
+    ]
+  },
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20261012,
+  "dev_gate": {
+    "overall_min_delta_vs_random_pp": 0.5,
+    "overall_min_delta_vs_double_pp": 0.5,
+    "frequent_min_delta_vs_double_pp": -0.5
+  },
+  "statistics": "same-image paired cluster bootstrap; fixed single checkpoint; pointwise exploratory unadjusted95% intervals; no seed stability/equivalence claim",
+  "scope": {
+    "new_training_runs": 0,
+    "new_predictions": 6468,
+    "automatic_official_evaluation": false,
+    "automatic_replication": false,
+    "modify_resume": false
+  },
+  "limits": [
+    "equal visual tokens does not imply equal total input tokens, information, FLOPs or runtime",
+    "new letterbox protocol; old native-resize scores are historical only",
+    "historically explored internal dev; not untouched holdout",
+    "cached detector/crop preparation reported separately from VLM runtime and installation wall time"
+  ],
+  "cost_reporting": [
+    "unique-image detector preparation",
+    "crop and letterbox",
+    "preprocessor",
+    "H2D",
+    "generation",
+    "full cell wall/model load/preflight separately",
+    "actual visual/input/output tokens",
+    "allocated/reserved memory",
+    "resource contention"
+  ]
+}

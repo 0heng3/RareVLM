@@ -71,6 +71,6 @@ python -m vlm_sft.infer --model-dir artifacts/vlm_sft/model \
 
 Assets are external: follow the downloaded Qwen model license and official TextVQA/image terms. The release distributes code and compact metrics, not model weights, dataset images or adapter weights.
 
-Sources: [Qwen model card](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct), [versioned Transformers model API](https://huggingface.co/docs/transformers/v4.51.3/en/model_doc/qwen2_5_vl), [PEFT LoRA API](https://huggingface.co/docs/peft/v0.15.0/en/package_reference/lora), [TextVQA release](https://textvqa.org/dataset/), [job-to-route evidence](JOB_ROUTE.md). One unified resume is in [RESUME.md](RESUME.md).
+Sources: [Qwen model card](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct), [versioned Transformers model API](https://huggingface.co/docs/transformers/v4.51.3/en/model_doc/qwen2_5_vl), [PEFT LoRA API](https://huggingface.co/docs/peft/v0.15.0/en/package_reference/lora), [TextVQA release](https://textvqa.org/dataset/), [job-to-route evidence](JOB_ROUTE.md). Public research scope and learning checkpoints are in [JOB_ROUTE.md](JOB_ROUTE.md).
 
 Quantization implementation: [versioned bitsandbytes integration](https://huggingface.co/docs/transformers/v4.51.3/en/quantization/bitsandbytes). QLoRA is a standard parameter-efficient technique; no new fine-tuning algorithm is claimed.

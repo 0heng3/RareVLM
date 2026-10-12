@@ -19,3 +19,6 @@ packages/
 .DS_Store
 .tmp/
 .cache/
+# Personal resume and preparation notes stay in the local workspace.
+docs/RESUME.md
+private_notes/

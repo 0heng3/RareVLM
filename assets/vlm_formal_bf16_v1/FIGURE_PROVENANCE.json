@@ -1,0 +1,18 @@
+{
+  "schema_version": "rarevlm.formal_bf16.portable_figure.v1",
+  "source_analysis_sha256": "9cec3bcd7ad32e08f985c6c010738c509602314b345e6a577585556de74090b0",
+  "source_figure_provenance_sha256": "49a5f90e00e6c67e25b253caa579fb15d768d3eca9529af1fc64352b1d0cfda1",
+  "portable_metrics_file": "results/vlm_formal_bf16_v1_metrics.json",
+  "portable_metrics_sha256": "b449af42bce0e3b2a0984cfd4aaa1f0006b36f741e11d41b3b9fe1276fb22a08",
+  "transformation": "Byte-for-byte copies of completed scientific figures; no replotting or metric changes.",
+  "figures": {
+    "formal_quality.png": {
+      "source_sha256": "9b4b78c5cb1e28afcb8dce6e9789b261d1b58d1e301f6e7e402c6cd1e85eeab1",
+      "export_sha256": "9b4b78c5cb1e28afcb8dce6e9789b261d1b58d1e301f6e7e402c6cd1e85eeab1"
+    },
+    "formal_textvqa_frequency.png": {
+      "source_sha256": "49f3417e060b1eddfd278a92fac42b2ad09cde3915c6013c2957b01e7c5cccc2",
+      "export_sha256": "49f3417e060b1eddfd278a92fac42b2ad09cde3915c6013c2957b01e7c5cccc2"
+    }
+  }
+}

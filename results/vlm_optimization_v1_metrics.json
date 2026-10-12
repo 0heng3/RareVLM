@@ -1,0 +1,1453 @@
+{
+  "schema_version": "rarevlm.optimization.aggregate_export.v1",
+  "status": "complete",
+  "export_source_sha256": "e7ad2d5eb01eb5f6c310f1c105bfa2ccbbcfa171aa4b7b24608522be49a3f965",
+  "sources": {
+    "visual_budget": {
+      "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/analysis/ANALYSIS.json",
+      "sha256": "ef61cc44cd4ecc5385c7be60e89ecf2ca1867556b49dbb03307a9ee6a096bf8a"
+    },
+    "numerical_path": {
+      "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/analysis/ANALYSIS.json",
+      "sha256": "276ad578d4fdb4804cd5a5367b7c2a7776b4497d7b6da59e9e3cf36971f78d9d"
+    }
+  },
+  "scope": {
+    "dataset": "TextVQA internal dev",
+    "questions_per_cell": 1617,
+    "unique_images_per_cell": 1024,
+    "completed_cells": 12,
+    "completed_predictions": 19404,
+    "training_runs_added": 0,
+    "model": "Qwen2.5-VL-3B-Instruct",
+    "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "model_provenance_sha256": "c8564a8261c31653bba23a1a02fbb4e5a2d6c00df4b95866a57ef6a14c26f6f3",
+    "adapter": "stage2 qv_r8 seed42",
+    "fixed_adapter_seed": 42,
+    "adapter_choice": "qv_r8 was first by frozen stage1 three-seed internal dev rule; seed42 fixed before budget evaluation and trained on A100; no official-val-based choice",
+    "adapter_files_sha256": {
+      "README.md": "4693e5ab37e838f042cf7904ea8e5ade2b4580e582b8afc45859b6885ab2a808",
+      "adapter_config.json": "42ee4b91366f0f1198278747a703f7f78ff7f50045d45bf75a2eedae9619d93d",
+      "adapter_model.safetensors": "f18e319cc411fc759d62e95ba86a9b5500f452ea061546368997d718b97e1d4c"
+    },
+    "training_binding": {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/runs/stage2/qv_r8/seed42/train/TRAIN_RESULT.json",
+      "sha256": "5f56932c07f0f4104dd7f128fd974fc62317a0e6c194e09918553a092f98b229",
+      "method": "qv_r8",
+      "seed": 42
+    },
+    "hardware": {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "total_memory_bytes": 84974239744,
+      "compute_capability": [
+        8,
+        0
+      ],
+      "visible_devices": "0",
+      "torch_cuda_version": "12.4"
+    },
+    "batch_size": 4,
+    "attention_implementation": "sdpa",
+    "do_sample": false,
+    "max_new_tokens": 32,
+    "input_truncation": false,
+    "ocr_in_prompt": false,
+    "uncertainty": "Image-cluster paired 2000-replicate pointwise percentile intervals conditional on fixed weights. No training-seed uncertainty, multiple-comparison correction or equivalence margin.",
+    "do_not_mix_with": "The prior 15-training/67-evaluation multi-seed official-val study is separately exported as results/vlm_deep_v2_metrics.json. These 12 cells are single-checkpoint internal-dev diagnostics."
+  },
+  "visual_budget": {
+    "precision": "fp32",
+    "vision_precision": "fp32",
+    "quantization": "nf4_language_only",
+    "source_provenance": {
+      "base:256": {
+        "prediction_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/base/budget_256/predictions.jsonl",
+        "prediction_file_snapshot_sha256": "31e7fb05550e8e8a7c1f076f7c77f02ba67d276e5dd546b5f7acae2ad4810f1b",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/base/budget_256/EVALUATION.json",
+        "evaluation_sha256": "39d510646562a46837cc16f31daeaaf3fc5e9a9376f851525e390dc826b45c37"
+      },
+      "base:512": {
+        "prediction_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/base/budget_512/predictions.jsonl",
+        "prediction_file_snapshot_sha256": "11dfae866ccc28ed161bf3a72d5bbc3aabacbb688fe4a98aafc6042b15b10086",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/base/budget_512/EVALUATION.json",
+        "evaluation_sha256": "1ffa9a291090825b2998b08e4627911c1dcd6bf14c3be476d0f4c38f21b1cf48"
+      },
+      "base:1024": {
+        "prediction_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/base/budget_1024/predictions.jsonl",
+        "prediction_file_snapshot_sha256": "94d72dca2c0e85f167b19371d0306fd8c793aa09e22bbaeb22a2e14e3610c62a",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/base/budget_1024/EVALUATION.json",
+        "evaluation_sha256": "6b8f8ce2503f76a0867e37fde30f4cc2e18cae25648d447d560bccffc9fac43e"
+      },
+      "adapted:256": {
+        "prediction_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/adapted/budget_256/predictions.jsonl",
+        "prediction_file_snapshot_sha256": "210a519eee7702ccd101c019e8001214432cadc23252273941cd1a01463b1bdd",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/adapted/budget_256/EVALUATION.json",
+        "evaluation_sha256": "4a4cfec487b7e703907f548536c02f8167c23e23c45134f7e5caf079f147146d"
+      },
+      "adapted:512": {
+        "prediction_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/adapted/budget_512/predictions.jsonl",
+        "prediction_file_snapshot_sha256": "8c76676f001318b88d18a4b4633c563ca4b869487c91c0db4313628d893d8f7e",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/adapted/budget_512/EVALUATION.json",
+        "evaluation_sha256": "927af1bb6f46f5a67ea1bbfa7a3136705b6b3f3643a704941903be19844840aa"
+      },
+      "adapted:1024": {
+        "prediction_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/adapted/budget_1024/predictions.jsonl",
+        "prediction_file_snapshot_sha256": "d598049f7dbe216606d92db854f8bf4cf4647f12ff5b626c4dba19db0cbe5ca7",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/runs/adapted/budget_1024/EVALUATION.json",
+        "evaluation_sha256": "4e356c6424e671f1264996f70738354e861fecbed04506362984217b137e4a9f"
+      }
+    },
+    "cells": [
+      {
+        "role": "base",
+        "visual_token_budget": 256,
+        "score_percent": 71.7377860235003,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p90": 252.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p90": 292.4000000000001,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "input_exceeds_training_768_questions": 0,
+        "input_exceeds_training_768_percent": 0.0,
+        "pure_generation_questions_per_second": 3.019216326844201,
+        "mean_amortized_generation_seconds_per_question": 0.33121177542294156,
+        "peak_allocated_gib": 5.345425605773926,
+        "peak_reserved_gib": 7.662109375,
+        "phase_timing": {
+          "timed_questions": 1613,
+          "timed_batches": 404,
+          "generation_seconds_excluding_warmup": 534.2445937572047,
+          "preprocessing_seconds_excluding_warmup": 45.264209979213774,
+          "h2d_seconds_excluding_warmup": 0.5164058464579284,
+          "generation_preprocessing_h2d_questions_per_second": 2.7809136109100923,
+          "scope": "Recorded steady-state generation+preprocessing+H2D phases. Deduplicate (session_id,batch_start), exclude each session first warmup batch. Excludes model load, preflight, image validation, disk writes and controller overhead; not end-to-end or isolated single-request latency."
+        }
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 512,
+        "score_percent": 78.29931972789116,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 333.0,
+          "mean": 489.02102659245514,
+          "median": 486.0,
+          "p05": 480.0,
+          "p90": 494.0,
+          "p95": 500.0,
+          "max": 510.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 369.0,
+          "mean": 528.2690166975881,
+          "median": 530.0,
+          "p05": 518.0,
+          "p90": 536.0,
+          "p95": 540.0,
+          "max": 553.0
+        },
+        "input_exceeds_training_768_questions": 0,
+        "input_exceeds_training_768_percent": 0.0,
+        "pure_generation_questions_per_second": 1.5432863382560091,
+        "mean_amortized_generation_seconds_per_question": 0.6479678950116606,
+        "peak_allocated_gib": 5.852715492248535,
+        "peak_reserved_gib": 7.6953125,
+        "phase_timing": {
+          "timed_questions": 1613,
+          "timed_batches": 404,
+          "generation_seconds_excluding_warmup": 1045.1722146538086,
+          "preprocessing_seconds_excluding_warmup": 70.0320750894025,
+          "h2d_seconds_excluding_warmup": 1.0241062962450087,
+          "generation_preprocessing_h2d_questions_per_second": 1.4450447647839486,
+          "scope": "Recorded steady-state generation+preprocessing+H2D phases. Deduplicate (session_id,batch_start), exclude each session first warmup batch. Excludes model load, preflight, image validation, disk writes and controller overhead; not end-to-end or isolated single-request latency."
+        }
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 1024,
+        "score_percent": 83.5621521335807,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 333.0,
+          "mean": 938.8559059987631,
+          "median": 986.0,
+          "p05": 777.0,
+          "p90": 1008.0,
+          "p95": 1024.0,
+          "max": 1024.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 369.0,
+          "mean": 978.1038961038961,
+          "median": 1024.0,
+          "p05": 816.0,
+          "p90": 1048.4,
+          "p95": 1062.0,
+          "max": 1073.0
+        },
+        "input_exceeds_training_768_questions": 1583,
+        "input_exceeds_training_768_percent": 97.89734075448361,
+        "pure_generation_questions_per_second": 0.6950934547608555,
+        "mean_amortized_generation_seconds_per_question": 1.4386554687729676,
+        "peak_allocated_gib": 7.8847174644470215,
+        "peak_reserved_gib": 8.556640625,
+        "phase_timing": {
+          "timed_questions": 1613,
+          "timed_batches": 404,
+          "generation_seconds_excluding_warmup": 2320.5512711307965,
+          "preprocessing_seconds_excluding_warmup": 115.23285039700568,
+          "h2d_seconds_excluding_warmup": 1.8281140550971031,
+          "generation_preprocessing_h2d_questions_per_second": 0.6617131209198611,
+          "scope": "Recorded steady-state generation+preprocessing+H2D phases. Deduplicate (session_id,batch_start), exclude each session first warmup batch. Excludes model load, preflight, image validation, disk writes and controller overhead; not end-to-end or isolated single-request latency."
+        }
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 256,
+        "score_percent": 74.60111317254174,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p90": 252.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p90": 292.4000000000001,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "input_exceeds_training_768_questions": 0,
+        "input_exceeds_training_768_percent": 0.0,
+        "pure_generation_questions_per_second": 2.919403286706493,
+        "mean_amortized_generation_seconds_per_question": 0.3425357519303693,
+        "peak_allocated_gib": 5.346848487854004,
+        "peak_reserved_gib": 7.66796875,
+        "phase_timing": {
+          "timed_questions": 1613,
+          "timed_batches": 404,
+          "generation_seconds_excluding_warmup": 552.5101678636856,
+          "preprocessing_seconds_excluding_warmup": 46.59491726011038,
+          "h2d_seconds_excluding_warmup": 1.112967748194933,
+          "generation_preprocessing_h2d_questions_per_second": 2.687356690259375,
+          "scope": "Recorded steady-state generation+preprocessing+H2D phases. Deduplicate (session_id,batch_start), exclude each session first warmup batch. Excludes model load, preflight, image validation, disk writes and controller overhead; not end-to-end or isolated single-request latency."
+        }
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 512,
+        "score_percent": 82.15831787260358,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 333.0,
+          "mean": 489.02102659245514,
+          "median": 486.0,
+          "p05": 480.0,
+          "p90": 494.0,
+          "p95": 500.0,
+          "max": 510.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 369.0,
+          "mean": 528.2690166975881,
+          "median": 530.0,
+          "p05": 518.0,
+          "p90": 536.0,
+          "p95": 540.0,
+          "max": 553.0
+        },
+        "input_exceeds_training_768_questions": 0,
+        "input_exceeds_training_768_percent": 0.0,
+        "pure_generation_questions_per_second": 1.5114871574091528,
+        "mean_amortized_generation_seconds_per_question": 0.6616000639490082,
+        "peak_allocated_gib": 5.85958194732666,
+        "peak_reserved_gib": 7.701171875,
+        "phase_timing": {
+          "timed_questions": 1613,
+          "timed_batches": 404,
+          "generation_seconds_excluding_warmup": 1067.16090314975,
+          "preprocessing_seconds_excluding_warmup": 71.48193139163777,
+          "h2d_seconds_excluding_warmup": 2.0303436960093677,
+          "generation_preprocessing_h2d_questions_per_second": 1.414077257863165,
+          "scope": "Recorded steady-state generation+preprocessing+H2D phases. Deduplicate (session_id,batch_start), exclude each session first warmup batch. Excludes model load, preflight, image validation, disk writes and controller overhead; not end-to-end or isolated single-request latency."
+        }
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 1024,
+        "score_percent": 86.50587507730366,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 333.0,
+          "mean": 938.8559059987631,
+          "median": 986.0,
+          "p05": 777.0,
+          "p90": 1008.0,
+          "p95": 1024.0,
+          "max": 1024.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 369.0,
+          "mean": 978.1038961038961,
+          "median": 1024.0,
+          "p05": 816.0,
+          "p90": 1048.4,
+          "p95": 1062.0,
+          "max": 1073.0
+        },
+        "input_exceeds_training_768_questions": 1583,
+        "input_exceeds_training_768_percent": 97.89734075448361,
+        "pure_generation_questions_per_second": 0.6859292175854689,
+        "mean_amortized_generation_seconds_per_question": 1.4578763731921025,
+        "peak_allocated_gib": 7.8915839195251465,
+        "peak_reserved_gib": 8.59375,
+        "phase_timing": {
+          "timed_questions": 1613,
+          "timed_batches": 404,
+          "generation_seconds_excluding_warmup": 2351.5545899588615,
+          "preprocessing_seconds_excluding_warmup": 115.22911953739822,
+          "h2d_seconds_excluding_warmup": 3.251229770015925,
+          "generation_preprocessing_h2d_questions_per_second": 0.6530271998820963,
+          "scope": "Recorded steady-state generation+preprocessing+H2D phases. Deduplicate (session_id,batch_start), exclude each session first warmup batch. Excludes model load, preflight, image validation, disk writes and controller overhead; not end-to-end or isolated single-request latency."
+        }
+      }
+    ],
+    "paired_contrasts": [
+      {
+        "contrast": "base:512-256",
+        "dimension": "all",
+        "slice": "all",
+        "prespecified_main_comparison": true,
+        "delta_pp": 6.561533704390847,
+        "image_cluster_bootstrap_95_pp": [
+          4.656490242460079,
+          8.35555690550679
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "small_slice": false,
+        "scope": "Exploratory pointwise 95% percentile interval conditional on these fixed weights, including entire image question clusters. No training-seed uncertainty or multiple-comparison correction."
+      },
+      {
+        "contrast": "base:1024-256",
+        "dimension": "all",
+        "slice": "all",
+        "prespecified_main_comparison": true,
+        "delta_pp": 11.824366110080396,
+        "image_cluster_bootstrap_95_pp": [
+          9.924967508913229,
+          13.734687908570395
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "small_slice": false,
+        "scope": "Exploratory pointwise 95% percentile interval conditional on these fixed weights, including entire image question clusters. No training-seed uncertainty or multiple-comparison correction."
+      },
+      {
+        "contrast": "adapted:512-256",
+        "dimension": "all",
+        "slice": "all",
+        "prespecified_main_comparison": true,
+        "delta_pp": 7.557204700061843,
+        "image_cluster_bootstrap_95_pp": [
+          5.841499162479059,
+          9.369735999882348
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "small_slice": false,
+        "scope": "Exploratory pointwise 95% percentile interval conditional on these fixed weights, including entire image question clusters. No training-seed uncertainty or multiple-comparison correction."
+      },
+      {
+        "contrast": "adapted:1024-256",
+        "dimension": "all",
+        "slice": "all",
+        "prespecified_main_comparison": true,
+        "delta_pp": 11.904761904761905,
+        "image_cluster_bootstrap_95_pp": [
+          10.08511054548409,
+          13.770327478124333
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "small_slice": false,
+        "scope": "Exploratory pointwise 95% percentile interval conditional on these fixed weights, including entire image question clusters. No training-seed uncertainty or multiple-comparison correction."
+      },
+      {
+        "contrast": "(adapted:1024-256)-(base:1024-256)",
+        "dimension": "all",
+        "slice": "all",
+        "prespecified_main_comparison": true,
+        "delta_pp": 0.0803957946815089,
+        "image_cluster_bootstrap_95_pp": [
+          -1.538976606489813,
+          1.651608640288568
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "small_slice": false,
+        "scope": "Exploratory pointwise 95% percentile interval conditional on these fixed weights, including entire image question clusters. No training-seed uncertainty or multiple-comparison correction."
+      }
+    ],
+    "sft_target_frequency_definition": {
+      "training_split": "train_all",
+      "interpretation": "primary actual one-epoch supervised target QA exposure after answer normalization",
+      "rule": "Use each row.target verified against the frozen raw-stripped modal reference rule (ties lexical); normalize that one target; increment once per training QA.",
+      "unit": "training QA whose actual supervised target normalizes to this answer",
+      "target_source": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/vlm_deep/common.py",
+      "target_source_sha256": "84f94d4e1e8efb4894804c0b9d84731dc49df2ad44e87fa8ca63823faf22e508",
+      "training_questions": 32985,
+      "distinct_normalized_targets": 17227,
+      "total_target_qa_occurrences": 32985,
+      "normalized_empty_target_rule": "Retain the empty normalized key for real nonempty supervised targets so every QA contributes exactly once.",
+      "normalized_empty_target_qa_count": 75,
+      "not_pretraining_frequency": true
+    },
+    "sft_target_slices": [
+      {
+        "role": "base",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "frequent_gt20",
+        "score_percent": 80.91127098321343,
+        "questions": 417,
+        "unique_images": 367,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "frequent_gt20",
+        "score_percent": 82.82973621103118,
+        "questions": 417,
+        "unique_images": 367,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "frequent_gt20",
+        "score_percent": 87.07434052757795,
+        "questions": 417,
+        "unique_images": 367,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "frequent_gt20",
+        "score_percent": 82.27817745803357,
+        "questions": 417,
+        "unique_images": 367,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "frequent_gt20",
+        "score_percent": 84.91606714628298,
+        "questions": 417,
+        "unique_images": 367,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "frequent_gt20",
+        "score_percent": 87.67386091127098,
+        "questions": 417,
+        "unique_images": 367,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "medium_6_20",
+        "score_percent": 79.00584795321637,
+        "questions": 171,
+        "unique_images": 160,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "medium_6_20",
+        "score_percent": 87.36842105263156,
+        "questions": 171,
+        "unique_images": 160,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "medium_6_20",
+        "score_percent": 87.77777777777777,
+        "questions": 171,
+        "unique_images": 160,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "medium_6_20",
+        "score_percent": 82.28070175438596,
+        "questions": 171,
+        "unique_images": 160,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "medium_6_20",
+        "score_percent": 90.52631578947368,
+        "questions": 171,
+        "unique_images": 160,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "medium_6_20",
+        "score_percent": 89.5906432748538,
+        "questions": 171,
+        "unique_images": 160,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "rare_1_5",
+        "score_percent": 73.01169590643275,
+        "questions": 342,
+        "unique_images": 312,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "rare_1_5",
+        "score_percent": 77.6608187134503,
+        "questions": 342,
+        "unique_images": 312,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "rare_1_5",
+        "score_percent": 85.00000000000001,
+        "questions": 342,
+        "unique_images": 312,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "rare_1_5",
+        "score_percent": 75.58479532163743,
+        "questions": 342,
+        "unique_images": 312,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "rare_1_5",
+        "score_percent": 81.98830409356727,
+        "questions": 342,
+        "unique_images": 312,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "rare_1_5",
+        "score_percent": 88.07017543859651,
+        "questions": 342,
+        "unique_images": 312,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "unseen_0",
+        "score_percent": 63.72634643377001,
+        "questions": 687,
+        "unique_images": 543,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "unseen_0",
+        "score_percent": 73.6098981077147,
+        "questions": 687,
+        "unique_images": 543,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "base",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "unseen_0",
+        "score_percent": 79.66521106259097,
+        "questions": 687,
+        "unique_images": 543,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 256,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "unseen_0",
+        "score_percent": 67.54002911208151,
+        "questions": 687,
+        "unique_images": 543,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 512,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "unseen_0",
+        "score_percent": 78.48617176128094,
+        "questions": 687,
+        "unique_images": 543,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      },
+      {
+        "role": "adapted",
+        "visual_token_budget": 1024,
+        "dimension": "sft_target_answer_frequency",
+        "slice": "unseen_0",
+        "score_percent": 84.25036390101891,
+        "questions": 687,
+        "unique_images": 543,
+        "small_slice": false,
+        "scope": "Exploratory descriptor. Actual SFT target exposure and auxiliary reference coverage are separate frequency definitions."
+      }
+    ],
+    "sft_target_slice_scope": "Training supervised-target exposure only, not model pretraining exposure, a visual-class definition, or causal evidence of a long-tail algorithm.",
+    "teaching_cases": [
+      {
+        "question_id": "27482",
+        "source": {
+          "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/cases/27482/CASE.json",
+          "sha256": "11d6fa740ac81568753631be6571059b37b2f4a3ec9a4d19a26b705ff0adcba3"
+        },
+        "question": "how many miles to albertville?",
+        "sft_target_answer_frequency": "frequent_gt20",
+        "train_all_sft_target_qa_frequency": 25,
+        "outcomes": [
+          {
+            "role": "base",
+            "budget": 256,
+            "score": 0.0,
+            "visual_tokens": 234,
+            "input_tokens": 273
+          },
+          {
+            "role": "adapted",
+            "budget": 256,
+            "score": 1.0,
+            "visual_tokens": 234,
+            "input_tokens": 273
+          },
+          {
+            "role": "base",
+            "budget": 512,
+            "score": 1.0,
+            "visual_tokens": 494,
+            "input_tokens": 533
+          },
+          {
+            "role": "adapted",
+            "budget": 512,
+            "score": 1.0,
+            "visual_tokens": 494,
+            "input_tokens": 533
+          },
+          {
+            "role": "base",
+            "budget": 1024,
+            "score": 1.0,
+            "visual_tokens": 999,
+            "input_tokens": 1038
+          },
+          {
+            "role": "adapted",
+            "budget": 1024,
+            "score": 1.0,
+            "visual_tokens": 999,
+            "input_tokens": 1038
+          }
+        ],
+        "teaching_board": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/cases/27482/teaching_board.png",
+        "scope": "Three declared teaching examples, not representative error prevalence. BICUBIC resize to recorded processor dimensions illustrates resolution only; not attention, OCR boxes, or an exact preprocessed model tensor."
+      },
+      {
+        "question_id": "10476",
+        "source": {
+          "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/cases/10476/CASE.json",
+          "sha256": "2b858bfdb415f52a3802cf616319f9bef4c8f0bd8041a156da8eefa589381a55"
+        },
+        "question": "what is the name of the shop?",
+        "sft_target_answer_frequency": "unseen_0",
+        "train_all_sft_target_qa_frequency": 0,
+        "outcomes": [
+          {
+            "role": "base",
+            "budget": 256,
+            "score": 0.0,
+            "visual_tokens": 234,
+            "input_tokens": 273
+          },
+          {
+            "role": "adapted",
+            "budget": 256,
+            "score": 1.0,
+            "visual_tokens": 234,
+            "input_tokens": 273
+          },
+          {
+            "role": "base",
+            "budget": 512,
+            "score": 1.0,
+            "visual_tokens": 494,
+            "input_tokens": 533
+          },
+          {
+            "role": "adapted",
+            "budget": 512,
+            "score": 1.0,
+            "visual_tokens": 494,
+            "input_tokens": 533
+          },
+          {
+            "role": "base",
+            "budget": 1024,
+            "score": 1.0,
+            "visual_tokens": 999,
+            "input_tokens": 1038
+          },
+          {
+            "role": "adapted",
+            "budget": 1024,
+            "score": 1.0,
+            "visual_tokens": 999,
+            "input_tokens": 1038
+          }
+        ],
+        "teaching_board": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/cases/10476/teaching_board.png",
+        "scope": "Three declared teaching examples, not representative error prevalence. BICUBIC resize to recorded processor dimensions illustrates resolution only; not attention, OCR boxes, or an exact preprocessed model tensor."
+      },
+      {
+        "question_id": "12257",
+        "source": {
+          "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/cases/12257/CASE.json",
+          "sha256": "41ec587190132c2bc7b26f52a180e7435046af62df4453fd877072a4ca29d269"
+        },
+        "question": "what time is listed on the stove clock?",
+        "sft_target_answer_frequency": "unseen_0",
+        "train_all_sft_target_qa_frequency": 0,
+        "outcomes": [
+          {
+            "role": "base",
+            "budget": 256,
+            "score": 0.0,
+            "visual_tokens": 256,
+            "input_tokens": 296
+          },
+          {
+            "role": "adapted",
+            "budget": 256,
+            "score": 0.0,
+            "visual_tokens": 256,
+            "input_tokens": 296
+          },
+          {
+            "role": "base",
+            "budget": 512,
+            "score": 0.0,
+            "visual_tokens": 484,
+            "input_tokens": 524
+          },
+          {
+            "role": "adapted",
+            "budget": 512,
+            "score": 0.0,
+            "visual_tokens": 484,
+            "input_tokens": 524
+          },
+          {
+            "role": "base",
+            "budget": 1024,
+            "score": 0.0,
+            "visual_tokens": 1024,
+            "input_tokens": 1064
+          },
+          {
+            "role": "adapted",
+            "budget": 1024,
+            "score": 0.0,
+            "visual_tokens": 1024,
+            "input_tokens": 1064
+          }
+        ],
+        "teaching_board": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/cases/12257/teaching_board.png",
+        "scope": "Three declared teaching examples, not representative error prevalence. BICUBIC resize to recorded processor dimensions illustrates resolution only; not attention, OCR boxes, or an exact preprocessed model tensor."
+      }
+    ],
+    "limitations": [
+      "Single fixed adapter seed; intervals do not measure training-seed uncertainty.",
+      "Internal dev only; no official validation metrics are used to choose a budget or checkpoint.",
+      "Budget increases can exceed original 256 visual tokens and 768 training input length; the latter proportion is explicitly reported.",
+      "Five planned comparisons plus exploratory slices are pointwise, uncorrected; no confirmatory significance or general mechanism proof.",
+      "Latency is batch generation and batch-amortized cost on concurrent independent A100 workers, not isolated single-request service latency.",
+      "A resize illustration shows pixel detail, not learned attention or an exact processor tensor.",
+      "Generation token counts include EOS when nonpad; the adapter may change output length and hence runtime."
+    ]
+  },
+  "numerical_path": {
+    "visual_token_budget": 256,
+    "source_provenance": {
+      "base:nf4_fp32": {
+        "predictions_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/nf4_fp32/predictions.jsonl",
+        "predictions_snapshot_sha256": "9b841c206073330b9be5b21413d4d48937dd8a7a72f384f889648f3dcc653274",
+        "input_lock_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/nf4_fp32/INPUT_LOCK.json",
+        "input_lock_sha256": "87077c7e7548aa38634e637d8b09a59a33344fe032e4993edac0bfe720ba58cd",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/nf4_fp32/EVALUATION.json",
+        "evaluation_file_sha256": "d005c48da56ce0c4aa6e68c1c014694bda3b32a99dd70ba27fb62282761c4a6a"
+      },
+      "base:original_fp32": {
+        "predictions_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/original_fp32/predictions.jsonl",
+        "predictions_snapshot_sha256": "192b6ad86730c1caa4a6bfdd1449b0d90e8b0403d0e5a5b7ee94a15da699edef",
+        "input_lock_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/original_fp32/INPUT_LOCK.json",
+        "input_lock_sha256": "50d03c19da07eb31b4afa44799601b197d5e1195b75f6433552e7dcef0547bea",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/original_fp32/EVALUATION.json",
+        "evaluation_file_sha256": "fe0e4944dd5d777c697a427b543ce79f102b7829c91c4b22f5ef0115c74b1bc8"
+      },
+      "base:original_bf16": {
+        "predictions_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/original_bf16/predictions.jsonl",
+        "predictions_snapshot_sha256": "6ce001c63070c880a8fbe38ad5bb01408c525988de6b7701fc5a3d7b513d0a98",
+        "input_lock_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/original_bf16/INPUT_LOCK.json",
+        "input_lock_sha256": "c58d68a3d1b57e560b9d4de57fca0e8c2989f224028a84b3ed78b396045e8550",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/base/original_bf16/EVALUATION.json",
+        "evaluation_file_sha256": "85a002720bad747f6ab3665436639c7fdae781e1ff393d85c05cc744a541d45a"
+      },
+      "adapted:nf4_fp32": {
+        "predictions_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/nf4_fp32/predictions.jsonl",
+        "predictions_snapshot_sha256": "f35810b14a9d94ff3bdfdcf6ab20e51ac55898276082f0c1e22417007b4bd10a",
+        "input_lock_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/nf4_fp32/INPUT_LOCK.json",
+        "input_lock_sha256": "ede6f0d6cc7fc0532059e1bc50eef92a6ece05cce3ef011e924ff65f93af7701",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/nf4_fp32/EVALUATION.json",
+        "evaluation_file_sha256": "fd83d29ae6dbfd8f2228a0a273360b015d5cf6da25e0658011f8dca65920d161"
+      },
+      "adapted:original_fp32": {
+        "predictions_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/original_fp32/predictions.jsonl",
+        "predictions_snapshot_sha256": "2dca0c86bf53064cc8cc1613df913e5a9b422ef1073045d2f04c5efe66238dcc",
+        "input_lock_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/original_fp32/INPUT_LOCK.json",
+        "input_lock_sha256": "727bc27e4f2c95ec49dbaa7b0444bc5dd438b15b888b1a9791e0a84240ce4529",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/original_fp32/EVALUATION.json",
+        "evaluation_file_sha256": "757e38553526904f3e70455f91d8a0cc08337cacc247f4e222058895b8b621e2"
+      },
+      "adapted:original_bf16": {
+        "predictions_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/original_bf16/predictions.jsonl",
+        "predictions_snapshot_sha256": "0c49954a0973d2c7c8846ec55d0c77c672d4e4e46f098413ba50428b8cd5bf13",
+        "input_lock_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/original_bf16/INPUT_LOCK.json",
+        "input_lock_sha256": "b4cb640587e075560c5bf87dd5e805f1b382b1af021306356a3abf5b9cae9a71",
+        "evaluation_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/runs/adapted/original_bf16/EVALUATION.json",
+        "evaluation_file_sha256": "7663b3c39b34af4a0c2a0f60154f08f6290329ab8657a8c1b4779faf0eeb12d3"
+      }
+    },
+    "cells": [
+      {
+        "role": "base",
+        "numerical_path": "nf4_fp32",
+        "precision": "fp32",
+        "quantization": "nf4_language_only",
+        "score_percent": 71.7377860235003,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_token_budget": 256,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "timed_questions": 1613,
+        "timed_batches": 404,
+        "pure_generation_questions_per_second": 3.027707331056765,
+        "generation_preprocessing_h2d_questions_per_second": 2.789506239202941,
+        "peak_allocated_gib": 5.341935157775879,
+        "peak_reserved_gib": 7.662109375,
+        "hardware": {
+          "name": "NVIDIA A100-SXM4-80GB",
+          "total_memory_bytes": 84974239744,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "visible_devices": "GPU-e4083b4d-8512-2e2d-499d-8b433dd7232c",
+          "torch_cuda_version": "12.4"
+        },
+        "timing_scope": "Count each (session_id,batch_start) once. Exclude the first batch of every session from all steady-state phase totals; include all complete batches for peaks/all preprocessing/H2D. Generation+preprocessing+H2D excludes loading, preflight, image checks, disk writes and other controller overhead. Batch-amortized latency is not independent single-request latency. Observed concurrency is not controlled to an idle-GPU benchmark.",
+        "resource_timing_status": "no_observed_contention",
+        "sampled_contention_observations": 0,
+        "exclusive_gpu_benchmark": false
+      },
+      {
+        "role": "base",
+        "numerical_path": "original_fp32",
+        "precision": "fp32",
+        "quantization": "original",
+        "score_percent": 72.91280148423006,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_token_budget": 256,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "timed_questions": 1613,
+        "timed_batches": 404,
+        "pure_generation_questions_per_second": 3.400755285924884,
+        "generation_preprocessing_h2d_questions_per_second": 3.102346426426117,
+        "peak_allocated_gib": 14.309550285339355,
+        "peak_reserved_gib": 22.75,
+        "hardware": {
+          "name": "NVIDIA A100-SXM4-80GB",
+          "total_memory_bytes": 84974239744,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "visible_devices": "GPU-e4083b4d-8512-2e2d-499d-8b433dd7232c",
+          "torch_cuda_version": "12.4"
+        },
+        "timing_scope": "Count each (session_id,batch_start) once. Exclude the first batch of every session from all steady-state phase totals; include all complete batches for peaks/all preprocessing/H2D. Generation+preprocessing+H2D excludes loading, preflight, image checks, disk writes and other controller overhead. Batch-amortized latency is not independent single-request latency. Observed concurrency is not controlled to an idle-GPU benchmark.",
+        "resource_timing_status": "no_observed_contention",
+        "sampled_contention_observations": 0,
+        "exclusive_gpu_benchmark": false
+      },
+      {
+        "role": "base",
+        "numerical_path": "original_bf16",
+        "precision": "bf16",
+        "quantization": "original",
+        "score_percent": 72.71490414347556,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_token_budget": 256,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "timed_questions": 1613,
+        "timed_batches": 404,
+        "pure_generation_questions_per_second": 8.709776033605527,
+        "generation_preprocessing_h2d_questions_per_second": 6.995199824123271,
+        "peak_allocated_gib": 7.203426361083984,
+        "peak_reserved_gib": 7.705078125,
+        "hardware": {
+          "name": "NVIDIA A100-SXM4-80GB",
+          "total_memory_bytes": 84974239744,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "visible_devices": "GPU-e4083b4d-8512-2e2d-499d-8b433dd7232c",
+          "torch_cuda_version": "12.4"
+        },
+        "timing_scope": "Count each (session_id,batch_start) once. Exclude the first batch of every session from all steady-state phase totals; include all complete batches for peaks/all preprocessing/H2D. Generation+preprocessing+H2D excludes loading, preflight, image checks, disk writes and other controller overhead. Batch-amortized latency is not independent single-request latency. Observed concurrency is not controlled to an idle-GPU benchmark.",
+        "resource_timing_status": "no_observed_contention",
+        "sampled_contention_observations": 0,
+        "exclusive_gpu_benchmark": false
+      },
+      {
+        "role": "adapted",
+        "numerical_path": "nf4_fp32",
+        "precision": "fp32",
+        "quantization": "nf4_language_only",
+        "score_percent": 74.60111317254174,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_token_budget": 256,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "timed_questions": 1613,
+        "timed_batches": 404,
+        "pure_generation_questions_per_second": 2.9184292390969704,
+        "generation_preprocessing_h2d_questions_per_second": 2.691902804752064,
+        "peak_allocated_gib": 5.345893383026123,
+        "peak_reserved_gib": 7.66796875,
+        "hardware": {
+          "name": "NVIDIA A100-SXM4-80GB",
+          "total_memory_bytes": 84974239744,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "visible_devices": "GPU-f802412c-b994-0c40-a53a-530f5490631e",
+          "torch_cuda_version": "12.4"
+        },
+        "timing_scope": "Count each (session_id,batch_start) once. Exclude the first batch of every session from all steady-state phase totals; include all complete batches for peaks/all preprocessing/H2D. Generation+preprocessing+H2D excludes loading, preflight, image checks, disk writes and other controller overhead. Batch-amortized latency is not independent single-request latency. Observed concurrency is not controlled to an idle-GPU benchmark.",
+        "resource_timing_status": "no_observed_contention",
+        "sampled_contention_observations": 0,
+        "exclusive_gpu_benchmark": false
+      },
+      {
+        "role": "adapted",
+        "numerical_path": "original_fp32",
+        "precision": "fp32",
+        "quantization": "original",
+        "score_percent": 74.90414347557206,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_token_budget": 256,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "timed_questions": 1613,
+        "timed_batches": 404,
+        "pure_generation_questions_per_second": 3.2848787989255954,
+        "generation_preprocessing_h2d_questions_per_second": 2.996254372863584,
+        "peak_allocated_gib": 14.31668758392334,
+        "peak_reserved_gib": 22.755859375,
+        "hardware": {
+          "name": "NVIDIA A100-SXM4-80GB",
+          "total_memory_bytes": 84974239744,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "visible_devices": "GPU-f802412c-b994-0c40-a53a-530f5490631e",
+          "torch_cuda_version": "12.4"
+        },
+        "timing_scope": "Count each (session_id,batch_start) once. Exclude the first batch of every session from all steady-state phase totals; include all complete batches for peaks/all preprocessing/H2D. Generation+preprocessing+H2D excludes loading, preflight, image checks, disk writes and other controller overhead. Batch-amortized latency is not independent single-request latency. Observed concurrency is not controlled to an idle-GPU benchmark.",
+        "resource_timing_status": "no_observed_contention",
+        "sampled_contention_observations": 0,
+        "exclusive_gpu_benchmark": false
+      },
+      {
+        "role": "adapted",
+        "numerical_path": "original_bf16",
+        "precision": "bf16",
+        "quantization": "original",
+        "score_percent": 75.34322820037106,
+        "questions": 1617,
+        "unique_images": 1024,
+        "visual_token_budget": 256,
+        "visual_tokens": {
+          "n": 1617,
+          "min": 225.0,
+          "mean": 241.6072974644403,
+          "median": 240.0,
+          "p05": 234.0,
+          "p95": 256.0,
+          "max": 256.0
+        },
+        "input_tokens": {
+          "n": 1617,
+          "min": 262.0,
+          "mean": 280.8552875695733,
+          "median": 280.0,
+          "p05": 270.0,
+          "p95": 295.0,
+          "max": 305.0
+        },
+        "timed_questions": 1613,
+        "timed_batches": 404,
+        "pure_generation_questions_per_second": 8.014931282265188,
+        "generation_preprocessing_h2d_questions_per_second": 6.509767288113827,
+        "peak_allocated_gib": 7.206859588623047,
+        "peak_reserved_gib": 7.703125,
+        "hardware": {
+          "name": "NVIDIA A100-SXM4-80GB",
+          "total_memory_bytes": 84974239744,
+          "compute_capability": [
+            8,
+            0
+          ],
+          "visible_devices": "GPU-f802412c-b994-0c40-a53a-530f5490631e",
+          "torch_cuda_version": "12.4"
+        },
+        "timing_scope": "Count each (session_id,batch_start) once. Exclude the first batch of every session from all steady-state phase totals; include all complete batches for peaks/all preprocessing/H2D. Generation+preprocessing+H2D excludes loading, preflight, image checks, disk writes and other controller overhead. Batch-amortized latency is not independent single-request latency. Observed concurrency is not controlled to an idle-GPU benchmark.",
+        "resource_timing_status": "no_observed_contention",
+        "sampled_contention_observations": 0,
+        "exclusive_gpu_benchmark": false
+      }
+    ],
+    "adapted_speed_ratios": {
+      "original_bf16_vs_original_fp32_generation": 2.439947338357409,
+      "original_bf16_vs_nf4_fp32_generation": 2.7463168114177727,
+      "original_bf16_vs_original_fp32_generation_preprocessing_h2d": 2.1726350563127603,
+      "original_bf16_vs_original_fp32_peak_allocated_reduction_percent": 49.661124150562195,
+      "scope": "Fixed seed42 adapter, 256 visual budget, same A100 worker and batch4; observed steady-state ratios, not end-to-end production speed or precision equivalence."
+    },
+    "paired_contrasts": [
+      {
+        "role": "base",
+        "before_path": "nf4_fp32",
+        "after_path": "original_fp32",
+        "contrast": "base:original_fp32-nf4_fp32",
+        "delta_pp": 1.1750154607297465,
+        "image_cluster_bootstrap_95_pp": [
+          0.2480445064273586,
+          2.0966545431919985
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "uncertainty_scope": "Pointwise exploratory 95% percentile CI, resample entire images and retain every paired same-image QA. Conditional on fixed weights/input/dev sample; no training-seed uncertainty, equivalence margin or multiple-comparison correction.",
+        "raw_prediction_identical_questions": 1277,
+        "raw_prediction_agreement_percent": 78.97340754483612,
+        "normalized_prediction_identical_questions": 1390,
+        "normalized_prediction_agreement_percent": 85.96165739022882,
+        "full_credit_1_to_zero_0": 17,
+        "zero_0_to_full_credit_1": 28,
+        "full_credit_1_to_partial": 10,
+        "partial_to_full_credit_1": 15,
+        "any_score_improvement_questions": 64,
+        "any_score_regression_questions": 40,
+        "score_unchanged_questions": 1513,
+        "sum_positive_score_change": 46.900000000000006,
+        "sum_negative_score_change": -27.9,
+        "agreement_scope": "Agreement concerns recorded decoded strings only; it is not parameter, logit, kernel, mathematical, or statistical equivalence. Full-credit and zero transitions are descriptive; preserve every partial score in matrix and paired CSV."
+      },
+      {
+        "role": "base",
+        "before_path": "original_fp32",
+        "after_path": "original_bf16",
+        "contrast": "base:original_bf16-original_fp32",
+        "delta_pp": -0.19789734075448362,
+        "image_cluster_bootstrap_95_pp": [
+          -0.8177305589843061,
+          0.40056123665851745
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "uncertainty_scope": "Pointwise exploratory 95% percentile CI, resample entire images and retain every paired same-image QA. Conditional on fixed weights/input/dev sample; no training-seed uncertainty, equivalence margin or multiple-comparison correction.",
+        "raw_prediction_identical_questions": 1500,
+        "raw_prediction_agreement_percent": 92.7643784786642,
+        "normalized_prediction_identical_questions": 1531,
+        "normalized_prediction_agreement_percent": 94.68150896722325,
+        "full_credit_1_to_zero_0": 11,
+        "zero_0_to_full_credit_1": 10,
+        "full_credit_1_to_partial": 4,
+        "partial_to_full_credit_1": 3,
+        "any_score_improvement_questions": 15,
+        "any_score_regression_questions": 21,
+        "score_unchanged_questions": 1581,
+        "sum_positive_score_change": 12.700000000000001,
+        "sum_negative_score_change": -15.9,
+        "agreement_scope": "Agreement concerns recorded decoded strings only; it is not parameter, logit, kernel, mathematical, or statistical equivalence. Full-credit and zero transitions are descriptive; preserve every partial score in matrix and paired CSV."
+      },
+      {
+        "role": "adapted",
+        "before_path": "nf4_fp32",
+        "after_path": "original_fp32",
+        "contrast": "adapted:original_fp32-nf4_fp32",
+        "delta_pp": 0.30303030303030304,
+        "image_cluster_bootstrap_95_pp": [
+          -0.5238560156242404,
+          1.1467678220760835
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "uncertainty_scope": "Pointwise exploratory 95% percentile CI, resample entire images and retain every paired same-image QA. Conditional on fixed weights/input/dev sample; no training-seed uncertainty, equivalence margin or multiple-comparison correction.",
+        "raw_prediction_identical_questions": 1425,
+        "raw_prediction_agreement_percent": 88.12615955473099,
+        "normalized_prediction_identical_questions": 1431,
+        "normalized_prediction_agreement_percent": 88.49721706864564,
+        "full_credit_1_to_zero_0": 17,
+        "zero_0_to_full_credit_1": 19,
+        "full_credit_1_to_partial": 6,
+        "partial_to_full_credit_1": 8,
+        "any_score_improvement_questions": 45,
+        "any_score_regression_questions": 38,
+        "score_unchanged_questions": 1534,
+        "sum_positive_score_change": 30.900000000000006,
+        "sum_negative_score_change": -26.0,
+        "agreement_scope": "Agreement concerns recorded decoded strings only; it is not parameter, logit, kernel, mathematical, or statistical equivalence. Full-credit and zero transitions are descriptive; preserve every partial score in matrix and paired CSV."
+      },
+      {
+        "role": "adapted",
+        "before_path": "original_fp32",
+        "after_path": "original_bf16",
+        "contrast": "adapted:original_bf16-original_fp32",
+        "delta_pp": 0.4390847247990105,
+        "image_cluster_bootstrap_95_pp": [
+          -0.09100493003616104,
+          0.957124485936818
+        ],
+        "questions": 1617,
+        "unique_image_clusters": 1024,
+        "bootstrap_replicates": 2000,
+        "bootstrap_seed": 20261011,
+        "uncertainty_scope": "Pointwise exploratory 95% percentile CI, resample entire images and retain every paired same-image QA. Conditional on fixed weights/input/dev sample; no training-seed uncertainty, equivalence margin or multiple-comparison correction.",
+        "raw_prediction_identical_questions": 1561,
+        "raw_prediction_agreement_percent": 96.53679653679653,
+        "normalized_prediction_identical_questions": 1562,
+        "normalized_prediction_agreement_percent": 96.59863945578232,
+        "full_credit_1_to_zero_0": 6,
+        "zero_0_to_full_credit_1": 12,
+        "full_credit_1_to_partial": 1,
+        "partial_to_full_credit_1": 0,
+        "any_score_improvement_questions": 16,
+        "any_score_regression_questions": 9,
+        "score_unchanged_questions": 1592,
+        "sum_positive_score_change": 14.1,
+        "sum_negative_score_change": -7.0,
+        "agreement_scope": "Agreement concerns recorded decoded strings only; it is not parameter, logit, kernel, mathematical, or statistical equivalence. Full-credit and zero transitions are descriptive; preserve every partial score in matrix and paired CSV."
+      }
+    ],
+    "checks": {
+      "all_saved_predictions_rescored": 9702,
+      "same_encoded_inputs_and_batch_groups": true,
+      "same_within_role_checkpoint_hardware": true,
+      "source_package_generation_contracts_match": true,
+      "batch_timing_deduplicated_and_warmup_checked": true
+    },
+    "resource_contention": {
+      "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/RESOURCE_CONTENTION.json",
+      "file_sha256": "7021a7469e58f23540c51d13400af3a6832228313527df98d643f58398b16108",
+      "monitor_snapshot": {
+        "updated_at": "2026-10-11T12:57:27.989585+08:00",
+        "observations_by_role": {
+          "base": 0,
+          "adapted": 0
+        },
+        "timing_interpretation": "any observed same-GPU co-resident compute process marks role speed results contended; absence of sampled contention is not an exclusivity guarantee"
+      },
+      "roles": {
+        "base": {
+          "resource_timing_status": "no_observed_contention",
+          "sampled_contention_observations": 0,
+          "exclusive_gpu_benchmark": false,
+          "scope": "Tag all three paths of a role if the monitor sampled any co-resident same-GPU compute process. Zero sampled events does not prove GPU exclusivity; no tasks were preempted."
+        },
+        "adapted": {
+          "resource_timing_status": "no_observed_contention",
+          "sampled_contention_observations": 0,
+          "exclusive_gpu_benchmark": false,
+          "scope": "Tag all three paths of a role if the monitor sampled any co-resident same-GPU compute process. Zero sampled events does not prove GPU exclusivity; no tasks were preempted."
+        }
+      },
+      "events_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/RESOURCE_CONTENTION.jsonl",
+      "resource_snapshots_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/RESOURCE_SNAPSHOTS.jsonl"
+    },
+    "limitations": [
+      "One fixed adapter seed42, one fixed internal dev set; this is not general multi-seed algorithm ranking.",
+      "Original-weight loading and BF16 storage/compute can change kernels, dtypes and numeric execution; no parameter/logit equivalence is assumed.",
+      "NF4-trained adapter on original weights is a deployment sensitivity bridge, not a new BF16 training experiment.",
+      "Paired image bootstrap retains all same-image questions; four pointwise intervals are exploratory and unadjusted.",
+      "String agreement or a CI crossing zero does not prove equivalence; no equivalence margin was predeclared.",
+      "Concurrent GPU jobs are preserved. Timing is observed under recorded concurrent load, not an isolated hardware benchmark.",
+      "Quality is full QA mean; resources count complete batches once and distinguish steady-state phase timing from end-to-end wall time."
+    ]
+  },
+  "unmeasured_joint_configuration": {
+    "original_bf16_at_visual_budget_512_or_1024": "not measured in these two completed studies",
+    "interpretation": "Do not combine the NF4/FP32 score at 1024 with the original/BF16 speed measured at 256 as one realized deployment configuration."
+  },
+  "figures": [
+    {
+      "file": "assets/vlm_optimization_v1/budget_quality_cost.png",
+      "sha256": "6d52a20952bbba561f816c68eee772682a5cd076219b1bafdd7f6ff7fc9cf97d",
+      "original_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/analysis/quality_cost.png",
+      "original_sha256": "6d52a20952bbba561f816c68eee772682a5cd076219b1bafdd7f6ff7fc9cf97d",
+      "original_figure_provenance": {
+        "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_budget_probe_v1/analysis/FIGURE_PROVENANCE.json",
+        "sha256": "dcfbea254bd7f5f913ee54ca70b7b1a10b25e4ebedd5ca5f3934048f503aac4c"
+      },
+      "transformation": "Exact byte copy; no resizing, edits or redraw."
+    },
+    {
+      "file": "assets/vlm_optimization_v1/precision_quality_cost.png",
+      "sha256": "9e81079f44f455eed14e5e420871ab090d7d65078cbbf020a8f9f24c3c2294e3",
+      "original_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/analysis/quality_resources.png",
+      "original_sha256": "9e81079f44f455eed14e5e420871ab090d7d65078cbbf020a8f9f24c3c2294e3",
+      "original_figure_provenance": {
+        "file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_precision_bridge_v1/analysis/FIGURE_PROVENANCE.json",
+        "sha256": "ff5eeb8d08a7b1b7b8f3230aa5908251d8f0532c4624c62eb00a086b32f356dc"
+      },
+      "transformation": "Exact byte copy; no resizing, edits or redraw."
+    }
+  ],
+  "software_reference": {
+    "title": "Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents",
+    "authors": "Kassis, T.; Agarwal, V.; He, Y.; Patel, D.; Brueckner, A. M.",
+    "year": 2026,
+    "url": "https://doi.org/10.48550/arXiv.2609.00065",
+    "scope": "Scientific visualization workflow"
+  }
+}
