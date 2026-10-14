@@ -1,0 +1,71 @@
+{
+  "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "model_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_sft_textvqa_v1/model",
+  "asset_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2",
+  "fixed_adapter_dir": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_weighted_sft_v1/runs/uniform/seed42/train/adapter",
+  "reference_config": "configs/vlm_deep_v2.json",
+  "weighted_config": "configs/vlm_weighted_sft_v1.json",
+  "min_pixels": 50176,
+  "max_new_tokens": 32,
+  "numerical_path": "original_bf16",
+  "visual_token_budget": 1024,
+  "do_sample": false,
+  "schema_version": "rarevlm.strong_confirmation.v1",
+  "output_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_strong_confirm_v1",
+  "attention_library_path": "/opt/data/private/.venvs/rarevlm-vlm/lib/python3.10/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py",
+  "tasks": [
+    "textvqa",
+    "docvqa",
+    "mmstar"
+  ],
+  "manifest_sha256": {
+    "textvqa": "fd469dcf00e230509439ee779dc66ca24bdea3be67e671ed0c27e0910ad5ffad",
+    "docvqa": "51a0e426ac5baa31dc024c1977c67d75a757204df8fcc295a7e0db54b6b73812",
+    "mmstar": "e20c835a1d8b48782a25e8627d8815e50f7cd5e2bd2d0f07c903b383ec5b7116"
+  },
+  "expected_questions": {
+    "textvqa": 5000,
+    "docvqa": 5349,
+    "mmstar": 1500
+  },
+  "expected_images": {
+    "textvqa": 3166,
+    "docvqa": 1285,
+    "mmstar": 1430
+  },
+  "conditions": [
+    "dense4",
+    "segmented16"
+  ],
+  "timing_orders": [
+    [
+      "dense4",
+      "segmented16"
+    ],
+    [
+      "segmented16",
+      "dense4"
+    ],
+    [
+      "dense4",
+      "segmented16"
+    ]
+  ],
+  "bootstrap_replicates": 6000,
+  "bootstrap_seed": 20261014,
+  "one_sided_alpha": 0.016666666666666666,
+  "noninferiority_margin_pp": {
+    "textvqa": 0.25,
+    "docvqa": 0.25,
+    "mmstar": 0.5
+  },
+  "limits": [
+    "same fixed uniform seed42 checkpoint,not previous threeformal adapters",
+    "historically exposed publicbenchmarks,pretraining overlapunknown",
+    "dense4 tosegmented16 jointly changesbatch andvisionexecution;oldsamebatch testretained formechanism",
+    "memorymay increaseversusdense4,strongbaselinecostreported",
+    "offlinephase throughputnotonlineSLA;singlecheckpointnotseedstability",
+    "noofficialscore feedbacktoalgorithm,budget,checkpoint,prompt orthreshold"
+  ]
+}

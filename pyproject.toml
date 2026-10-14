@@ -30,7 +30,7 @@ py-modules = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["vlm_*"]
+include = ["vlm_*", "clip_retrieval*", "research_runtime*"]
 
 [tool.setuptools.package-data]
 "vlm_deep.third_party" = ["SOURCE.json", "LICENSE.lmms-eval"]

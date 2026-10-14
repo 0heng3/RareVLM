@@ -1,0 +1,144 @@
+{
+  "schema_version": "rarevlm.segmented_sdpa.v1",
+  "client_date": "2026-10-13",
+  "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "reference_config": "configs/vlm_deep_v2.json",
+  "weighted_config": "configs/vlm_weighted_sft_v1.json",
+  "fixed_adapter_dir": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_weighted_sft_v1/runs/uniform/seed42/train/adapter",
+  "model_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_sft_textvqa_v1/model",
+  "asset_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2",
+  "output_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_segmented_sdpa_v1",
+  "upstream_input_contract": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_ocr_context_v1/INPUT_CONTRACT.json",
+  "split": "dev",
+  "expected_questions": 1617,
+  "expected_images": 1024,
+  "numerical_path": "original_bf16",
+  "visual_token_budget": 1024,
+  "min_pixels": 50176,
+  "max_pixels": 802816,
+  "max_new_tokens": 32,
+  "do_sample": false,
+  "attention_implementation": "sdpa",
+  "allow_tf32": false,
+  "input_truncation": false,
+  "policies": {
+    "dense4": {
+      "batch_size": 4,
+      "order": "manifest",
+      "attention_mode": "original_dense_mask"
+    },
+    "segmented4": {
+      "batch_size": 4,
+      "order": "manifest",
+      "attention_mode": "grouped_segments"
+    },
+    "dense16": {
+      "batch_size": 16,
+      "order": "manifest",
+      "attention_mode": "original_dense_mask"
+    },
+    "segmented16": {
+      "batch_size": 16,
+      "order": "manifest",
+      "attention_mode": "grouped_segments"
+    }
+  },
+  "groups": {
+    "batch4": [
+      "dense4",
+      "segmented4"
+    ],
+    "batch16": [
+      "dense16",
+      "segmented16"
+    ]
+  },
+  "timing_questions": 256,
+  "timing_selection": "first256 numeric question IDs; inputs only, no reference or prediction selection",
+  "warmup": "one extra first scheduled batch before each full or timing cell; all planned QA measured; extra warmup not scored or counted as research predictions",
+  "timing_orders": {
+    "batch4": [
+      [
+        "dense4",
+        "segmented4"
+      ],
+      [
+        "segmented4",
+        "dense4"
+      ],
+      [
+        "dense4",
+        "segmented4"
+      ]
+    ],
+    "batch16": [
+      [
+        "dense16",
+        "segmented16"
+      ],
+      [
+        "segmented16",
+        "dense16"
+      ],
+      [
+        "dense16",
+        "segmented16"
+      ]
+    ]
+  },
+  "preflight": "first full batch and longest-input full batch per policy; finite logits, generation and memory; no scores",
+  "bootstrap_replicates": 6000,
+  "bootstrap_seed": 20261013,
+  "gate": {
+    "overall_noninferiority_margin_pp": 0.25,
+    "one_sided_alpha_per_candidate": 0.025,
+    "specified_candidate_comparisons": 2,
+    "rare_point_delta_min_pp": -0.25,
+    "frequent_point_delta_min_pp": -0.25,
+    "median_paired_phase_speedup_min": 1.5,
+    "each_repeat_phase_speedup_min": 1.1,
+    "peak_allocated_gib_max": 65.0
+  },
+  "scope": {
+    "new_training_runs": 0,
+    "new_full_dev_cells": 4,
+    "new_full_scored_predictions": 6468,
+    "timing_generation_observations": 3072,
+    "automatic_official_evaluation": false,
+    "automatic_seed_replication": false,
+    "modify_resume": false,
+    "hosted_ci": false
+  },
+  "limits": [
+    "offline static batching, not continuous batching or an online service",
+    "same existing final seed42 checkpoint; no algorithm-seed replication",
+    "historically explored internal dev; conditional noninferiority screen, not blind generalization",
+    "offline length metadata reused from immutable processor contract; preparation cost reported separately",
+    "input padding is a compute proxy, not measured FLOPs or model attention",
+    "timing repetitions are repeat executions, not independent dataset samples",
+    "same-card comparisons; cross-group GPU times are not directly ranked",
+    "peak allocated cap is a resource screen, not a proof against all OOM cases",
+    "slice point protection is not slice noninferiority; official sets do not select policies",
+    "new candidate motivated by actual65GiB capacity rejection and pinned visual source,NxN bool mask",
+    "premerge visual patch segment lengths are different from language input lengths",
+    "same attention scope/weights/RoPE does not prove BF16 bit equivalence",
+    "grouping,index gather/scatter,layout cache andSDPA backend jointly change execution",
+    "real local feature RMS check is not whole-encoder equivalence"
+  ],
+  "protocol_name": "same-batch dense versus length-grouped cu_seqlens visual SDPA",
+  "segmented_contract": {
+    "vision_layers": 32,
+    "layout_cache_entries": 64,
+    "real_feature_layers": [
+      0,
+      7
+    ],
+    "real_feature_relative_rms_max": 0.01,
+    "real_feature_images": 4,
+    "dropout_p": 0.0,
+    "is_causal": false,
+    "weights_changed": false
+  },
+  "upstream_trigger_config_sha256": "330afe22d3933db0cab9b46491c69a7abfbb6c3c1fec79310d2c2fc91721c90a"
+}
