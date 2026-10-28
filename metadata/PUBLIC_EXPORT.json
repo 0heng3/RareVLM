@@ -1,0 +1,737 @@
+{
+  "date": "2026-10-28",
+  "repository": "https://github.com/0heng3/RareVLM",
+  "base_commit": "6d8bd09ab56fa5e0105371a7c4685fa99896e48d",
+  "scope": "Public source/config/protocol/test/aggregate-result update; frozen local experiment files retained",
+  "copied_files": 1181,
+  "excluded_local_only_files": [
+    "docs/assets/supervision_v4/000000136027.jpg",
+    "docs/assets/supervision_v4/000000237344.jpg",
+    "docs/learning/16题拟合正控制_正文概率与自由生成.html",
+    "docs/learning/Adam更新_精度与梯度冲突.html",
+    "docs/learning/Adam真实更新方向检查.html",
+    "docs/learning/EOS风险与真实截短偏好_数据挖掘.html",
+    "docs/learning/GRPO未迁移_轨迹覆盖与评分边界.html",
+    "docs/learning/MLP输出分布保持_KL与硬回放.html",
+    "docs/learning/QKVO失败原因_真实错题与收益分解.html",
+    "docs/learning/QV与QKVO_LoRA容量对照.html",
+    "docs/learning/任务匹配回放_保住已有读词能力.html",
+    "docs/learning/像素训练迁移诊断_完整图与裁剪.html",
+    "docs/learning/冻结注意力适配_只训练MLP.html",
+    "docs/learning/前沿论文源码_瓶颈与优化.html",
+    "docs/learning/区域SFT失败分析_文字与结束符.html",
+    "docs/learning/区域偏好正控_SFT与DPO.html",
+    "docs/learning/区域关键Token监督_从失败到对照.html",
+    "docs/learning/区域坐标修复_训练与验证.html",
+    "docs/learning/区域文字监督SFT_原图与对照.html",
+    "docs/learning/单轮GRPO与SFT_实际轨迹和独立验证.html",
+    "docs/learning/原生双问迁移_同图不同问题.html",
+    "docs/learning/原生文字问答_双源监督与纠错空间.html",
+    "docs/learning/同图双区域SFT_原理与对照.html",
+    "docs/learning/同网格换图诊断_答案是否依赖原图.html",
+    "docs/learning/同问异图_跨图排序SFT.html",
+    "docs/learning/同题采样与GRPO信号_真实token轨迹.html",
+    "docs/learning/回放分布修复_读词提升与整图问答保持.html",
+    "docs/learning/回放多样性_重复512与覆盖1024.html",
+    "docs/learning/回放约束Adam_纠错与保持.html",
+    "docs/learning/困难样本SFT_200步.html",
+    "docs/learning/固定模型_错误分型诊断.html",
+    "docs/learning/场景文字新数据_语言与视觉LoRA对照.html",
+    "docs/learning/多词答案保持_扩覆盖与重加权.html",
+    "docs/learning/大小写捷径_统一监督与SFT可学性.html",
+    "docs/learning/学习率与覆盖_四格真实结果.html",
+    "docs/learning/完整单词转写_SFT与DPO监督.html",
+    "docs/learning/小字问答_实际分辨率与语言先验.html",
+    "docs/learning/扩大错误覆盖SFT_128与重复32.html",
+    "docs/learning/扩大错误覆盖_原图候选审核.html",
+    "docs/learning/教师KL保留与加强CE回放.html",
+    "docs/learning/数据_目标_训练流程深入诊断.html",
+    "docs/learning/数据准入修复_参数梯度诊断.html",
+    "docs/learning/整图问答适配范围_视觉与语言等参数对照.html",
+    "docs/learning/最难词元损失_平均概率与自由生成.html",
+    "docs/learning/最难词元损失_数值修正与32步结果.html",
+    "docs/learning/真实错误监督_原图与SFT_DPO.html",
+    "docs/learning/真实错题决策追踪_监督与生成.html",
+    "docs/learning/真实问答偏好审核_低分与有效监督.html",
+    "docs/learning/真实问答纠错_SFT与DPO同数据对照.html",
+    "docs/learning/视觉与语言适配位置_等参数对照.html",
+    "docs/learning/视觉批次修复与回放KL_从原图到梯度.html",
+    "docs/learning/视觉连接适配与跨图迁移.html",
+    "docs/learning/训练失败排查修复_监督与解码.html",
+    "docs/learning/语言MLP适配_容量与迁移.html",
+    "docs/learning/读出适配迁移与消融_原图与验证.html",
+    "docs/learning/长答案回放_同图匹配与截短修正.html"
+  ],
+  "private_path_redactions": 11,
+  "documentation_link_rewrites": 258,
+  "public_variants": {
+    "configs/vlm_object_adapt_v2.json": {
+      "local_source_sha256": "791b5620a1a0b66989f4f2e6d9ac15c495b57a8b29ed3a98819c36b1c72efd3d",
+      "public_sha256": "7b5145e2988e6e0286e4f884a270f726178146953d2ebfb82187bf3792367f8f",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "configs/vlm_object_behavior_replay_v1.json": {
+      "local_source_sha256": "0dd45595baec58638af13dc03f2111b8c68b38c51af60066ab14c21e749bf348",
+      "public_sha256": "63a7ba1b41263d21bafd7f41c1bbacec39398c08b98be4ef284c350a72556678",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "configs/vlm_object_kl_v1.json": {
+      "local_source_sha256": "43661dac603900bf4fc534521bd8a637c8a0a8cdd52bf989e495a878ad616139",
+      "public_sha256": "35704882f9a1873e80daaaf7e9db0db03f86742772e927712e61c477f7170fe0",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "configs/vlm_object_replay_coverage_v1.json": {
+      "local_source_sha256": "8a3fddef683f03f0acb2d819c4f05587f9dc6d7f851cdba43eacd74dc189c4e3",
+      "public_sha256": "6c4e82f8637730677afa76e93cd209125545a5e70b1b77e8f88b437acb0c0ccb",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "src/clip_retrieval_adaptive/prepare.py": {
+      "local_source_sha256": "1229b143aa8ac06b5a79a4375b2d4227e57ed5eeffb73679483900f2010ec898",
+      "public_sha256": "d42cd1dcbf1343f3212d3133efd0f2ef818fc080cb4cc80b6633e1fc13d1de32",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "src/clip_retrieval_capped/prepare.py": {
+      "local_source_sha256": "5d5aa727893db4db2a5ac658037b11f1e20d790359a6af1f52d33c80350a5fd6",
+      "public_sha256": "fdf38fff602312414561f0eaf61a4b23c956525733f089c9907a3c2bbabc0a02",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "src/clip_retrieval_quality/prepare.py": {
+      "local_source_sha256": "7b15858841bc01daf58dff2b9907acb8e63965f8fb540cd3394ed59d718f8195",
+      "public_sha256": "02af6bf0731bfa57377cf0f3bee0e151f6a1109a591b3d5c5e0f51b656b90c16",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "src/clip_retrieval_rerank/prepare.py": {
+      "local_source_sha256": "2fd7a6eca079ecce2696ae14aec5928b294f6a2138acfa3a471cb63bf4da8923",
+      "public_sha256": "5acfb8c25df749f38285de503fe03849745d9176ae6f028b6a9575de63b81841",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "src/clip_retrieval_shuffle/prepare.py": {
+      "local_source_sha256": "5add29687cd5cada399c6ba0d3a37d8a1845671e99cf1d5949b59e2e2d641673",
+      "public_sha256": "ca7ecf4c1ef4a880015a06dabbd08c08ecd0d9375de3e20e6a55b4e36bef3f64",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "src/vlm_alignment_signal/prepare.py": {
+      "local_source_sha256": "1ce5874c41fca2a33be447a3ae33cf2e5816c732500ba6a7e6552ec66e957b5e",
+      "public_sha256": "1f68f7c5b0854e258808ad6bb13cc42ccc8a94dc11dc1a70f9a884309faea10f",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "src/vlm_posttrain_study/pipeline.py": {
+      "local_source_sha256": "ce28ae702bf63ea3138bbe0a43d0a5cd976d2ab294381a0761a4bc44bf682d6a",
+      "public_sha256": "3bab6a4cdf5272f565eacf33ceab350dd528ef5597a1b2809ccddfed32a06e26",
+      "changes": [
+        "private_resume_path_redacted"
+      ]
+    },
+    "README.md": {
+      "local_source_sha256": "2717d8fa812e5454ca96bf1a0f2f50655dda24336726807b50551e01cf3404d5",
+      "public_sha256": "c47b3dd8a5037b86fe730e61df521c240b46a091da759a2365d23766e3eca5a9",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/MODEL_CAPABILITY_POSTTRAINING_NEXT.md": {
+      "local_source_sha256": "6f64a4f56bc898957695908bcbff77fadad7ffe84688638df2fde6dad2c9c725",
+      "public_sha256": "b724b9350aa4ac23a815db1ef893fb978ea7fcc503085bff3cc6fbbfe4cdc070",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/NEXT_ACTIONS_20261014.md": {
+      "local_source_sha256": "773c58368d2ed0b586684c47dc96b1be377df9888ee6d7f0fbf06213dfef78b6",
+      "public_sha256": "911fec13b732dea796a2d783a40507f3b3474a8d86e51927ac51ce8c67d9d733",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/RESEARCH_NEXT_AFTER_GT_ANCHORED_KL.md": {
+      "local_source_sha256": "a85f551a200e6d13c8cca795560f067836a09cb0fee396738b7ad7bd7f0b3b11",
+      "public_sha256": "8ff28d99bfed51cc42acbee44f6b42e4c98f85b66dcdaa48a7db33712b8247a6",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ACTUAL_ADAM_AND_NUMERICS_V1.md": {
+      "local_source_sha256": "74f5c537836f2acee37eddc66d27b49aa62b96e748621bd40ccb8c3b48220e20",
+      "public_sha256": "4d87fda0d0a72f857c7b69feb97d562776dba8c3939a0ebd1e1de2fc30b69bb5",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ADAM_DIRECTION_CHECK_V1.md": {
+      "local_source_sha256": "2b691ae428fd3cb69e109acaeee3e5068ec1c6c4865126c5f0af0f888dd15e7f",
+      "public_sha256": "7f8c3c4da81929d52ba09f2afdcc7acc8dc7e6d10ff5ad86734fc140b143bc1d",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ADMISSION_BOUNDARY_REPAIRS_V2.md": {
+      "local_source_sha256": "35ad79ec79d0f4305b8e1acba188c451e8c6c92b49458e745d960419020733d4",
+      "public_sha256": "b4cc7aeef4e6784aafcf01fabdee46d5c4f2988dcc10dacb92209b30b0b92c21",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ATTENTION_SCOPE_V1_CODE_REPAIRS.md": {
+      "local_source_sha256": "25d96d1f0c393780296ef96658b47dd03a1d109940d71fa5f06b1ed88826e3af",
+      "public_sha256": "ca66badfa17a49b00e912dfed11e7687f42d99efc49622df1e9303980e1e2421",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ATTENTION_SCOPE_V1_FAILURE_ANALYSIS.md": {
+      "local_source_sha256": "1024957bfe8ec9141ae0974523bfd1096556b5c9d6663ca56bff8e960691816b",
+      "public_sha256": "44c3de9f155b4144dc260359c662ab6f21a1a4f814e0cdea5c0934c4e3605245",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ATTENTION_SCOPE_V1_READINESS.md": {
+      "local_source_sha256": "36eface9df107667717b17db36242dcd45b2f15c750fb7ad46cb622adf8dd185",
+      "public_sha256": "ef5cb2173060dad45fb9d906f765231f5194370a2ffb3724ccbfe51ef5c1583c",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_COVERAGE_SFT_V1_RESULTS.md": {
+      "local_source_sha256": "6192ca0ac15f097b448bfd68878072c7a4ae293f8ddf829ae2ae7de891f7368e",
+      "public_sha256": "8cc97e07615a286144eea75ce64f1c5a7d33c361ebc8bb8e83beea6a0ec2402f",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_COVERAGE_SFT_V2_RESULTS.md": {
+      "local_source_sha256": "81cdb7d7beb2bbaca54e5a0c914dd7772c26bf7c47f7887035a90bacde975e16",
+      "public_sha256": "9c18b7f6c062af86d2269b9c536fd8d5556e38e5f2a3a99cee19ad82cf4a0c88",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_CROP_TEACHER_SIGNAL_V1_STATUS.md": {
+      "local_source_sha256": "029fefde36e18b6e98d62579812f82635a17f028583a32c71903b52cf0d03eb2",
+      "public_sha256": "896ba03d400c3b810a2e36156cd2517fd15be279a2308c766f61cc25e9749681",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_DEEP_CODE_INSPECTION_V4.md": {
+      "local_source_sha256": "0cb70a2565ccf1651e4bcefdcaca6364f528578bad3ba9813513217bced353ce",
+      "public_sha256": "2904521d507abebc755e0a0b310ab9006ed233e394b068370ac09cdf1d3b133a",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_DEEP_DATA_DIAGNOSIS_V1.md": {
+      "local_source_sha256": "a435d3f2f1555755912ca3754f26d795fa44e1ec4860614034cc8d36d5c0d832",
+      "public_sha256": "9c577bbe1e361a224e95f588ec1f4824fef21b4fa3db949b94a0f073ca7f5eb3",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_DEEP_PIPELINE_DIAGNOSIS_V1.md": {
+      "local_source_sha256": "58b44186a58b6e97addc42cd6f0ed9874b6bce7020ba2b438ef80b61871e2f6d",
+      "public_sha256": "149e26e48f67b23675a35a44c069b1bd26b7dfe84de6c4611ee1c66900ab6513",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ERROR_COVERAGE_MINING_V1_RESULTS.md": {
+      "local_source_sha256": "80a40f541c92268bf7e5073fea80396368cd020c800b947d19b0546f3099009c",
+      "public_sha256": "75747368cd96f978e0bbd71fdf639c6d19dc41c3d54c95b4870fba8b29e513cd",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ERROR_DECISION_TRACE_V1_RESULTS.md": {
+      "local_source_sha256": "51fc8a85fb70a6651e1f17499f8af32676b47311575d48c47e6e9e62ab0ea1f4",
+      "public_sha256": "5a01bd41f9c135580b461a2366d57386d0ccd1517889722a404a7f9f46a9bafd",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ERROR_NUMERIC_PATH_V1_RESULTS.md": {
+      "local_source_sha256": "1e1a937e4b1fecdf1a3a393fce2f881e5a2f27836e0e69b83a5832982c783de1",
+      "public_sha256": "ab5a00eb33ef048b0aa9548fd4648b2213434da03c8c687dc16d0c343aaf3d4d",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ERROR_SUPERVISION_MINING_V1_RESULTS.md": {
+      "local_source_sha256": "e6376598029ee1e2544dcd60a0a56844074f057697137c853d46222e6f292fff",
+      "public_sha256": "5e68033d42f2dff53e421fe11cdf4096e273cba1b0e6a53b4004c222e72c5770",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_ERROR_SUPERVISION_SFT_V1_RESULTS.md": {
+      "local_source_sha256": "774416c945a80d450093b40c75fc419b6e84ca1184d8172ea90f7a9779a890f8",
+      "public_sha256": "bfcbb3d74a26a5b255d28a0518a8ae27147ee6dbd527385c69ab8cb11040076b",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_FAILURE_CODE_REVIEW_V1.md": {
+      "local_source_sha256": "598473ead07faf348891cacd5cbfcae907a6a9b0a6f1f2f788d9be26f015d57d",
+      "public_sha256": "bb1793df91ebb7f58bf2a7d22a74ca56598747ea71a3d1364b7a6a80ca9898cb",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_FAILURE_FACTORS_V2_RESULTS.md": {
+      "local_source_sha256": "86fa1204baf5869b02ee9c789d5c32717403a68b8f45cd04f87e4c2deb6668bc",
+      "public_sha256": "6d8bdf449408c29367ec4a64f2efa88a349d4122b25213d7193cb6dc60d72bda",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_FIT_POSITIVE_CONTROL_V1_RESULTS.md": {
+      "local_source_sha256": "027ad825d02565f84003cdea628cb4b21266fba4e8e725bcc7ab32780966013e",
+      "public_sha256": "e1ae95aee58c485a31119407c5b014bcf9dd0a7a1287abdcc0f08bec1d906af7",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_FIXED_ERROR_READOUT_V1_RESULTS.md": {
+      "local_source_sha256": "f03443a0c809fb072f97b0ab58f59a37ae414d405a03c4f0435e212f63e78746",
+      "public_sha256": "d39fde3113bc5d6297df412686ced1c93a686656e6fb846a0bca1ae1e562b051",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_FRONTIER_BOTTLENECK_REVIEW_20261019.md": {
+      "local_source_sha256": "27cad518dc5e870ae9341f6f4ae52570682bc47dd23950588f418a9fb6292edb",
+      "public_sha256": "23f842650507165df55f3599b151903fe2a3022d54e8c7afa7f809579a5529dc",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_GENERATED_PREFIX_KL_V1_RESULTS.md": {
+      "local_source_sha256": "3248c180bdd48ea337a16a1853bb96a2878ff6c5f452bfcbb4b36b5e859b4a45",
+      "public_sha256": "cdf8d04f6d4ab9a79f46885c3ab7f9393404e43877c684c2c032b56235e21956",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_GRPO_ITERATION_V1_FAILURE_REVIEW.md": {
+      "local_source_sha256": "5b481e5e60f59e3e6990b3879720292f67e9dd15315e351127fa371bfd6c01ab",
+      "public_sha256": "4cd78cb4b474d715a05fc83477217e5e43b9492dcbff31687fad04711b16605d",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_GRPO_ITERATION_V1_RESULTS.md": {
+      "local_source_sha256": "7bbffc50d89cbb976defb24f21d0bbf934d0e6466a2f334f0100d183567c51bb",
+      "public_sha256": "bd947ca19ee79b866a2782551ad9cb04b5dcaaad9e98f29e0db0c14adce57a2f",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_GT_ANCHORED_KL_V1_RESULTS.md": {
+      "local_source_sha256": "20d4769f53410f4d04a44aa01c9869ca0e399c3b463d595aa05167c22797c154",
+      "public_sha256": "00ab0b29fceb4a5877ed7dc45ad9033f379e7cd066f5cdd792242556f0e0bccd",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_IIIT_REPLAY_REPAIR_V1_RESULTS.md": {
+      "local_source_sha256": "8e877958673395d6f58852ebc0685d70e0006b763f17e7f9add0ddf8b0c7feb4",
+      "public_sha256": "65a606facc7b509eb70d894c7f66ebcc9d5fb9c72d4bc713c92099515a41e5f3",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_IIIT_SCOPE_V1_RESULTS.md": {
+      "local_source_sha256": "b9743d7fb44ff3a6952a47fb5ecc538b2ef7b90caf1d86a4379d6e6b47aa71b3",
+      "public_sha256": "fb3e86c4348aff003265296e0f9086cb81cc3744c68d021d8f5623f6702f80b3",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_IMAGE_CONDITION_PROBE_V1_RESULTS.md": {
+      "local_source_sha256": "2b8e8d0dc52e1cd09e67a02da55e654bf158eb78e20434f0906d00aa411a242e",
+      "public_sha256": "fe8446d648b88946c206e7a623beb7fa96f94a2f4722df0ec32ce9377229903d",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LANGUAGE_MLP_V1_RESULTS.md": {
+      "local_source_sha256": "988ecefab589dc2c5c4d758e99667b9413f9f093ef0f7b93883b8cb2d9020df8",
+      "public_sha256": "305d5fcfd0a1c7224d19161cd36a107fb50e2bf6d21f34bf697756904501d7ce",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LATE_RANK_MATCHED_DPO_V1_STATUS.md": {
+      "local_source_sha256": "b814bd6ba7e8fda214b522c19b827f921ec287f7e1e1a2ecf1cdfc30ce05f326",
+      "public_sha256": "7dc39ea7e22d19658a41bab7792c1560f77309197c801a0d830f2cb0c92f8914",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LATE_VISUAL_DPO_V1_STATUS.md": {
+      "local_source_sha256": "fd6399d6f47f490ac08428606e3eb6f063f380dcf2d1340f68895cd5b44068dd",
+      "public_sha256": "c87447f3d9b106230c0342784c287fd3ab73e714e55a6d0944ad2e1e4d240f03",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LENGTH_REPLAY_V1_RESULTS.md": {
+      "local_source_sha256": "7db2b98ffcf538e2730dbc399f870055771f05ab51d773e959f4555825311af2",
+      "public_sha256": "7de891ceac0d1981a12a44baf234f3ba05b888e26f6b2e39a6f4ff6d51a38e79",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LITERAL_CASE_SFT_V1_RESULTS.md": {
+      "local_source_sha256": "7c96ede5077f66599825bae4ff020808f783daad53c902010b62945eb7c7c449",
+      "public_sha256": "7b98c5a96bd208b97a9f8c41bb00c8707c0087cf30927597e7214767e6e6d307",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LITERAL_ROI_V1_RESULTS.md": {
+      "local_source_sha256": "307656a5e694cec0d0c7953a5a59d9196621c6fdc44713a6e0a585bf4afd040d",
+      "public_sha256": "ebdde10e4b7840fe49d452f4d43d62f22630ffac4cacfcd23540fc3f93d9f487",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LITERAL_TASK_REPLAY_V1_RESULTS.md": {
+      "local_source_sha256": "d97f7bb66718d61cc00fb07fe5c3ac1c4ee52ef3a7eb22aecbd479ca0c4de520",
+      "public_sha256": "cac6039fe430e0288c5fb1c60957153b8720f57c84a19947d4034fbcbe3a1ebf",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LITERAL_TOKEN_FOCUS_V1_RESULTS.md": {
+      "local_source_sha256": "858f759419b81ee162c6f48d1c9f9dd670284d43ca7f60a6a60cacf1499273ae",
+      "public_sha256": "08b3f4cf930f0ab325c9bf185d50cdd53c5770b30203d4e8d97722f1b8916ec5",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LITERAL_TOKEN_FOCUS_V2_RESULTS.md": {
+      "local_source_sha256": "132c367fbd9069bdeb6062b3d044c4623aab74ff47ff25489bf323073d3204f3",
+      "public_sha256": "394e2fc83c0e99fb7c315b79dd6a72eaa46a10d1dcd7caccf68f992c8fef2d83",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_LORA_COORDINATE_SHRINK_V1_RESULTS.md": {
+      "local_source_sha256": "c59fdaf8b6afac50688cece8d6432dce33150d5f1ecd2dd771aed225c6c76ca7",
+      "public_sha256": "03e5d0add518d89da04d73f53208824775a445ae9d4d479f7ed529f8fc895833",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_MERGER_TRANSFER_V1_RESULTS.md": {
+      "local_source_sha256": "9e9c38518128a98eda97c9e2c6d0b5f97c9b5b584a9d40893ed43dcae7c0f529",
+      "public_sha256": "e0b707e40f3fe4777430961ca7b9312b8f6287952527140a3c3acf4d2a8fbeac",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_MLP_ONLY_V1_RESULTS.md": {
+      "local_source_sha256": "69bd41a39f74224caaf47f9f73ceb39e508fded5fbf2b325477ef91061aed451",
+      "public_sha256": "ccb3d2f19a865b8ec160e220208bfbed92f059fb843efc1a5f96d2e931b1fe63",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_MLP_REFERENCE_V1_RESULTS.md": {
+      "local_source_sha256": "a0b8d4bd8af590caffa35ffeebd443c91828f4816abcdaeb2e0b01fb23a5ce0e",
+      "public_sha256": "d823ed6f898c175a3161da865b050fa5f0ccb235f32accc17066a6897e041a93",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_CORRECTION_V2_STATUS.md": {
+      "local_source_sha256": "2b6334dd26d277963c89c677f8d271bce5086ec96c5317c3a605a16f09b3b6aa",
+      "public_sha256": "65e7bb7235a2677b021cf1ae3a155df3a9f6ddb744d8f7975afa4211853dd0d8",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_DIVERGENCE_READOUT_V1_STATUS.md": {
+      "local_source_sha256": "d6e118d25cabad80f77a0002e4696b669b9699ddfedcd2636017fbf05916cec2",
+      "public_sha256": "a707d682799825a8131d2a2cbf0562cf16ff6761ca5b032c947d54bc347a5df3",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_DIVERSITY_V1_STATUS.md": {
+      "local_source_sha256": "a94a8a1bae1c57365e46198dbc2877eea806d38823a5f7bb5dbe2aac2e5933e1",
+      "public_sha256": "d90e214bb7c4858fa01aabf8711d51ace10c179dc503256c1b0d97588bc79aa1",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_OCR_PROBE_V1_RESULTS.md": {
+      "local_source_sha256": "b3f8a06c5040dfd3fef5f4053b2feadd2863217bd21ac1b502f78e6d9d45aa29",
+      "public_sha256": "538a4c7f114e9a01889c0121877a22e4379284af1aa0672ba78581b7ef96ccf9",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_QUESTION_BINDING_V1_RESULTS.md": {
+      "local_source_sha256": "379b5deedb919e80ffd86e7859c3b67f5cb9de0affe65aa15354bce7dcb51763",
+      "public_sha256": "a17c99cc30421f25d082483c03b01bd150d6684d456fe3f177c460ab969d4068",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_SCOPE_V1_STATUS.md": {
+      "local_source_sha256": "6b7be9ac24fbcf7a51bd41be4ad8158c6f2a9bcdabca060b3360a53a649a7e53",
+      "public_sha256": "de0859aa081dd57f56f2659746132b6bb059275162d642dba018ef71f28596eb",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_SMALLTEXT_V1_RESULTS.md": {
+      "local_source_sha256": "a1adf6cde70bf3ce2b58eca2fd8cf5747e5be098ae88e96867713313e86d3c96",
+      "public_sha256": "bb3ed69c4b5f3bc51b9649b9d010e4b9009c6003a1cb38b1e9c4f56caa9ef399",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_NATIVE_STABLE_KL_V1_STATUS.md": {
+      "local_source_sha256": "b0195c1b1c441ff6af2d864872335280e4dfd8daf1140ca209944feecc7dd2d3",
+      "public_sha256": "6c7183a0a539cd2e8f786e36e10f032a5081894be5ecaf33599cbfc350dbfa45",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_OBJECT_ADAPT_V2_RESULTS.md": {
+      "local_source_sha256": "b4435838875abf0db211025e1245a6aa210d487e79c89178cd9ce93bea83c6d8",
+      "public_sha256": "1c839fa97825649b8a973e9fef3936f142af9c222c08552f93189deac28e3539",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_OBJECT_BEHAVIOR_REPLAY_V1_RESULTS.md": {
+      "local_source_sha256": "aa6cf447336025f013c10f1db7ba50e03f2fd65440980b65fd6b0e6046615c61",
+      "public_sha256": "b891045d2ec64e6127bd6160a250307529ef29fc2a1b3397894bad29723f4d56",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_OBJECT_KL_GRADIENT_V1_RESULTS.md": {
+      "local_source_sha256": "2ee5c0aea6ad8d748f7fddbb3a37abe13d16904d3a8b6cbe138a29749777ff79",
+      "public_sha256": "23bdbe9abd4b9b85499f93a5e3b9b1d27dfffbb6e0a536f589a4e26b37afc241",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_OBJECT_KL_V1_RESULTS.md": {
+      "local_source_sha256": "b6d38a89e06c1cc1a5a8dc15d83f7d6a256618a9907b9f8dc8b89398d720b23e",
+      "public_sha256": "8f8a1aad6b53f17742c24a94dabd205f62bc119dc5467bada8bec65fd9e94959",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_OBJECT_REPLAY_COVERAGE_V1_RESULTS.md": {
+      "local_source_sha256": "2df8b660d8069b44a6ff963b6d0e9ef100ed9d58a402ecd848ed18394332ae6e",
+      "public_sha256": "e719667cd6623e0aa11389b5422777b586d2aee58c586d491d86ab002ef5c8f4",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_PLAIN_SFT_MAIN_V1_RESULTS.md": {
+      "local_source_sha256": "7ec7495e8e9003316db337e0e0fed37fdad28a58fddb8df3e81092dfb340e409",
+      "public_sha256": "0eaafd208ae56be67fed45cad8b3ac78f6d84ca2a77e8b96d3b398526c2ede11",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_READOUT_TRANSFER_V1_RESULTS.md": {
+      "local_source_sha256": "2be958d346b2f87d5de9a39ebcd7222b44f5dd1df71517752aff1326140779cd",
+      "public_sha256": "521ff25fd623fc7cf3bbd1f74e107cb3012800cf56bca7d4824b9600e6e308a3",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REFERENCE_REPLAY_V1_RESULTS.md": {
+      "local_source_sha256": "4eac3e63cb2ae529281344c61ea6289c22512ac174f15832d31224996f694744",
+      "public_sha256": "31f605844236f56fd33cbc746d387979cf9aa3082cee235aebc141197534713d",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REGION_ADAPTER_LOCATION_V1_RESULTS.md": {
+      "local_source_sha256": "d0ec638b30eef4893042e8c2277e0fb903f042befac74c76faea77aacb81c22a",
+      "public_sha256": "74d18b8378c8cf9b18f37c8d712acbb0058eb11da94350fffb5cabafcd68342e",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REGION_DECISION_DIAGNOSIS_V1_RESULTS.md": {
+      "local_source_sha256": "4bc869d026cac0f3463837b742e655f4e7cc4481f35bc2f47b7fefe29e5f4966",
+      "public_sha256": "5ccfe95f81ba35511d7cb12173165c193357854808883dbd614b308ee9a044f2",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REGION_DECISION_SFT_V1_RESULTS.md": {
+      "local_source_sha256": "bbb4f81e69f0181efdb4826adf40afbfffc8c2e76d2395a31fe13c8b15cb15c6",
+      "public_sha256": "0afd1388aa5a212147910804f23d4f60f2ab9716d4752c2dce58a0da3c2f8bdd",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REGION_OCR_SFT_V1_READINESS.md": {
+      "local_source_sha256": "6469aab00dd763f20b4dd0448cd0b3c0314433b1ed5a4c34b1303a5628b0278b",
+      "public_sha256": "d489e4d6143be8aaec368da82620de41d71fbafe78fa51976deaf0e05f3b2166",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REGION_PREFERENCE_PROBE_V1_RESULTS.md": {
+      "local_source_sha256": "07f647775c28dbadd9a714416b8e76af27e8da2c0242d87cb348a219e72ed35b",
+      "public_sha256": "3bbc484d662bb4b14766a006a6781802ccccd38e5845b6ab61fead5801c2d57b",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REPEATED_FAILURE_ANALYSIS_20261018.md": {
+      "local_source_sha256": "9e2e5ded8bbff4902f729e6660405a338f269ed293aca8eb3e51bb2a708439cb",
+      "public_sha256": "5a729aca4a0fa1a762fd17ae8399da49a3e7e4802375d61f4e532979cf49bf7e",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REPLAY_DIVERSITY_V1_RESULTS.md": {
+      "local_source_sha256": "e561e2405589cb8a42c70bae664345f659d04bcb1e5f99393fd441172837f0b5",
+      "public_sha256": "2b60f0fc6c4586e6ba82b7e3d6adf385bc0c9ea756235e04326353a86c902603",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REPLAY_PROJECTION_V1_RESULTS.md": {
+      "local_source_sha256": "9d7b8502d74a2341854f019d671ae139fabc5a5ac0a2fa5b459552b3604afb98",
+      "public_sha256": "0a8e5ee0a5b0bd8f5cb9f993f07ff12cc867005000f40d6c3b326fd6de8257ab",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_REVIEW_RESOLUTION_REPAIR_V1_STATUS.md": {
+      "local_source_sha256": "dfe1a403298387ada7f29fda13c3db2a4716ffc9b6460d7de437bd7bab9c22ee",
+      "public_sha256": "a61849d4be1988a369fff65f43898414252f6623a4d044e7edbac857e0c49fb0",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_SAMPLED_REWARD_SIGNAL_V1_RESULTS.md": {
+      "local_source_sha256": "e466360316dc17b0a62e94f721d4d31a7d89473a6ba1e814afdf592e31937647",
+      "public_sha256": "d3622ad2eb43dc8b376b7b31eb93dcade9ced7fd2dffd5af602a90c33f02edd7",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_SCOPE_BALANCED_REPLAY_V1_DESIGN.md": {
+      "local_source_sha256": "9ab440251d5dc21afc1069932ce2e2c9cf56ced65c766b8b04da38354cf4f14e",
+      "public_sha256": "c28ca1fcbba1244c59bdafabf0c7c91c064f9a7153386956d4854abf7d6edc3c",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_SCOPE_BALANCED_SFT_V2_RESULTS.md": {
+      "local_source_sha256": "63ab566ef72e84c982339ab7cc6037c84b60ea4479c0412deb8a470fe328c4fa",
+      "public_sha256": "8b29a362b33116ac03a4b566851cb9f4662fa56f3f5da516b3a8bb1cf030c271",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_SCOPE_PREFERENCE_MINING_V1_RESULTS.md": {
+      "local_source_sha256": "581224a4715a590ddd8a71267038ae79b58379f579107fb1e64bfee4fcb7bab1",
+      "public_sha256": "bf274a017bb30c7495b19c9e5ed8b2abde4eca96219ec8f2b05b9f95f271b782",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_SCOPE_TRANSFER_DIAGNOSIS_V1_RESULTS.md": {
+      "local_source_sha256": "3e697fd27720ecd885adc663cf27db50cd3b667b81ff147d91433ebac8112275",
+      "public_sha256": "dda29cc737a1bc070530915def465c53a5e8cfe14c4a89aa62ce333f7562a2a4",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_SEMANTIC_AND_TRAINING_REPAIRS_V1.md": {
+      "local_source_sha256": "1ce893677eae9edef510a1e0612dc3aebbbd9872c7a6d064b860d48c9267fbe9",
+      "public_sha256": "ea30bb6cf94c20d27133baedbc2837b5feac317290247842103bd0f90a9419a9",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_STATUS.md": {
+      "local_source_sha256": "178ab12d8e1acf2e29f9faa8caff6f77b5ee15293425f84d404ef2ae463239da",
+      "public_sha256": "3ebdf517579cf461ccf0b02df398c767bb9e20760c6e4fe553271bea6c9e8fd6",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_STVQA_REPLAY_V1_STATUS.md": {
+      "local_source_sha256": "193d3fc39123d448780d61eaddfa91962a6cc43e5d3545ebd78d760160e91791",
+      "public_sha256": "13998cdb58a3d3313d4ba40582e303fbf06268c350a1be62815d0a91b7cefa51",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_VISUAL_MERGER_KL_V1_RESULTS.md": {
+      "local_source_sha256": "2e01726cd5c86e210f3947692e9833791fcc278f8af87a192fd1e5e7160b74c8",
+      "public_sha256": "2977077c45167daa454f2c10819a67bbdabd8c0f8d306a87e77ca6ca3ed7a75e",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    "docs/VLM_VISUAL_PREFERENCE_V1_STATUS.md": {
+      "local_source_sha256": "e88124240852af03efaa301f32ef2db54303c1264b3d6466e28bb32e3296c300",
+      "public_sha256": "0f8b0e4e99189293d0ab6bfc6665e291b2451cf45c8f4a835f1c13a6c51f8a95",
+      "changes": [
+        "local_artifact_links_to_public_reproduction_guide"
+      ]
+    },
+    ".gitignore": {
+      "local_source_sha256": "f571ad81795a731368ff077107f8799b688dcc125e06f70bee95c9e657d615db",
+      "public_sha256": "f744a570ab48354a6424cba1c66cb8717c0a282bde28fbd9eb5ae4bc54cdbea9",
+      "changes": [
+        "exclude_local_learning_and_raw_examples"
+      ]
+    },
+    "metadata/ARCHITECTURE_MIGRATION.json": {
+      "local_source_sha256": "5b4bc172c053d54b446bc8627bbcd955658d25bdb1bb8bc723c6a98eedbc5702",
+      "public_sha256": "7475998a90bc08635fedae3e67b88cde0fdce6779418f6924001003246fad997",
+      "changes": [
+        "record_current_public_gitignore_hash_preserving_previous_hash",
+        "record_current_public_documentation_hashes_preserving_previous_hashes"
+      ]
+    },
+    "tests/test_object_behavior_recovery.py": {
+      "local_source_sha256": "c83c5c08571a821e4f7ee271fce49bf97d653334045c1bbebae3774cf179fac5",
+      "public_sha256": "4746d3fd7362f1edee6012a85d65a9e89b9b90f284a6a77d59cbcad4b5438b86",
+      "changes": [
+        "portable_historical_namespace_check_with_exact_hashes_and_declared_public_variants"
+      ]
+    }
+  },
+  "datasets_weights_credentials_included": false,
+  "github_actions_enabled": false
+}

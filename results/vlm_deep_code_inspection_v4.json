@@ -1,0 +1,211 @@
+{
+  "status": "completed",
+  "new_optimizer_updates": 0,
+  "new_model_gain_claimed": false,
+  "root_gap": "Prior v3 smoke used old TextVQA; no replacement reliable Object supervision was trained.",
+  "human_data": {
+    "status": "completed",
+    "training_data_prepared": true,
+    "training_launched": false,
+    "source_questions": 443757,
+    "manifest_sha256": "7225a5d044fc7543bfb25e33e617b3b00a233afab5af223993782e7700c96829",
+    "splits": {
+      "train": {
+        "qa": 3893,
+        "images": 1834,
+        "labels": {
+          "no": 2133,
+          "yes": 1760
+        },
+        "votes": {
+          "10": 2850,
+          "9": 1043
+        },
+        "question_types": {
+          "are": 131,
+          "are the": 194,
+          "are there": 140,
+          "are there any": 56,
+          "are these": 118,
+          "are they": 63,
+          "can you": 43,
+          "could": 30,
+          "do": 72,
+          "do you": 46,
+          "does the": 131,
+          "does this": 94,
+          "has": 43,
+          "is": 161,
+          "is he": 58,
+          "is it": 149,
+          "is that a": 27,
+          "is the": 708,
+          "is the man": 123,
+          "is the person": 36,
+          "is the woman": 47,
+          "is there": 170,
+          "is there a": 291,
+          "is this": 339,
+          "is this a": 379,
+          "is this an": 34,
+          "is this person": 36,
+          "none of the above": 147,
+          "was": 23,
+          "what": 4
+        },
+        "existence_prefix_qa": 657
+      },
+      "val": {
+        "qa": 474,
+        "images": 228,
+        "labels": {
+          "no": 260,
+          "yes": 214
+        },
+        "votes": {
+          "10": 351,
+          "9": 123
+        },
+        "question_types": {
+          "are": 19,
+          "are the": 32,
+          "are there": 20,
+          "are there any": 5,
+          "are these": 23,
+          "are they": 16,
+          "can you": 9,
+          "could": 3,
+          "do": 8,
+          "do you": 3,
+          "does the": 15,
+          "does this": 10,
+          "has": 4,
+          "is": 20,
+          "is he": 6,
+          "is it": 18,
+          "is that a": 9,
+          "is the": 79,
+          "is the man": 8,
+          "is the person": 3,
+          "is the woman": 2,
+          "is there": 19,
+          "is there a": 38,
+          "is this": 32,
+          "is this a": 39,
+          "is this an": 4,
+          "is this person": 7,
+          "none of the above": 17,
+          "was": 6
+        },
+        "existence_prefix_qa": 82
+      }
+    },
+    "raw_image_hashes_verified": true,
+    "benchmark_images_excluded": true,
+    "no_gain_claim": true
+  },
+  "new_regression_tests_passed": 2,
+  "code_sha256": {
+    "src/vlm_human_vqa/data.py": "4c2e862d463660928aefbb1354a3e3201db2d1d4a0e2c6927185474c41732e5c",
+    "tools/prepare_human_vqa_supervision.py": "d2cbcb3cc3def520a70b14bd979a3413b0dae853be8ef548bf62d1f1ca9f5e5a"
+  },
+  "image_alignment": {
+    "status": "completed",
+    "sampled_training_images": 16,
+    "downloaded": 16,
+    "exact_pixels": 16,
+    "scope": "sampled original-image alignment diagnostic; not a full-corpus identity proof"
+  },
+  "target_objective": {
+    "train_all": {
+      "qa": 32985,
+      "hard_target_vqa_score_histogram": {
+        "0.3": 81,
+        "0.6": 557,
+        "0.9": 1617,
+        "1.0": 30730
+      },
+      "mean_hard_target_vqa_score": 0.9866242231317454
+    },
+    "dev": {
+      "qa": 1617,
+      "hard_target_vqa_score_histogram": {
+        "0.6": 21,
+        "0.9": 98,
+        "1.0": 1498
+      },
+      "mean_hard_target_vqa_score": 0.9887445887445896
+    },
+    "dev_initial_predictions": {
+      "qa": 1617,
+      "full_score_qa": 1294,
+      "normalized_nonmode_qa": 315,
+      "nonmode_but_score_at_least_0_9": 82
+    }
+  },
+  "source_encoding": {
+    "status": "passed",
+    "cross_coco_2014_2017_identity": [
+      {
+        "question_id": "vqa2_train2014:557625003",
+        "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000557625.jpg",
+        "pixels_exact": true,
+        "sha256": "42d9c11f2bf89cffe7fe2f97ff2c4c354fb71a7f7e69e628909ec2bc3cef4de3"
+      },
+      {
+        "question_id": "vqa2_train2014:23779001",
+        "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000023779.jpg",
+        "pixels_exact": true,
+        "sha256": "efd69bd9347debc5cd536b1d8964335d42084daca1ab1e524414fe4ea72e9955"
+      },
+      {
+        "question_id": "vqa2_train2014:237344010",
+        "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000237344.jpg",
+        "pixels_exact": true,
+        "sha256": "c20aa13cd6b164ff1ebba3747112f53fdb67a875d24f147f1e512a0e894cba0d"
+      },
+      {
+        "question_id": "vqa2_train2014:136027000",
+        "url": "https://s3.amazonaws.com/images.cocodataset.org/train2014/COCO_train2014_000000136027.jpg",
+        "pixels_exact": true,
+        "sha256": "8bfad046f8e53e865816b2000e722f375655a3ce87a6febb17654def670af375"
+      }
+    ],
+    "actual_cpu_encodings": [
+      {
+        "question_id": "vqa2_train2014:557625003",
+        "target": "yes",
+        "sequence_length": 381,
+        "visual_tokens": 345,
+        "assistant_tokens": 3,
+        "assistant_decoded": "yes<|im_end|>\n"
+      },
+      {
+        "question_id": "vqa2_train2014:23779001",
+        "target": "yes",
+        "sequence_length": 429,
+        "visual_tokens": 391,
+        "assistant_tokens": 3,
+        "assistant_decoded": "yes<|im_end|>\n"
+      },
+      {
+        "question_id": "vqa2_train2014:237344010",
+        "target": "no",
+        "sequence_length": 566,
+        "visual_tokens": 529,
+        "assistant_tokens": 3,
+        "assistant_decoded": "no<|im_end|>\n"
+      },
+      {
+        "question_id": "vqa2_train2014:136027000",
+        "target": "no",
+        "sequence_length": 380,
+        "visual_tokens": 345,
+        "assistant_tokens": 3,
+        "assistant_decoded": "no<|im_end|>\n"
+      }
+    ],
+    "optimizer_updates": 0,
+    "quality_gain_claimed": false
+  }
+}

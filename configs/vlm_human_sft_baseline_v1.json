@@ -1,0 +1,12 @@
+{
+  "output_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_human_sft_repair_v1",
+  "human_manifest": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_human_vqa_v1/MANIFEST.json",
+  "text_manifest": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/manifest.json",
+  "model_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_sft_textvqa_v1/model",
+  "initial_adapter": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_weighted_sft_v1/runs/uniform/seed42/train/adapter",
+  "reference_config": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/configs/vlm_deep_v2.json",
+  "expected_eval_questions": {"human": 474, "text": 1617},
+  "evaluation_budget": 1024,
+  "evaluation_batch_size": 4,
+  "max_new_tokens": 32
+}

@@ -1,0 +1,23 @@
+{
+  "experiment": "vlm_human_sft_repair_v1",
+  "output_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_human_sft_repair_v1",
+  "baseline_config": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/configs/vlm_human_sft_baseline_v1.json",
+  "protocol": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/docs/VLM_HUMAN_SFT_REPAIR_V1_PROTOCOL.md",
+  "seed": 42,
+  "epochs": 1,
+  "expected_trainable": 1843200,
+  "train_budget": 1024,
+  "effective_batch": 16,
+  "microbatch": 4,
+  "lr": 0.00002,
+  "warmup_ratio": 0.1,
+  "weight_decay": 0.0,
+  "gradient_clip_norm": 1.0,
+  "max_sequence_length": 2048,
+  "checkpoint_every_updates": 100,
+  "memory_limit_gib": 65,
+  "minimum_human_gain_pp": 1.0,
+  "text_margin_pp": 0.5,
+  "bootstrap_replicates": 4000,
+  "bootstrap_seed": 20261018
+}

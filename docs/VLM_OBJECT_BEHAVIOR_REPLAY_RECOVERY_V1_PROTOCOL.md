@@ -1,0 +1,15 @@
+# Behavior replay v1：版本化工程恢复
+
+本恢复只处理原seed42训练完成后、评测前的历史结果缺字段故障。原89科学源码、原配置/协议/STUDY、训练/teacher/prepared/失败worker工件均保持字节。它不是方法修订、重新训练或失败结果挽救。
+
+唯一兼容规则：原STUDY绑定的旧wide32 TRAIN_RESULT含完整SCHEDULE内容摘要，但没有序列化replay_microbatch_order_sha256。读取旧结果绑定的完整181步SCHEDULE，要求与新Final及原PLAN的全部6字段（逐update QA、4QA微批、LR、微批宽度）精确一致；核原/新结果schedule_sha256及全部已声明order摘要。只在旧字段缺失时从该已锁内容派生摘要，生成内存anchor视图；原legacy比较函数和其余adapter检查不减。旧字段若已声明而不符、任何QA/边界/LR/来源不符都拒绝。两schedule原始字节另入新恢复锁，不声称原STUDY已直接绑定旧schedule文件SHA。
+
+执行前：保留原失败STATUS、队列/worker日志和archive；原controller、两原worker/同配置trainer必须自然结束。两份Final须completed181并完整通过原inputs.verify_training_result，原dtype/LoRA1843200/初始化/冻结base/实际target-role-stream等检查全执行。新CPU合同及before/after源码SHA先通过。prepare-only随后生成recovery_v1/RECOVERY_INPUT_LOCK.json，显式绑定有效恢复源码、原STUDY及其完整files/source映射、原失败archive、两Final及监督合同、完整prepared/teacher文件摘要、两schedule原字节、CPU日志/XML与receipt。不得修改旧锁或隐式monkeypatch旧模块globals。
+
+恢复GPU入口仅执行两个Final的原Object342和Text1617评测。调用原original_bf16加载、processor、batch4、greedy32、1024上限、原评测工程预检和完整batch断点续评；不会重跑已过的训练预检、teacher生成或任何optimizer更新。评测本身原有的工程生成及正式3918model×QA另按实际计数，不能写0新增forward。新worker/queue在recovery_v1目录，原failed/running worker身份和旧队列不覆盖；role沿用原GPU UUID亲和性，仍由共享queue三次15秒/40GiB/util<10%/零compute/UUID锁准入。
+
+新EVAL/INPUT_LOCK除原科学字段外显式记录RECOVERY_INPUT_LOCK与有效恢复source map；新reader使用同一有效adapter绑定并执行原complete_cache、计分、输入与完整coverage检查。analysis使用原binary/text contrast和原screen_gate，不改bootstrap6000/seed20261015/98.75%/四主端点alpha=.05/4及8项pilot gate。原source map保留为冻结科学来源，同时独立标明真正执行的恢复代码，不能用旧source map掩盖新入口。
+
+本版本自动编排范围仅为完整pilot接续。若pilot失败，completed_negative且goal_complete=false；若通过，pilot_passed_pending_original_replication且goal_complete=false，不把pilot当成功。后续必须继续原teacher_ce32 seeds0/200（相应完整teacher生成+训练）、三seed内部筛选、4372 external确认、全9000POPE及root独立审查；gt_ce32不可替补。该后续自动controller本版本尚未实现，须另建明确绑定恢复reader的后续执行入口，不能直接以原--run掩盖仍存在的历史guard。所有原成功门槛和顺序保留。
+
+工程中断/合同错误与科学负结果分开。新恢复SESSION、原流程起止时间、原失败日志SHA、恢复评测实际generation和0新增训练/teacher/optimizer更新分列。任何新增实际输入不一致停止，不降低门槛或自动重跑训练。

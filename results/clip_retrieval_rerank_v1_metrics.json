@@ -1,0 +1,602 @@
+{
+  "status": "completed",
+  "completed_at": "2026-10-14T10:00:29.935480+00:00",
+  "dev": {
+    "status": "completed",
+    "completed_at": "2026-10-14T09:53:53.517400+00:00",
+    "split": "dev",
+    "summaries": {
+      "baseline": {
+        "T2I_R@1": {
+          "mean": 69.90666666666667,
+          "sample_sd": 0.3431229128655362,
+          "per_seed": {
+            "0": 69.96,
+            "42": 69.54,
+            "200": 70.22
+          }
+        },
+        "T2I_R@5": {
+          "mean": 90.66,
+          "sample_sd": 0.3340658617697987,
+          "per_seed": {
+            "0": 91.02,
+            "42": 90.60000000000001,
+            "200": 90.36
+          }
+        },
+        "T2I_R@10": {
+          "mean": 94.73333333333333,
+          "sample_sd": 0.11372481406154765,
+          "per_seed": {
+            "0": 94.86,
+            "42": 94.69999999999999,
+            "200": 94.64
+          }
+        },
+        "T2I_nDCG@10": {
+          "mean": 82.70240364789963,
+          "sample_sd": 0.18385675126214582,
+          "per_seed": {
+            "0": 82.83785801172256,
+            "42": 82.49310531258584,
+            "200": 82.77624761939049
+          }
+        },
+        "I2T_R@1": {
+          "mean": 84.73333333333333,
+          "sample_sd": 0.4041451884327368,
+          "per_seed": {
+            "0": 85.1,
+            "42": 84.8,
+            "200": 84.3
+          }
+        },
+        "I2T_R@5": {
+          "mean": 97.36666666666666,
+          "sample_sd": 0.2309401076758536,
+          "per_seed": {
+            "0": 97.5,
+            "42": 97.1,
+            "200": 97.5
+          }
+        },
+        "I2T_R@10": {
+          "mean": 98.53333333333333,
+          "sample_sd": 0.3785938897200211,
+          "per_seed": {
+            "0": 98.7,
+            "42": 98.1,
+            "200": 98.8
+          }
+        },
+        "I2T_nDCG@10": {
+          "mean": 79.67063543498516,
+          "sample_sd": 0.16201047897982399,
+          "per_seed": {
+            "0": 79.54310565143824,
+            "42": 79.61586969345808,
+            "200": 79.85293096005917
+          }
+        },
+        "T2I_R@50": {
+          "mean": 98.96000000000001,
+          "sample_sd": 0.03464101615137886,
+          "per_seed": {
+            "0": 98.98,
+            "42": 98.92,
+            "200": 98.98
+          }
+        },
+        "I2T_R@50": {
+          "mean": 99.7,
+          "sample_sd": 0.0,
+          "per_seed": {
+            "0": 99.7,
+            "42": 99.7,
+            "200": 99.7
+          }
+        }
+      },
+      "rerank": {
+        "T2I_R@1": {
+          "mean": 86.68666666666667,
+          "sample_sd": 0.041633319989322334,
+          "per_seed": {
+            "0": 86.72,
+            "42": 86.7,
+            "200": 86.64
+          }
+        },
+        "T2I_R@5": {
+          "mean": 96.90666666666667,
+          "sample_sd": 0.011547005383798423,
+          "per_seed": {
+            "0": 96.89999999999999,
+            "42": 96.92,
+            "200": 96.89999999999999
+          }
+        },
+        "T2I_R@10": {
+          "mean": 98.24000000000001,
+          "sample_sd": 0.020000000000003126,
+          "per_seed": {
+            "0": 98.26,
+            "42": 98.22,
+            "200": 98.24000000000001
+          }
+        },
+        "T2I_R@50": {
+          "mean": 98.96000000000001,
+          "sample_sd": 0.03464101615137886,
+          "per_seed": {
+            "0": 98.98,
+            "42": 98.92,
+            "200": 98.98
+          }
+        },
+        "T2I_nDCG@10": {
+          "mean": 92.88020529475261,
+          "sample_sd": 0.022204454950665174,
+          "per_seed": {
+            "0": 92.90584456148412,
+            "42": 92.86729174248958,
+            "200": 92.86747958028414
+          }
+        },
+        "I2T_R@1": {
+          "mean": 95.66666666666667,
+          "sample_sd": 0.0577350269189675,
+          "per_seed": {
+            "0": 95.7,
+            "42": 95.7,
+            "200": 95.6
+          }
+        },
+        "I2T_R@5": {
+          "mean": 99.6,
+          "sample_sd": 0.0,
+          "per_seed": {
+            "0": 99.6,
+            "42": 99.6,
+            "200": 99.6
+          }
+        },
+        "I2T_R@10": {
+          "mean": 99.7,
+          "sample_sd": 0.0,
+          "per_seed": {
+            "0": 99.7,
+            "42": 99.7,
+            "200": 99.7
+          }
+        },
+        "I2T_R@50": {
+          "mean": 99.7,
+          "sample_sd": 0.0,
+          "per_seed": {
+            "0": 99.7,
+            "42": 99.7,
+            "200": 99.7
+          }
+        },
+        "I2T_nDCG@10": {
+          "mean": 91.01990447953382,
+          "sample_sd": 0.08826038726896772,
+          "per_seed": {
+            "0": 90.91807331973173,
+            "42": 91.07438476571869,
+            "200": 91.06725535315103
+          }
+        }
+      }
+    },
+    "comparisons": {
+      "T2I": {
+        "delta_mean_pp": 16.78,
+        "one_sided_lower_pp": 15.220000000000002,
+        "exploratory_95_ci_pp": [
+          15.220000000000002,
+          18.313499999999998
+        ],
+        "one_sided_confidence": 0.975,
+        "image_clusters": 1000,
+        "replicates": 6000,
+        "seed": 20261014,
+        "scope": "pairedimage clusters after averaging the3 fixed checkpoint outputs;SDseparate;not seed-imageIID"
+      },
+      "I2T": {
+        "delta_mean_pp": 10.933333333333334,
+        "one_sided_lower_pp": 8.833333333333334,
+        "exploratory_95_ci_pp": [
+          8.833333333333334,
+          12.933333333333335
+        ],
+        "one_sided_confidence": 0.975,
+        "image_clusters": 1000,
+        "replicates": 6000,
+        "seed": 20261014,
+        "scope": "pairedimage clusters after averaging the3 fixed checkpoint outputs;SDseparate;not seed-imageIID"
+      }
+    },
+    "gate": {
+      "passed": true,
+      "checks": {
+        "t2i_minimum_gain": true,
+        "t2i_corrected_lower_positive": true,
+        "i2t_conditional_noninferiority": true,
+        "t2i_seed_directions": true,
+        "ndcg_point_protection": true,
+        "role_resource_cap": true
+      }
+    },
+    "t2i_positive_seed_directions": 3,
+    "ndcg_delta_pp": {
+      "T2I": 10.177801646852984,
+      "I2T": 11.349269044548663
+    },
+    "new_training_runs": 0,
+    "new_reranked_cells": 3,
+    "reused_baseline_cells": 3,
+    "logical_pairs": 900000,
+    "unique_pairs": 312780,
+    "matching_roles": [
+      {
+        "role": 0,
+        "pairs": 156390,
+        "matching_phase_seconds": 75.73053767811507,
+        "vision_encode_seconds": 1.8876209394074976,
+        "peak_allocated_gib": 1.4641242027282715,
+        "worker_wall_seconds": 83.17441872600466
+      },
+      {
+        "role": 1,
+        "pairs": 156390,
+        "matching_phase_seconds": 76.11892013298348,
+        "vision_encode_seconds": 1.9408753020688891,
+        "peak_allocated_gib": 1.4641242027282715,
+        "worker_wall_seconds": 83.5595423928462
+      }
+    ],
+    "rerank_sort_seconds": 0.21437377203255892,
+    "baseline_checks": [
+      {
+        "seed": 0,
+        "baseline_recall_exact": true,
+        "baseline_ndcg_dtype_bound": 9.5367431640625e-07,
+        "pool_unchanged": true
+      },
+      {
+        "seed": 42,
+        "baseline_recall_exact": true,
+        "baseline_ndcg_dtype_bound": 9.5367431640625e-07,
+        "pool_unchanged": true
+      },
+      {
+        "seed": 200,
+        "baseline_recall_exact": true,
+        "baseline_ndcg_dtype_bound": 9.5367431640625e-07,
+        "pool_unchanged": true
+      }
+    ],
+    "frozen_guard": {
+      "passed": true,
+      "protected_files": 54
+    },
+    "limits": [
+      "Three bound CLIP adapter seeds are historical checkpoint replication axes,not new BLIP training seeds",
+      "COCO-trained BLIP ITM adds model capacity,384pixel imagery,ENC prefix and BF16 compute; not equalmodel/equalcompute or isolated attention algorithm",
+      "No Flickr-specific finetuned BLIP weights; pretraining overlap still unknown,public dev/test historically exposed",
+      "Cached vision/native preflight is finite input engineering evidence,not bitwise/allinput framework equivalence",
+      "Logical candidate requests and globally deduplicated unique pair computation reported separately",
+      "Latency is fixed offline gallery/batch measurement,not online p95/SLA/ANN search",
+      "No new CLIP/VLM training,RL,industrial product result or independent personal contribution claim"
+    ],
+    "interval_scope": "conditional paired-image intervals on3 fixed CLIP checkpoints+1 fixed sharedBLIP; separate seedSD;two endpoints alpha=.05/2"
+  },
+  "test": {
+    "status": "completed",
+    "completed_at": "2026-10-14T09:58:01.306834+00:00",
+    "split": "test",
+    "summaries": {
+      "baseline": {
+        "T2I_R@1": {
+          "mean": 67.82,
+          "sample_sd": 0.12165525060596939,
+          "per_seed": {
+            "0": 67.88,
+            "42": 67.9,
+            "200": 67.67999999999999
+          }
+        },
+        "T2I_R@5": {
+          "mean": 89.83333333333334,
+          "sample_sd": 0.2081665999466094,
+          "per_seed": {
+            "0": 89.60000000000001,
+            "42": 90.0,
+            "200": 89.9
+          }
+        },
+        "T2I_R@10": {
+          "mean": 94.3,
+          "sample_sd": 0.22000000000000597,
+          "per_seed": {
+            "0": 94.52000000000001,
+            "42": 94.3,
+            "200": 94.08
+          }
+        },
+        "T2I_nDCG@10": {
+          "mean": 81.42275041818618,
+          "sample_sd": 0.06968650933985482,
+          "per_seed": {
+            "0": 81.45766092061997,
+            "42": 81.46808172762394,
+            "200": 81.34250860631465
+          }
+        },
+        "I2T_R@1": {
+          "mean": 79.83333333333334,
+          "sample_sd": 0.4041451884327368,
+          "per_seed": {
+            "0": 80.2,
+            "42": 79.4,
+            "200": 79.9
+          }
+        },
+        "I2T_R@5": {
+          "mean": 96.96666666666667,
+          "sample_sd": 0.28867513459481287,
+          "per_seed": {
+            "0": 96.8,
+            "42": 96.8,
+            "200": 97.3
+          }
+        },
+        "I2T_R@10": {
+          "mean": 98.86666666666667,
+          "sample_sd": 0.15275252316519375,
+          "per_seed": {
+            "0": 98.9,
+            "42": 98.7,
+            "200": 99.0
+          }
+        },
+        "I2T_nDCG@10": {
+          "mean": 76.70521104559302,
+          "sample_sd": 0.194523197912175,
+          "per_seed": {
+            "0": 76.8696089759469,
+            "42": 76.4904629766941,
+            "200": 76.75556118413806
+          }
+        },
+        "T2I_R@50": {
+          "mean": 99.04666666666667,
+          "sample_sd": 0.05033222956846918,
+          "per_seed": {
+            "0": 99.1,
+            "42": 99.03999999999999,
+            "200": 99.0
+          }
+        },
+        "I2T_R@50": {
+          "mean": 99.83333333333333,
+          "sample_sd": 0.0577350269189675,
+          "per_seed": {
+            "0": 99.8,
+            "42": 99.8,
+            "200": 99.9
+          }
+        }
+      },
+      "rerank": {
+        "T2I_R@1": {
+          "mean": 85.09333333333333,
+          "sample_sd": 0.023094010767580435,
+          "per_seed": {
+            "0": 85.11999999999999,
+            "42": 85.08,
+            "200": 85.08
+          }
+        },
+        "T2I_R@5": {
+          "mean": 96.53333333333333,
+          "sample_sd": 0.03055050463304061,
+          "per_seed": {
+            "0": 96.56,
+            "42": 96.54,
+            "200": 96.5
+          }
+        },
+        "T2I_R@10": {
+          "mean": 98.10666666666667,
+          "sample_sd": 0.04163331998932006,
+          "per_seed": {
+            "0": 98.14,
+            "42": 98.06,
+            "200": 98.11999999999999
+          }
+        },
+        "T2I_R@50": {
+          "mean": 99.04666666666667,
+          "sample_sd": 0.05033222956846918,
+          "per_seed": {
+            "0": 99.1,
+            "42": 99.03999999999999,
+            "200": 99.0
+          }
+        },
+        "T2I_nDCG@10": {
+          "mean": 92.10399565271543,
+          "sample_sd": 0.028043024553402872,
+          "per_seed": {
+            "0": 92.13636704812112,
+            "42": 92.08850334935862,
+            "200": 92.08711656066654
+          }
+        },
+        "I2T_R@1": {
+          "mean": 95.06666666666666,
+          "sample_sd": 0.05773502691895929,
+          "per_seed": {
+            "0": 95.1,
+            "42": 95.0,
+            "200": 95.1
+          }
+        },
+        "I2T_R@5": {
+          "mean": 99.53333333333333,
+          "sample_sd": 0.05773502691895929,
+          "per_seed": {
+            "0": 99.5,
+            "42": 99.5,
+            "200": 99.6
+          }
+        },
+        "I2T_R@10": {
+          "mean": 99.83333333333333,
+          "sample_sd": 0.0577350269189675,
+          "per_seed": {
+            "0": 99.8,
+            "42": 99.8,
+            "200": 99.9
+          }
+        },
+        "I2T_R@50": {
+          "mean": 99.83333333333333,
+          "sample_sd": 0.0577350269189675,
+          "per_seed": {
+            "0": 99.8,
+            "42": 99.8,
+            "200": 99.9
+          }
+        },
+        "I2T_nDCG@10": {
+          "mean": 89.66168568754257,
+          "sample_sd": 0.09535258716406335,
+          "per_seed": {
+            "0": 89.57335820699194,
+            "42": 89.76277752293413,
+            "200": 89.64892133270166
+          }
+        }
+      }
+    },
+    "comparisons": {
+      "T2I": {
+        "delta_mean_pp": 17.273333333333333,
+        "one_sided_lower_pp": 15.726499999999996,
+        "exploratory_95_ci_pp": [
+          15.726499999999996,
+          18.880000000000003
+        ],
+        "one_sided_confidence": 0.975,
+        "image_clusters": 1000,
+        "replicates": 6000,
+        "seed": 20261014,
+        "scope": "pairedimage clusters after averaging the3 fixed checkpoint outputs;SDseparate;not seed-imageIID"
+      },
+      "I2T": {
+        "delta_mean_pp": 15.233333333333334,
+        "one_sided_lower_pp": 13.033333333333335,
+        "exploratory_95_ci_pp": [
+          13.033333333333335,
+          17.46666666666667
+        ],
+        "one_sided_confidence": 0.975,
+        "image_clusters": 1000,
+        "replicates": 6000,
+        "seed": 20261014,
+        "scope": "pairedimage clusters after averaging the3 fixed checkpoint outputs;SDseparate;not seed-imageIID"
+      }
+    },
+    "gate": {
+      "passed": true,
+      "checks": {
+        "t2i_minimum_gain": true,
+        "t2i_corrected_lower_positive": true,
+        "i2t_conditional_noninferiority": true,
+        "t2i_seed_directions": true,
+        "ndcg_point_protection": true,
+        "role_resource_cap": true
+      }
+    },
+    "t2i_positive_seed_directions": 3,
+    "ndcg_delta_pp": {
+      "T2I": 10.681245234529243,
+      "I2T": 12.956474641949555
+    },
+    "new_training_runs": 0,
+    "new_reranked_cells": 3,
+    "reused_baseline_cells": 3,
+    "logical_pairs": 900000,
+    "unique_pairs": 312116,
+    "matching_roles": [
+      {
+        "role": 0,
+        "pairs": 156058,
+        "matching_phase_seconds": 75.5552010065876,
+        "vision_encode_seconds": 1.9428862137719989,
+        "peak_allocated_gib": 1.4641242027282715,
+        "worker_wall_seconds": 82.75957137625664
+      },
+      {
+        "role": 1,
+        "pairs": 156058,
+        "matching_phase_seconds": 75.77106743073091,
+        "vision_encode_seconds": 1.9888834948651493,
+        "peak_allocated_gib": 1.4641242027282715,
+        "worker_wall_seconds": 83.05664026504382
+      }
+    ],
+    "rerank_sort_seconds": 0.22720144595950842,
+    "baseline_checks": [
+      {
+        "seed": 0,
+        "baseline_recall_exact": true,
+        "baseline_ndcg_dtype_bound": 9.5367431640625e-07,
+        "pool_unchanged": true
+      },
+      {
+        "seed": 42,
+        "baseline_recall_exact": true,
+        "baseline_ndcg_dtype_bound": 9.5367431640625e-07,
+        "pool_unchanged": true
+      },
+      {
+        "seed": 200,
+        "baseline_recall_exact": true,
+        "baseline_ndcg_dtype_bound": 9.5367431640625e-07,
+        "pool_unchanged": true
+      }
+    ],
+    "frozen_guard": {
+      "passed": true,
+      "protected_files": 54
+    },
+    "limits": [
+      "Three bound CLIP adapter seeds are historical checkpoint replication axes,not new BLIP training seeds",
+      "COCO-trained BLIP ITM adds model capacity,384pixel imagery,ENC prefix and BF16 compute; not equalmodel/equalcompute or isolated attention algorithm",
+      "No Flickr-specific finetuned BLIP weights; pretraining overlap still unknown,public dev/test historically exposed",
+      "Cached vision/native preflight is finite input engineering evidence,not bitwise/allinput framework equivalence",
+      "Logical candidate requests and globally deduplicated unique pair computation reported separately",
+      "Latency is fixed offline gallery/batch measurement,not online p95/SLA/ANN search",
+      "No new CLIP/VLM training,RL,industrial product result or independent personal contribution claim"
+    ],
+    "interval_scope": "conditional paired-image intervals on3 fixed CLIP checkpoints+1 fixed sharedBLIP; separate seedSD;two endpoints alpha=.05/2"
+  },
+  "new_training_runs": 0,
+  "bound_clip_checkpoints": 3,
+  "fixed_blip_checkpoints": 1,
+  "new_dev_reranked_cells": 3,
+  "reused_dev_baseline_cells": 3,
+  "new_test_reranked_cells": 3,
+  "test_state": "completed",
+  "config_sha256": "ea7df6b7bc991cbca6906eb8e1f22153b3d5c56f0f6913b2b53936d89b6f17fc",
+  "source_lock_sha256": "adcb372a922cd921da9863716074973aebc07b1454ad91d24ad8c49f9d6e8677",
+  "report_recovery_source_sha256": "91e3473d52995d97d3d01769efdcc9c2eb870feeaa9903ba222fd4f765a392df",
+  "source_study": "clip_retrieval_rerank_v1",
+  "source_analysis_sha256": "e5bb04cca14d0456922ca8cfab29582aebafb95bf5137f1d0241daf37a456bf4"
+}

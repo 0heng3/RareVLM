@@ -1,0 +1,30 @@
+{
+  "output_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_error_supervision_sft_v1",
+  "baseline_config": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/configs/vlm_human_sft_baseline_v1.json",
+  "source_manifest": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/manifest.json",
+  "initial_adapter": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_weighted_sft_v1/runs/uniform/seed42/train/adapter",
+  "seed": 42,
+  "updates": 32,
+  "microbatch": 4,
+  "effective_batch": 16,
+  "lr": 2e-05,
+  "warmup_ratio": 0.125,
+  "weight_decay": 0.0,
+  "gradient_clip_norm": 1.0,
+  "expected_trainable": 1843200,
+  "max_sequence_length": 2048,
+  "training_cap_seconds": 900,
+  "evaluation_cap_seconds": 900,
+  "maximum_reference_seconds": 600,
+  "train_budget": 1024,
+  "evaluation_budget": 1024,
+  "evaluation_batch_size": 4,
+  "max_new_tokens": 32,
+  "beta": 0.1,
+  "dpo_weight": {
+    "sft": 0.0,
+    "dpo_sft": 1.0
+  },
+  "automatic_more_training": false,
+  "automatic_main_evaluation": false
+}

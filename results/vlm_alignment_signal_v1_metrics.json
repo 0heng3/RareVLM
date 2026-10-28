@@ -1,0 +1,262 @@
+{
+  "schema_version": "rarevlm.alignment_signal.metrics.v1",
+  "status": "completed",
+  "completed_at": "2026-10-14T17:27:46.156237+00:00",
+  "questions": 512,
+  "generated_responses": 2560,
+  "summary": {
+    "greedy_train_consensus_percent": 88.1640625,
+    "sample_train_consensus_percent": 81.3525390625,
+    "dpo_pair_supply": {
+      "count": 85,
+      "denominator": 512,
+      "fraction": 0.166015625,
+      "descriptive_wilson95": [
+        0.1362963882209846,
+        0.20070920884390975
+      ],
+      "scope": "one event per distinct audit image;descriptive binomial approximation,not market or generalization CI"
+    },
+    "grpo_nonzero_reward_groups": {
+      "count": 149,
+      "denominator": 512,
+      "fraction": 0.291015625,
+      "descriptive_wilson95": [
+        0.25334281371732637,
+        0.33180103941684724
+      ],
+      "scope": "one event per distinct audit image;descriptive binomial approximation,not market or generalization CI"
+    },
+    "constant_reward_groups": 363,
+    "all_four_zero_reward_groups": 29,
+    "all_four_full_score_groups": 317,
+    "mean_unique_normalized_samples": 1.57421875,
+    "empty_sample_answers": 0
+  },
+  "train_target_frequency_slices": {
+    "rare_1_5": {
+      "questions": 332,
+      "dpo_pairs": 64,
+      "informative_groups": 118,
+      "greedy_consensus_percent": 87.04819277108435
+    },
+    "mid_6_20": {
+      "questions": 46,
+      "dpo_pairs": 4,
+      "informative_groups": 7,
+      "greedy_consensus_percent": 88.04347826086956
+    },
+    "frequent_21plus": {
+      "questions": 134,
+      "dpo_pairs": 17,
+      "informative_groups": 24,
+      "greedy_consensus_percent": 90.97014925373135
+    }
+  },
+  "gpu_dpo_gradient_contracts": [
+    {
+      "question_id": "10937",
+      "chosen": "no",
+      "rejected": "yes",
+      "chosen_logp": -0.39743682742118835,
+      "rejected_logp": -1.147438645362854,
+      "assistant_token_counts": [
+        3,
+        3
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 1.0587707084987872,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 14.551598072052002
+    },
+    {
+      "question_id": "16496",
+      "chosen": "citizens",
+      "rejected": "the shit out of citizens",
+      "chosen_logp": -0.6650691032409668,
+      "rejected_logp": -1.1810014247894287,
+      "assistant_token_counts": [
+        4,
+        7
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 3.180142706461307,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 14.553048610687256
+    },
+    {
+      "question_id": "17289",
+      "chosen": "2014",
+      "rejected": "2016",
+      "chosen_logp": -2.541919469833374,
+      "rejected_logp": -2.7096636295318604,
+      "assistant_token_counts": [
+        6,
+        6
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 0.9840076039083473,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 13.611416339874268
+    },
+    {
+      "question_id": "7139",
+      "chosen": "vichy catalan",
+      "rejected": "leatalan",
+      "chosen_logp": -0.7067626714706421,
+      "rejected_logp": -5.9527788162231445,
+      "assistant_token_counts": [
+        7,
+        5
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 3.7097214954577273,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 14.553048610687256
+    },
+    {
+      "question_id": "29551",
+      "chosen": "brass",
+      "rejected": "brass balls not tar balls",
+      "chosen_logp": -0.5878049731254578,
+      "rejected_logp": -3.194390058517456,
+      "assistant_token_counts": [
+        4,
+        8
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 3.5183019899583434,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 14.449856758117676
+    },
+    {
+      "question_id": "12779",
+      "chosen": "wi-fi",
+      "rejected": "wifi",
+      "chosen_logp": -1.5831890106201172,
+      "rejected_logp": -0.3397485613822937,
+      "assistant_token_counts": [
+        4,
+        3
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 1.3594287073692228,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 13.723537921905518
+    },
+    {
+      "question_id": "31767",
+      "chosen": "kilkenny",
+      "rejected": "kilkenny irishدب",
+      "chosen_logp": -1.8156189918518066,
+      "rejected_logp": -13.563663482666016,
+      "assistant_token_counts": [
+        5,
+        8
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 2.5007942734102153,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 14.759821891784668
+    },
+    {
+      "question_id": "14311",
+      "chosen": "aaa",
+      "rejected": "typewriter",
+      "chosen_logp": -0.5914317965507507,
+      "rejected_logp": -8.560397148132324,
+      "assistant_token_counts": [
+        3,
+        4
+      ],
+      "beta": 0.1,
+      "initial_dpo_loss": 0.6931471824645996,
+      "reference_source": "same fixed initial forward detached;no parameter update",
+      "lora_gradient_l2": 2.475546604226455,
+      "finite_gradients": true,
+      "only_language_lora_gradients": true,
+      "trainable_gradient_elements": 1843200,
+      "optimizer_updates": 0,
+      "peak_allocated_gib": 14.396690845489502
+    }
+  ],
+  "gates": {
+    "dpo_supply_passed": true,
+    "grpo_supply_passed": true,
+    "training_quality_passed": false,
+    "training_launched": false,
+    "scope": "supply screening;zero parameter updates,no dev/test improvements"
+  },
+  "sampling_active_seconds_per_role": [
+    576.8625417980365,
+    557.3518939269707
+  ],
+  "max_sampling_allocated_gib": 8.516602516174316,
+  "protected_files_unchanged": 272,
+  "independently_rescored_responses": 2560,
+  "limits": [
+    "512 distinct training images from full32985QA pool;fixed already-trained seed42 policy;not unseen-dev or formal benchmark improvement",
+    "four stochastic responses per question share one policy/image;not four training seeds or IID independent questions",
+    "Consensus-derived preference is rule-based using ten human reference answers,not direct human preference judgments or guaranteed semantic correctness",
+    "A positive canonical-score gap can reflect wording differences;semantic case review required before full training",
+    "Reward diversity at one policy does not establish online GRPO viability or convergence;group advantages are diagnostics with population std",
+    "Initial DPO forward/backward checks make no optimizer updates,save no trained adapter and do not establish DPO gains",
+    "Historical dev/final inputs excluded by image ID and pixel/file hash;answers supplied only after generation,never to generation prompts",
+    "Frozen BF16 inference and BF16 LoRA gradient precheck are isolated from historical NF4/FP32 SFT;no new BF16 training speed claim",
+    "JD corpus is a convenience sample;official jobs,announcements,Agent-specific roles and social jobs counted separately;not market prevalence or HC"
+  ],
+  "controller_seconds": 649.6805898956954,
+  "quality_sensitivity": {
+    "created_at": "2026-10-14T18:07:03.497741+00:00",
+    "original_candidates_sha256": "44427cd6a1ecf23f2b9fe3ee4cd095d71467bfa100a875daf33acd191669370f",
+    "original_candidates_unchanged": true,
+    "raw_score_pairs": 85,
+    "conservative_candidates": 40,
+    "fraction_of512_questions": 0.078125,
+    "exclusion_reasons_multilabel": {
+      "chosen_has_fewer_than6_normalized_human_votes": 28,
+      "ambiguous_or_abstention_annotation": 6,
+      "rejected_contains_reference_core_possible_span_or_format_artifact": 29,
+      "punctuation_spacing_equivalent_to_a_reference": 5
+    },
+    "source_sha256": "79f6970bed5255c8de62032880adcbfbcbe8ab42be210f56914bafe7e894a453",
+    "scope": "new train-only conservative candidate screen;not rerun or changed official scoring/gate;not all verified human preference",
+    "optimizer_updates": 0
+  },
+  "wall_seconds_since_original_launch": 643.622827
+}

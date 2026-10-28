@@ -1,0 +1,399 @@
+{
+  "schema_version": "rarevlm.object_kl.gradient.portable_results.v1",
+  "exported_at_utc": "2026-10-15T15:18:02.842553+00:00",
+  "experiment": "vlm_object_kl_gradient_v1",
+  "status": "completed_diagnostic",
+  "performance_evaluation": false,
+  "scientific_performance_success": false,
+  "goal_complete": false,
+  "scope": "Three preregistered offline training-block gradient measurements on one fixed initializer/order seed, no optimizer step or heldout generation.",
+  "points": [
+    {
+      "checkpoint_step": 25,
+      "block_index": 25,
+      "next_update_one_based": 26,
+      "geometry": {
+        "object_gradient_l2": 1.2175843223765515,
+        "KL_gradient_l2": 0.03763929760428116,
+        "initial_KL_gradient_floor_l2": 1.3073113829367451e-06,
+        "object_KL_inner_product": -0.0006544127553291283,
+        "cosine_floor_guard_l2": 1.307311382936745e-05,
+        "cosine_floor_guard_rule": "max(10 * measured_initial_KL_gradient_l2, 1e-10)",
+        "KL_to_object_norm_ratio": 0.03091309317355089,
+        "KL_to_initial_floor_norm_ratio": 28791.37908195079,
+        "raw_cosine_if_nonzero": -0.014279440720005454,
+        "interpretable_cosine": -0.014279440720005454,
+        "cosine_interpretation": "above_measured_initial_floor; local_fixed_LoRA_geometry_only",
+        "limitations": "Small loss is not small gradient. Negative cosine is not forgetting causality; a near-floor direction remains numerically uncertain."
+      },
+      "adam_shadow": {
+        "checkpoint_completed_updates": 25,
+        "next_update_one_based": 26,
+        "next_learning_rate": 4.814814814814815e-06,
+        "saved_betas": [
+          0.9,
+          0.999
+        ],
+        "saved_eps": 1e-08,
+        "weight_decay": 0.0,
+        "clip_norm_cap": 1.0,
+        "with_current_KL": {
+          "delta_theta_l2": 0.004566443420135354,
+          "joint_clip_coefficient": 0.8212677958871832,
+          "object_gradient_dot_delta_theta": -0.0013335773861216983,
+          "KL_gradient_dot_delta_theta": -9.094801708600768e-08
+        },
+        "without_current_KL_same_history": {
+          "delta_theta_l2": 0.00456785146102787,
+          "joint_clip_coefficient": 0.821297679614061,
+          "object_gradient_dot_delta_theta": -0.001333756864421273,
+          "KL_gradient_dot_delta_theta": 1.0303259066954626e-06
+        },
+        "current_KL_marginal_direction_difference_l2": 0.0001417763188908187,
+        "current_KL_marginal_difference_over_joint_norm": 0.031047427033841647,
+        "method": "CPU FP32 copied moments, float64 clipping norm; conditional local approximate direction, no parameter writes",
+        "limitations": "Both directions condition on the actual same historical m/v. First-order g·delta is not an executed post-update loss, full counterfactual training or forgetting causality."
+      },
+      "object_CE": 0.008257958848844282,
+      "replay_KL": 9.879144636215642e-05,
+      "initial_parity_max_absolute_KL": 0.0,
+      "costs": {
+        "object_forward_backward_seconds": 3.724497477989644,
+        "KL_forward_backward_seconds": 6.097491594031453,
+        "initial_parity_forward_backward_seconds": 7.036549041047692,
+        "CPU_geometry_and_Adam_shadow_seconds": 0.10315487487241626,
+        "timing_scope": "Source phase wall includes encoding/H2D/forward/backward/FP32 gradient copy/runtime restore; not pure GPU kernel timing.",
+        "gradient_FP32_tensor_bytes": 22118400
+      },
+      "cpu_recomputed_from_saved_FP32_gradients": true
+    },
+    {
+      "checkpoint_step": 100,
+      "block_index": 100,
+      "next_update_one_based": 101,
+      "geometry": {
+        "object_gradient_l2": 0.2630472338301661,
+        "KL_gradient_l2": 0.7100209343326273,
+        "initial_KL_gradient_floor_l2": 1.4944725040743653e-06,
+        "object_KL_inner_product": -0.0024902738383946175,
+        "cosine_floor_guard_l2": 1.4944725040743653e-05,
+        "cosine_floor_guard_rule": "max(10 * measured_initial_KL_gradient_l2, 1e-10)",
+        "KL_to_object_norm_ratio": 2.6992146010972515,
+        "KL_to_initial_floor_norm_ratio": 475098.0244848295,
+        "raw_cosine_if_nonzero": -0.01333344007064317,
+        "interpretable_cosine": -0.01333344007064317,
+        "cosine_interpretation": "above_measured_initial_floor; local_fixed_LoRA_geometry_only",
+        "limitations": "Small loss is not small gradient. Negative cosine is not forgetting causality; a near-floor direction remains numerically uncertain."
+      },
+      "adam_shadow": {
+        "checkpoint_completed_updates": 100,
+        "next_update_one_based": 101,
+        "next_learning_rate": 2.5e-06,
+        "saved_betas": [
+          0.9,
+          0.999
+        ],
+        "saved_eps": 1e-08,
+        "weight_decay": 0.0,
+        "clip_norm_cap": 1.0,
+        "with_current_KL": {
+          "delta_theta_l2": 0.0012198366393029053,
+          "joint_clip_coefficient": 1.0,
+          "object_gradient_dot_delta_theta": 1.3885809518103375e-06,
+          "KL_gradient_dot_delta_theta": -0.00016099987906487422
+        },
+        "without_current_KL_same_history": {
+          "delta_theta_l2": 0.0010527484047069987,
+          "joint_clip_coefficient": 1.0,
+          "object_gradient_dot_delta_theta": 9.032102437732277e-07,
+          "KL_gradient_dot_delta_theta": -4.30840836591106e-06
+        },
+        "current_KL_marginal_direction_difference_l2": 0.0006304612316855461,
+        "current_KL_marginal_difference_over_joint_norm": 0.5168407074949257,
+        "method": "CPU FP32 copied moments, float64 clipping norm; conditional local approximate direction, no parameter writes",
+        "limitations": "Both directions condition on the actual same historical m/v. First-order g·delta is not an executed post-update loss, full counterfactual training or forgetting causality."
+      },
+      "object_CE": 0.01974643993889913,
+      "replay_KL": 0.001295437221415341,
+      "initial_parity_max_absolute_KL": 0.0,
+      "costs": {
+        "object_forward_backward_seconds": 3.933681166730821,
+        "KL_forward_backward_seconds": 5.956166714895517,
+        "initial_parity_forward_backward_seconds": 7.452027771156281,
+        "CPU_geometry_and_Adam_shadow_seconds": 0.09680827707052231,
+        "timing_scope": "Source phase wall includes encoding/H2D/forward/backward/FP32 gradient copy/runtime restore; not pure GPU kernel timing.",
+        "gradient_FP32_tensor_bytes": 22118400
+      },
+      "cpu_recomputed_from_saved_FP32_gradients": true
+    },
+    {
+      "checkpoint_step": 175,
+      "block_index": 175,
+      "next_update_one_based": 176,
+      "geometry": {
+        "object_gradient_l2": 0.3570736010851533,
+        "KL_gradient_l2": 0.1189701891515059,
+        "initial_KL_gradient_floor_l2": 1.690493760304272e-06,
+        "object_KL_inner_product": -0.0028929954783147144,
+        "cosine_floor_guard_l2": 1.690493760304272e-05,
+        "cosine_floor_guard_rule": "max(10 * measured_initial_KL_gradient_l2, 1e-10)",
+        "KL_to_object_norm_ratio": 0.33318113909836317,
+        "KL_to_initial_floor_norm_ratio": 70376.00016346257,
+        "raw_cosine_if_nonzero": -0.06810074443210512,
+        "interpretable_cosine": -0.06810074443210512,
+        "cosine_interpretation": "above_measured_initial_floor; local_fixed_LoRA_geometry_only",
+        "limitations": "Small loss is not small gradient. Negative cosine is not forgetting causality; a near-floor direction remains numerically uncertain."
+      },
+      "adam_shadow": {
+        "checkpoint_completed_updates": 175,
+        "next_update_one_based": 176,
+        "next_learning_rate": 1.8518518518518518e-07,
+        "saved_betas": [
+          0.9,
+          0.999
+        ],
+        "saved_eps": 1e-08,
+        "weight_decay": 0.0,
+        "clip_norm_cap": 1.0,
+        "with_current_KL": {
+          "delta_theta_l2": 6.558007898890806e-05,
+          "joint_clip_coefficient": 1.0,
+          "object_gradient_dot_delta_theta": -3.0403326752153653e-06,
+          "KL_gradient_dot_delta_theta": -3.2307618472046535e-07
+        },
+        "without_current_KL_same_history": {
+          "delta_theta_l2": 6.412198595896278e-05,
+          "joint_clip_coefficient": 1.0,
+          "object_gradient_dot_delta_theta": -3.0580992346515686e-06,
+          "KL_gradient_dot_delta_theta": 4.1799688663042936e-08
+        },
+        "current_KL_marginal_direction_difference_l2": 1.3844859210951995e-05,
+        "current_KL_marginal_difference_over_joint_norm": 0.21111379285306528,
+        "method": "CPU FP32 copied moments, float64 clipping norm; conditional local approximate direction, no parameter writes",
+        "limitations": "Both directions condition on the actual same historical m/v. First-order g·delta is not an executed post-update loss, full counterfactual training or forgetting causality."
+      },
+      "object_CE": 0.012343357579084113,
+      "replay_KL": 0.000333762051013764,
+      "initial_parity_max_absolute_KL": 0.0,
+      "costs": {
+        "object_forward_backward_seconds": 3.8721705870702863,
+        "KL_forward_backward_seconds": 5.152607230003923,
+        "initial_parity_forward_backward_seconds": 5.434635689947754,
+        "CPU_geometry_and_Adam_shadow_seconds": 0.090823779348284,
+        "timing_scope": "Source phase wall includes encoding/H2D/forward/backward/FP32 gradient copy/runtime restore; not pure GPU kernel timing.",
+        "gradient_FP32_tensor_bytes": 22118400
+      },
+      "cpu_recomputed_from_saved_FP32_gradients": true
+    }
+  ],
+  "operation_accounting": {
+    "new_training_qa_forward_backward": 96,
+    "main_qa_forward_backward": 72,
+    "initial_parity_qa_forward_backward": 24,
+    "optimizer_updates": 0,
+    "generation_questions": 0,
+    "cpu_aggregation_new_model_forwards": 0
+  },
+  "groups": [
+    {
+      "schema_version": "rarevlm.object_kl.gradient.group.v1",
+      "status": "completed",
+      "group": "early_late",
+      "config_file_sha256": "59993269aaba0622abf5ac4b60b65163a7f52e0ca39f4ff03329c74a942104fc",
+      "study_lock_sha256": "e35bf41177af0cabb26c7485e5fe99d7a2a511736a98609741e214490d87cbeb",
+      "producer_gpu_uuid": "GPU-e4083b4d-8512-2e2d-499d-8b433dd7232c",
+      "consumer_gpu_uuid": "GPU-e4083b4d-8512-2e2d-499d-8b433dd7232c",
+      "new_training_qa_forward_backward": 64,
+      "main_qa_forward_backward": 48,
+      "initial_parity_qa_forward_backward": 16,
+      "optimizer_updates": 0,
+      "generation_questions": 0,
+      "model_loads_current_session": 1,
+      "model_load_seconds_current_session": 5.716728621162474,
+      "actual_model_load_starts_all_sessions": 1,
+      "actual_model_load_completions_all_sessions": 1,
+      "actual_completed_main_QA_all_sessions": 48,
+      "actual_completed_parity_QA_all_sessions": 16,
+      "source_call_starts_all_sessions": 6,
+      "source_call_completions_all_sessions": 6,
+      "session_wall_seconds": 82.80511576030403,
+      "resumed_completed_points": [],
+      "peak_allocated_gib": 8.596015453338623,
+      "peak_reserved_gib": 9.0703125,
+      "memory_cap_gib": 65,
+      "initial_parameters_rng_buffers_restored": true,
+      "frozen_parameters_unchanged": true,
+      "teacher_cache_manifest_unchanged": true,
+      "performance_evaluation": false,
+      "limitations": "Single seed offline training gradients; local Adam approximation conditional on historical moments; not original gradient logs, heldout gains or forgetting causality."
+    },
+    {
+      "schema_version": "rarevlm.object_kl.gradient.group.v1",
+      "status": "completed",
+      "group": "middle",
+      "config_file_sha256": "59993269aaba0622abf5ac4b60b65163a7f52e0ca39f4ff03329c74a942104fc",
+      "study_lock_sha256": "e35bf41177af0cabb26c7485e5fe99d7a2a511736a98609741e214490d87cbeb",
+      "producer_gpu_uuid": "GPU-e4083b4d-8512-2e2d-499d-8b433dd7232c",
+      "consumer_gpu_uuid": "GPU-f802412c-b994-0c40-a53a-530f5490631e",
+      "new_training_qa_forward_backward": 32,
+      "main_qa_forward_backward": 24,
+      "initial_parity_qa_forward_backward": 8,
+      "optimizer_updates": 0,
+      "generation_questions": 0,
+      "model_loads_current_session": 1,
+      "model_load_seconds_current_session": 5.731086042709649,
+      "actual_model_load_starts_all_sessions": 1,
+      "actual_model_load_completions_all_sessions": 1,
+      "actual_completed_main_QA_all_sessions": 24,
+      "actual_completed_parity_QA_all_sessions": 8,
+      "source_call_starts_all_sessions": 3,
+      "source_call_completions_all_sessions": 3,
+      "session_wall_seconds": 57.22279226174578,
+      "resumed_completed_points": [],
+      "peak_allocated_gib": 8.54530143737793,
+      "peak_reserved_gib": 9.412109375,
+      "memory_cap_gib": 65,
+      "initial_parameters_rng_buffers_restored": true,
+      "frozen_parameters_unchanged": true,
+      "teacher_cache_manifest_unchanged": true,
+      "performance_evaluation": false,
+      "limitations": "Single seed offline training gradients; local Adam approximation conditional on historical moments; not original gradient logs, heldout gains or forgetting causality."
+    }
+  ],
+  "new_model_loads": 2,
+  "total_recorded_gradient_FP32_tensor_bytes": 66355200,
+  "costs": {
+    "original_workflow_wall_seconds": 167.686406,
+    "original_scope": "launch to original controller failure; includes queue/loading/GPU/CPU, not pure GPU time",
+    "successful_CPU_recovery_seconds": 43.27488864399493,
+    "CPU_recovery_scope": "successful independent CPU verification/aggregation only",
+    "prior_readonly_inspection_attempt": {
+      "pid": 420400,
+      "exit_code": 139,
+      "error": "UCX signal11 while varying live CPU thread pools; no recovery file or model operation was produced"
+    },
+    "not_a_continuous_end_to_end_wall_sum": true,
+    "per_point_phase_seconds_scope": "encoding/H2D/F/B/gradient copy/runtime restore, not pure GPU kernels"
+  },
+  "CPU_recovery": {
+    "schema_version": "rarevlm.object_kl.gradient.cpu_recovery.v1",
+    "status": "completed",
+    "completed_at": "2026-10-15T15:04:34.513698+00:00",
+    "study_input_lock_sha256": "e35bf41177af0cabb26c7485e5fe99d7a2a511736a98609741e214490d87cbeb",
+    "original_status_snapshot": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/RECOVERY_ORIGINAL_STATUS.json",
+    "original_status_sha256": "fb4218796db24d59e8d7c92acce6a6a9df40cce75b9266a73254effc2266e2fd",
+    "original_controller_log": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/controller.log",
+    "original_controller_log_sha256": "0747648a820a9fc84361b870c24d2219a13c3e54e398fd891664e291930e5f07",
+    "original_controller_log_snapshot": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/RECOVERY_ORIGINAL_CONTROLLER.log",
+    "original_controller_log_snapshot_sha256": "0747648a820a9fc84361b870c24d2219a13c3e54e398fd891664e291930e5f07",
+    "original_workflow_started_at": "2026-10-15T14:50:21.927302+00:00",
+    "original_failure_at": "2026-10-15T14:53:09.613708+00:00",
+    "original_workflow_wall_seconds": 167.686406,
+    "original_workflow_wall_scope": "launch to original controller failure; includes queue/loading/GPU/CPU, not pure GPU time",
+    "cpu_recovery_seconds": 43.27488864399493,
+    "cpu_recovery_scope": "successful independent CPU verification/aggregation only",
+    "recovery_source_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/tools/recover_object_kl_gradient_report.py",
+    "recovery_source_sha256": "f4d0a79f64e2fdc511879b195a1b990e7f011fe8b9a9985e7e94a36de2ec2503",
+    "native_thread_environment": {
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2"
+    },
+    "actual_torch_num_threads": 2,
+    "independent_float_review_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/independent_review/FLOAT_REDUCTION_REVIEW.json",
+    "independent_float_review_sha256": "511cdd4c65ae7973bdb6a5bd830c43961b224ea079aad82db84997c2a5257094",
+    "exact_frozen_aggregate_checks_passed": true,
+    "numeric_tolerance_added": false,
+    "original_derived_POINT_and_RESULT_values_preserved": true,
+    "frozen_globals_patched": false,
+    "analysis_file": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/ANALYSIS.json",
+    "analysis_sha256": "b95b94d5e880e7b821d21e49ea4ef59b4bc13601a09b5e2c9fd8609ac2f905eb",
+    "protected_file_count": 317,
+    "protected_bytes_unchanged_before_after": true,
+    "original_diagnostic_new_training_qa_forward_backward": 96,
+    "recovery_new_model_forwards": 0,
+    "recovery_new_training_qa_forward_backward": 0,
+    "recovery_gpu_operations": 0,
+    "recovery_new_predictions": 0,
+    "recovery_optimizer_updates": 0,
+    "prior_readonly_inspection_attempt": {
+      "pid": 420400,
+      "exit_code": 139,
+      "error": "UCX signal11 while varying live CPU thread pools; no recovery file or model operation was produced"
+    },
+    "performance_evaluation": false,
+    "goal_complete": false
+  },
+  "float_reduction_review_summary": {
+    "source": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/independent_review/FLOAT_REDUCTION_REVIEW.json",
+    "default_torch_num_threads": 128,
+    "tested_torch_threads": [
+      128,
+      1,
+      2,
+      8
+    ],
+    "all_original_leaves_exact_at_2_threads": true,
+    "max_recorded_absolute_float_reduction_difference": 6.938893903907228e-17,
+    "conclusion": "Saved metrics reproduce exactly at the original2-thread probe setting; only floating reduction last bits differ across CPU thread counts, with unchanged vector/layout/source identities.",
+    "note": "Alternative-thread near-equality describes the failure cause only; final acceptance kept original exact equality, no tolerance relaxation."
+  },
+  "interpretation": {
+    "KL_gradient_not_uniformly_negligible_at_these_points": true,
+    "all_three_KL_norms_above_preregistered_floor_guard": true,
+    "all_three_raw_cosines_negative": true,
+    "all_three_joint_Adam_KL_gradient_dot_delta_negative": true,
+    "negative_raw_cosine_is_not_Adam_update_direction": true,
+    "coverage_cause_proven": false,
+    "universal_gradient_conflict_proven": false,
+    "lambda_increase_necessity_proven": false,
+    "shadow_is_executed_update_or_postupdate_loss": false
+  },
+  "future_research_boundary": {
+    "protocol_name": "VLM_OBJECT_REPLAY_COVERAGE_V1_PROTOCOL.md",
+    "status": "separate prospective actual-performance study, not run or proven by this diagnostic export",
+    "wide32": {
+      "unique_replay_QA": 5792,
+      "approx_pool_coverage_percent": 17.56,
+      "actual_replay_exposures": 5792
+    },
+    "repeat8x4": {
+      "unique_replay_QA": 1448,
+      "approx_pool_coverage_percent": 4.39,
+      "actual_replay_exposures": 5792
+    },
+    "updates_each": 181,
+    "lambda_each": 1,
+    "teacher_cost_equal_claim": false,
+    "target": "full POPE plus original Text three-seed protection remains active"
+  },
+  "evidence": {
+    "analysis_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/ANALYSIS.json",
+    "analysis_sha256_from_completion": "b95b94d5e880e7b821d21e49ea4ef59b4bc13601a09b5e2c9fd8609ac2f905eb",
+    "completion_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/COMPLETION.json",
+    "recovery_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/RECOVERY.json",
+    "recovery_sha256_from_completion": "7ee20f0e5b5353414560abcdd270dea3f05cb08043a40baac6d1f99e8234431e",
+    "study_input_lock_sha256": "e35bf41177af0cabb26c7485e5fe99d7a2a511736a98609741e214490d87cbeb",
+    "source_preservation_from_existing_recovery_receipt": {
+      "protected_file_count": 317,
+      "protected_bytes_unchanged_before_after": true
+    },
+    "source_preservation_reaudit_in_export": false
+  },
+  "export_operations": {
+    "tensor_files_read": 0,
+    "model_loads": 0,
+    "new_model_forwards": 0,
+    "GPU_operations": 0,
+    "optimizer_updates": 0,
+    "new_predictions": 0,
+    "CI_recomputations": 0,
+    "old_whole_source_hash_audits": 0
+  },
+  "limitations": [
+    "three fixed training batches are descriptive, not independent replications or a causal forgetting test",
+    "initial-gradient noise controls limit interpretation of small KL directions",
+    "CPU Adam shadow is a conditional first-order calculation, not an executed counterfactual trajectory",
+    "no heldout performance, automatic lambda selection, or next experiment is authorized by this diagnostic"
+  ]
+}

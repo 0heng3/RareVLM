@@ -25,3 +25,7 @@ private_notes/
 *.egg-info/
 build/
 dist/
+
+# Offline learning outputs and raw example images remain in the experiment workspace.
+docs/learning/*.html
+docs/assets/supervision_v4/*.jpg

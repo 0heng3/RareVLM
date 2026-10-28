@@ -1,0 +1,165 @@
+{
+  "schema_version": "rarevlm.gt_anchored_kl.verified_metrics.v1",
+  "status": "completed_negative_independently_accepted",
+  "candidate": "gt_ce_kl32",
+  "control": "gt_kl32",
+  "seeds": [
+    42
+  ],
+  "main_contrasts": {
+    "object": [
+      {
+        "slice": "overall",
+        "before_score_percent": 95.6140350877193,
+        "after_score_percent": 97.07602339181285,
+        "delta_pp": 1.4619883040935644,
+        "image_cluster_bootstrap_95_pp": [
+          0.28901734104045396,
+          3.125
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 342,
+        "image_clusters": 143
+      }
+    ],
+    "text": [
+      {
+        "slice": "overall",
+        "before_score_percent": 87.11193568336425,
+        "after_score_percent": 87.02535559678417,
+        "delta_pp": -0.08658008658008659,
+        "image_cluster_bootstrap_95_pp": [
+          -0.453160265943487,
+          0.2654608964202885
+        ],
+        "one_sided_98_75_lower_pp": -0.5230773909788509,
+        "questions": 1617,
+        "image_clusters": 1024
+      },
+      {
+        "slice": "unseen_0",
+        "before_score_percent": 84.03202328966522,
+        "after_score_percent": 83.7991266375546,
+        "delta_pp": -0.23289665211062593,
+        "image_cluster_bootstrap_95_pp": [
+          -0.8785095082502158,
+          0.35294117647058826
+        ],
+        "one_sided_98_75_lower_pp": -0.972037132246759,
+        "questions": 687,
+        "image_clusters": 543
+      },
+      {
+        "slice": "rare_1_5",
+        "before_score_percent": 87.39766081871345,
+        "after_score_percent": 87.57309941520468,
+        "delta_pp": 0.17543859649122803,
+        "image_cluster_bootstrap_95_pp": [
+          -0.6159266083616639,
+          1.088235294117647
+        ],
+        "one_sided_98_75_lower_pp": -0.7310209480200991,
+        "questions": 342,
+        "image_clusters": 312
+      },
+      {
+        "slice": "medium_6_20",
+        "before_score_percent": 93.62573099415205,
+        "after_score_percent": 93.62573099415205,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 171,
+        "image_clusters": 160
+      },
+      {
+        "slice": "frequent_gt20",
+        "before_score_percent": 89.28057553956835,
+        "after_score_percent": 89.18465227817745,
+        "delta_pp": -0.09592326139088728,
+        "image_cluster_bootstrap_95_pp": [
+          -0.8056872037914692,
+          0.6190476190476191
+        ],
+        "one_sided_98_75_lower_pp": -0.9302596628178024,
+        "questions": 417,
+        "image_clusters": 367
+      }
+    ]
+  },
+  "gate": {
+    "passed": false,
+    "checks": {
+      "object_gain_at_least1pp": true,
+      "object_lower98_75_gt0": false,
+      "text_NI_lower98_75_gt_minus0_5": false,
+      "object_recall_point_nondecrease": true,
+      "object_specificity_point_at_least_minus0_5": true,
+      "balanced_object_point_gt0": true,
+      "text_rare_point_nondecrease": true,
+      "text_frequent_point_nondecrease": false
+    },
+    "family": "one preregistered candidate × internal object/TextNI/external object/POPE accuracy; alpha=.05/4=.0125 each",
+    "point_guard_interpretation": "point guards are not slice/recall/specificity NI or equivalence"
+  },
+  "arms": {
+    "gt_ce_kl32": {
+      "object": {
+        "questions": 342,
+        "images": 143,
+        "initial_saved_score_percent": 95.6140350877193,
+        "new_independent_score_percent": 97.07602339181285,
+        "delta_pp": 1.461988304093567,
+        "score_increases": 5,
+        "score_decreases": 0,
+        "score_changed_QA": 5
+      },
+      "text": {
+        "questions": 1617,
+        "images": 1024,
+        "initial_saved_score_percent": 87.11193568336425,
+        "new_independent_score_percent": 87.02535559678417,
+        "delta_pp": -0.08658008658008659,
+        "score_increases": 5,
+        "score_decreases": 8,
+        "score_changed_QA": 13
+      }
+    },
+    "gt_kl32": {
+      "object": {
+        "questions": 342,
+        "images": 143,
+        "initial_saved_score_percent": 95.6140350877193,
+        "new_independent_score_percent": 97.36842105263158,
+        "delta_pp": 1.7543859649122806,
+        "score_increases": 6,
+        "score_decreases": 0,
+        "score_changed_QA": 6
+      },
+      "text": {
+        "questions": 1617,
+        "images": 1024,
+        "initial_saved_score_percent": 87.11193568336425,
+        "new_independent_score_percent": 86.85837971552257,
+        "delta_pp": -0.25355596784168216,
+        "score_increases": 1,
+        "score_decreases": 7,
+        "score_changed_QA": 8
+      }
+    }
+  },
+  "new_predictions_scored": 3918,
+  "score_mismatches": 0,
+  "frozen_files_unchanged": 88,
+  "root_acceptance_sha256": "97d6783bc256537a9cb980c4ea2a482e61653a1a3b5996a2f2616bcee5e166e9",
+  "goal_complete": false,
+  "limits": [
+    "repeatedly explored internal dev",
+    "single seed per condition",
+    "no candidate external/POPE confirmation",
+    "rare/frequent point guards are not significance or noninferiority tests"
+  ]
+}

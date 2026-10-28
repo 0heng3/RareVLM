@@ -1,0 +1,430 @@
+{
+  "status": "completed",
+  "optimizer_updates": 0,
+  "retrospective": true,
+  "readout": {
+    "initial_val": {
+      "qa": 474,
+      "conditional_binary_nll": 0.14253057498983374,
+      "auc": 0.9906901509705248,
+      "threshold0_accuracy_percent": 95.35864978902954,
+      "mean_margin": -0.9992363845245748,
+      "brier": 0.03887128162661771
+    },
+    "initial_trainfit": {
+      "qa": 256,
+      "conditional_binary_nll": 0.18449837757426787,
+      "auc": 0.98333740234375,
+      "threshold0_accuracy_percent": 93.359375,
+      "mean_margin": -0.635040633380413,
+      "brier": 0.05334242923967059
+    },
+    "candidate_val": {
+      "qa": 474,
+      "conditional_binary_nll": 0.1170143897443202,
+      "auc": 0.991822429906542,
+      "threshold0_accuracy_percent": 95.9915611814346,
+      "mean_margin": -0.6180283872387077,
+      "brier": 0.03286202586869075
+    },
+    "candidate_trainfit": {
+      "qa": 256,
+      "conditional_binary_nll": 0.1659910653595929,
+      "auc": 0.9830322265625,
+      "threshold0_accuracy_percent": 93.359375,
+      "mean_margin": -0.14735466241836548,
+      "brier": 0.04842860574479356
+    },
+    "control_val": {
+      "qa": 474,
+      "conditional_binary_nll": 0.136114830303772,
+      "auc": 0.9918583752695902,
+      "threshold0_accuracy_percent": 95.9915611814346,
+      "mean_margin": -1.1381782660504434,
+      "brier": 0.03741422407090845
+    }
+  },
+  "auc_delta_ci": {
+    "candidate_minus_initial": [
+      -9.16641193918849e-05,
+      0.0027346733252099097
+    ],
+    "candidate_minus_control": [
+      -0.001130907071674242,
+      0.0012048296491751404
+    ],
+    "scope": "1000 exploratory paired image-cluster bootstrap replicates; not an original gate"
+  },
+  "generation_vs_readout": {
+    "initial_val": {
+      "different_binary_answers": 1,
+      "invalid_generation": []
+    },
+    "candidate_val": {
+      "different_binary_answers": 0,
+      "invalid_generation": []
+    },
+    "control_val": {
+      "different_binary_answers": 7,
+      "invalid_generation": [
+        {
+          "question_id": "vqa2_train2014:393489015",
+          "prediction": "unanswerable"
+        },
+        {
+          "question_id": "vqa2_train2014:42867001",
+          "prediction": "unanswerable"
+        }
+      ]
+    }
+  },
+  "margin_shift_mean": 0.381207997285867,
+  "margin_correlation": 0.9968061095999,
+  "early200": {
+    "human": {
+      "delta_pp": 0.6329113924050633,
+      "image_cluster_95_ci_pp": [
+        -0.21321961620469082,
+        1.6461753850070004
+      ],
+      "qa": 474,
+      "images": 228
+    },
+    "control": {
+      "delta_pp": -0.6329113924050633,
+      "image_cluster_95_ci_pp": [
+        -1.5765765765765767,
+        0.22076276153079766
+      ],
+      "qa": 474,
+      "images": 228
+    }
+  },
+  "rare_comparison": {
+    "control_vs_initial": {
+      "delta_pp": 1.374269005847953,
+      "image_cluster_95_ci_pp": [
+        0.32255706470477286,
+        2.592646582442501
+      ],
+      "qa": 342,
+      "images": 312
+    },
+    "candidate_vs_control": {
+      "delta_pp": 0.17543859649122803,
+      "image_cluster_95_ci_pp": [
+        0.0,
+        0.5373134328358208
+      ],
+      "qa": 342,
+      "images": 312
+    }
+  },
+  "microbatch_benchmark": {
+    "status": "completed",
+    "optimizer_updates": 0,
+    "effective_batch": 16,
+    "fixed_input_source_counts": {
+      "text": 13,
+      "human": 3
+    },
+    "preprocessing_once_seconds": 1.8301114793866873,
+    "results": {
+      "4": {
+        "core_update_seconds": [
+          7.783908925950527,
+          7.794190546497703,
+          7.758524644188583
+        ],
+        "median_core_seconds": 7.783908925950527,
+        "mean_qa_ce": [
+          0.20166825130581856,
+          0.20166825130581856,
+          0.20166825130581856
+        ],
+        "gradient_relative_l2_vs_micro4": 0.0,
+        "peak_allocated_gib": 8.552738666534424,
+        "peak_reserved_gib": 9.423828125
+      },
+      "8": {
+        "core_update_seconds": [
+          9.911356466822326,
+          9.94398948084563,
+          9.952089507132769
+        ],
+        "median_core_seconds": 9.94398948084563,
+        "mean_qa_ce": [
+          0.19586852192878723,
+          0.19586852192878723,
+          0.19586852192878723
+        ],
+        "gradient_relative_l2_vs_micro4": 0.16317636240740094,
+        "peak_allocated_gib": 11.345744132995605,
+        "peak_reserved_gib": 12.24609375
+      },
+      "16": {
+        "core_update_seconds": [
+          14.746368517167866,
+          14.754874516278505,
+          14.819312937557697
+        ],
+        "median_core_seconds": 14.754874516278505,
+        "mean_qa_ce": [
+          0.19808942079544067,
+          0.19808942079544067,
+          0.19808942079544067
+        ],
+        "gradient_relative_l2_vs_micro4": 0.16437920546547471,
+        "peak_allocated_gib": 19.237110137939453,
+        "peak_reserved_gib": 20.83984375
+      }
+    },
+    "scope": "fixed-batch forward/backward/clip/H2D core; excludes repeated image preprocessing, optimizer step and checkpoint IO; no convergence equivalence claim"
+  },
+  "prediction_forensics": {
+    "roles": {
+      "initial": {
+        "correct": 453,
+        "qa": 474,
+        "confusion": {
+          "('no', 'no')": 256,
+          "('yes', 'yes')": 197,
+          "('yes', 'no')": 17,
+          "('no', 'yes')": 4
+        },
+        "predicted_yes": 201
+      },
+      "control": {
+        "correct": 450,
+        "qa": 474,
+        "confusion": {
+          "('no', 'no')": 255,
+          "('yes', 'yes')": 195,
+          "('yes', 'no')": 19,
+          "('no', None)": 2,
+          "('no', 'yes')": 3
+        },
+        "predicted_yes": 198
+      },
+      "human": {
+        "correct": 455,
+        "qa": 474,
+        "confusion": {
+          "('no', 'no')": 252,
+          "('yes', 'yes')": 203,
+          "('yes', 'no')": 11,
+          "('no', 'yes')": 8
+        },
+        "predicted_yes": 211
+      }
+    },
+    "transitions": {
+      "control": {
+        "counts": {
+          "unchanged_correct": 449,
+          "unchanged_wrong": 20,
+          "corrected": 1,
+          "broken": 4
+        },
+        "changed_cases": [
+          {
+            "question_id": "vqa2_train2014:113326001",
+            "image_id": "coco2017:000000113326",
+            "question": "Are there snowballs on the cake?",
+            "target": "no",
+            "before": "yes",
+            "after": "no",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:393489015",
+            "image_id": "coco2017:000000393489",
+            "question": "Is the person using skype?",
+            "target": "no",
+            "before": "no",
+            "after": null,
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:419477015",
+            "image_id": "coco2017:000000419477",
+            "question": "Does the man have a beard?",
+            "target": "yes",
+            "before": "yes",
+            "after": "no",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:42867001",
+            "image_id": "coco2017:000000042867",
+            "question": "Are people watching the TV?",
+            "target": "no",
+            "before": "no",
+            "after": null,
+            "votes": 9
+          },
+          {
+            "question_id": "vqa2_train2014:431480008",
+            "image_id": "coco2017:000000431480",
+            "question": "Is his uniform clean?",
+            "target": "yes",
+            "before": "yes",
+            "after": "no",
+            "votes": 10
+          }
+        ]
+      },
+      "human": {
+        "counts": {
+          "unchanged_correct": 448,
+          "unchanged_wrong": 14,
+          "corrected": 7,
+          "broken": 5
+        },
+        "changed_cases": [
+          {
+            "question_id": "vqa2_train2014:113326001",
+            "image_id": "coco2017:000000113326",
+            "question": "Are there snowballs on the cake?",
+            "target": "no",
+            "before": "yes",
+            "after": "no",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:237667004",
+            "image_id": "coco2017:000000237667",
+            "question": "Is this a typical home cooked meal?",
+            "target": "yes",
+            "before": "no",
+            "after": "yes",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:29466002",
+            "image_id": "coco2017:000000029466",
+            "question": "Will these skiers make it back before the sun goes down?",
+            "target": "yes",
+            "before": "no",
+            "after": "yes",
+            "votes": 9
+          },
+          {
+            "question_id": "vqa2_train2014:311195001",
+            "image_id": "coco2017:000000311195",
+            "question": "Is the picture taken from below?",
+            "target": "no",
+            "before": "no",
+            "after": "yes",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:393489017",
+            "image_id": "coco2017:000000393489",
+            "question": "Is the phone on?",
+            "target": "no",
+            "before": "no",
+            "after": "yes",
+            "votes": 9
+          },
+          {
+            "question_id": "vqa2_train2014:397724000",
+            "image_id": "coco2017:000000397724",
+            "question": "Is there a new roll of toilet paper on the dispenser?",
+            "target": "no",
+            "before": "no",
+            "after": "yes",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:419477001",
+            "image_id": "coco2017:000000419477",
+            "question": "Is the biker wearing a helmet?",
+            "target": "no",
+            "before": "no",
+            "after": "yes",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:446181001",
+            "image_id": "coco2017:000000446181",
+            "question": "Are these children old enough for these sports?",
+            "target": "yes",
+            "before": "no",
+            "after": "yes",
+            "votes": 9
+          },
+          {
+            "question_id": "vqa2_train2014:458832000",
+            "image_id": "coco2017:000000458832",
+            "question": "Does this animal enjoy canned tuna?",
+            "target": "yes",
+            "before": "no",
+            "after": "yes",
+            "votes": 10
+          },
+          {
+            "question_id": "vqa2_train2014:522298007",
+            "image_id": "coco2017:000000522298",
+            "question": "Are these girls friends?",
+            "target": "no",
+            "before": "no",
+            "after": "yes",
+            "votes": 9
+          },
+          {
+            "question_id": "vqa2_train2014:522298009",
+            "image_id": "coco2017:000000522298",
+            "question": "Was it taken in Summer?",
+            "target": "yes",
+            "before": "no",
+            "after": "yes",
+            "votes": 9
+          },
+          {
+            "question_id": "vqa2_train2014:551349002",
+            "image_id": "coco2017:000000551349",
+            "question": "Are both shoes standing up?",
+            "target": "yes",
+            "before": "no",
+            "after": "yes",
+            "votes": 10
+          }
+        ]
+      }
+    },
+    "training": {
+      "control": {
+        "visual_tokens_by_source": {
+          "text": 30796753,
+          "repeat_text": 3643703
+        },
+        "qa_by_source": {
+          "text": 32985,
+          "repeat_text": 3893
+        }
+      },
+      "human": {
+        "visual_tokens_by_source": {
+          "text": 30796753,
+          "human": 1371410
+        },
+        "qa_by_source": {
+          "text": 32985,
+          "human": 3893
+        }
+      }
+    }
+  },
+  "cost": {
+    "training_gpu_hours": 13.071218088585884,
+    "candidate_old_text_visual_share_percent": 95.73674754135013,
+    "candidate_new_human_loss_share_percent": 3.5093401493387066
+  },
+  "limitations": [
+    "Readout is conditional first-token yes/no, not generation accuracy.",
+    "Fixed fit sample is training data, not heldout.",
+    "One retrospective early point does not calibrate a high success probability.",
+    "Historical primary gates and failed result remain unchanged."
+  ]
+}

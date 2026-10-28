@@ -1,0 +1,69 @@
+{
+  "schema_version": "rarevlm.preference_semantic_review.v1",
+  "source_questions": 10000,
+  "source_generations": 50000,
+  "raw_pairs": 1480,
+  "original_conservative_pairs": 749,
+  "original_audit": {
+    "n": 64,
+    "clear": 50,
+    "not_clear": 14,
+    "clear_fraction": 0.78125,
+    "wilson95": [
+      0.6656721604337418,
+      0.8649768059328052
+    ],
+    "gate_passed": false,
+    "limitations": "Nominal interval for assistant clear-preference judgments;not independent human truth or a full-population error rate",
+    "categories": {
+      "clear_visual_preference": 50,
+      "question_or_entity_ambiguity": 6,
+      "answer_scope_or_partial": 6,
+      "semantic_alias": 1,
+      "unresolved_visual_detail": 1
+    },
+    "source_plan_sha256": "8adeb2afe89742e0f0da1891e3dfa5c8449201a002da44100c6b311c63c924eb",
+    "completed_at": "2026-10-15T05:18:59.003734+00:00",
+    "optimizer_updates": 0,
+    "training_allowed": false,
+    "training_launched": false
+  },
+  "repair_pairs_before_design_exclusion": 217,
+  "repair_design_excluded": 18,
+  "repair_pairs": 199,
+  "repair_confirmation": {
+    "n": 64,
+    "clear": 56,
+    "not_clear": 8,
+    "clear_fraction": 0.875,
+    "wilson95": [
+      0.7722543817887005,
+      0.9352775733666955
+    ],
+    "gate_passed": false,
+    "limitations": "Nominal interval for assistant clear-preference judgments;not independent human truth or a full-population error rate",
+    "categories": {
+      "clear_visual_preference": 56,
+      "question_or_entity_ambiguity": 5,
+      "unresolved_visual_detail": 1,
+      "semantic_alias": 1,
+      "answer_scope_or_partial": 1
+    },
+    "completed_at": "2026-10-15T05:24:13.740503+00:00",
+    "candidate_pairs": 199,
+    "confirmation_disjoint_from_design": true,
+    "training_allowed": false,
+    "training_launched": false,
+    "optimizer_updates": 0,
+    "new_adapter_count": 0,
+    "decision": "do_not_train_repaired_pool;keep_failed_gate;no further tuning_on_confirm",
+    "source_plan_sha256": "02ac81680f80979224fe5e65e20759e705f36d4ad83768c8ce238c422d3690e2"
+  },
+  "new_gpu_generations": 0,
+  "optimizer_updates": 0,
+  "limits": [
+    "two different candidate populations;fractions not a paired improvement estimate",
+    "128 distinct assistant-reviewed train images;not full human annotation or model validation",
+    "no dev/test model predictions;no accuracy or RLHF success claim"
+  ]
+}

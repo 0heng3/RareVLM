@@ -133,10 +133,10 @@ TextVQA 三 checkpoint 的图像配对探索区间均高于零，DocVQA/MMStar �
 | 当前优先：零GPU失败诊断 | 复用区域相对单整图的118个满分→零分病例，以及区域胜随机的病例 | 人工核对实际输入、文字可读性、ROI相关性、全局丢失和计分歧义；当前机制分类未完成，不先追加GPU长实验 |
 | 等QA/更新数据选择 | 同训练池10k QA、625更新，固定随机/质量多样性/监督频次覆盖策略，三seed | 报告token、独立图数、长度与目标曝光；等QA不是等计算，尚未实现或训练 |
 | 多任务能力保持 | 先建独立能力dev；通用视觉train混合，总预算匹配和TextVQA曝光匹配分别对照 | 评测集不进训练；区间跨零不证明保持，须预设可接受损失及相应检验；未执行 |
-| 可靠偏好后训练 | 同SFT起点：不追加、chosen-only继续SFT、DPO | 先审查有效答案/偏好噪声，再核对reference、beta、长度及曝光；未构建偏好集或执行DPO |
+| 可靠偏好后训练 | 同SFT起点：不追加、chosen-only继续SFT、DPO | 10000图/50000回答已构建；749候选和独立修复199候选的语义质量门控均失败，未执行DPO；详见[审查结果](VLM_PREFERENCE_SEMANTIC_REVIEW_V1_RESULTS.md) |
 | 服务级推理诊断 | 候选512/1024×并发1/4；每条件200请求×3重复＝2400请求 | p50/p95、首token时间、吞吐、失败率、allocated/reserved；设计未执行，现有QA/s不能当生产SLA |
 | 容量/外部底座复现 | 有诊断动机后，同系列7B容量对照或独立新底座协议 | 重新核对processor、LoRA目标、参数与提示；底座变化非纯规模因素，尚未实测 |
-| 检索方向分支 | 负采样、多正聚合、教师蒸馏与负关系置乱对照均已完成；下一候选为固定召回后的图文重排 | 保留双向Recall/nDCG与条件区间；置乱dev联合门槛未过、不新增test；SigLIP、重排及线上检索尚未执行 |
+| 检索方向分支 | 负采样、多正聚合、教师蒸馏、机制对照及固定Top50图文重排均已完成；后续先复用保存排名学习和诊断 | 重排test T2I+17.273/I2T+15.233pp，额外模型/信息/计算单列；SigLIP、文档检索与线上检索尚未执行 |
 
 继续当前3B主线、按需借鉴开源模块；更换底座或训练框架由误差机制与实际收益决定。[LLaMA-Factory](https://github.com/hiyouga/LlamaFactory)、[ms-swift](https://github.com/modelscope/ms-swift)或[TRL VLM DPO](https://huggingface.co/docs/trl/dpo_trainer#training-vision-language-models)接入前，须核对冻结模块、LoRA计数、assistant mask、逐题loss、processor、OCR及恢复契约，不能把框架默认值当本项目协议。
 
@@ -182,3 +182,59 @@ TextVQA 三 checkpoint 的图像配对探索区间均高于零，DocVQA/MMStar �
 2026-10-14 16:10完成[新机制对照](CLIP_RETRIEVAL_SHUFFLE_V1_RESULTS.md)：仅新三个seed完整28k图/10epoch/8750更新，原mean/distill六checkpoint及七dev格按SHA复用。新dev置乱T2I69.107±.147、I2T84.467±.208；原distill69.907±.343/84.733±.404。原减置乱的T2I+.800pp，6000图像簇95%区间[.227,1.393]，3seed均正；I2T+.267pp，[−.733,1.300]跨0，2seed正。两方向各+.5pp/校正单侧下界>0的联合门槛失败，不新评test、不调门槛；只能支持文搜图的负关系价值，不能归因全部语义收益或称两目标等价。置乱仍显著高于CE的探索区间不替代主门槛，正项教师置信度和其他正则机制未隔离。
 
 四项数学/真实CPU/第一CUDA合同、完整初始化/采样流/曝光SHA、10格Top10独立重评分和96历史文件/正式简历保护通过；数值导出与NumPy JSON修复在独立工具和审计，原科学源码/协议不改。[便携指标](../results/clip_retrieval_shuffle_v1_metrics.json)、[概率置乱代码](../src/clip_retrieval_shuffle/loss.py)。本地学习页含真实源图、完整480概率及梯度、三seed结果和6个实际Top5病例，图与7张原图展示已检查。面向JD下一候选为Embedding后的图文匹配重排；文档检索、服务指标仍另立协议，不扩大到全部RL/音视频方向，不等待实验才投递，正式简历按实际掌握和贡献范围定向调整。
+
+## 2026-10-14：图文匹配重排完成
+
+[固定Top50重排](CLIP_RETRIEVAL_RERANK_V1_RESULTS.md)已完成0新训练、三旧CLIP蒸馏checkpoint与一COCO匹配BLIP；完整dev/test全部门槛通过。test文搜图67.820±.122→85.093±.023（+17.273pp，条件95%区间[15.7265,18.880]），图搜文79.833±.404→95.067±.058（+15.233，[13.033,17.467]）。新增模型容量、384输入/BF16与逐候选计算，不作等预算算法/SOTA/工业效果声明，公开集历史曝光与pretrain未知保留。
+
+test900000逻辑pair去重为312116真实pair，两A100各156058pair匹配约75.6–75.8秒，缓存评分allocated1.464GiB/卡；完整流程247.8秒含准备/队列/原生预检/IO/评分，首次传输、代码和报告修复另计。六新重排格独立逐row重评分、原Top10/候选池/R50复现及54历史文件/简历保护通过，六准入队列观察0失败/0竞争。当前英文1000图库；文档检索、中文商品、多语言、视频与在线并发未验证。
+
+学习入口：本地`outputs/clip_retrieval_rerank_v1/learning/学习页.html`，实际原图/384输入、ITM logit差、Top50上界、成功与退化Top5、完整质量/成本；[缓存匹配代码](../src/clip_retrieval_rerank/common.py)、[评分断点](../src/clip_retrieval_rerank/matcher.py)、[便携指标](../results/clip_retrieval_rerank_v1_metrics.json)。先独立掌握召回与联合匹配、概率/logit、缓存去重和配对统计，复用保存错误病例；正式简历按确认的掌握和贡献范围定向修改，不自动新增实验或推Git。
+
+## 曝光受控hard＋蒸馏：完成证据与学习
+
+六次全量训练与六新dev格已完成，随机蒸馏强基线三格只读复用。控制hard曝光后dev图搜文+1.267pp、文搜图+.127pp（区间跨零），联合门槛未通过、不新增test；Top1%曝光13.535%→4.692%仅是机制指标。适用于训练采样/Embedding/受控消融的技术讲述，不等于工业效果或已掌握。学习顺序：真实图和caption→batch-max分数→hard计数与排除事件→CE/KL共同变化→完整召回与区间。
+
+[完成报告](CLIP_RETRIEVAL_CAPPED_V1_RESULTS.md)、[固定协议](CLIP_RETRIEVAL_CAPPED_V1_PROTOCOL.md)、[源码](../src/clip_retrieval_capped/sampler.py)。下一项自适应重排序尚未执行，正式简历保留用户确认的贡献范围。
+
+## 自适应重排：真实计算与质量权衡
+
+0新模型训练，3旧CLIP＋1BLIP；cal500/confirm500。确认双向R1 .5pp非劣通过，实际去重pair−21.88%、同卡batch32三轮缓存matcher＋route1.277×；预设30%pair目标未达，未新增test。适用于Embedding/Rerank/推理成本与严格对照讲述，非单模型线上SLA、工业数据效果或已掌握证据。学习：真实cosine差→阈值只用cal→query路由与pair去重→实际forward计时→图像簇非劣判断→细粒度服饰失败例。
+
+[结果](CLIP_RETRIEVAL_ADAPTIVE_V1_RESULTS.md)、[协议](CLIP_RETRIEVAL_ADAPTIVE_V1_PROTOCOL.md)、[路由](../src/clip_retrieval_adaptive/route.py)。本地学习页有实际Top1照片对照；后续候选预算分层尚未执行。
+
+## 当前JD入口与预算研究
+
+完整的[JD技术—实验数字—源码—业务边界](JD_EVIDENCE_MAP.md)已整理，重点对齐杭州图文表征／Rerank与链路优化，SFT作为定向分支。字节官网实习毕业门槛为2027年9月或以后，用户毕业月份未确认；腾讯社会岗位不计为可投实习。
+
+[0／20／50预算协议](CLIP_RETRIEVAL_BUDGET_V1_PROTOCOL.md)已固定，15合同与资产绑定通过，控制器288476执行双卡实际full／prefix评分；cal-only规划pair削减33.33%只是准入，不是最终质量或速度结论。只cal选κ、不修改旧fastτ；有效prefix覆盖与保留Top50成员分开。
+
+预算研究完成更新：dev/test门槛均通过，test实际pair−32.59%、缓存matcher＋route1.476×，双向.5pp非劣；T2I点值−.207pp及下界接近边界，不能无损宣传。[完成报告](CLIP_RETRIEVAL_BUDGET_V1_RESULTS.md)与[JD证据表](JD_EVIDENCE_MAP.md)已同步，初始running描述保留为历史准备。后续学习优先源码／图像／上限／统计四项，不自动把助手实施归为本人独立贡献。
+
+## 图文数据质量能力补充（2026-10-14完成）
+
+[一致性筛选结果](CLIP_RETRIEVAL_QUALITY_V1_RESULTS.md)补充多模态数据管线／筛选与受控噪声评测：完整28k图、12次三seed匹配训练，原始score4相对random4文搜图+.227pp、区间跨零；20%来源置换压力测试文搜图+1.160pp（95%CI[.580,1.727]），图搜文−.533pp、.5pp非劣未通过。两分支全门控均失败，未新增test，不替换已验证主方案。已知置换保留率20.04%→.393%只是来源诊断，不是工业语义错标率或干净数据提准。
+
+针对数据质量／表征岗位，可讲清训练集筛选、同预算随机控制、教师偏差、真实图片失败例和R1/nDCG不同目标；参见[JD证据映射](JD_EVIDENCE_MAP.md)。这属于同一RareVLM项目，正式简历保持，个人参与／掌握仍待确认。
+
+## 生成偏好数据与质量门控（2026-10-15完成）
+
+完整10000训练图/50000实际回答构建1480原偏好对、749保守候选。固定助手视觉审查50/64明确（78.125%）；机制修复重挖217对、排设计18对后199对，独立确认56/64明确（87.500%）。两个总体不同，不声称配对质量提升；均未过90%明确及Wilson95%下界80%，未启动SFT/DPO。真实风险含同义表达、答案范围、参考共识与图中文字冲突，不能将规则奖励或8～10票自动当人类正确偏好。
+
+[语义审查报告](VLM_PREFERENCE_SEMANTIC_REVIEW_V1_RESULTS.md)、[独立协议](VLM_PREFERENCE_REPAIR_V1_PROTOCOL.md)、[指标](../results/vlm_preference_semantic_review_v1_metrics.json)、[重挖代码](../src/vlm_preference_review/repair.py)。本轮六CPU合同、128不同图像学习例、源锁与正式简历保护通过，0新GPU生成/0参数更新/无新增模型分数。对齐JD的数据构建、质量分析和评测能力可以讲述；尚无DPO优化结果、RLHF或GRPO训练经验。下一训练要先有可信偏好来源与静态reference协议，既有CLIP/SFT主成果保持，个人贡献按实际确认。
+
+## 公开人类局部纠错的SFT/DPO诊断（启动，尚无性能结论）
+
+RLHF-V官方5733人类局部纠错对，经来源/图像/长度与POPE隔离，训练3568＋heldout439；固定64只有49明确，数据事实gate失败保留。另注册[噪声偏好诊断协议](VLM_PUBLIC_POSTTRAIN_DIAGNOSTIC_V1_PROTOCOL.md)，比较相同SFT42起点、同chosen曝光/223更新的继续SFT与标准DPO。原BF16基座＋FP32语言LoRA、静态初始SFT reference、assistant sum-logp及mask、可恢复checkpoint、真实GPU工程预检均显式实现；64 CPU合同通过。两A100训练/参考缓存已启动，完整Text1617与POPE9000的生成指标尚未出齐，不能预先写DPO提分或无噪声RLHF成功。此研究对应JD的训练/偏好优化、数据质量与可信评测；先讲清[启动记录](VLM_PUBLIC_POSTTRAIN_DIAGNOSTIC_V1_RESULTS.md)及真实图文学习，个人掌握和贡献按实际确认。
+
+完成更新：本轮两次正式训练及三模型完整评测均完成，未验证提分。Text DPO相对初始−.272pp、POPE .000pp；数据质量、目标迁移、答案范围/字面评分与物体漏检主导的证据见[失败机制分析](VLM_PUBLIC_POSTTRAIN_DIAGNOSTIC_V1_FAILURE_ANALYSIS.md)。现在有实际标准DPO优化、静态reference/损失工程和负结果诊断记录；不能写成DPO准确率优化成功、完整RLHF/PPO/GRPO能力或用户本人已掌握。既有检索/蒸馏/预算指标仍为已验证主成果，正式简历保持。
+
+
+2026-10-15物体适配与保持研究更新：[v2完整结果](VLM_OBJECT_ADAPT_V2_RESULTS.md)已保留两个候选的负联合结论：Only物体+1.754pp，Replay+1.170pp，但Text罕见／高频答案保护等门槛未过；仅单顺序seed42，0新增POPE。下一项[固定初始模型KL回放协议](VLM_OBJECT_KL_V1_PROTOCOL.md)只改变回放监督目标，新增外部1791图／4372QA用于确认，不用于训练或选参。相关JD能力是SFT、冻结／LoRA、静态教师蒸馏、逐QA损失归一、图像簇配对评测和错误分析；GT前缀上的监督KL不等于on-policy训练、RLHF／GRPO或模型压缩。尚无新KL效果或工业场景结论，不改正式简历、不把助手实现执行当用户本人掌握。学习顺序为原图漏检／答案漂移→CE与KL梯度→真实mask／缓存源码→完整保持与外部结果。
+
+
+物体KL完成与梯度诊断更新：[KL结果](VLM_OBJECT_KL_V1_RESULTS.md)已完整核验：内部物体+2.339pp且区间通过，Text−.315pp／保持下界−.649pp、rare/frequent点保护失败，尚无通用保持或POPE收益。[固定训练点梯度诊断已完成](VLM_OBJECT_KL_GRADIENT_V1_RESULTS.md)，96条训练QA前后向、0更新，三点KL/Object范数比.031/2.699/.333、raw cos略负；条件Adam方向三点KL一阶项均负，不能推出普遍冲突、增lambda必要性或覆盖因果。CPU线程归约故障已用原2线程exact恢复，未放宽检查。
+
+[回放覆盖预算对照已完成](VLM_OBJECT_REPLAY_COVERAGE_V1_RESULTS.md)，状态`completed_negative`（[便携指标](../results/vlm_object_replay_coverage_v1_metrics.json)）。两臂保持同初始模型/物体流/181步/lambda1，各5792回放曝光；wide32为5792unique，repeat8x4重复原1448unique，每步均值不把重复放大为4倍KL。候选新teacher与控制引用旧bank成本分列，批次方差亦变化，不称纯覆盖因果或等计算；repeat8x4仅pilot42探索，不可替补唯一候选wide32。
+
+wide32内部物体95.614→97.661%（+2.047pp，单侧98.75%下界+.552）通过；Text87.112→86.964%（−.148pp，下界−.520）未过.5pp非劣，rare−.322/frequent−.480点保护失败，合计5/8通过、3项失败。Text有11题得分变化（4升7降）。两臂共2新adapter、362正式更新、4丢弃工程step和3918正式新生成model×QA；工程生成、teacher前向与训练曝光另计，model×QA不是独立样本。未扩0/200、候选外部或POPE，真实提升目标仍active。独立预测核验复用既有验收，CI直接引用官方图像簇分析、非独立重采样；科学源保持。对应JD的持续SFT／知识保持、低秩适配、缓存与可恢复训练、数据覆盖和严谨评测仍可作为学习证据，不称通用保持、POPE提分或用户本人已掌握。正式简历和已验证检索／校准主成果保持。

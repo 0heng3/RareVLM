@@ -1,0 +1,127 @@
+{
+  "scope": "Exact qid/before/after display notes only. No changes to scientific predictions/labels/scores.",
+  "study": "vlm_native_scope_v1",
+  "audit_entries": [
+    {
+      "ordinal": 49,
+      "qid": "29585",
+      "target": "$2",
+      "prediction": "2",
+      "note": "2与$2表示同一价格。当前差异主要是货币符号省略，不能据低VQA分证明模型读错价格，因此暂不作为DPO负例。"
+    },
+    {
+      "ordinal": 64,
+      "qid": "20508",
+      "target": "368",
+      "prediction": "3 6 8",
+      "note": "图中纵排3、6、8；368与3 6 8保留了同一组数字。空格差异不代表数字识别失败，因此暂不作为明确错误偏好。"
+    },
+    {
+      "ordinal": 70,
+      "qid": "9714",
+      "target": "macbook",
+      "prediction": "apple",
+      "note": "问题问品牌，Apple是合理品牌回答，MacBook是产品线名称。不能让DPO压低一个合理的品牌回答，原标签和分数保持。"
+    }
+  ],
+  "entries": [
+    {
+      "role": "language",
+      "qid": "16032",
+      "before": "march 10th",
+      "after": "saturday march 10th",
+      "category": "答案范围／匹配风险",
+      "note": "海报可见SATURDAY MARCH 10TH；增加可见星期后1→0.3，提示回答粒度风险。不能据此单独判视觉退化，原分数不改。"
+    },
+    {
+      "role": "language",
+      "qid": "21295",
+      "before": "colts",
+      "after": "calgary",
+      "category": "已看原图：真实实体误读",
+      "note": "灰色帽子蓝字清楚写COLTS；calgary缺乏该区域文字支持，是实际实体/识别退化。尚未单独确定内部机制。"
+    },
+    {
+      "role": "language",
+      "qid": "23978",
+      "before": "jays",
+      "after": "blue jays",
+      "category": "队名范围／语义风险",
+      "note": "标牌写JAYS WIN；扩展blue jays可能涉及完整队名推断。尚不能认定评分错误或纯字形误读，原分数保留。"
+    },
+    {
+      "role": "language",
+      "qid": "29126",
+      "before": "ndaine",
+      "after": "andaine",
+      "category": "遮挡／补全不确定",
+      "note": "表盘品牌前部被指针遮挡；可见NDAINE，新增前导A没有清晰支持。遮挡与补全风险单列，不作已确定清晰字形错误。"
+    },
+    {
+      "role": "language",
+      "qid": "14780",
+      "before": "heidi rewell",
+      "after": "heidie rewell",
+      "category": "已看原图：真实字符误读",
+      "note": "图中底部写by Heidi Rewell；新增e与可见姓名不符，是实际字符退化。"
+    },
+    {
+      "role": "language",
+      "qid": "7291",
+      "before": "nail color remover",
+      "after": "lakme nail color remover",
+      "category": "答案范围／匹配风险",
+      "note": "瓶身同时可见LAKME与Nail Color Remover；新答案增加真实品牌。问题问瓶中物品，提示回答范围控制，不能直接推断识字变差。"
+    },
+    {
+      "role": "language",
+      "qid": "32574",
+      "before": "wandering poet",
+      "after": "rihaku",
+      "category": "品牌／产品实体歧义",
+      "note": "瓶身同时可见RIHAKU和WANDERING POET；标注也含Rihaku少数回答。品牌与产品实体粒度有歧义，保留原评分，不认定全部惩罚无效。"
+    },
+    {
+      "role": "language",
+      "qid": "26752",
+      "before": "chunk style",
+      "after": "packing style",
+      "category": "已看原图：条件区域选错",
+      "note": "问题指定蓝色区域，蓝底写CHUNK STYLE；PACKING位于相邻红色区域。此例是问题条件下的区域选择错误。"
+    },
+    {
+      "role": "visual",
+      "qid": "22073",
+      "before": "arena",
+      "after": "arena c",
+      "category": "答案字段补全",
+      "note": "原图上方黄牌清楚写ARENA C，新增C补全地点编号；不是单纯大小写或评分调整。"
+    },
+    {
+      "role": "visual",
+      "qid": "14861",
+      "before": "calvin klem",
+      "after": "calvin klein",
+      "category": "品牌字符纠正",
+      "note": "原图大字为Calvin Klein，klem→klein有可见文字支持；不能据单例证明普遍新识字。"
+    },
+    {
+      "role": "visual",
+      "qid": "15417",
+      "before": "yes",
+      "after": "seventh letter",
+      "category": "目标区域与标题",
+      "note": "右侧画作标题清楚为THE SEVENTH LETTER。新输出seventh letter按原EvalAI冠词规则满分；原始输出与评分不变。"
+    },
+    {
+      "role": "visual",
+      "qid": "20269",
+      "before": "bud light",
+      "after": "miller lite",
+      "category": "品牌标志与实体选择",
+      "note": "图中可见Lite品牌标志，支持miller lite；完整Miller字样较小，本例包含品牌标志识别与常识，不能全称新字符识别。"
+    }
+  ],
+  "updated_at": "2026-10-25T22:11:31.133726+08:00",
+  "review_basis": "Assistant viewed original images; posthoc explanation, no expert relabeling."
+}

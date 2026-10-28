@@ -1,0 +1,48 @@
+{
+  "schema_version": "rarevlm.object_kl.gradient.v1",
+  "experiment": "vlm_object_kl_gradient_v1",
+  "source_config": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/configs/vlm_object_kl_v1.json",
+  "source_study_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1",
+  "output_root": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1",
+  "study_protocol": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/docs/VLM_OBJECT_KL_GRADIENT_V1_PROTOCOL.md",
+  "cpu_contracts": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_gradient_v1/CPU_CONTRACTS.json",
+  "checkpoint_paths": {
+    "25": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/checkpoint_000025_1792071820724516073",
+    "100": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/checkpoint_000100_1792072547893405399",
+    "175": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/checkpoint_000175_1792073274319227418"
+  },
+  "groups": {
+    "early_late": [
+      {
+        "checkpoint_step": 25,
+        "block_index": 25
+      },
+      {
+        "checkpoint_step": 175,
+        "block_index": 175
+      }
+    ],
+    "middle": [
+      {
+        "checkpoint_step": 100,
+        "block_index": 100
+      }
+    ]
+  },
+  "parity_kl_abs_tolerance": 1e-05,
+  "memory_cap_gib": 65,
+  "training_microbatch": 4,
+  "optimizer_updates": 0,
+  "generation_questions": 0,
+  "expected_new_training_qa_forward_backward": 96,
+  "expected_main_qa_forward_backward": 72,
+  "expected_initial_parity_qa_forward_backward": 24,
+  "fixed_teacher_producer_gpu_uuid": "GPU-e4083b4d-8512-2e2d-499d-8b433dd7232c",
+  "extra_lock_files": [
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_SCREEN_REVIEW.json",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/TRAINING_COMPLETION_REVIEW.json",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_TEXT_SCORE_REVIEW.json",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/COMPLETION.json"
+  ],
+  "goal_complete": false
+}

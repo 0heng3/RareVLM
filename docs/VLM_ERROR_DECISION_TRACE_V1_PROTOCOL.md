@@ -1,0 +1,14 @@
+# 32真实训练题：监督与greedy决策只读追踪 v1
+
+2026-10-20登记。目标是定位当前SFT32/DPO32训练题仍未满分的代码/数据/优化原因；只读三个已存模型，0optimizer、新adapter或主任务评测。旧加载、FP32保存和首步审查复用，当前不延长训练。
+
+固定源为vlm_error_supervision_sft_v1的32 hard_eval、原CPU输入/两臂实际trace、SCHEDULE和reference。先CPU核对实际监督prefix与相同图/问题无GT推理prefix；解码监督标签中的答案、结束符、结束后换行，报告尾部监督的分母比例。检查固定rejected与实际初始greedy回答是否一致；这些统计不是全数据质量率。
+
+每模型按旧32题batch4原顺序实际greedy32重放，额外保留真实生成token IDs及output_scores，在与原训练GT标签序列首个分歧处读取正确token/实际token的logit、概率和rank。输出文本与旧预测逐题核对；若不一致明确报告，不能把重编码字符串冒充原生成token。已满分或仅格式差异的案例单列，不把所有BPE差异当语义错误。
+
+在原训练首轮8个preference microbatch上执行同一64序列chosen/rejected前向，复用原make_batch、实际padding、FP32 head裁尾与完整词表logsoftmax。逐token报告内容、EOS、post-EOS CE，并读取“初始实际错误token”在相同GT prefix下与正确token的logit差。比较原reference缓存与本次初始teacher logp的实际差值，不将微小数值差自动当框架错误。
+
+报告三个模型全序列chosen/rejected绝对log-ratio及相对原reference的改善；DPO优化相对比值不保证绝对顺序或greedy首错翻转。teacher-forcing与cached生成路径的条件不同，差值不当作唯一因果证明；token loss质量、参数梯度与Adam贡献明确区分。只测32训练题，不解释总体泛化或写简历提分。
+
+initial先执行以固定真实生成token的对照，随后SFT/DPO并行；共享UUID空闲准入三次15秒、40GiB/<10%/零其他compute，不终止已有任务，每worker active300秒cap。输入源码与模型先锁；只保存小型token/top5记录，不导出全词表logits。结果用于决定必要的最小修正，旧源码/配置/标签/分数/预测不覆盖。
+

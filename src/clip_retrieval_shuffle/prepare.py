@@ -49,7 +49,7 @@ def prepare(config_path):
                  PROJECT_ROOT/'docs/CLIP_RETRIEVAL_DISTILL_V1_PROTOCOL.md',
                  PROJECT_ROOT/'results/clip_retrieval_distill_v1_metrics.json',
                  PROJECT_ROOT/'docs/RESUME.md',
-                 Path('/opt/data/private/longtail_vlm/龚智恒-中国科学技术大学-日常实习-CV.pdf')]:
+                 Path('/opt/data/private/longtail_vlm/private_notes/resume.pdf')]:
         protect(path)
     if protected[str(PROJECT_ROOT/'docs/CLIP_RETRIEVAL_DISTILL_V1_PROTOCOL.md')] != oldlock['protocol_sha256']:
         raise ValueError('Historical protocol changed')

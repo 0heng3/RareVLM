@@ -1,0 +1,1597 @@
+{
+  "schema_version": "rarevlm.object_kl.portable_results.v1",
+  "exported_at_utc": "2026-10-15T14:39:44.829359+00:00",
+  "experiment": "vlm_object_kl_v1",
+  "trial_status": "completed_negative",
+  "goal_complete": false,
+  "seeds": [
+    42
+  ],
+  "scope": "Completed negative pilot, fixed common initial checkpoint and one order seed; historical CE controls are exploration only, not three-seed causal superiority.",
+  "primary_contrasts": {
+    "object": [
+      {
+        "slice": "overall",
+        "before_score_percent": 95.6140350877193,
+        "after_score_percent": 97.953216374269,
+        "delta_pp": 2.3391812865497075,
+        "image_cluster_bootstrap_95_pp": [
+          0.8522727272727293,
+          4.216867469879515
+        ],
+        "one_sided_98_75_lower_pp": 0.5917159763313639,
+        "questions": 342,
+        "image_clusters": 143,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          2.3391812865497075
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "airplane",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 20,
+        "image_clusters": 20,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "bear",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 12,
+        "image_clusters": 12,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "bicycle",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 15,
+        "image_clusters": 15,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "bird",
+        "before_score_percent": 93.33333333333333,
+        "after_score_percent": 100.0,
+        "delta_pp": 6.666666666666665,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          21.42857142857143
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 15,
+        "image_clusters": 15,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          6.666666666666665
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "boat",
+        "before_score_percent": 94.11764705882352,
+        "after_score_percent": 94.11764705882352,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 17,
+        "image_clusters": 17,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "bus",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 21,
+        "image_clusters": 21,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "car",
+        "before_score_percent": 87.17948717948718,
+        "after_score_percent": 92.3076923076923,
+        "delta_pp": 5.128205128205132,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          13.513513513513509
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 39,
+        "image_clusters": 39,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          5.128205128205132
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "cat",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 24,
+        "image_clusters": 24,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "cow",
+        "before_score_percent": 95.65217391304348,
+        "after_score_percent": 100.0,
+        "delta_pp": 4.347826086956519,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          14.28571428571429
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 23,
+        "image_clusters": 23,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          4.347826086956519
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "dog",
+        "before_score_percent": 90.0,
+        "after_score_percent": 90.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 20,
+        "image_clusters": 20,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "elephant",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 11,
+        "image_clusters": 11,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "giraffe",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 17,
+        "image_clusters": 17,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "horse",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 9,
+        "image_clusters": 9,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "motorcycle",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 21,
+        "image_clusters": 21,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "sheep",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 16,
+        "image_clusters": 16,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "train",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 21,
+        "image_clusters": 21,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "truck",
+        "before_score_percent": 80.76923076923077,
+        "after_score_percent": 96.15384615384616,
+        "delta_pp": 15.384615384615385,
+        "image_cluster_bootstrap_95_pp": [
+          3.57142857142857,
+          30.76923076923077
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 26,
+        "image_clusters": 26,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          15.384615384615385
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "zebra",
+        "before_score_percent": 100.0,
+        "after_score_percent": 100.0,
+        "delta_pp": 0.0,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 15,
+        "image_clusters": 15,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          0.0
+        ],
+        "seed_delta_sample_sd_pp": null
+      }
+    ],
+    "text": [
+      {
+        "slice": "overall",
+        "before_score_percent": 87.11193568336425,
+        "after_score_percent": 86.7965367965368,
+        "delta_pp": -0.31539888682745826,
+        "image_cluster_bootstrap_95_pp": [
+          -0.6030862068965518,
+          -0.08129574121692565
+        ],
+        "one_sided_98_75_lower_pp": -0.6488089057048072,
+        "questions": 1617,
+        "image_clusters": 1024,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          -0.31539888682745826
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "unseen_0",
+        "before_score_percent": 84.03202328966522,
+        "after_score_percent": 83.74090247452692,
+        "delta_pp": -0.2911208151382824,
+        "image_cluster_bootstrap_95_pp": [
+          -0.7760452611459766,
+          0.043923865300146414
+        ],
+        "one_sided_98_75_lower_pp": -0.8608508585530814,
+        "questions": 687,
+        "image_clusters": 543,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          -0.2911208151382824
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "rare_1_5",
+        "before_score_percent": 87.39766081871345,
+        "after_score_percent": 87.28070175438597,
+        "delta_pp": -0.11695906432748543,
+        "image_cluster_bootstrap_95_pp": [
+          -0.35820895522388074,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": -0.4651162790697676,
+        "questions": 342,
+        "image_clusters": 312,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          -0.11695906432748543
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "medium_6_20",
+        "before_score_percent": 93.62573099415205,
+        "after_score_percent": 93.21637426900585,
+        "delta_pp": -0.40935672514619875,
+        "image_cluster_bootstrap_95_pp": [
+          -1.2574850299401197,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": -1.6374269005847952,
+        "questions": 171,
+        "image_clusters": 160,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          -0.40935672514619875
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      {
+        "slice": "frequent_gt20",
+        "before_score_percent": 89.28057553956835,
+        "after_score_percent": 88.8009592326139,
+        "delta_pp": -0.4796163069544364,
+        "image_cluster_bootstrap_95_pp": [
+          -1.2106537530266344,
+          0.0
+        ],
+        "one_sided_98_75_lower_pp": -1.432023729316783,
+        "questions": 417,
+        "image_clusters": 367,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          -0.4796163069544364
+        ],
+        "seed_delta_sample_sd_pp": null
+      }
+    ]
+  },
+  "internal_class_balanced": {
+    "questions": 256,
+    "unique_images": 139,
+    "overall": {
+      "slice": "overall",
+      "before_score_percent": 96.875,
+      "after_score_percent": 98.828125,
+      "delta_pp": 1.953125,
+      "image_cluster_bootstrap_95_pp": [
+        0.3816793893129722,
+        4.059190591905918
+      ],
+      "one_sided_98_75_lower_pp": 0.0,
+      "questions": 256,
+      "image_clusters": 139,
+      "checkpoint_axes": 1,
+      "seed_delta_pp": [
+        1.953125
+      ],
+      "seed_delta_sample_sd_pp": null
+    },
+    "QA_pooled_not_macro": true,
+    "new_generation_questions": 0
+  },
+  "gate": {
+    "passed": false,
+    "checks": {
+      "object_gain_at_least1pp": true,
+      "object_lower98_75_gt0": true,
+      "text_NI_lower98_75_gt_minus0_5": false,
+      "object_recall_point_nondecrease": true,
+      "object_specificity_point_at_least_minus0_5": true,
+      "balanced_object_point_gt0": true,
+      "text_rare_point_nondecrease": false,
+      "text_frequent_point_nondecrease": false
+    },
+    "family": "one preregistered candidate × internal object/TextNI/external object/POPE accuracy; alpha=.05/4=.0125 each",
+    "point_guard_interpretation": "point guards are not slice/recall/specificity NI or equivalence"
+  },
+  "eligible_candidates": [],
+  "settings": {
+    "bootstrap_replicates": 6000,
+    "bootstrap_seed": 20261015,
+    "one_sided_confidence": 0.9875,
+    "object_min_delta_pp": 1.0,
+    "text_noninferiority_margin_pp": 0.5,
+    "external_min_delta_pp": 0.5,
+    "pope_min_delta_pp": 0.5,
+    "specificity_point_margin_pp": 0.5
+  },
+  "historical_seed42_controls": [
+    {
+      "condition": "object_only",
+      "order_seed": 42,
+      "lineage": "historical v2 exploration",
+      "object": {
+        "slice": "overall",
+        "before_score_percent": 95.6140350877193,
+        "after_score_percent": 97.36842105263158,
+        "delta_pp": 1.7543859649122862,
+        "image_cluster_bootstrap_95_pp": [
+          0.3048780487804881,
+          3.488372093023251
+        ],
+        "one_sided_98_75_lower_pp": 0.29239766081871066,
+        "questions": 342,
+        "image_clusters": 143,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          1.7543859649122862
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      "text_slices": {
+        "overall": {
+          "slice": "overall",
+          "before_score_percent": 87.11193568336425,
+          "after_score_percent": 87.14904143475573,
+          "delta_pp": 0.03710575139146567,
+          "image_cluster_bootstrap_95_pp": [
+            -0.30985514608331394,
+            0.3896164169988427
+          ],
+          "one_sided_98_75_lower_pp": -0.36765593918726913,
+          "questions": 1617,
+          "image_clusters": 1024,
+          "checkpoint_axes": 1,
+          "seed_delta_pp": [
+            0.03710575139146567
+          ],
+          "seed_delta_sample_sd_pp": null
+        },
+        "rare_1_5": {
+          "slice": "rare_1_5",
+          "before_score_percent": 87.39766081871345,
+          "after_score_percent": 87.07602339181287,
+          "delta_pp": -0.32163742690058483,
+          "image_cluster_bootstrap_95_pp": [
+            -0.855457227138643,
+            0.0
+          ],
+          "one_sided_98_75_lower_pp": -0.9495548961424333,
+          "questions": 342,
+          "image_clusters": 312,
+          "checkpoint_axes": 1,
+          "seed_delta_pp": [
+            -0.32163742690058483
+          ],
+          "seed_delta_sample_sd_pp": null
+        },
+        "frequent_gt20": {
+          "slice": "frequent_gt20",
+          "before_score_percent": 89.28057553956835,
+          "after_score_percent": 89.04076738609112,
+          "delta_pp": -0.2398081534772182,
+          "image_cluster_bootstrap_95_pp": [
+            -0.7317520424592999,
+            0.0
+          ],
+          "one_sided_98_75_lower_pp": -0.954653937947494,
+          "questions": 417,
+          "image_clusters": 367,
+          "checkpoint_axes": 1,
+          "seed_delta_pp": [
+            -0.2398081534772182
+          ],
+          "seed_delta_sample_sd_pp": null
+        }
+      },
+      "gate": {
+        "passed": false,
+        "primary_checks": {
+          "object_accuracy_at_least_1pp": true,
+          "object_accuracy_one_sided_98_75_lower_gt0": true,
+          "text_one_sided_98_75_lower_gt_minus_0_5pp": true
+        },
+        "point_protection_checks": {
+          "object_yes_recall_point_nondecrease": true,
+          "object_no_specificity_point_at_least_minus_0_5pp": true,
+          "text_rare_1_5_point_nondecrease": false,
+          "text_frequent_gt20_point_nondecrease": false,
+          "class_balanced_mean_accuracy_point_gt0": true
+        },
+        "family": "two declared arms × object improvement and Text NI endpoints; one-sided alpha=.05/4=.0125",
+        "point_protection_interpretation": "point guards only; not slice noninferiority, equivalence, or proof of long-tail improvement"
+      },
+      "training_active_seconds": 664.4061950170435,
+      "object_exposures": 2888,
+      "replay_exposures": 0
+    },
+    {
+      "condition": "object_replay",
+      "order_seed": 42,
+      "lineage": "historical v2 exploration",
+      "object": {
+        "slice": "overall",
+        "before_score_percent": 95.6140350877193,
+        "after_score_percent": 96.78362573099415,
+        "delta_pp": 1.1695906432748537,
+        "image_cluster_bootstrap_95_pp": [
+          0.0,
+          2.7108433734939763
+        ],
+        "one_sided_98_75_lower_pp": 0.0,
+        "questions": 342,
+        "image_clusters": 143,
+        "checkpoint_axes": 1,
+        "seed_delta_pp": [
+          1.1695906432748537
+        ],
+        "seed_delta_sample_sd_pp": null
+      },
+      "text_slices": {
+        "overall": {
+          "slice": "overall",
+          "before_score_percent": 87.11193568336425,
+          "after_score_percent": 87.01917130488559,
+          "delta_pp": -0.0927643784786642,
+          "image_cluster_bootstrap_95_pp": [
+            -0.44925,
+            0.25706259296432826
+          ],
+          "one_sided_98_75_lower_pp": -0.5021439672726167,
+          "questions": 1617,
+          "image_clusters": 1024,
+          "checkpoint_axes": 1,
+          "seed_delta_pp": [
+            -0.0927643784786642
+          ],
+          "seed_delta_sample_sd_pp": null
+        },
+        "rare_1_5": {
+          "slice": "rare_1_5",
+          "before_score_percent": 87.39766081871345,
+          "after_score_percent": 87.28070175438597,
+          "delta_pp": -0.11695906432748543,
+          "image_cluster_bootstrap_95_pp": [
+            -0.7418397626112759,
+            0.49562682215743425
+          ],
+          "one_sided_98_75_lower_pp": -0.8605843644977296,
+          "questions": 342,
+          "image_clusters": 312,
+          "checkpoint_axes": 1,
+          "seed_delta_pp": [
+            -0.11695906432748543
+          ],
+          "seed_delta_sample_sd_pp": null
+        },
+        "frequent_gt20": {
+          "slice": "frequent_gt20",
+          "before_score_percent": 89.28057553956835,
+          "after_score_percent": 88.94484412470024,
+          "delta_pp": -0.3357314148681055,
+          "image_cluster_bootstrap_95_pp": [
+            -1.2255654718890014,
+            0.4807692307692308
+          ],
+          "one_sided_98_75_lower_pp": -1.394272764133457,
+          "questions": 417,
+          "image_clusters": 367,
+          "checkpoint_axes": 1,
+          "seed_delta_pp": [
+            -0.3357314148681055
+          ],
+          "seed_delta_sample_sd_pp": null
+        }
+      },
+      "gate": {
+        "passed": false,
+        "primary_checks": {
+          "object_accuracy_at_least_1pp": true,
+          "object_accuracy_one_sided_98_75_lower_gt0": false,
+          "text_one_sided_98_75_lower_gt_minus_0_5pp": false
+        },
+        "point_protection_checks": {
+          "object_yes_recall_point_nondecrease": true,
+          "object_no_specificity_point_at_least_minus_0_5pp": true,
+          "text_rare_1_5_point_nondecrease": false,
+          "text_frequent_gt20_point_nondecrease": false,
+          "class_balanced_mean_accuracy_point_gt0": true
+        },
+        "family": "two declared arms × object improvement and Text NI endpoints; one-sided alpha=.05/4=.0125",
+        "point_protection_interpretation": "point guards only; not slice noninferiority, equivalence, or proof of long-tail improvement"
+      },
+      "training_active_seconds": 1718.2519657206722,
+      "object_exposures": 2888,
+      "replay_exposures": 1448
+    }
+  ],
+  "initial_external_baseline_only": {
+    "overall": {
+      "questions": 4372,
+      "unique_images": 1791,
+      "TP": 2055,
+      "FP": 8,
+      "TN": 2178,
+      "FN": 131,
+      "label_yes": 2186,
+      "label_no": 2186,
+      "predicted_yes": 2063,
+      "predicted_no": 2309,
+      "rates_fraction": {
+        "accuracy": 0.9682067703568161,
+        "precision": 0.9961221522055259,
+        "f1": 0.9672864203341963,
+        "recall": 0.9400731930466606,
+        "specificity": 0.9963403476669717
+      },
+      "rates_percent": {
+        "accuracy": 96.82067703568161,
+        "precision": 99.61221522055259,
+        "f1": 96.72864203341963,
+        "recall": 94.00731930466605,
+        "specificity": 99.63403476669717
+      },
+      "strict_invalid_count": 5,
+      "first_yesno_invalid_count": 0,
+      "first_yesno_accuracy_percent": 96.82067703568161,
+      "all_questions_retained_in_denominator": true
+    },
+    "balanced": {
+      "questions": 3438,
+      "unique_images": 1742,
+      "TP": 1627,
+      "FP": 6,
+      "TN": 1713,
+      "FN": 92,
+      "label_yes": 1719,
+      "label_no": 1719,
+      "predicted_yes": 1633,
+      "predicted_no": 1805,
+      "rates_fraction": {
+        "accuracy": 0.9714950552646888,
+        "precision": 0.9963257807715861,
+        "f1": 0.970763723150358,
+        "recall": 0.9464805119255381,
+        "specificity": 0.9965095986038395
+      },
+      "rates_percent": {
+        "accuracy": 97.14950552646889,
+        "precision": 99.63257807715861,
+        "f1": 97.0763723150358,
+        "recall": 94.64805119255381,
+        "specificity": 99.65095986038395
+      },
+      "strict_invalid_count": 2,
+      "first_yesno_invalid_count": 0,
+      "first_yesno_accuracy_percent": 97.14950552646887,
+      "all_questions_retained_in_denominator": true
+    },
+    "interpretation": "Initial baseline only; no candidate external evaluation or KL gain. Per-category yes/no balanced QA-pooled, not category macro."
+  },
+  "training": {
+    "completed_updates": 181,
+    "actual_object_exposures": 2888,
+    "actual_replay_exposures": 1448,
+    "mean_object_ce": 0.037112293547677866,
+    "mean_replay_kl": 0.00020277743622435242,
+    "mean_replay_ce": 0.19307443706282718,
+    "mean_replay_ce_scope": "hard target CE diagnostic only; never backpropagated",
+    "teacher_cache_unchanged": true,
+    "training_active_seconds": 1751.5990678393282,
+    "model_load_seconds": 5.098116823937744,
+    "preflight_seconds_current_session": 48.07388230180368,
+    "teacher_cache_seconds_current_session": 1187.5201850258745,
+    "session_wall_seconds": 3051.2108919699676,
+    "peak_gpu_allocated_gib": 8.72323751449585,
+    "peak_gpu_reserved_gib": 10.833984375,
+    "compute_accounting": {
+      "equal_compute_claim": false,
+      "measured_flops": null,
+      "flops_status": "not instrumented; separate QA/token/time counts are not equal-FLOPs evidence",
+      "teacher_cache_forward_questions": 1448,
+      "teacher_cache_forward_seconds": 619.3267223071307,
+      "teacher_cache_file_bytes": 4372745568,
+      "object_forward_backward_questions": 2888,
+      "extra_replay_forward_backward_questions": 1448,
+      "object_active_seconds": 695.66447149124,
+      "extra_replay_active_seconds": 1052.6475295368582,
+      "object_input_tokens": 1121392,
+      "object_visual_tokens": 1014238,
+      "object_answer_tokens": 8664,
+      "object_microbatches": 722,
+      "object_padding_tokens": 167476,
+      "replay_input_tokens": 1414049,
+      "replay_visual_tokens": 1349940,
+      "replay_answer_tokens": 7163,
+      "replay_microbatches": 362,
+      "replay_padding_tokens": 103791
+    }
+  },
+  "mean_KL_interpretation": "Online average over evolving teacher-forced replay batches only; a low mean KL does not prove heldout retention or overcome failed Text gates.",
+  "operation_accounting": {
+    "new_formal_scored_model_x_QA": 6331,
+    "new_formal_scored_breakdown": {
+      "candidate_object": 342,
+      "candidate_Text": 1617,
+      "initial_external": 4372
+    },
+    "historical_initial_Object_Text_reused_model_x_QA": {
+      "object": 342,
+      "Text": 1617,
+      "sum": 1959
+    },
+    "new_evaluation_preflight_generated_QA": 24,
+    "new_recorded_autoregressive_generated_QA_including_eval_preflights": 6355,
+    "formal_optimizer_updates": 181,
+    "discarded_engineering_optimizer_updates": 2,
+    "formal_teacher_forced_training_QA": {
+      "object": 2888,
+      "replay": 1448,
+      "sum": 4336
+    },
+    "discarded_engineering_optimizer_QA": {
+      "object": 32,
+      "replay": 16
+    },
+    "additional_engineering_KL_response_forward_QA": 32,
+    "teacher_cache_forward_QA_by_scope": {
+      "standalone_engineering": 1448,
+      "formal_training": 1448
+    },
+    "teacher_cache_file_bytes_by_scope": {
+      "standalone_engineering": 4372745568,
+      "formal_training": 4372745568
+    },
+    "internal_balanced_subset_new_generation_QA": 0,
+    "external_balanced_subset_new_generation_QA": 0,
+    "candidate_external_generation_QA": 0,
+    "candidate_POPE_generation_QA": 0,
+    "replication_order_seeds_executed": [],
+    "claim": "Generation QA, teacher-forced cache forwards and optimizer exposures are separate operations; no equal-FLOPs or whole-run zero-generation claim."
+  },
+  "training_preflights": [
+    {
+      "scope": "standalone_engineering",
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/PREFLIGHT.json",
+      "saved_history_records": 1,
+      "discarded_engineering_optimizer_updates": 1,
+      "formal_optimizer_updates_from_preflight": 0,
+      "temporary_object_QA": 16,
+      "temporary_replay_QA": 8,
+      "KL_response_forward_QA_before_plus_after": 16,
+      "initial_replay_KL_per_question": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "after_temporary_update_mean_replay_KL": 0.0002480709828898142,
+      "restored_and_optimizer_discarded": true
+    },
+    {
+      "scope": "formal_training",
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/PREFLIGHT.json",
+      "saved_history_records": 1,
+      "discarded_engineering_optimizer_updates": 1,
+      "formal_optimizer_updates_from_preflight": 0,
+      "temporary_object_QA": 16,
+      "temporary_replay_QA": 8,
+      "KL_response_forward_QA_before_plus_after": 16,
+      "initial_replay_KL_per_question": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "after_temporary_update_mean_replay_KL": 0.0002480709828898142,
+      "restored_and_optimizer_discarded": true
+    }
+  ],
+  "teacher_cache_metadata_only": [
+    {
+      "scope": "standalone_engineering",
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/teacher_cache/MANIFEST.json",
+      "schema_version": "rarevlm.object_kl.teacher_cache.v1",
+      "status": "frozen",
+      "binding_sha256": "9e9e4f23516ba501e3b97cfc3437195c4c4ae8bf063fd68dc5383dcb32356965",
+      "full_vocabulary": true,
+      "logprob_dtype": "float32",
+      "temperature": 1.0,
+      "vocabulary_size": 151936,
+      "direction": "initial_to_actor",
+      "teacher_parameters_sha256": "6a44359406c53261b254c3a19393c63187b34af09baec539d6b235ca148c0fa7",
+      "frozen_parameters_sha256": "47486b9a45c127a55223b496f9847e45b2a181dd225697d7d98b274a67ade929",
+      "assistant_logprob_bytes": 4353270272,
+      "cache_file_bytes": 4372745568,
+      "teacher_forward_questions": 1448,
+      "teacher_forward_assistant_tokens": 7163,
+      "teacher_forward_seconds_all_batches": 611.5062507512048,
+      "new_forward_seconds_current_session": 611.5062507512048,
+      "wall_seconds_current_session": 1129.8658393356018,
+      "initial_parameters_rng_buffers_rope_restored": true,
+      "peak_allocated_gib": 8.633230686187744,
+      "peak_reserved_gib": 10.8125
+    },
+    {
+      "scope": "formal_training",
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/teacher_cache/MANIFEST.json",
+      "schema_version": "rarevlm.object_kl.teacher_cache.v1",
+      "status": "frozen",
+      "binding_sha256": "9e9e4f23516ba501e3b97cfc3437195c4c4ae8bf063fd68dc5383dcb32356965",
+      "full_vocabulary": true,
+      "logprob_dtype": "float32",
+      "temperature": 1.0,
+      "vocabulary_size": 151936,
+      "direction": "initial_to_actor",
+      "teacher_parameters_sha256": "6a44359406c53261b254c3a19393c63187b34af09baec539d6b235ca148c0fa7",
+      "frozen_parameters_sha256": "47486b9a45c127a55223b496f9847e45b2a181dd225697d7d98b274a67ade929",
+      "assistant_logprob_bytes": 4353270272,
+      "cache_file_bytes": 4372745568,
+      "teacher_forward_questions": 1448,
+      "teacher_forward_assistant_tokens": 7163,
+      "teacher_forward_seconds_all_batches": 619.3267223071307,
+      "new_forward_seconds_current_session": 619.3267223071307,
+      "wall_seconds_current_session": 1159.7287941318937,
+      "initial_parameters_rng_buffers_rope_restored": true,
+      "peak_allocated_gib": 8.633230686187744,
+      "peak_reserved_gib": 10.8125
+    }
+  ],
+  "evaluation_preflights": [
+    {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/initial/seed42/external/PREFLIGHT.json",
+      "status": "passed",
+      "generated_QA_records": 8,
+      "batch_count": 2,
+      "sum_batch_QA": 8,
+      "batch_generation_seconds": 1.0680220741778612,
+      "batch_preprocessing_seconds": 0.30713531374931335,
+      "batch_h2d_seconds": 0.004142187535762787,
+      "not_scored_formal_predictions": true
+    },
+    {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/object_kl/seed42/object/PREFLIGHT.json",
+      "status": "passed",
+      "generated_QA_records": 8,
+      "batch_count": 2,
+      "sum_batch_QA": 8,
+      "batch_generation_seconds": 1.04232586780563,
+      "batch_preprocessing_seconds": 0.30483376840129495,
+      "batch_h2d_seconds": 0.015292239841073751,
+      "not_scored_formal_predictions": true
+    },
+    {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/object_kl/seed42/text/PREFLIGHT.json",
+      "status": "passed",
+      "generated_QA_records": 8,
+      "batch_count": 2,
+      "sum_batch_QA": 8,
+      "batch_generation_seconds": 3.2835628339089453,
+      "batch_preprocessing_seconds": 0.5930472328327596,
+      "batch_h2d_seconds": 0.019947082735598087,
+      "not_scored_formal_predictions": true
+    }
+  ],
+  "formal_evaluation_resources": [
+    {
+      "condition": "object_kl",
+      "task": "object",
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/object/EVALUATION.json",
+      "questions": 342,
+      "unique_images": 143,
+      "score_percent": 97.953216374269,
+      "current_session_wall_seconds": 53.405870916321874,
+      "resources": {
+        "timed_questions": 338,
+        "model_generate_seconds": 41.0610854877159,
+        "preprocessing_h2d_generation_seconds": 52.0405656741932,
+        "peak_allocated_gib": 7.45418643951416,
+        "peak_reserved_gib": 7.728515625,
+        "scope": "cached VLM stage; hashing included; loading/validation/preflight/writer separate; no FP32 or serving-speed claim"
+      }
+    },
+    {
+      "condition": "object_kl",
+      "task": "text",
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/text/EVALUATION.json",
+      "questions": 1617,
+      "unique_images": 1024,
+      "score_percent": 86.79653679653676,
+      "current_session_wall_seconds": 857.7024792451411,
+      "resources": {
+        "timed_questions": 1613,
+        "model_generate_seconds": 721.7108279983513,
+        "preprocessing_h2d_generation_seconds": 849.5418819678016,
+        "peak_allocated_gib": 8.652318000793457,
+        "peak_reserved_gib": 9.8359375,
+        "scope": "cached VLM stage; hashing included; loading/validation/preflight/writer separate; no FP32 or serving-speed claim"
+      }
+    },
+    {
+      "condition": "initial",
+      "task": "external",
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/initial/seed42/external/EVALUATION.json",
+      "questions": 4372,
+      "unique_images": 1791,
+      "score_percent": 96.82067703568161,
+      "current_session_wall_seconds": 676.1619586059824,
+      "resources": {
+        "timed_questions": 4368,
+        "model_generate_seconds": 535.5726098516025,
+        "preprocessing_h2d_generation_seconds": 666.3719749031588,
+        "peak_allocated_gib": 7.486171722412109,
+        "peak_reserved_gib": 7.728515625,
+        "scope": "cached VLM stage; hashing included; loading/validation/preflight/writer separate; no FP32 or serving-speed claim"
+      }
+    }
+  ],
+  "training_completion_review_actual_costs": {
+    "formal_training_active_seconds": 1751.5990678393282,
+    "formal_object_forward_backward_seconds": 695.66447149124,
+    "formal_replay_forward_backward_seconds": 1052.6475295368582,
+    "formal_teacher_cache_forward_seconds": 619.3267223071307,
+    "formal_teacher_cache_wall_seconds_current_session": 1187.5201850258745,
+    "formal_embedded_preflight_seconds_current_session": 48.07388230180368,
+    "formal_model_load_seconds": 5.098116823937744,
+    "formal_trainer_session_wall_seconds": 3051.2108919699676,
+    "standalone_engineering_teacher_cache_forward_seconds": 611.5062507512048,
+    "standalone_engineering_teacher_cache_wall_seconds_current_session": 1129.8658393356018,
+    "standalone_engineering_worker_wall_seconds_from_queue_admission_end": 1269.809917,
+    "formal_peak_allocated_GiB": 8.72323751449585,
+    "formal_peak_reserved_GiB": 10.833984375,
+    "historical_CEReplay_active_seconds": 1718.2519657206722,
+    "comparison_scope": "Historical actual role times; full-vocabulary KL/cache overhead changes total computation. No equal-FLOPs, end-to-end speedup or whole-study critical-path claim."
+  },
+  "controller_session_wall_seconds": 5599.567922767252,
+  "Text_changed_rows_summary": {
+    "raw_answer_changes": 16,
+    "score_changes": 8,
+    "score_increases": 1,
+    "score_decreases": 7
+  },
+  "Text_visual_case_review": {
+    "selection": "All eight nonzero score_delta rows already saved in PILOT_TEXT_SCORE_REVIEW; no resampling, new label, score or model generation.",
+    "reviewer": "assistant local native-image review, not a blinded human semantic adjudication",
+    "reviewed_QA": 8,
+    "reviewed_unique_images": 8,
+    "image_paths_and_declared_SHA": "native paths and image SHA copied from frozen prepared manifest; not a new full pixel audit",
+    "cases": [
+      {
+        "case_id": "text_score_01",
+        "question_id": "1259",
+        "image_id": "01391774c70c2c88",
+        "question": "what awards is the billboard advertising?",
+        "target": "adult movie awards",
+        "answers": [
+          "2009 avn adult movie awards",
+          "adult movie awards",
+          "adult movie ",
+          "adult movie awards",
+          "adult movie",
+          "2009 avn adult movie awards",
+          "adult movie awards",
+          "adult movie awards",
+          "adult movies",
+          "adult movie awards"
+        ],
+        "slice": "unseen_0",
+        "target_frequency": 0,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/01391774c70c2c88.jpg",
+        "image_width": 1024,
+        "image_height": 768,
+        "image_sha256": "fd1b92d89261b6076bb484c117ecaa10a25a35b1af6c748258827a768b0eb6bf",
+        "predictions": {
+          "initial": {
+            "prediction": "adult movie awards",
+            "score": 1
+          },
+          "object_only": {
+            "prediction": "avn adult movie awards",
+            "score": 0
+          },
+          "object_replay": {
+            "prediction": "avn adult movie awards",
+            "score": 0
+          },
+          "object_kl": {
+            "prediction": "avn adult movie awards",
+            "score": 0
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "reference_wording_coverage",
+          "visible_evidence_and_scoring_boundary": "广告牌清楚写有 AVN ADULT MOVIE AWARDS。新增 AVN 有可见依据，但十参考没有完全相同的 avn adult movie awards（部分含2009前缀），官方精确共识分由1降0。助手判断为受图像支持的名称扩展/参考覆盖差异，不据此认定视觉内容遗忘。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      },
+      {
+        "case_id": "text_score_02",
+        "question_id": "6823",
+        "image_id": "b3ab92a571d33e78",
+        "question": "what flavors are these syrups?",
+        "target": "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spice",
+        "answers": [
+          "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea ",
+          "cherry lime, eggnog, french vanilla, salted caramel, and chai tea",
+          "cherry lime, italian eggnog, vanilla, carmel, chai tea",
+          "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spice",
+          "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spice",
+          "cherry lime italian eggnog french vanilla salted caramel chai tea spice",
+          "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spice",
+          "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spice",
+          "cherry lime, eggnog, salted carmel, chai tea",
+          "cherry lime, italian eggnog, french vanilla, salted caramel, thai tea spice"
+        ],
+        "slice": "unseen_0",
+        "target_frequency": 0,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/b3ab92a571d33e78.jpg",
+        "image_width": 1024,
+        "image_height": 771,
+        "image_sha256": "16ad26f35726b567fe40ee56905916e315a620896d0f3add11918813c4985edb",
+        "predictions": {
+          "initial": {
+            "prediction": "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spiced",
+            "score": 0
+          },
+          "object_only": {
+            "prediction": "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spiced",
+            "score": 0
+          },
+          "object_replay": {
+            "prediction": "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea spiced",
+            "score": 0
+          },
+          "object_kl": {
+            "prediction": "cherry lime, italian eggnog, french vanilla, salted caramel, chai tea",
+            "score": 0.3
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "reference_granularity_partial_match",
+          "visible_evidence_and_scoring_boundary": "五瓶标签主要口味可见：Cherry Lime、Italian Eggnog、French Vanilla、Salted Caramel及Chai Tea Sp...；最右末尾曲面文字不完整清楚。旧答spiced改为省略该末尾的新答chai tea，命中部分较短参考而由0升.3，不能称五类口味识别已获真实提升。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      },
+      {
+        "case_id": "text_score_03",
+        "question_id": "14958",
+        "image_id": "c84435d9f4615254",
+        "question": "what is the name of the perfume?",
+        "target": "bliss",
+        "answers": [
+          "icanto bliss",
+          "incanto",
+          "incanto bliss",
+          "bliss",
+          "bliss",
+          "incanto bliss",
+          "bliss",
+          "incanto",
+          "incanto bliss ",
+          "bliss"
+        ],
+        "slice": "unseen_0",
+        "target_frequency": 0,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/c84435d9f4615254.jpg",
+        "image_width": 1024,
+        "image_height": 767,
+        "image_sha256": "1d05d516f9b80ab066f599d9aabbdb790041cad16e3e48493782a93d4118c648",
+        "predictions": {
+          "initial": {
+            "prediction": "incanto bliss",
+            "score": 0.9
+          },
+          "object_only": {
+            "prediction": "incanto bliss",
+            "score": 0.9
+          },
+          "object_replay": {
+            "prediction": "incanto bliss",
+            "score": 0.9
+          },
+          "object_kl": {
+            "prediction": "incanto",
+            "score": 0.6
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "visible_name_omission",
+          "visible_evidence_and_scoring_boundary": "包装与瓶身都可见 incanto 和 bliss。KL仅答incanto，省略可见的bliss，仍有两条incanto参考支持而得.6；旧incanto bliss得.9。属于名称粒度/信息省略，不是凭空捏造新名称。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      },
+      {
+        "case_id": "text_score_04",
+        "question_id": "18020",
+        "image_id": "38509536e9732b43",
+        "question": "what is the very bottom bottom on the remote control?",
+        "target": "0",
+        "answers": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "slice": "frequent_gt20",
+        "target_frequency": 36,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/38509536e9732b43.jpg",
+        "image_width": 1024,
+        "image_height": 1024,
+        "image_sha256": "03007c1d34d08d63d75f52bfac30559aec7b4d1614a2e75b958e812e23cf06e8",
+        "predictions": {
+          "initial": {
+            "prediction": "0",
+            "score": 1
+          },
+          "object_only": {
+            "prediction": "channel 10",
+            "score": 0
+          },
+          "object_replay": {
+            "prediction": "channel 10",
+            "score": 0
+          },
+          "object_kl": {
+            "prediction": "channel 10",
+            "score": 0
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "clear_target_content_error",
+          "visible_evidence_and_scoring_boundary": "遥控器底部数字键可见0；新答channel 10与所问very bottom目标不符，初始0有直接支持。保留官方1→0。此处可记目标内容/指向错误，不从一张图推断内部注意力机制。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      },
+      {
+        "case_id": "text_score_05",
+        "question_id": "25421",
+        "image_id": "a4a5af67f9a807c0",
+        "question": "what restaurant's name is written vertically twice on the banners to the right?",
+        "target": "fridays",
+        "answers": [
+          "fridays",
+          "fridays",
+          "fridays",
+          "fridays",
+          "fridays ",
+          "tgi fridays",
+          "tgi fridays",
+          "tgi fridays",
+          "tgi fridays",
+          "tgi fridays"
+        ],
+        "slice": "unseen_0",
+        "target_frequency": 0,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/a4a5af67f9a807c0.jpg",
+        "image_width": 1024,
+        "image_height": 768,
+        "image_sha256": "6dfe28ca468c0f15e042d052be4e2bba7f4bfb608f6a54e0baf648bec2f433eb",
+        "predictions": {
+          "initial": {
+            "prediction": "fridays",
+            "score": 1
+          },
+          "object_only": {
+            "prediction": "bar b q fridays",
+            "score": 0
+          },
+          "object_replay": {
+            "prediction": "bar b q fridays",
+            "score": 0
+          },
+          "object_kl": {
+            "prediction": "bar b q fridays",
+            "score": 0
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "clear_unsupported_name_extension_at_target",
+          "visible_evidence_and_scoring_boundary": "右侧两条竖幅清楚写FRIDAYS，bar b q未出现在所问竖幅；KL及两旧候选加上不支持的前缀，超出目标位置店名。它不同于有字面依据的AVN扩展，属于位置/店名内容口径错误。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      },
+      {
+        "case_id": "text_score_06",
+        "question_id": "29766",
+        "image_id": "8162d2a3a838a23a",
+        "question": "what type of water are these people getting?",
+        "target": "spring",
+        "answers": [
+          "spring",
+          "spring",
+          "spring",
+          "shiseido",
+          "spring",
+          "spring",
+          "spring",
+          "spring water",
+          "spring water",
+          "spring"
+        ],
+        "slice": "rare_1_5",
+        "target_frequency": 2,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/8162d2a3a838a23a.jpg",
+        "image_width": 1024,
+        "image_height": 768,
+        "image_sha256": "3ac60dd9b6045ff3697f0934520014eac7052d56dbc95bccd30f14caabcbe505",
+        "predictions": {
+          "initial": {
+            "prediction": "spring",
+            "score": 1
+          },
+          "object_only": {
+            "prediction": "spring water",
+            "score": 0.5999999999999999
+          },
+          "object_replay": {
+            "prediction": "spring water",
+            "score": 0.5999999999999999
+          },
+          "object_kl": {
+            "prediction": "spring water",
+            "score": 0.5999999999999999
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "reference_wording_coverage",
+          "visible_evidence_and_scoring_boundary": "左侧机器清楚写Spring Water，右侧另有Distilled Water。对参考主要采用的左侧水种口径，spring water是spring的有依据扩展，官方1→.6主要是精确共识参考覆盖差异；多人/两种机器也保留问题范围歧义。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      },
+      {
+        "case_id": "text_score_07",
+        "question_id": "30156",
+        "image_id": "104928ae82c7a41b",
+        "question": "what number is the small hand pointing too?",
+        "target": "2",
+        "answers": [
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "2",
+          "6"
+        ],
+        "slice": "frequent_gt20",
+        "target_frequency": 182,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/104928ae82c7a41b.jpg",
+        "image_width": 1024,
+        "image_height": 681,
+        "image_sha256": "cfec80e329422b8caf9364a2d73fe4455f69bcdc64793335a6cfa2e689babf6d",
+        "predictions": {
+          "initial": {
+            "prediction": "2",
+            "score": 1
+          },
+          "object_only": {
+            "prediction": "2",
+            "score": 1
+          },
+          "object_replay": {
+            "prediction": "5",
+            "score": 0
+          },
+          "object_kl": {
+            "prediction": "5",
+            "score": 0
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "clear_clock_hand_target_error",
+          "visible_evidence_and_scoring_boundary": "主表盘较短指针朝2附近，可见日期窗数字5及其他小盘；新答5与所问小/短指针的2不符。初始/Only为2、CEReplay/KL为5，保留1→0；不据观察断言模型实际混淆了日期窗。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      },
+      {
+        "case_id": "text_score_08",
+        "question_id": "30732",
+        "image_id": "9a47a7436332cd3f",
+        "question": "what time does the clock show?",
+        "target": "10:08",
+        "answers": [
+          "10:09",
+          "10:07",
+          "10:08",
+          "10:08",
+          "1:41",
+          "10:08",
+          "10:08",
+          "10:08",
+          "10:08",
+          "10:08"
+        ],
+        "slice": "medium_6_20",
+        "target_frequency": 8,
+        "image_path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/images/9a47a7436332cd3f.jpg",
+        "image_width": 1024,
+        "image_height": 576,
+        "image_sha256": "0228db8e3ad88a9186ec5a594b604a8592df2bdf1662896b18e822fdc3f2dc38",
+        "predictions": {
+          "initial": {
+            "prediction": "10:08",
+            "score": 1
+          },
+          "object_only": {
+            "prediction": "10:08",
+            "score": 1
+          },
+          "object_replay": {
+            "prediction": "10:08",
+            "score": 1
+          },
+          "object_kl": {
+            "prediction": "10:07",
+            "score": 0.3
+          }
+        },
+        "visual_review": {
+          "native_image_viewed": true,
+          "view_tool": "view_image",
+          "detail": "original",
+          "image_display_crop_or_overlay_used": false,
+          "reviewer": "assistant_local_case_review",
+          "classification": "adjacent_minute_ambiguity",
+          "visible_evidence_and_scoring_boundary": "主表盘时针在10附近，分针处于相邻细刻度附近；参考同时含10:07、10:08、10:09。KL10:07相对旧10:08得分1→.3，是相邻分钟与参考分布敏感病例，不能把.7降幅全解释成明显时间概念丢失。",
+          "labels_or_scores_changed": false,
+          "causal_claim": false
+        }
+      }
+    ],
+    "limitations": [
+      "Case interpretation does not change GT, official scoring or gates.",
+      "Eight score-changing cases are not an unbiased estimate of full-task error mechanisms.",
+      "Observed visual conditions do not establish internal attention or gradient causes."
+    ]
+  },
+  "independent_review_receipts": {
+    "TRAINING_COMPLETION_REVIEW.json": {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/TRAINING_COMPLETION_REVIEW.json",
+      "sha256": "71e75d1533084f909a13430d3c5c764053f3fc6c17a45ec1c622b3c9df6e62e8",
+      "status": "passed_engineering_and_matched_input_review_only"
+    },
+    "PILOT_SCREEN_REVIEW.json": {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_SCREEN_REVIEW.json",
+      "sha256": "5c1563cd4807e25c76206663671eb7ce5759820795961cd511bfd5a825cc9beb",
+      "status": "passed"
+    },
+    "EXTERNAL_INITIAL_REVIEW.json": {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/EXTERNAL_INITIAL_REVIEW.json",
+      "sha256": "9cd7dd737457095f70adc888179f74afe74f4640f9d429a7ab5c229e49f29ba5",
+      "status": "passed"
+    },
+    "PILOT_TEXT_SCORE_REVIEW.json": {
+      "path": "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_TEXT_SCORE_REVIEW.json",
+      "sha256": "8e8ddc049579e9ed782b8863e1b26affb18ee175fd9d846c6382459b744e9d5e",
+      "status": "passed"
+    }
+  },
+  "source_files_sha256_before": {
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/analysis/pilot_seed42/screen/ANALYSIS.json": "b12b0db7916a772177060751a2991231307dbdf801dda7e9e6ef50afb0b24bec",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/COMPLETION.json": "0791bc353fb2f91b57f5bb7dec405c1cdfeb15b71513d1388afaf5af47dc1add",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/TRAIN_RESULT.json": "424da892066e2c65131597624c24ac73e3599210b1f4816bf4467e5a31967f3b",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/analysis/pilot_seed42/screen/ANALYSIS.json": "1feeccd8e2ace8618085edbf1ab49e35a518091198443f9447fa5d6a16721b2f",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/TRAINING_COMPLETION_REVIEW.json": "71e75d1533084f909a13430d3c5c764053f3fc6c17a45ec1c622b3c9df6e62e8",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_SCREEN_REVIEW.json": "5c1563cd4807e25c76206663671eb7ce5759820795961cd511bfd5a825cc9beb",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/EXTERNAL_INITIAL_REVIEW.json": "9cd7dd737457095f70adc888179f74afe74f4640f9d429a7ab5c229e49f29ba5",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_TEXT_SCORE_REVIEW.json": "8e8ddc049579e9ed782b8863e1b26affb18ee175fd9d846c6382459b744e9d5e",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/manifest.json": "01c95ce0b346070ecd0e98fe52f9c67e2e4ddf47de6951fd8b8cf5ece376455a",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_public_posttrain_diagnostic_v1/runs/initial/seed42/dev/predictions.jsonl": "70a2a768ba7e69b5a12fb1e23f6dfd07448680105f025290dd9d1b2c39672f03",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_only/seed42/text/predictions.jsonl": "52616990ff3aab6b2b857a5479f7535ee6d451aa4a42ab8313e36c2f22061797",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_replay/seed42/text/predictions.jsonl": "176ae7063e47c8c2d263bc020c5306404d9777114a9919fe895b3b291cf23f07",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/text/predictions.jsonl": "0adf391c8da5b30ce40fa4f442fad12306648392a552375fd6afd12a7c49f124",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/PREFLIGHT.json": "1a5cb388128a1f86935c1ca9508ddada661275ea9547df4a24207e57bef2918c",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/teacher_cache/MANIFEST.json": "cef228b6b1b3848cabff3df5a9115f004fef4ff7e9418a8ddb6edcb3be5ed32e",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/PREFLIGHT_HISTORY.jsonl": "64146b1895e455cefb13c5be3daf39ed700c5f668fc59e32fd2b80f9b6d520ef",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/PREFLIGHT.json": "cf386cb1c7644ce8bdc4ced32413874eaeac9856e699d3b269fc8cf7dda7a47b",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/teacher_cache/MANIFEST.json": "ea75d4b24b1cb6bd13cfd83732207cabf7e22b5c156c8a03884bf82e26bf35cd",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/PREFLIGHT_HISTORY.jsonl": "4e7010f6f5270baf8904929bcd9c13029c0ed6b4c94a2c238b0c3ebb8579f2ae",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/initial/seed42/external/PREFLIGHT.json": "f25ab63dae19918b8b7f6710214ca5ab6230ffd6b96b2f25f770b83081ced83c",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/object_kl/seed42/object/PREFLIGHT.json": "a0e6198b43c8ca5d153a22290f494bec589034e994496dd2bc326768b205eb49",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/object_kl/seed42/text/PREFLIGHT.json": "7449768506860ac2b02fed52b3e3f23f09ddd24cc03b671c9fa2ff61dc4cc438",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/object/EVALUATION.json": "6b6910de86cbf474db0220184c67fd1fdcd81353b2e809c800b1b541a9513805",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/text/EVALUATION.json": "61d3c539bd69f186c59c30967ec5b4a8aa8a4590a37eb5449e041f60fd9154ad",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/initial/seed42/external/EVALUATION.json": "1ebd6790a28ea2e00eeeb1f8bbfebae575167bf01dacc50c82c78e0781ede02a",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_only/seed42/train/TRAIN_RESULT.json": "255df3bc3e1115249fb1828a8d450094e497133e27b2a419672b82ea756733d5",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_replay/seed42/train/TRAIN_RESULT.json": "85443b4de4c99b28ac328b4bf610a62d13ab7f660981ca1e60a28b63423e5981"
+  },
+  "source_files_sha256_after": {
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/analysis/pilot_seed42/screen/ANALYSIS.json": "b12b0db7916a772177060751a2991231307dbdf801dda7e9e6ef50afb0b24bec",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/COMPLETION.json": "0791bc353fb2f91b57f5bb7dec405c1cdfeb15b71513d1388afaf5af47dc1add",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/TRAIN_RESULT.json": "424da892066e2c65131597624c24ac73e3599210b1f4816bf4467e5a31967f3b",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/analysis/pilot_seed42/screen/ANALYSIS.json": "1feeccd8e2ace8618085edbf1ab49e35a518091198443f9447fa5d6a16721b2f",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/TRAINING_COMPLETION_REVIEW.json": "71e75d1533084f909a13430d3c5c764053f3fc6c17a45ec1c622b3c9df6e62e8",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_SCREEN_REVIEW.json": "5c1563cd4807e25c76206663671eb7ce5759820795961cd511bfd5a825cc9beb",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/EXTERNAL_INITIAL_REVIEW.json": "9cd7dd737457095f70adc888179f74afe74f4640f9d429a7ab5c229e49f29ba5",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/independent_review/PILOT_TEXT_SCORE_REVIEW.json": "8e8ddc049579e9ed782b8863e1b26affb18ee175fd9d846c6382459b744e9d5e",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_deep_v2/prepared/manifest.json": "01c95ce0b346070ecd0e98fe52f9c67e2e4ddf47de6951fd8b8cf5ece376455a",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_public_posttrain_diagnostic_v1/runs/initial/seed42/dev/predictions.jsonl": "70a2a768ba7e69b5a12fb1e23f6dfd07448680105f025290dd9d1b2c39672f03",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_only/seed42/text/predictions.jsonl": "52616990ff3aab6b2b857a5479f7535ee6d451aa4a42ab8313e36c2f22061797",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_replay/seed42/text/predictions.jsonl": "176ae7063e47c8c2d263bc020c5306404d9777114a9919fe895b3b291cf23f07",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/text/predictions.jsonl": "0adf391c8da5b30ce40fa4f442fad12306648392a552375fd6afd12a7c49f124",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/PREFLIGHT.json": "1a5cb388128a1f86935c1ca9508ddada661275ea9547df4a24207e57bef2918c",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/teacher_cache/MANIFEST.json": "cef228b6b1b3848cabff3df5a9115f004fef4ff7e9418a8ddb6edcb3be5ed32e",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/engineering_runs/runs/object_kl/seed42/train/PREFLIGHT_HISTORY.jsonl": "64146b1895e455cefb13c5be3daf39ed700c5f668fc59e32fd2b80f9b6d520ef",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/PREFLIGHT.json": "cf386cb1c7644ce8bdc4ced32413874eaeac9856e699d3b269fc8cf7dda7a47b",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/teacher_cache/MANIFEST.json": "ea75d4b24b1cb6bd13cfd83732207cabf7e22b5c156c8a03884bf82e26bf35cd",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/train/PREFLIGHT_HISTORY.jsonl": "4e7010f6f5270baf8904929bcd9c13029c0ed6b4c94a2c238b0c3ebb8579f2ae",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/initial/seed42/external/PREFLIGHT.json": "f25ab63dae19918b8b7f6710214ca5ab6230ffd6b96b2f25f770b83081ced83c",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/object_kl/seed42/object/PREFLIGHT.json": "a0e6198b43c8ca5d153a22290f494bec589034e994496dd2bc326768b205eb49",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/preflight/object_kl/seed42/text/PREFLIGHT.json": "7449768506860ac2b02fed52b3e3f23f09ddd24cc03b671c9fa2ff61dc4cc438",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/object/EVALUATION.json": "6b6910de86cbf474db0220184c67fd1fdcd81353b2e809c800b1b541a9513805",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/object_kl/seed42/text/EVALUATION.json": "61d3c539bd69f186c59c30967ec5b4a8aa8a4590a37eb5449e041f60fd9154ad",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_kl_v1/runs/initial/seed42/external/EVALUATION.json": "1ebd6790a28ea2e00eeeb1f8bbfebae575167bf01dacc50c82c78e0781ede02a",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_only/seed42/train/TRAIN_RESULT.json": "255df3bc3e1115249fb1828a8d450094e497133e27b2a419672b82ea756733d5",
+    "/opt/data/private/longtail_vlm/rarevlm_pilot/outputs/vlm_object_adapt_v2/runs/object_replay/seed42/train/TRAIN_RESULT.json": "85443b4de4c99b28ac328b4bf610a62d13ab7f660981ca1e60a28b63423e5981"
+  },
+  "source_original_bytes_unchanged": true,
+  "future_boundary": {
+    "next_protocol": "/opt/data/private/longtail_vlm/rarevlm_pilot/packages/RareVLM_minimal_20261001/docs/VLM_OBJECT_KL_GRADIENT_V1_PROTOCOL.md",
+    "status": "independent future diagnostic, not executed or a gain in this export",
+    "original_goal": "all9000 POPE plus original Text three-seed protection remains active"
+  },
+  "export_operations": {
+    "model_loads": 0,
+    "model_forwards": 0,
+    "GPU_operations": 0,
+    "new_image_encodes": 0,
+    "CI_recomputations": 0,
+    "frequency_recomputations": 0
+  },
+  "limitations": [
+    "Single fixed initializer/order seed; no replication sample SD available.",
+    "Paired image-cluster CIs conditional on these checkpoints; category/slice intervals exploratory.",
+    "Public pretraining/near-duplicate overlap unknown; POPE historically exposed.",
+    "Historical controls and times do not establish equal compute, end-to-end speedup, or three-seed causal method superiority."
+  ]
+}

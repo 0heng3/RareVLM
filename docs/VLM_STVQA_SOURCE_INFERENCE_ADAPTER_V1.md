@@ -1,0 +1,7 @@
+# ST-VQA源内生成适配
+
+384输入CPU编码和原PLAN冻结后，在GPU前发现通用generated工具最后调用TextVQA consensus，要求恰好10个答案；本源的原始参考已经去重，不能直接调用，不能复制答案凑票。
+
+原run_stvqa_headroom_v1.py及PLAN保持冻结，未提交过其GPU worker。实际入口为run_stvqa_headroom_source_adapter_v1.py，独立SOURCE_INFERENCE_ADAPTER_PLAN固定其代码及原PLAN SHA。只把该进程内generated绑定为相同raw greedy32/同processor/输入/批次的无任务评分版本，不改原生成模块文件、原评分器、原数据、预算或有效监督门槛。生成模型输入仍只含图像与问题，源内exact在返回后用全部去重参考计算。GT正文/EOS前向与LoRA身份检查仍由原冻结probe执行。
+
+源内exact不是官方ANLS，不与native1617 VQA混成一列。0已有probe GPU失败/0虚构投票；适配是新任务格式接入，不是对旧训练框架故障的结论。

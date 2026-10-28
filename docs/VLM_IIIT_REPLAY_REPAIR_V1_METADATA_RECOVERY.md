@@ -1,0 +1,7 @@
+# 回放修复 V1：收尾元数据兼容修正
+
+2026-10-25，原pilot在运行中。发现原脚本worker的最终逐题核对要求每条DATA元数据存在inference_input_sha256，但保持64沿用历史表示，没有该字段。其他2513条都有，实际generated为全部64条保持预测保存input_sha256。已完成保持64实际前缀与冻结initial预测逐条相同，分数均93.75%。该错误在全部2577生成之后才触发，不影响已完成64更新/预测数值，是新增收尾检查错误，不是模型质量失败。
+
+保留原PLAN/源码/训练权重/预测/失败日志；不终止当前worker，不修改其数据字段，不重训、不重新生成。新独立recover_iiit_replay_repair_v1.py和recovery_v1/PLAN先冻结，等待原队列自然结束。仅接受原worker对应KeyError且完整2577预测存在；别的失败不自动恢复。保持64的expected prefix改引用原已冻结baseline实际input_sha256，qid/image/target必须相同；其他2513继续严格使用DATA的SHA。训练64/曝光/frozen分区、两个实际评测输入锁和所有2577逐题身份仍验证。旧失败状态不覆盖，恢复完成标记独立存放recovery_v1/units/repair42/COMPLETE.json。
+
+之后调用原summarize，门槛、bootstrap、数据、损失、Final64、模型/种子/资源预算均不改；原repair42_ANALYSIS.json和新PILOT_ANALYSIS保存结果。若原门槛不通过，recovery_v1/COMPLETION结束，0额外GPU/生成/更新。只有通过才按原协议继续已冻结order0/200四训练，使用相同trainer/evaluate并修正同一收尾验证，不重启原失败队列。条件test仍复用原固定生成、3000已曝光评分口径，原完整项目能力目标未完成。新源码不冒充旧运行源码；恢复队列和结果保留新PLAN SHA，全部原科学文件不改。

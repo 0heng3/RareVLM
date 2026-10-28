@@ -1,0 +1,23 @@
+{
+  "study": "vlm_stvqa_holdout_transfer_v1",
+  "status": "preregistered_evaluation_only",
+  "recorded_at": "2026-10-28T16:52:34.627530+08:00",
+  "protocol": "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_PROTOCOL.md",
+  "roles": [
+    "old_ce",
+    "old_dpo",
+    "new_ce",
+    "new_dpo"
+  ],
+  "qa_per_role": 256,
+  "jobs": 8,
+  "planned_new_generations": 1024,
+  "planned_teacher_forced_sequences": 1024,
+  "optimizer_updates": 0,
+  "reused_baseline_generations": 256,
+  "train_scene_pixel_overlap": 0,
+  "automatic_training": false,
+  "original_training_stop_unchanged": true,
+  "completed_final_results_claimed": false,
+  "scope": "Registration only; no source-holdout capability claim. The initial source score was already known; not blind or official ANLS."
+}

@@ -11,9 +11,11 @@
       "old_path": ".gitignore",
       "new_path": ".gitignore",
       "previous_sha256": "34fb3bc85b8e79aa7b957ba5895b6d7b54b63c07e07bb1517957bd7c17463453",
-      "current_sha256": "f571ad81795a731368ff077107f8799b688dcc125e06f70bee95c9e657d615db",
+      "current_sha256": "f744a570ab48354a6424cba1c66cb8717c0a282bde28fbd9eb5ae4bc54cdbea9",
       "changed_for_layout": true,
-      "relocated": false
+      "relocated": false,
+      "pre_publication_sha256": "f571ad81795a731368ff077107f8799b688dcc125e06f70bee95c9e657d615db",
+      "publication_note": "2026-10-28: exclude offline learning pages and raw example images; frozen scientific source hashes unchanged"
     },
     {
       "old_path": "CITATION.cff",
@@ -27,9 +29,11 @@
       "old_path": "README.md",
       "new_path": "README.md",
       "previous_sha256": "7a1df8d1b3155d6c84e33a3d871a11232d9501d6158f35d7f411e485a4796007",
-      "current_sha256": "03ae01c92be403918506202a5818859206c99c5962325a87c27ae013db219517",
+      "current_sha256": "c47b3dd8a5037b86fe730e61df521c240b46a091da759a2365d23766e3eca5a9",
       "changed_for_layout": true,
-      "relocated": false
+      "relocated": false,
+      "pre_publication_sha256": "03ae01c92be403918506202a5818859206c99c5962325a87c27ae013db219517",
+      "publication_note": "2026-10-28: current public documentation; historical scientific code/results retain their recorded hashes"
     },
     {
       "old_path": "SOURCE_ORIGINS.json",
@@ -251,9 +255,11 @@
       "old_path": "docs/JOB_ROUTE.md",
       "new_path": "docs/JOB_ROUTE.md",
       "previous_sha256": "666775bf2dcc6155d4eeb6441bc21ad70c726cbd0d2b1a5caa99881658f3026f",
-      "current_sha256": "0b0e5d15931e2be606cbd0ee0c862b23f946fe63b7b16cf282dad6d10bbf2ab2",
+      "current_sha256": "e8aac3b14061443e8722a304cbb8a75fe69af8194bb546db5ea3fa924332755a",
       "changed_for_layout": true,
-      "relocated": false
+      "relocated": false,
+      "pre_publication_sha256": "0b0e5d15931e2be606cbd0ee0c862b23f946fe63b7b16cf282dad6d10bbf2ab2",
+      "publication_note": "2026-10-28: current public documentation; historical scientific code/results retain their recorded hashes"
     },
     {
       "old_path": "docs/MECHANISMS.md",
