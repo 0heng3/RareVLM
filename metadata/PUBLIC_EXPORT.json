@@ -144,9 +144,9 @@
     },
     "README.md": {
       "local_source_sha256": "2717d8fa812e5454ca96bf1a0f2f50655dda24336726807b50551e01cf3404d5",
-      "public_sha256": "750a965f2c9e121be494efb031fcf06a33c504f75a294a9a0870557b5dbe14ed",
+      "public_sha256": "2926521dd004f9225c995d1880f7da26d988e9ab217270ede739167374e06efe",
       "changes": [
-        "public_result_summary_and_local_link_policy"
+        "public_complete_result_and_document_hash_update"
       ]
     },
     "docs/MODEL_CAPABILITY_POSTTRAINING_NEXT.md": {
@@ -718,10 +718,9 @@
     },
     "metadata/ARCHITECTURE_MIGRATION.json": {
       "local_source_sha256": "5b4bc172c053d54b446bc8627bbcd955658d25bdb1bb8bc723c6a98eedbc5702",
-      "public_sha256": "7475998a90bc08635fedae3e67b88cde0fdce6779418f6924001003246fad997",
+      "public_sha256": "95b2d7cc0b219c730c3a043fffbe62ca641344cea4a217a83f2703e264518756",
       "changes": [
-        "record_current_public_gitignore_hash_preserving_previous_hash",
-        "record_current_public_documentation_hashes_preserving_previous_hashes"
+        "public_complete_result_and_document_hash_update"
       ]
     },
     "tests/test_object_behavior_recovery.py": {
@@ -777,44 +776,47 @@
   "datasets_weights_credentials_included": false,
   "github_actions_enabled": false,
   "incremental_files": [
-    "src/vlm_onpolicy_kd_v1/__init__.py",
-    "src/vlm_onpolicy_kd_v1/objective.py",
-    "src/vlm_full_teacher_kd_v1/loss.py",
-    "src/vlm_full_teacher_kd_v1/__init__.py",
-    "tools/render_full_teacher_transfer_v1.py",
-    "tools/rarevlm_monitor_raster.py",
-    "tools/review_full_teacher_kd_v1.py",
-    "tools/render_stvqa_holdout_results_v1.py",
-    "tools/render_full_teacher_signal_v1.py",
-    "tools/fetch_full_teacher_assets_v1.py",
-    "tools/run_kd_component_restore_v1.py",
-    "tools/run_full_teacher_kd_v1.py",
-    "tools/render_kd_component_restore_v1.py",
-    "tools/rarevlm_monitor_kd.py",
-    "tools/rarevlm_monitor.py",
-    "tools/run_full_teacher_signal_v1.py",
-    "tools/rarevlm_monitor_onpolicy.py",
-    "tools/run_onpolicy_teacher_kd_v1.py",
-    "tools/run_full_teacher_transfer_v1.py",
-    "docs/VLM_FULL_TEACHER_KD_V1_RESULTS.md",
-    "docs/VLM_FULL_TEACHER_TRANSFER_V1_RESULTS.md",
-    "docs/VLM_FULL_TEACHER_TRANSFER_V1_PROTOCOL.md",
-    "docs/VLM_FULL_TEACHER_KD_V1_STATUS.md",
-    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_STATUS.md",
-    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_RESULTS.md",
     "docs/VLM_FULL_TEACHER_KD_V1_PROTOCOL.md",
+    "docs/VLM_FULL_TEACHER_KD_V1_RESULTS.md",
+    "docs/VLM_FULL_TEACHER_KD_V1_STATUS.md",
+    "docs/VLM_FULL_TEACHER_SIGNAL_V1_PROTOCOL.md",
+    "docs/VLM_FULL_TEACHER_SIGNAL_V1_RESULTS.md",
+    "docs/VLM_FULL_TEACHER_TRANSFER_V1_PROTOCOL.md",
+    "docs/VLM_FULL_TEACHER_TRANSFER_V1_RESULTS.md",
     "docs/VLM_KD_COMPONENT_RESTORE_V1_PROTOCOL.md",
     "docs/VLM_KD_COMPONENT_RESTORE_V1_RESULTS.md",
     "docs/VLM_ONPOLICY_KD_V1_PROTOCOL.md",
-    "docs/VLM_FULL_TEACHER_SIGNAL_V1_RESULTS.md",
+    "docs/VLM_ONPOLICY_KD_V1_RESULTS.md",
     "docs/VLM_ONPOLICY_KD_V1_STATUS.md",
-    "docs/VLM_FULL_TEACHER_SIGNAL_V1_PROTOCOL.md",
-    "results/vlm_full_teacher_signal_v1_metrics.json",
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_RESULTS.md",
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_STATUS.md",
     "results/vlm_full_teacher_kd_v1_metrics.json",
-    "results/vlm_stvqa_holdout_transfer_v1_metrics.json",
-    "results/vlm_kd_component_restore_v1_metrics.json",
+    "results/vlm_full_teacher_signal_v1_metrics.json",
     "results/vlm_full_teacher_transfer_v1_metrics.json",
-    "tests/test_full_teacher_kd_v1.py"
+    "results/vlm_kd_component_restore_v1_metrics.json",
+    "results/vlm_onpolicy_teacher_kd_v1_metrics.json",
+    "results/vlm_stvqa_holdout_transfer_v1_metrics.json",
+    "src/vlm_full_teacher_kd_v1/__init__.py",
+    "src/vlm_full_teacher_kd_v1/loss.py",
+    "src/vlm_onpolicy_kd_v1/__init__.py",
+    "src/vlm_onpolicy_kd_v1/objective.py",
+    "tests/test_full_teacher_kd_v1.py",
+    "tools/fetch_full_teacher_assets_v1.py",
+    "tools/rarevlm_monitor.py",
+    "tools/rarevlm_monitor_kd.py",
+    "tools/rarevlm_monitor_onpolicy.py",
+    "tools/rarevlm_monitor_raster.py",
+    "tools/render_full_teacher_signal_v1.py",
+    "tools/render_full_teacher_transfer_v1.py",
+    "tools/render_kd_component_restore_v1.py",
+    "tools/render_stvqa_holdout_results_v1.py",
+    "tools/review_full_teacher_kd_v1.py",
+    "tools/review_onpolicy_teacher_kd_v1.py",
+    "tools/run_full_teacher_kd_v1.py",
+    "tools/run_full_teacher_signal_v1.py",
+    "tools/run_full_teacher_transfer_v1.py",
+    "tools/run_kd_component_restore_v1.py",
+    "tools/run_onpolicy_teacher_kd_v1.py"
   ],
   "incremental_public_sha256": {
     "src/vlm_onpolicy_kd_v1/__init__.py": "9532d74eda69d15f9abecb2dc5bcfbfe866230ab9e51a32c193d437b8e5e70de",
@@ -847,13 +849,16 @@
     "docs/VLM_KD_COMPONENT_RESTORE_V1_RESULTS.md": "8c94ee56bd794faa5eef4776ee8521eac391fb5a3f45e9d230e7ff85e2641e18",
     "docs/VLM_ONPOLICY_KD_V1_PROTOCOL.md": "5f4adbc26f3f03ddd50c8e89ce1ce881f192549d9f31d8e6a2b73ffa64e2c64b",
     "docs/VLM_FULL_TEACHER_SIGNAL_V1_RESULTS.md": "ab379af7b365ff97d72eac6759bed3e5efdb9bc58a27cb06d60e71623d4582c5",
-    "docs/VLM_ONPOLICY_KD_V1_STATUS.md": "979d435b1125f33dc8f68e034d35e33846ba2c4f69b7541df488b3df4188463b",
+    "docs/VLM_ONPOLICY_KD_V1_STATUS.md": "6003f0d42b0e0556c364f045e30181cc4dd6944972635b4bedbb3155cddebdf4",
     "docs/VLM_FULL_TEACHER_SIGNAL_V1_PROTOCOL.md": "64ced60bdc1f21d7f8a9207662f93e9334d7d451c407b84acd08d68ca1daec40",
     "results/vlm_full_teacher_signal_v1_metrics.json": "09335f2e98a6dd1a93835f233b6604d2b38c92d4820553e2f3506e0366cf1719",
     "results/vlm_full_teacher_kd_v1_metrics.json": "97244aa2a35836d939d3752975e95e2d6c8467fbd7df763a8bc8304362829b1b",
     "results/vlm_stvqa_holdout_transfer_v1_metrics.json": "f1be962bf840867100be6a281cd90b444e9ee768a462bd052b63748f7fac59c3",
     "results/vlm_kd_component_restore_v1_metrics.json": "f3272f7c76f9035ff3a67a95bea27d7cadacb70c178f56d1dd490e66d3336d21",
     "results/vlm_full_teacher_transfer_v1_metrics.json": "b972372f223c091cd25acf3fd0edebecf0699c17fc4b4e2b571f138bedc4cc31",
-    "tests/test_full_teacher_kd_v1.py": "f800625fd6a4a4ddffc054e8d61dc5e11adfc9d6b98c46061f5dfb5acf013295"
+    "tests/test_full_teacher_kd_v1.py": "f800625fd6a4a4ddffc054e8d61dc5e11adfc9d6b98c46061f5dfb5acf013295",
+    "tools/review_onpolicy_teacher_kd_v1.py": "f536b01d4e93eb728ec98b40a9258c61ae402c3758ea7f87b9ebb00709cd23bb",
+    "docs/VLM_ONPOLICY_KD_V1_RESULTS.md": "c453e702d3273670aa963b91db83709383e278cda97b4f454c9f34f5e380d996",
+    "results/vlm_onpolicy_teacher_kd_v1_metrics.json": "fb77c70f644b7224800b2e793b5911518d8f6024ff058b1b3178b95b01df1e6f"
   }
 }
