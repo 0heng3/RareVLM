@@ -1,7 +1,7 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "repository": "https://github.com/0heng3/RareVLM",
-  "base_commit": "6d8bd09ab56fa5e0105371a7c4685fa99896e48d",
+  "base_commit": "cc8d1152d78d550db77de4c943e5cff3c1733614",
   "scope": "Public source/config/protocol/test/aggregate-result update; frozen local experiment files retained",
   "copied_files": 1181,
   "excluded_local_only_files": [
@@ -144,9 +144,9 @@
     },
     "README.md": {
       "local_source_sha256": "2717d8fa812e5454ca96bf1a0f2f50655dda24336726807b50551e01cf3404d5",
-      "public_sha256": "c47b3dd8a5037b86fe730e61df521c240b46a091da759a2365d23766e3eca5a9",
+      "public_sha256": "750a965f2c9e121be494efb031fcf06a33c504f75a294a9a0870557b5dbe14ed",
       "changes": [
-        "local_artifact_links_to_public_reproduction_guide"
+        "public_result_summary_and_local_link_policy"
       ]
     },
     "docs/MODEL_CAPABILITY_POSTTRAINING_NEXT.md": {
@@ -682,10 +682,10 @@
       ]
     },
     "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_STATUS.md": {
-      "local_source_sha256": "178ab12d8e1acf2e29f9faa8caff6f77b5ee15293425f84d404ef2ae463239da",
-      "public_sha256": "3ebdf517579cf461ccf0b02df398c767bb9e20760c6e4fe553271bea6c9e8fd6",
+      "local_source_sha256": "5bbbe63f3ad84e3f913257d481f0228078b05158a792f7bc3b2b349d219ea697",
+      "public_sha256": "0356d2a8ab2a2efb5796925516cb8ea828a82477926d03d85cf263b795789238",
       "changes": [
-        "local_artifact_links_to_public_reproduction_guide"
+        "local_artifact_links_rewritten"
       ]
     },
     "docs/VLM_STVQA_REPLAY_V1_STATUS.md": {
@@ -730,8 +730,130 @@
       "changes": [
         "portable_historical_namespace_check_with_exact_hashes_and_declared_public_variants"
       ]
+    },
+    "docs/VLM_FULL_TEACHER_KD_V1_RESULTS.md": {
+      "local_source_sha256": "7a84461af9fdc8d6805010ba1173955afb576469edb32806e033eb9a402f87c3",
+      "public_sha256": "75583ada39295dfda14b6a265457c02816b7612baeeec283761f41cc1c6c7bf9",
+      "changes": [
+        "local_artifact_links_rewritten"
+      ]
+    },
+    "docs/VLM_FULL_TEACHER_TRANSFER_V1_RESULTS.md": {
+      "local_source_sha256": "269e948146cc4c784c093c066b3900f7c1744d49a1f894b6b849d90b36239efd",
+      "public_sha256": "5e3c56bafb12fb430a4348dd6d30f26b5c5c09184203d3d8e4da8bdcf55790f0",
+      "changes": [
+        "local_artifact_links_rewritten"
+      ]
+    },
+    "docs/VLM_FULL_TEACHER_KD_V1_STATUS.md": {
+      "local_source_sha256": "d3aa66d1de4a3b613ea268783bc262868adb4b38986b69d1bc3e1023505f10a4",
+      "public_sha256": "a1417c426a3797a19eee93774c3ff10e04422badd397c4ca1cd9a14625370919",
+      "changes": [
+        "local_artifact_links_rewritten"
+      ]
+    },
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_RESULTS.md": {
+      "local_source_sha256": "8fe4d0031ad2c8b78d8c13473ed0ed6714ca082e4b25299101aa1ca5623dbb07",
+      "public_sha256": "c847f63b34eb529508ba90bd026628c6d0eba614d1b3cea4ef7e129bb62b5eb4",
+      "changes": [
+        "local_artifact_links_rewritten"
+      ]
+    },
+    "docs/VLM_KD_COMPONENT_RESTORE_V1_RESULTS.md": {
+      "local_source_sha256": "8c94ee56bd794faa5eef4776ee8521eac391fb5a3f45e9d230e7ff85e2641e18",
+      "public_sha256": "6827e357f5fcd7092686a495d1e893d99ced6cbc642155ce70ee099c2dcc062f",
+      "changes": [
+        "local_artifact_links_rewritten"
+      ]
+    },
+    "docs/VLM_FULL_TEACHER_SIGNAL_V1_RESULTS.md": {
+      "local_source_sha256": "ab379af7b365ff97d72eac6759bed3e5efdb9bc58a27cb06d60e71623d4582c5",
+      "public_sha256": "2ea6ed7d2d98a6ead52a133d53c6cbad4aecbf79231e453a208d33f57f81fac5",
+      "changes": [
+        "local_artifact_links_rewritten"
+      ]
     }
   },
   "datasets_weights_credentials_included": false,
-  "github_actions_enabled": false
+  "github_actions_enabled": false,
+  "incremental_files": [
+    "src/vlm_onpolicy_kd_v1/__init__.py",
+    "src/vlm_onpolicy_kd_v1/objective.py",
+    "src/vlm_full_teacher_kd_v1/loss.py",
+    "src/vlm_full_teacher_kd_v1/__init__.py",
+    "tools/render_full_teacher_transfer_v1.py",
+    "tools/rarevlm_monitor_raster.py",
+    "tools/review_full_teacher_kd_v1.py",
+    "tools/render_stvqa_holdout_results_v1.py",
+    "tools/render_full_teacher_signal_v1.py",
+    "tools/fetch_full_teacher_assets_v1.py",
+    "tools/run_kd_component_restore_v1.py",
+    "tools/run_full_teacher_kd_v1.py",
+    "tools/render_kd_component_restore_v1.py",
+    "tools/rarevlm_monitor_kd.py",
+    "tools/rarevlm_monitor.py",
+    "tools/run_full_teacher_signal_v1.py",
+    "tools/rarevlm_monitor_onpolicy.py",
+    "tools/run_onpolicy_teacher_kd_v1.py",
+    "tools/run_full_teacher_transfer_v1.py",
+    "docs/VLM_FULL_TEACHER_KD_V1_RESULTS.md",
+    "docs/VLM_FULL_TEACHER_TRANSFER_V1_RESULTS.md",
+    "docs/VLM_FULL_TEACHER_TRANSFER_V1_PROTOCOL.md",
+    "docs/VLM_FULL_TEACHER_KD_V1_STATUS.md",
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_STATUS.md",
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_RESULTS.md",
+    "docs/VLM_FULL_TEACHER_KD_V1_PROTOCOL.md",
+    "docs/VLM_KD_COMPONENT_RESTORE_V1_PROTOCOL.md",
+    "docs/VLM_KD_COMPONENT_RESTORE_V1_RESULTS.md",
+    "docs/VLM_ONPOLICY_KD_V1_PROTOCOL.md",
+    "docs/VLM_FULL_TEACHER_SIGNAL_V1_RESULTS.md",
+    "docs/VLM_ONPOLICY_KD_V1_STATUS.md",
+    "docs/VLM_FULL_TEACHER_SIGNAL_V1_PROTOCOL.md",
+    "results/vlm_full_teacher_signal_v1_metrics.json",
+    "results/vlm_full_teacher_kd_v1_metrics.json",
+    "results/vlm_stvqa_holdout_transfer_v1_metrics.json",
+    "results/vlm_kd_component_restore_v1_metrics.json",
+    "results/vlm_full_teacher_transfer_v1_metrics.json",
+    "tests/test_full_teacher_kd_v1.py"
+  ],
+  "incremental_public_sha256": {
+    "src/vlm_onpolicy_kd_v1/__init__.py": "9532d74eda69d15f9abecb2dc5bcfbfe866230ab9e51a32c193d437b8e5e70de",
+    "src/vlm_onpolicy_kd_v1/objective.py": "db861d3deb27ddebc9d31f47c2368a6c74392d441161df734ba7caccda08c68d",
+    "src/vlm_full_teacher_kd_v1/loss.py": "48d0d9bfc603acd262ce28482737c109c80bbfd4ff8a25239e4c9a5bfc924188",
+    "src/vlm_full_teacher_kd_v1/__init__.py": "3690ea86e71b8a162ff169bf33c324521680276acac065211e3427f284145268",
+    "tools/render_full_teacher_transfer_v1.py": "7ea3a088d3425787bd6affc9b47c7b461a45bbb9f210d6e1579df3f5cb663c31",
+    "tools/rarevlm_monitor_raster.py": "57bff8641fd98ba3b8cf591d2fd96edab6448e379ebc4c80b642d587945029fb",
+    "tools/review_full_teacher_kd_v1.py": "9985f801ef9049c54ab3ed69e07fdaf6b70b61754ee280ecdbad59900a964dc9",
+    "tools/render_stvqa_holdout_results_v1.py": "b0bb7a449f7b9549f8157674a5776cb0aa911158a243645ac1bc01a3499d978c",
+    "tools/render_full_teacher_signal_v1.py": "0fc63f39ec17eaa1a9c831f9656eaf112ac065d2c705e22f9b73a18ae29e7452",
+    "tools/fetch_full_teacher_assets_v1.py": "ce37ac4065f9da25bd1499a68ca3ba41c27f729e1f7e28514208a972415f06e4",
+    "tools/run_kd_component_restore_v1.py": "b34054dc004f890ea18cb2a15c50066aec897820aab6c5c75ba59fc597ed5ee0",
+    "tools/run_full_teacher_kd_v1.py": "b35a30569738e808c61d3a10e555b8dbc625adf714c3b255b712acf5210f49f8",
+    "tools/render_kd_component_restore_v1.py": "7379d35b40d1b64c15941ca515a0b3b5f84f9f4206eb054170069446a471fdab",
+    "tools/rarevlm_monitor_kd.py": "8c746188783268bd37aa2da967404ca6caf0bf7babdd83ed98dac9e1ba6d1788",
+    "tools/rarevlm_monitor.py": "b75d685efbf24dbb0fb65b8e4d898398d3a6f531150a2e7db66caf754c6e31d8",
+    "tools/run_full_teacher_signal_v1.py": "ad4490479f79f586e184b69f6939c4162550e16a4b72e4ec237dd6894fed8cb2",
+    "tools/rarevlm_monitor_onpolicy.py": "04fd89c8e7f1759198f732c65260e98ac17624f215b9cf3839217064331c7757",
+    "tools/run_onpolicy_teacher_kd_v1.py": "4472532af847e95747ec5d6a4f18d9809a4c2a145dcde7ed2af07fa04f77703c",
+    "tools/run_full_teacher_transfer_v1.py": "390725adfb5de34c21f85050ef1bd33009c2c240b553c8f1fa8a3336d3bb6440",
+    "docs/VLM_FULL_TEACHER_KD_V1_RESULTS.md": "7a84461af9fdc8d6805010ba1173955afb576469edb32806e033eb9a402f87c3",
+    "docs/VLM_FULL_TEACHER_TRANSFER_V1_RESULTS.md": "269e948146cc4c784c093c066b3900f7c1744d49a1f894b6b849d90b36239efd",
+    "docs/VLM_FULL_TEACHER_TRANSFER_V1_PROTOCOL.md": "b4b3f0bae251816870eeaf082b242add99e0739bd67cdfadbab5c442dd626c44",
+    "docs/VLM_FULL_TEACHER_KD_V1_STATUS.md": "d3aa66d1de4a3b613ea268783bc262868adb4b38986b69d1bc3e1023505f10a4",
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_STATUS.md": "5bbbe63f3ad84e3f913257d481f0228078b05158a792f7bc3b2b349d219ea697",
+    "docs/VLM_STVQA_HOLDOUT_TRANSFER_V1_RESULTS.md": "8fe4d0031ad2c8b78d8c13473ed0ed6714ca082e4b25299101aa1ca5623dbb07",
+    "docs/VLM_FULL_TEACHER_KD_V1_PROTOCOL.md": "164b9708a049972bcef952ceb20f652ca5e7879ea09645f945739eef85de5f6b",
+    "docs/VLM_KD_COMPONENT_RESTORE_V1_PROTOCOL.md": "decb4dcf2869f04287876f2910d0b1fc9a7c4f52a64fd10ee2d820177a9bf4e7",
+    "docs/VLM_KD_COMPONENT_RESTORE_V1_RESULTS.md": "8c94ee56bd794faa5eef4776ee8521eac391fb5a3f45e9d230e7ff85e2641e18",
+    "docs/VLM_ONPOLICY_KD_V1_PROTOCOL.md": "5f4adbc26f3f03ddd50c8e89ce1ce881f192549d9f31d8e6a2b73ffa64e2c64b",
+    "docs/VLM_FULL_TEACHER_SIGNAL_V1_RESULTS.md": "ab379af7b365ff97d72eac6759bed3e5efdb9bc58a27cb06d60e71623d4582c5",
+    "docs/VLM_ONPOLICY_KD_V1_STATUS.md": "979d435b1125f33dc8f68e034d35e33846ba2c4f69b7541df488b3df4188463b",
+    "docs/VLM_FULL_TEACHER_SIGNAL_V1_PROTOCOL.md": "64ced60bdc1f21d7f8a9207662f93e9334d7d451c407b84acd08d68ca1daec40",
+    "results/vlm_full_teacher_signal_v1_metrics.json": "09335f2e98a6dd1a93835f233b6604d2b38c92d4820553e2f3506e0366cf1719",
+    "results/vlm_full_teacher_kd_v1_metrics.json": "97244aa2a35836d939d3752975e95e2d6c8467fbd7df763a8bc8304362829b1b",
+    "results/vlm_stvqa_holdout_transfer_v1_metrics.json": "f1be962bf840867100be6a281cd90b444e9ee768a462bd052b63748f7fac59c3",
+    "results/vlm_kd_component_restore_v1_metrics.json": "f3272f7c76f9035ff3a67a95bea27d7cadacb70c178f56d1dd490e66d3336d21",
+    "results/vlm_full_teacher_transfer_v1_metrics.json": "b972372f223c091cd25acf3fd0edebecf0699c17fc4b4e2b571f138bedc4cc31",
+    "tests/test_full_teacher_kd_v1.py": "f800625fd6a4a4ddffc054e8d61dc5e11adfc9d6b98c46061f5dfb5acf013295"
+  }
 }

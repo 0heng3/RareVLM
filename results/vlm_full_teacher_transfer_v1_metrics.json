@@ -1,0 +1,75 @@
+{
+  "status": "completed",
+  "metrics": {
+    "start": {
+      "transfer_dev": 88.02721088435374,
+      "retention": 95.3125,
+      "full_rare342": 88.15789473684208
+    },
+    "teacher": {
+      "transfer_dev": 93.53741496598643,
+      "retention": 98.4375,
+      "full_rare342": 92.28070175438597
+    }
+  },
+  "teacher_vs_strong_student": {
+    "transfer_dev": {
+      "delta_pp": 5.510204081632653,
+      "ci95": [
+        4.232778011851691,
+        6.8343214321675205
+      ],
+      "image_clusters": 1024,
+      "scope": "Fixed single-checkpoint conditional image-cluster interval."
+    },
+    "retention": {
+      "delta_pp": 3.125,
+      "ci95": [
+        0.0,
+        7.8125
+      ],
+      "image_clusters": 64,
+      "scope": "Fixed single-checkpoint conditional image-cluster interval."
+    },
+    "full_rare342": {
+      "delta_pp": 4.122807017543859,
+      "ci95": [
+        1.8495991604734379,
+        6.589765129883693
+      ],
+      "image_clusters": 312,
+      "scope": "Fixed single-checkpoint conditional image-cluster interval."
+    }
+  },
+  "changes": {
+    "transfer_dev": {
+      "score_improved": 145,
+      "score_regressed": 37,
+      "teacher_unterminated": 0
+    },
+    "retention": {
+      "score_improved": 2,
+      "score_regressed": 0,
+      "teacher_unterminated": 0
+    },
+    "full_rare342": {
+      "score_improved": 27,
+      "score_regressed": 8,
+      "teacher_unterminated": 0
+    }
+  },
+  "gates": {
+    "full1617_plus_point5_positive_ci": true,
+    "rare342_point_protection": true,
+    "retention64_point_protection": true
+  },
+  "full_task_teacher_opportunity": true,
+  "new_generations": 1681,
+  "optimizer_updates": 0,
+  "new_adapters": 0,
+  "teacher_forced_sequences": 0,
+  "automatic_training": false,
+  "student_improved": false,
+  "goal_complete": false,
+  "scope": "Different frozen 7B teacher versus specialized 3B student on reused internal cohorts; not pure size causality, a new student improvement or external/seed confirmation."
+}

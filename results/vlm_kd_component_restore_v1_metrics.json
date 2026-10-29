@@ -1,0 +1,289 @@
+{
+  "status": "completed",
+  "phase": "zero_update_component_diagnosis_complete",
+  "metrics": {
+    "start": {
+      "transfer_dev": 88.02721088435374,
+      "native_hard": 30.781249999999993,
+      "retention": 95.3125,
+      "full_rare342": 88.15789473684208
+    },
+    "language_only": {
+      "transfer_dev": 87.40259740259741,
+      "native_hard": 43.046874999999986,
+      "retention": 95.3125,
+      "full_rare342": 87.19298245614036
+    },
+    "visual_only": {
+      "transfer_dev": 87.90970933828075,
+      "native_hard": 42.26562499999999,
+      "retention": 93.75,
+      "full_rare342": 88.12865497076022
+    },
+    "kd": {
+      "transfer_dev": 86.84601113172542,
+      "native_hard": 54.296874999999986,
+      "retention": 93.75,
+      "full_rare342": 86.60818713450293
+    }
+  },
+  "contrasts": {
+    "restore_language_01_minus_11": {
+      "transfer_dev": {
+        "delta_pp": 1.0636982065553495,
+        "ci95": [
+          0.340187820499619,
+          1.7758857492782782
+        ],
+        "ci99_five_main_comparisons": [
+          0.11776646776193436,
+          2.0200171895789762
+        ],
+        "image_clusters": 1024
+      },
+      "native_hard": {
+        "delta_pp": -12.03125,
+        "ci95": [
+          -18.28125,
+          -6.015625
+        ],
+        "ci99_five_main_comparisons": [
+          -20.625,
+          -4.453125
+        ],
+        "image_clusters": 128
+      },
+      "retention": {
+        "delta_pp": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci99_five_main_comparisons": [
+          0.0,
+          0.0
+        ],
+        "image_clusters": 64
+      },
+      "full_rare342": {
+        "delta_pp": 1.5204678362573099,
+        "ci95": [
+          0.32931673965501834,
+          2.857246077621799
+        ],
+        "ci99_five_main_comparisons": [
+          -3.284683504807502e-19,
+          3.265345958203102
+        ],
+        "image_clusters": 312
+      }
+    },
+    "restore_visual_10_minus_11": {
+      "transfer_dev": {
+        "delta_pp": 0.5565862708719852,
+        "ci95": [
+          0.08019247378161631,
+          1.0539442252599516
+        ],
+        "ci99_five_main_comparisons": [
+          -0.07362121950942924,
+          1.2181645195190998
+        ],
+        "image_clusters": 1024
+      },
+      "native_hard": {
+        "delta_pp": -11.25,
+        "ci95": [
+          -17.1875,
+          -6.246093750000057
+        ],
+        "ci99_five_main_comparisons": [
+          -19.0625,
+          -4.6875
+        ],
+        "image_clusters": 128
+      },
+      "retention": {
+        "delta_pp": 1.5625,
+        "ci95": [
+          0.0,
+          4.6875
+        ],
+        "ci99_five_main_comparisons": [
+          0.0,
+          6.25
+        ],
+        "image_clusters": 64
+      },
+      "full_rare342": {
+        "delta_pp": 0.5847953216374269,
+        "ci95": [
+          0.0,
+          1.4244186046511629
+        ],
+        "ci99_five_main_comparisons": [
+          0.0,
+          1.725190988067472
+        ],
+        "image_clusters": 312
+      }
+    },
+    "language_update_10_minus_00": {
+      "transfer_dev": {
+        "delta_pp": -0.6246134817563389,
+        "ci95": [
+          -1.2422763040639804,
+          -0.01838943301599568
+        ],
+        "ci99_five_main_comparisons": [
+          -1.4727422166874218,
+          0.16010799840400242
+        ],
+        "image_clusters": 1024
+      },
+      "native_hard": {
+        "delta_pp": 12.265625,
+        "ci95": [
+          6.873046875,
+          18.515625
+        ],
+        "ci99_five_main_comparisons": [
+          5.46875,
+          20.079296875000026
+        ],
+        "image_clusters": 128
+      },
+      "retention": {
+        "delta_pp": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci99_five_main_comparisons": [
+          0.0,
+          0.0
+        ],
+        "image_clusters": 64
+      },
+      "full_rare342": {
+        "delta_pp": -0.9649122807017544,
+        "ci95": [
+          -2.2126436781609193,
+          0.17492711370262387
+        ],
+        "ci99_five_main_comparisons": [
+          -2.637776335712741,
+          0.5935130470271152
+        ],
+        "image_clusters": 312
+      }
+    },
+    "visual_update_01_minus_00": {
+      "transfer_dev": {
+        "delta_pp": -0.11750154607297467,
+        "ci95": [
+          -0.6196594159021758,
+          0.37286633692978316
+        ],
+        "ci99_five_main_comparisons": [
+          -0.7810612144582983,
+          0.5370695788438229
+        ],
+        "image_clusters": 1024
+      },
+      "native_hard": {
+        "delta_pp": 11.484375,
+        "ci95": [
+          6.25,
+          17.1875
+        ],
+        "ci99_five_main_comparisons": [
+          5.0,
+          18.828125
+        ],
+        "image_clusters": 128
+      },
+      "retention": {
+        "delta_pp": -1.5625,
+        "ci95": [
+          -4.6875,
+          0.0
+        ],
+        "ci99_five_main_comparisons": [
+          -6.25,
+          0.0
+        ],
+        "image_clusters": 64
+      },
+      "full_rare342": {
+        "delta_pp": -0.02923976608187134,
+        "ci95": [
+          -0.9884441318055464,
+          0.8709014246804941
+        ],
+        "ci99_five_main_comparisons": [
+          -1.3134559295214474,
+          1.2389563805833381
+        ],
+        "image_clusters": 312
+      }
+    },
+    "interaction_11_minus_10_minus_01_plus_00": {
+      "transfer_dev": {
+        "delta_pp": -0.4390847247990104,
+        "ci95": [
+          -1.0124380908631183,
+          0.1332769645405059
+        ],
+        "ci99_five_main_comparisons": [
+          -1.2162282153555883,
+          0.30414969826331945
+        ],
+        "image_clusters": 1024
+      },
+      "native_hard": {
+        "delta_pp": -0.23437500000000003,
+        "ci95": [
+          -5.392578125,
+          4.845703124999971
+        ],
+        "ci99_five_main_comparisons": [
+          -7.03125,
+          6.640625
+        ],
+        "image_clusters": 128
+      },
+      "retention": {
+        "delta_pp": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci99_five_main_comparisons": [
+          0.0,
+          0.0
+        ],
+        "image_clusters": 64
+      },
+      "full_rare342": {
+        "delta_pp": -0.5555555555555556,
+        "ci95": [
+          -1.4837595487537956,
+          0.23668639053254434
+        ],
+        "ci99_five_main_comparisons": [
+          -1.7868334669099462,
+          0.44510385756676557
+        ],
+        "image_clusters": 312
+      }
+    }
+  },
+  "new_generations": 3618,
+  "optimizer_updates": 0,
+  "new_adapters": 0,
+  "automatic_training": false,
+  "original_KD_stop_unchanged": true,
+  "goal_complete": false,
+  "scope": "Post-training fixed-model component intervention; reused internal development cohorts, no independently retrained scope controls or external/seed confirmation."
+}

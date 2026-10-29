@@ -1,0 +1,563 @@
+{
+  "status": "completed",
+  "metrics": {
+    "start": {
+      "native_hard": 30.781249999999993,
+      "literal_validation": 94.921875,
+      "seen_validation": 94.14062500000001,
+      "retention": 95.3125,
+      "transfer_dev": 88.02721088435374,
+      "singleword": 92.73437499999999,
+      "multiword": 95.54687500000001,
+      "rare_1_5": 93.55191256830601,
+      "full_rare342": 88.15789473684208
+    },
+    "hard": {
+      "native_hard": 52.187499999999986,
+      "literal_validation": 95.3125,
+      "seen_validation": 94.45312500000001,
+      "retention": 92.1875,
+      "transfer_dev": 86.6728509585652,
+      "singleword": 93.2421875,
+      "multiword": 95.66406250000001,
+      "rare_1_5": 94.18032786885247,
+      "full_rare342": 86.9298245614035
+    },
+    "uniform": {
+      "native_hard": 57.421874999999986,
+      "literal_validation": 94.921875,
+      "seen_validation": 94.45312500000001,
+      "retention": 93.75,
+      "transfer_dev": 86.70995670995671,
+      "singleword": 92.73437499999999,
+      "multiword": 96.171875,
+      "rare_1_5": 93.98907103825138,
+      "full_rare342": 86.81286549707602
+    },
+    "kd": {
+      "native_hard": 54.296874999999986,
+      "literal_validation": 94.921875,
+      "seen_validation": 94.58984375000001,
+      "retention": 93.75,
+      "transfer_dev": 86.84601113172542,
+      "singleword": 93.51562499999999,
+      "multiword": 95.66406250000001,
+      "rare_1_5": 94.18032786885247,
+      "full_rare342": 86.60818713450293
+    }
+  },
+  "vs_start": {
+    "hard": {
+      "native_hard": {
+        "delta_pp": 21.40625,
+        "ci95": [
+          14.609375,
+          28.671875000000004
+        ],
+        "image_clusters": 128,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "literal_validation": {
+        "delta_pp": 0.390625,
+        "ci95": [
+          0.0,
+          1.1494252873563218
+        ],
+        "image_clusters": 112,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "seen_validation": {
+        "delta_pp": 0.3125,
+        "ci95": [
+          -0.7426757812500002,
+          1.42578125
+        ],
+        "image_clusters": 512,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "retention": {
+        "delta_pp": -3.125,
+        "ci95": [
+          -7.8125,
+          0.0
+        ],
+        "image_clusters": 64,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "transfer_dev": {
+        "delta_pp": -1.3543599257884973,
+        "ci95": [
+          -2.1803805396849905,
+          -0.5565520289873124
+        ],
+        "image_clusters": 1024,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "singleword": {
+        "delta_pp": 0.5078125,
+        "ci95": [
+          -1.0546875,
+          2.1875
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "multiword": {
+        "delta_pp": 0.11718750000000001,
+        "ci95": [
+          -1.328125,
+          1.5625
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "rare_1_5": {
+        "delta_pp": 0.628415300546448,
+        "ci95": [
+          -0.819672131147541,
+          2.185792349726776
+        ],
+        "image_clusters": 366,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "full_rare342": {
+        "delta_pp": -1.2280701754385968,
+        "ci95": [
+          -2.61646976066174,
+          0.02941393371507882
+        ],
+        "image_clusters": 312,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      }
+    },
+    "uniform": {
+      "native_hard": {
+        "delta_pp": 26.640625,
+        "ci95": [
+          19.296875,
+          34.45312499999999
+        ],
+        "image_clusters": 128,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "literal_validation": {
+        "delta_pp": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "image_clusters": 112,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "seen_validation": {
+        "delta_pp": 0.3125,
+        "ci95": [
+          -0.6640625,
+          1.34765625
+        ],
+        "image_clusters": 512,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "retention": {
+        "delta_pp": -1.5625,
+        "ci95": [
+          -4.6875,
+          0.0
+        ],
+        "image_clusters": 64,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "transfer_dev": {
+        "delta_pp": -1.3172541743970312,
+        "ci95": [
+          -2.0969261942409676,
+          -0.5753136207384046
+        ],
+        "image_clusters": 1024,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "singleword": {
+        "delta_pp": 0.0,
+        "ci95": [
+          -1.5625,
+          1.5625
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "multiword": {
+        "delta_pp": 0.625,
+        "ci95": [
+          -0.46875,
+          1.9931640624999856
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "rare_1_5": {
+        "delta_pp": 0.4371584699453552,
+        "ci95": [
+          -0.9296448087431697,
+          1.8046448087431495
+        ],
+        "image_clusters": 366,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "full_rare342": {
+        "delta_pp": -1.3450292397660821,
+        "ci95": [
+          -2.8153428126386872,
+          0.03052897903643178
+        ],
+        "image_clusters": 312,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      }
+    },
+    "kd": {
+      "native_hard": {
+        "delta_pp": 23.515625,
+        "ci95": [
+          16.484375,
+          30.859375
+        ],
+        "image_clusters": 128,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "literal_validation": {
+        "delta_pp": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "image_clusters": 112,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "seen_validation": {
+        "delta_pp": 0.44921874999999994,
+        "ci95": [
+          -0.41015624999999994,
+          1.42578125
+        ],
+        "image_clusters": 512,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "retention": {
+        "delta_pp": -1.5625,
+        "ci95": [
+          -4.6875,
+          0.0
+        ],
+        "image_clusters": 64,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "transfer_dev": {
+        "delta_pp": -1.1811997526283242,
+        "ci95": [
+          -1.9489414694894147,
+          -0.43477586160364906
+        ],
+        "image_clusters": 1024,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "singleword": {
+        "delta_pp": 0.78125,
+        "ci95": [
+          -0.78125,
+          2.34375
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "multiword": {
+        "delta_pp": 0.11718750000000001,
+        "ci95": [
+          -0.8203124999999999,
+          1.171875
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "rare_1_5": {
+        "delta_pp": 0.628415300546448,
+        "ci95": [
+          -0.5737704918032787,
+          1.9125683060109289
+        ],
+        "image_clusters": 366,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "full_rare342": {
+        "delta_pp": -1.5497076023391816,
+        "ci95": [
+          -3.0199576409253828,
+          -0.1801532876159746
+        ],
+        "image_clusters": 312,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      }
+    }
+  },
+  "candidate_vs_controls": {
+    "hard": {
+      "native_hard": {
+        "delta_pp": 2.109375,
+        "ci95": [
+          -3.125,
+          7.580078124999971
+        ],
+        "image_clusters": 128,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "literal_validation": {
+        "delta_pp": -0.390625,
+        "ci95": [
+          -1.1494252873563218,
+          0.0
+        ],
+        "image_clusters": 112,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "seen_validation": {
+        "delta_pp": 0.13671875,
+        "ci95": [
+          -0.64453125,
+          0.9765625
+        ],
+        "image_clusters": 512,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "retention": {
+        "delta_pp": 1.5625,
+        "ci95": [
+          0.0,
+          4.6875
+        ],
+        "image_clusters": 64,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "transfer_dev": {
+        "delta_pp": 0.1731601731601732,
+        "ci95": [
+          -0.6525856881156975,
+          1.0025219097337597
+        ],
+        "image_clusters": 1024,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "singleword": {
+        "delta_pp": 0.2734375,
+        "ci95": [
+          -0.8984374999999999,
+          1.5625
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "multiword": {
+        "delta_pp": 0.0,
+        "ci95": [
+          -1.171875,
+          1.171875
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "rare_1_5": {
+        "delta_pp": 0.0,
+        "ci95": [
+          -1.092896174863388,
+          1.092896174863388
+        ],
+        "image_clusters": 366,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "full_rare342": {
+        "delta_pp": -0.32163742690058483,
+        "ci95": [
+          -1.6570975150857685,
+          0.9943698788518545
+        ],
+        "image_clusters": 312,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      }
+    },
+    "uniform": {
+      "native_hard": {
+        "delta_pp": -3.125,
+        "ci95": [
+          -7.8125,
+          0.78125
+        ],
+        "image_clusters": 128,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "literal_validation": {
+        "delta_pp": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "image_clusters": 112,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "seen_validation": {
+        "delta_pp": 0.13671875,
+        "ci95": [
+          -0.5078124999999999,
+          0.78125
+        ],
+        "image_clusters": 512,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "retention": {
+        "delta_pp": 0.0,
+        "ci95": [
+          -4.6875,
+          4.6875
+        ],
+        "image_clusters": 64,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "transfer_dev": {
+        "delta_pp": 0.13605442176870747,
+        "ci95": [
+          -0.44036896441823936,
+          0.7170374561070465
+        ],
+        "image_clusters": 1024,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "singleword": {
+        "delta_pp": 0.78125,
+        "ci95": [
+          0.0,
+          1.953125
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "multiword": {
+        "delta_pp": -0.5078125,
+        "ci95": [
+          -1.40625,
+          0.0
+        ],
+        "image_clusters": 256,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "rare_1_5": {
+        "delta_pp": 0.1912568306010929,
+        "ci95": [
+          -0.7103825136612022,
+          1.202185792349727
+        ],
+        "image_clusters": 366,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      },
+      "full_rare342": {
+        "delta_pp": -0.2046783625730994,
+        "ci95": [
+          -0.5263157894736842,
+          0.0
+        ],
+        "image_clusters": 312,
+        "scope": "Fixed single-checkpoint conditional image-cluster interval."
+      }
+    }
+  },
+  "candidate_vs_historical_strong_dpo": {
+    "delta_pp": -0.7854050711193569,
+    "ci95": [
+      -1.5375889422005675,
+      -0.030836223499496124
+    ],
+    "image_clusters": 1024,
+    "scope": "Fixed single-checkpoint conditional image-cluster interval."
+  },
+  "gates": {
+    "full1617_all_four_comparisons": false,
+    "start_point_protections": false,
+    "matched_control_protections": true
+  },
+  "student_signal": false,
+  "new_updates": 96,
+  "new_generations": 7731,
+  "new_teacher_forwards": 0,
+  "goal_complete": false,
+  "scope": "Single-seed historically used internal evaluation; fixed Final32 and shared joint-LoRA controls; not external or seed-stability confirmation.",
+  "posthoc_saved_prediction_review": {
+    "status": "completed",
+    "per_role_vs_start": {
+      "hard": {
+        "qa_improved": 28,
+        "qa_regressed": 58,
+        "qa_score_unchanged": 1531,
+        "sum_score_gained": 15.899999999999999,
+        "sum_score_lost": 37.800000000000004,
+        "regressed_with_longer_decoded_text": 46,
+        "regressed_with_previous_answer_as_substring": 37,
+        "unterminated": 0
+      },
+      "uniform": {
+        "qa_improved": 21,
+        "qa_regressed": 45,
+        "qa_score_unchanged": 1551,
+        "sum_score_gained": 12.0,
+        "sum_score_lost": 33.300000000000004,
+        "regressed_with_longer_decoded_text": 26,
+        "regressed_with_previous_answer_as_substring": 14,
+        "unterminated": 0
+      },
+      "kd": {
+        "qa_improved": 22,
+        "qa_regressed": 45,
+        "qa_score_unchanged": 1550,
+        "sum_score_gained": 12.9,
+        "sum_score_lost": 32.0,
+        "regressed_with_longer_decoded_text": 33,
+        "regressed_with_previous_answer_as_substring": 18,
+        "unterminated": 0
+      }
+    },
+    "all_three_regression_qa": 16,
+    "all_three_regression_ids": [
+      "5304",
+      "5891",
+      "6107",
+      "9466",
+      "10379",
+      "12955",
+      "13648",
+      "16052",
+      "18020",
+      "22856",
+      "23696",
+      "29122",
+      "29766",
+      "32020",
+      "32021",
+      "32586"
+    ],
+    "kd_regression_also_at_least_one_control": 39,
+    "kd_regression_only": 6,
+    "kd_regression_only_ids": [
+      "11104",
+      "17670",
+      "20949",
+      "32019",
+      "33974",
+      "34570"
+    ],
+    "all_three_gain_qa": 9,
+    "common_regressions_kd_score_lost": 10.1,
+    "prediction_sha256": {
+      "start": "6415905776455cc557cf6a8e37f456bfc2f9d9301847dd646fbf22430dd99c7b",
+      "hard": "72302073aba494ab66230f04e9a5d039eda7da914dc1b12951e57007a5f3e872",
+      "uniform": "5afdebb2dcfc20c055ae06e09e454ffaaae348f610c1a0b815361c825b856182",
+      "kd": "15bf88e3b12631eebaaed56a9510355f03d0d79ea5fa340738431a12403f2985"
+    },
+    "optimizer_updates": 0,
+    "new_model_calls": 0,
+    "scope": "Posthoc descriptive overlap; score changes are not binary correct counts. Substring/length counts are output descriptions, not causal error labels."
+  }
+}

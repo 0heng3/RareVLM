@@ -1,0 +1,25 @@
+{
+  "status": "completed",
+  "teacher_literal_correct": 105,
+  "teacher_correct_distinct_targets": 104,
+  "student_literal_correct": 36,
+  "novel_corrections": 71,
+  "regressions": 2,
+  "novel_mean_nll_drop": 0.8259371494772699,
+  "informative_at_T2": 73,
+  "max_padding_mass_T2": 0.001973092555999756,
+  "gates": {
+    "teacher_correct48_distinct40": true,
+    "novel16_net8": true,
+    "novel_mean_nll_drop_point2": true,
+    "non_gt_structured_information16": true,
+    "padding_mass_at_T2_at_most_point01": true
+  },
+  "teacher_signal": true,
+  "new_generations": 128,
+  "teacher_forced_sequences": 256,
+  "optimizer_updates": 0,
+  "automatic_training": false,
+  "goal_complete": false,
+  "scope": "Fixed known128 training questions; teacher admission only, not student ability gain."
+}

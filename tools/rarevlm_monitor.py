@@ -216,6 +216,12 @@ class Collector:
             if not force and self.cached_state and time.monotonic() - self.cached_at < 8:
                 return self.cached_state
             self.warnings = []
+            if CURRENT.name == 'vlm_onpolicy_teacher_kd_v1':
+                from rarevlm_monitor_onpolicy import collect
+                return collect(self, CURRENT, ROLE_LABELS, now, process_alive)
+            if CURRENT.name == 'vlm_full_teacher_kd_v1':
+                from rarevlm_monitor_kd import collect
+                return collect(self, CURRENT, ROLE_LABELS, now, process_alive)
             completion = self.read(CURRENT / 'COMPLETION.json'); screen = self.read(CURRENT / 'SCREEN_ANALYSIS.json'); transfer = self.read(CURRENT / 'TRANSFER_ANALYSIS.json')
             analysis = transfer or screen
             queue = self.read(CURRENT / 'training_queue/STATUS.json'); data = self.read(CURRENT / 'data/MANIFEST.json')
@@ -636,6 +642,51 @@ class Collector:
                         log = holdout_root/'queue/logs'/(job+'.log')
                         runtime_errors.append({'job':job,'queue':'source_holdout','tail':log.read_text(errors='replace')[-3000:] if log.exists() else '等待失败日志','source':self.source(log)})
                         root_state = 'failed'
+            full_teacher_validation = {}
+            full_teacher_root = BASE/'vlm_full_teacher_signal_v1'
+            if (full_teacher_root/'REGISTRATION.json').exists():
+                teacher_assets = BASE/'vlm_full_teacher_assets_v1'
+                acquisition = self.read(teacher_assets/'TRANSPORT_PROGRESS.json')
+                acquisition_done = self.read(teacher_assets/'TRANSPORT_COMPLETE.json')
+                teacher_queue = self.read(full_teacher_root/'queue/STATUS.json')
+                teacher_done = self.read(full_teacher_root/'COMPLETION.json')
+                teacher_cpu = self.read(full_teacher_root/'CPU_PROGRESS.json')
+                progress_by_role = {r:self.read(full_teacher_root/'runs'/r/'PROGRESS.json') for r in ('student','teacher')}
+                generated_teacher = progress_by_role['teacher'].get('new_generations',0)
+                forced_teacher = sum(q.get('teacher_forced_sequences',0) for q in progress_by_role.values())
+                if teacher_done:
+                    teacher_phase = '整图教师有新增监督信号' if teacher_done.get('teacher_signal') else '固定整图教师未过信号门槛'
+                    teacher_detail = f'128教师生成+256 GT前向完成；0更新；仅训练池教师准入，不是学生提分。'
+                elif not acquisition_done:
+                    teacher_phase = '获取并校验7B教师权重'
+                    teacher_detail = f"{acquisition.get('bytes',0)/2**30:.2f}/{acquisition.get('expected_bytes',0)/2**30:.2f}GiB，{acquisition.get('verified_files',0)}/{acquisition.get('expected_files',15)}文件已验；0 GPU调用/0更新。"
+                elif not (full_teacher_root/'PLAN.json').exists():
+                    teacher_phase = '核验教师与学生实际token/图像输入'
+                    teacher_detail = f"{teacher_cpu.get('completed',0)}/128 CPU输入；词表填充尺寸不同，实际token映射须一致。"
+                else:
+                    teacher_phase = '整图教师验证运行中' if teacher_queue.get('status')=='running' else '整图教师验证等待空卡'
+                    teacher_detail = f'{generated_teacher}/128新教师生成、{forced_teacher}/256 GT前向；0训练更新。'
+                teacher_record = {'name':'7B整图教师信号','status':teacher_phase,'detail':teacher_detail,
+                    'jobs':teacher_queue.get('jobs',{}),'source':self.source(full_teacher_root/('COMPLETION.json' if teacher_done else 'queue/STATUS.json' if teacher_queue else 'STATUS.json'))}
+                auxiliary.append(teacher_record);history.append(teacher_record)
+                full_teacher_validation = {'phase':teacher_phase,'new_generations':generated_teacher,'teacher_forced_sequences':forced_teacher,
+                    'optimizer_updates':0,'assets':acquisition,'completion':teacher_done}
+                sources += [self.source(PROJECT/'docs/VLM_FULL_TEACHER_SIGNAL_V1_PROTOCOL.md','不同完整7B教师的事前监督信息门槛'),
+                    self.source(full_teacher_root/'REGISTRATION.json','固定128训练池、较强SFT学生和新模型身份'),
+                    self.source(BASE/'vlm_stvqa_holdout_transfer_v1/来源保持_结果与NLL解释.png','已完成来源保持的实际结果与NLL案例')]
+                if not teacher_done:
+                    root_state = 'running' if teacher_queue.get('status')=='running' else 'waiting' if teacher_queue.get('status')=='waiting_resources' else 'preparing'
+                    research = '来源验证已结束；'+teacher_phase+'（0更新）'
+                else:
+                    research = teacher_phase+'；学生能力目标仍待完成'
+                failure = self.read(full_teacher_root/'RUNTIME_ERROR.json')
+                if failure:
+                    root_state = 'failed'
+                    runtime_errors.append({'job':'full_teacher_controller','queue':'teacher_signal','tail':str(failure),'source':self.source(full_teacher_root/'controller.log')})
+                for key,job in teacher_queue.get('jobs',{}).items():
+                    if job.get('state')=='failed':
+                        root_state = 'failed';log=full_teacher_root/'queue/logs'/(key+'.log')
+                        runtime_errors.append({'job':key,'queue':'teacher_signal','tail':log.read_text(errors='replace')[-2500:] if log.exists() else '等待日志','source':self.source(log)})
             representative = [c for c in cases if c['status'] == 'score_loss' and c.get('rare')][:3] + [c for c in cases if c['id'] in ('t-49', 't-64', 't-70')]
             for case in representative:
                 case['full_image'] = 'data:image/jpeg;base64,' + base64.b64encode(self.images[case['id']].read_bytes()).decode()
@@ -647,6 +698,7 @@ class Collector:
                      'auxiliary_runs': auxiliary,
                      'independent_validation': independent_validation,
                      'source_holdout_validation': source_holdout_validation,
+                     'full_teacher_validation': full_teacher_validation,
                      'regularizer': 'dpo' if preference_study else 'none' if scope_study else 'kl' if kl_study else 'dpo', 'numeric_policy': self.read(CURRENT / 'CONFIG.json').get('policy'),
                      'active_jobs': [{'label': name.replace('_queue', '') + ' / ' + key, **job} for name, qs in observed_queues.items() for key, job in qs.get('jobs', {}).items() if job.get('state') == 'running'] + [{'label': a['name'] + ' / ' + key, **job} for a in auxiliary for key, job in a['jobs'].items() if job.get('state') == 'running'],
                      'dataset': {'reviewed': review.get('reviewed_candidates'), 'supported': review.get('supported'), 'excluded': review.get('not_admitted_or_uncertain'),
@@ -666,6 +718,15 @@ class Collector:
 def page(state):
     payload = json.dumps(state, ensure_ascii=False, allow_nan=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     template = TEMPLATE.read_text()
+    if state.get('regularizer') == 'kd':
+        template = template.replace("state.roles.map(r=>`${r.step}/${r.planned}`).join(' · ')", "`${state.roles.reduce((s,r)=>s+r.step,0)}/96`")
+        template = template.replace("r.id==='sft'?'#127467':'#316f9e'", "r.color||'#316f9e'")
+        template = template.replace('SFT / DPO＋SFT，固定各32步', 'GT / 均匀尾 / 教师KD，固定各32步')
+        template = template.replace("['集合／指标','起点','SFT32','DPO＋SFT32']", "['集合／指标','起点','额外GT32','均匀尾32','教师KD32']")
+        template = template.replace("['start','sft','dpo_sft']", "['start','hard','uniform','kd']")
+        template = template.replace("${g.role==='sft'?'SFT':'DPO＋SFT'} · ${gnames[g.key]}", "教师KD · ${g.key}")
+        template = template.replace('value="dpo"', 'value="kd"').replace("loss('mini-dpo','dpo'", "loss('mini-dpo','kd'")
+        template = template.replace('偏好QA的DPO', '辅助T²KL（GT臂为T²CE）').replace('DPO损失', '辅助目标')
     if state.get('regularizer') == 'kl':
         for before, after in [('DPO＋SFT', 'SFT＋KL'), ('dpo_sft', 'sft_kl'), ('偏好QA的DPO', '回放QA的KL'), ('DPO损失', 'KL损失'), ('value="dpo"', 'value="kl"'), ('相对原SFT初始', '相对修复后新起点')]:
             template = template.replace(before, after)
@@ -749,6 +810,8 @@ def main():
     if CURRENT.name == 'vlm_native_scope_v1': ROLE_LABELS = {'language': '语言LoRA', 'visual': '视觉LoRA'}
     if CURRENT.name == 'vlm_visual_preference_v1': ROLE_LABELS = {'ce': '视觉CE控制', 'ce_dpo': '视觉CE+DPO'}
     if CURRENT.name == 'vlm_stvqa_replay_v1': ROLE_LABELS = {'ce': '整图回放CE', 'ce_dpo': '整图回放CE+DPO'}
+    if CURRENT.name == 'vlm_full_teacher_kd_v1': ROLE_LABELS = {'hard': '额外GT', 'uniform': '均匀尾', 'kd': '教师KD'}
+    if CURRENT.name == 'vlm_onpolicy_teacher_kd_v1': ROLE_LABELS = {'op_kd': '学生前缀KD'}
     if CURRENT.name == 'vlm_late_visual_dpo_v1': ROLE_LABELS = {'ce_dpo': '后10层视觉DPO'}
     if CURRENT.name == 'vlm_late_rank_matched_dpo_v1': ROLE_LABELS = {'ce_dpo': '后10层r36 DPO'}
     if CURRENT.name == 'vlm_native_diversity_v1':

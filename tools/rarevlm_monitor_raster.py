@@ -51,13 +51,13 @@ def curve(c, box, roles, kind, title):
         value=maximum*i/3;yy=bottom-(bottom-top)*i/3;c.draw.line((left,yy,right,yy),fill=LINE,width=1);c.text((x0+10,yy-12),f'{value:.2f}',14,MUTED)
     for r in roles:
         pts=[(left+(p['step']-1)/31*(right-left),bottom-p[kind]/maximum*(bottom-top)) for p in r['curve']['points'] if p.get(kind) is not None]
-        color=TEAL if r['id']==roles[0]['id'] else BLUE
+        color=r.get('color',TEAL if r['id']==roles[0]['id'] else BLUE)
         if len(pts)>1:c.draw.line(pts,fill=color,width=3)
         for x,y in pts:c.draw.ellipse((x-2,y-2,x+2,y+2),fill=color)
     for step in [1,8,16,24,32]:c.text((left+(step-1)/31*(right-left)-8,bottom+7),step,14,MUTED)
     legend_x=x0+20
     for index,role in enumerate(roles):
-        c.text((legend_x,y1-28),role['label'],14,TEAL if index==0 else BLUE)
+        c.text((legend_x,y1-28),role['label'],14,role.get('color',TEAL if index==0 else BLUE))
         legend_x+=c.draw.textlength(role['label'],font=c.font(14))+24
 
 
@@ -65,11 +65,12 @@ def render(state, output):
     output=Path(output);output.mkdir(parents=True,exist_ok=True)
     runtime=state.get('runtime_errors',[]);role_labels={r['id']:r['label'] for r in state['roles']};control_id=state['roles'][0]['id']
     c=Canvas(1260);c.header(state,'实验运行总览')
-    pending_holdout = state.get('source_holdout_validation') and not state['source_holdout_validation'].get('completion')
-    c.card((30,104,1490,180),'#fff8ec');c.text((49,116),'运行异常' if runtime else '新验证等待空卡' if pending_holdout and state.get('state')=='waiting' else '数据准备中' if state.get('state')=='preparing' else '主实验结束' if state['completion'] and state.get('active_jobs') else '运行已完成' if state['completion'] else '运行中',23,RED if runtime else TEAL)
+    pending_holdout = (state.get('source_holdout_validation') and not state['source_holdout_validation'].get('completion')) or (state.get('full_teacher_validation') and not state['full_teacher_validation'].get('completion'))
+    c.card((30,104,1490,180),'#fff8ec');c.text((49,116),'运行异常' if runtime else '等待空闲GPU' if state.get('prefix_source') and state.get('state')=='waiting' else '新验证等待空卡' if pending_holdout and state.get('state')=='waiting' else '数据准备中' if state.get('state')=='preparing' else '主实验结束' if state['completion'] and state.get('active_jobs') else '运行已完成' if state['completion'] else '运行中',23,RED if runtime else TEAL)
     c.text((270,116),'研究结论：'+state['research'],23,'#95611b')
     c.text((49,151),'训练是否正常、门槛是否通过、原因是否证实，分别显示。',16,MUTED)
-    cards=[('训练更新',' / '.join(str(r['step'])+'/32' for r in state['roles']),' / '.join(r['label'] for r in state['roles'])),('固定纠错样本',str(state['dataset']['selected'])+' 条',str(state['dataset']['unique_targets'])+'个归一化答案'),('看图审核',str(state['dataset']['supported'])+' / '+str(state['dataset']['reviewed']),'支持 / 已审；非全池错标率'),('评测图像交叉',str(state['dataset']['overlap']),'图像与像素；未评测项不填0')]
+    update_text = str(sum(r['step'] for r in state['roles']))+' / 96' if len(state['roles'])>2 else ' / '.join(str(r['step'])+'/32' for r in state['roles'])
+    cards=[('训练更新',update_text,' / '.join(r['label'] for r in state['roles'])),('固定纠错样本',str(state['dataset']['selected'])+' 条',str(state['dataset']['unique_targets'])+'个归一化答案'),('看图审核',str(state['dataset']['supported'])+' / '+str(state['dataset']['reviewed']),'支持 / 已审；非全池错标率'),('评测图像交叉',str(state['dataset']['overlap']),'图像与像素；未评测项不填0')]
     for i,(label,value,note) in enumerate(cards):
         x=30+i*370;c.card((x,196,x+350,311));c.text((x+17,207),label,17,MUTED);c.text((x+17,233),value,29);c.text((x+17,278),note,15,MUTED)
     for i,s in enumerate(state['stages']):
@@ -91,18 +92,21 @@ def render(state, output):
     elif state.get('batch_diagnostic'):
         d=state['batch_diagnostic'];c.text((49,634),f"零更新诊断 {d['new_generations']}/96：选定6题跨组差异 {d['batch_disagreements']}/6",16,'#95611b')
     for i,r in enumerate(state['roles']):
-        y=669+i*57;c.text((49,y),f"{r['label']}  {r['step']}/32 · {r['phase']}",18,TEAL if i==0 else BLUE)
-        c.text((49,y+27),f"训练 {number(r['train_seconds'],1)} 秒；峰值 {number(r['peak_gib'],2)} GiB；{number(r['trainable']/10000,2)}万更新参数",15,MUTED)
+        y=(655+i*47) if len(state['roles'])>2 else (669+i*57);c.text((49,y),f"{r['label']}  {r['step']}/32 · {r['phase']}",18,r.get('color',TEAL if i==0 else BLUE))
+        c.text((49,y+25),f"训练 {number(r['train_seconds'],1)} 秒；峰值 {number(r['peak_gib'],2)} GiB；{number(r['trainable']/10000,2)}万更新参数",13 if len(state['roles'])>2 else 15,MUTED)
     independent = bool(state.get('independent_validation'))
-    full_task = independent or state.get('study') in ('vlm_late_visual_dpo_v1','vlm_late_rank_matched_dpo_v1','vlm_stvqa_replay_v1')
+    full_task = independent or state.get('study') in ('vlm_late_visual_dpo_v1','vlm_late_rank_matched_dpo_v1','vlm_stvqa_replay_v1','vlm_full_teacher_kd_v1','vlm_onpolicy_teacher_kd_v1')
     c.card((770,445,1490,811));c.text((789,459),'完整原生问答1617 · VQA分/%' if full_task else '原生问答512 · VQA分/%',22)
     for i,r in enumerate(state['scores']['transfer_dev' if full_task else 'seen_validation']):
         y=510+i*47;c.wrap((789,y),r['label'],150,15,max_lines=2)
         if r['value'] is not None:
-            width=r['value']/100*400;c.draw.rounded_rectangle((950,y+3,950+width,y+22),radius=4,fill=TEAL if r['id']==control_id else BLUE if r['id'] in role_labels else '#c7d7dc');c.text((1365,y-2),number(r['value']),17)
+            color=next((q.get('color',TEAL if q['id']==control_id else BLUE) for q in state['roles'] if q['id']==r['id']),'#c7d7dc')
+            width=r['value']/100*400;c.draw.rounded_rectangle((950,y+3,950+width,y+22),radius=4,fill=color);c.text((1365,y-2),number(r['value']),17)
         else:c.text((1335,y),'未评测',16,MUTED)
     holdout = state.get('source_holdout_validation',{})
-    c.text((789,766),f"新来源验证：{holdout['completed']}/{holdout['expected']}生成+GT前向，0更新" if holdout else '各集合分别比较，结合罕见答案与保持门槛判断。',16,MUTED)
+    teacher = state.get('full_teacher_validation',{})
+    note = f"7B教师：{teacher['new_generations']}/128生成，{teacher['teacher_forced_sequences']}/256前向，0更新" if teacher else f"新来源验证：{holdout['completed']}/{holdout['expected']}生成+GT前向，0更新" if holdout else '各集合分别比较，结合罕见答案与保持门槛判断。'
+    c.text((789,766),note,16,MUTED)
     curve(c,(30,829,750,1199),state['roles'],'ce','逐QA日志汇总：正确答案CE')
     c.card((770,829,1490,1199));c.text((789,844),'实际未通过项',22)
     for i,f in enumerate(state['failures'][:3]):
@@ -129,9 +133,12 @@ def render(state, output):
     c.text((30,1510),'历史KeyError：已独立恢复汇总，0重训/0重新生成；不作为当前训练故障。',17,MUTED);c.footer(state);c.image.save(output/'错误原因.png')
 
     c=Canvas(1160);c.header(state,'训练曲线与完整内部指标')
-    curve(c,(30,112,750,510),state['roles'],'ce','正确答案CE（训练损失）');curve(c,(770,112,1490,510),state['roles'],state.get('regularizer','dpo'),'本轮只有标准CE，无附加损失' if state.get('regularizer')=='none' else '回放QA的KL（SFT权重为0）' if state.get('regularizer')=='kl' else '偏好QA的DPO（SFT权重为0）')
+    kind=state.get('regularizer') if state.get('regularizer') in ('kl','kd') else 'dpo'
+    title='辅助T²KL（GT臂为T²CE）' if kind=='kd' else '本轮只有标准CE，无附加损失' if state.get('regularizer')=='none' else '回放QA的KL（SFT权重为0）' if kind=='kl' else '偏好QA的DPO（SFT权重为0）'
+    if state.get('prefix_source') == 'current_student_raw_greedy32_stop_gradient': title='学生生成前缀上的辅助T²KL'
+    curve(c,(30,112,750,510),state['roles'],'ce','正确答案CE（训练损失）');curve(c,(770,112,1490,510),state['roles'],kind,title)
     c.card((30,530,1490,1097));c.text((49,546),'训练拟合与泛化分列；数值均读取现有完整分析。',22)
-    columns=[(960+280*i,r) for i,r in enumerate(state['roles'])]
+    columns=[((820+215*i) if len(state['roles'])>2 else (960+280*i),r) for i,r in enumerate(state['roles'])]
     for x,t in [(49,'指标 / 集合'),(650,'起点')]+[(x,r['label']+'32') for x,r in columns]:c.text((x,596),t,18,MUTED)
     metrics=state['analysis'].get('metrics',{})
     for i,key in enumerate(LABELS):
